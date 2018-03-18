@@ -10,32 +10,28 @@
   <body>
     <x3d  width='1300px' height='580px'  >
       <scene>
+          <transform>
+            <!-- Коробка сфетофора -->
+            <shape>
+              <appearance>
+              <material diffuseColor='#C0C0C0'> </material>
+              </appearance>
+              <box size='2 6 1'></box>
+            </shape>
+          </transform>
 
-          <transform>
-            <shape>
-              <appearance>
-              <material diffuseColor='#C0C0C0'> </material>
-              </appearance>
-              <box size='2 6 1'></box>
-            </shape>
-          </transform>
-          <transform>
-            <shape>
-              <appearance>
-              <material diffuseColor='#C0C0C0'> </material>
-              </appearance>
-              <box size='2 6 1'></box>
-            </shape>
-          </transform>
           <transform  scale='0.7 0.7 0.1' translation='0 2 0.5'>
             <shape>
+              <!-- Красный сигнал -->
               <appearance>
                 <material DEF='red_material' diffuseColor="#000000"/>
               </appearance>
               <sphere/>
             </shape>
           </transform>
+
           <transform  scale='0.7 0.7 0.1' translation='0 0 0.5'>
+            <!-- Желтый сигнал -->
             <shape>
               <appearance>
                 <material DEF='yellow_material' diffuseColor="#000000"/>
@@ -43,7 +39,9 @@
               <sphere/>
             </shape>
           </transform>
+
           <transform  scale='0.7 0.7 0.1' translation='0 -2 0.5'>
+            <!-- Зеленый сигнал -->
             <shape>
               <appearance>
                 <material DEF='green_material' diffuseColor="#000000"/>
@@ -51,35 +49,31 @@
               <sphere/>
             </shape>
           </transform>
-
-        <timesensor loop="true" cycleinterval="5" def="Time" enabled="true" first="true"></timesensor>
-
+          
+          <!--Интерполяция света -->
+        <timesensor loop="true" cycleinterval="5" def="Time" enabled="true"
+                    first="true"></timesensor>
+        <!--Красный-->
         <colorinterpolator def="RedInt" keyvalue="1 0 0, 1 0 0,0 0 0,0 0 0, 0 0 0, 1 0 0"
-                            key="0 0.3 0.45 0.75  0.9  1"></colorinterpolator>
+                            key="0 0.2 0.6 0.85  0.9  1"></colorinterpolator>
         <route tofield="set_fraction" tonode="RedInt" fromfield="fraction_changed" fromnode="Time">
         </route>
         <route tofield="set_diffuseColor" tonode="red_material" fromfield="value_changed" fromnode="RedInt">
         </route>
-
+        <!--Желтый-->
         <colorinterpolator def="YellowInt" keyvalue="0 0 0, 1 1 0,0 0 0,1 1 0, 0 0 0, 0 0 0"
-                            key="0 0.3 0.45 0.75  0.9  1"></colorinterpolator>
+                            key="0 0.2 0.6 0.85  0.9  1"></colorinterpolator>
         <route tofield="set_fraction" tonode="YellowInt" fromfield="fraction_changed" fromnode="Time">
         </route>
         <route tofield="set_diffuseColor" tonode="yellow_material" fromfield="value_changed" fromnode="YellowInt">
         </route>
-
+        <!--Зеленый-->
         <colorinterpolator def="GreenInt" keyvalue="0 0 0, 0 0 0,0 1 0,0 0 0, 0 0 0, 0 0 0"
-                            key="0 0.3 0.45 0.75  0.9  1"></colorinterpolator>
+                            key="0 0.2 0.6 0.85  0.9  1"></colorinterpolator>
         <route tofield="set_fraction" tonode="GreenInt" fromfield="fraction_changed" fromnode="Time">
         </route>
         <route tofield="set_diffuseColor" tonode="green_material" fromfield="value_changed" fromnode="GreenInt">
         </route>
-
-
-
-
-
-
       </scene>
     </x3d>
   </body>
