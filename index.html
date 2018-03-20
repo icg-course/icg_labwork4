@@ -10,47 +10,56 @@
   <body>
     <x3d  width='1300px' height='580px'  >
       <scene>
-          <transform>
-            <!-- Коробка сфетофора -->
-            <shape>
-              <appearance>
-              <material diffuseColor='#C0C0C0'> </material>
-              </appearance>
-              <box size='2 6 1'></box>
-            </shape>
+        <Group DEF='threecolor'>
+            <transform>
+              <!-- Коробка сфетофора -->
+              <shape>
+                <appearance>
+                <material diffuseColor='#C0C0C0'> </material>
+                </appearance>
+                <box size='2 6 1'></box>
+              </shape>
+            </transform>
+
+            <transform  scale='0.7 0.7 0.1' translation='0 2 0.5'>
+              <shape>
+                <!-- Красный сигнал -->
+                <appearance>
+                  <material DEF='red_material' diffuseColor="#000000"/>
+                </appearance>
+                <sphere/>
+              </shape>
+            </transform>
+
+            <transform  scale='0.7 0.7 0.1' translation='0 0 0.5'>
+              <!-- Желтый сигнал -->
+              <shape>
+                <appearance>
+                  <material DEF='yellow_material' diffuseColor="#000000"/>
+                </appearance>
+                <sphere/>
+              </shape>
+            </transform>
+
+            <transform  scale='0.7 0.7 0.1' translation='0 -2 0.5'>
+              <!-- Зеленый сигнал -->
+              <shape>
+                <appearance>
+                  <material DEF='green_material' diffuseColor="#000000"/>
+                </appearance>
+                <sphere/>
+              </shape>
+            </transform>
+          </Group>
+
+          <transform DEF='change_position' translation='4 0 0'>
+            <shape USE="threecolor"/>
+          </transform>
+          <transform DEF='change_orientation' translation='-5 0 0'>
+            <shape USE='threecolor'/>
           </transform>
 
-          <transform  scale='0.7 0.7 0.1' translation='0 2 0.5'>
-            <shape>
-              <!-- Красный сигнал -->
-              <appearance>
-                <material DEF='red_material' diffuseColor="#000000"/>
-              </appearance>
-              <sphere/>
-            </shape>
-          </transform>
-
-          <transform  scale='0.7 0.7 0.1' translation='0 0 0.5'>
-            <!-- Желтый сигнал -->
-            <shape>
-              <appearance>
-                <material DEF='yellow_material' diffuseColor="#000000"/>
-              </appearance>
-              <sphere/>
-            </shape>
-          </transform>
-
-          <transform  scale='0.7 0.7 0.1' translation='0 -2 0.5'>
-            <!-- Зеленый сигнал -->
-            <shape>
-              <appearance>
-                <material DEF='green_material' diffuseColor="#000000"/>
-              </appearance>
-              <sphere/>
-            </shape>
-          </transform>
-          
-          <!--Интерполяция света -->
+          <!--Интерполятор света -->
         <timesensor loop="true" cycleinterval="5" def="Time" enabled="true"
                     first="true"></timesensor>
         <!--Красный-->
@@ -73,6 +82,20 @@
         <route tofield="set_fraction" tonode="GreenInt" fromfield="fraction_changed" fromnode="Time">
         </route>
         <route tofield="set_diffuseColor" tonode="green_material" fromfield="value_changed" fromnode="GreenInt">
+        </route>
+
+        <!-- Интерполятор ориентации -->
+        <OrientationInterpolator DEF="OrientInt" key='0 0.5 1' keyvalue='0 0 0 0, 0 0 1 1.5, 0 0 0 0 '/>
+        <route tofield="set_fraction" tonode="OrientInt" fromfield="fraction_changed" fromnode="Time">
+        </route>
+        <route tofield="set_rotation" tonode="change_orientation" fromfield="value_changed" fromnode="OrientInt">
+        </route>
+
+        <!-- Интерполятор позиции -->
+        <PositionInterpolator DEF="PosInt" key='0 0.5 1' keyvalue='4 0 0, 8 0 0, 4 0 0  '/>
+        <route tofield="set_fraction" tonode="PosInt" fromfield="fraction_changed" fromnode="Time">
+        </route>
+        <route tofield="set_translation" tonode="change_position" fromfield="value_changed" fromnode="PosInt">
         </route>
       </scene>
     </x3d>
