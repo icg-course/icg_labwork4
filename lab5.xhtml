@@ -1,0 +1,171 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <link rel="stylesheet" type="text/css" href="x3d/x3dom.css" />
+  <script type="text/javascript" src="x3d/x3dom.js"></script>
+ </head>
+       
+ <body>
+  <X3D style="left:0px; top:0px; width:100%; height:100%; border: none;">
+   <Scene>	
+    <TimeSensor def='Time' cycleInterval='10' loop='true' enabled='true'/>
+			
+    <OrientationInterpolator def='OrientInterp' key='0 0.5 1' keyValue='0 1 0 -0.4, 0 1 0 0.4, 0 1 0 -0.4'/>
+			
+    <Background backUrl="Textures/StarsTexture.jpg" />
+			
+    <Viewpoint description='FrontView' position='0 0 30'/>
+		
+    <transform def="Head" translation="0 0 0" scale="0.5 0.5 0.5">
+     <transform rotation="1 0 0 0.22">
+      <Group>
+       <Shape>
+        <Appearance def="ElephTexture">
+         <Material/>
+         <imagetexture url="Textures/ElephantSkin.jpg" repeats="true" repeatt="true" scale="true" hidechildren="true"/>
+         <TextureTransform scale="2 2"/>
+        </Appearance>
+       <box size="5 5 5"/>
+       </Shape>
+					
+       <transform translation="0 -2 3">
+        <Shape>
+         <Appearance use="ElephTexture"/>
+         <box size="2 5 2"/>
+        </Shape>
+       </transform>
+					
+       <transform translation="0 -4 2.5">
+        <Shape>
+         <Appearance use="ElephTexture"/>
+         <box size="2 2 2.5"/>
+        </Shape>
+       </transform>
+					
+       <transform translation="-3 1.5 1">
+        <Shape def="ear">
+         <Appearance use="ElephTexture"/>
+         <box size="3 4 1"/>
+        </Shape>
+       </transform>
+					
+       <transform translation="3 1.5 1">
+        <Shape use="ear"/>
+       </transform>
+					
+       <transform translation="1 1.2 2.001">
+        <Shape def="eye">
+         <Appearance>
+          <Material diffusecolor="0.8 0.1 0.1"/>
+         </Appearance>
+         <box size="1 0.5 1"/>
+        </Shape>
+       </transform>
+
+       <transform translation="-1 1.2 2.001">
+        <Shape use="eye"/>
+       </transform>
+      </Group>
+     </transform>
+    </transform>
+			
+    <transform def="Body" translation="0 -2.7 -1.4" scale="0.5 0.5 0.5">
+     <Group>
+      <Shape>
+       <Appearance use="ElephTexture"/>
+        <box size="7 7 5"/>
+      </Shape>
+					
+      <transform translation="0 -0.25 0.5">
+       <Shape def="Arm">
+         <Appearance use="ElephTexture"/>
+         <box size="9 5 2"/>
+       </Shape>
+      </transform>
+					
+      <transform translation="0 -1.75 2">
+       <Shape def="BotArm">
+        <Appearance use="ElephTexture"/>
+         <box size="9 2 3"/>
+       </Shape>
+      </transform>
+					
+      <transform translation="0 -1.75 2">
+       <Shape def="Hoof">
+        <Appearance>
+         <Material diffusecolor="0.59 0.59 0.59"/>
+        </Appearance>
+        <box size="1 2.01 3.01"/>
+       </Shape>
+      </transform>
+					
+      <transform translation="0 -6.5 0">
+       <Shape def="Hoof">
+        <Appearance def="ElephTexture">
+         <Material/>
+         <imagetexture url="Textures/DarkStoneTexture.jpg" repeats="true" repeatt="true" scale="true" hidechildren="true"/>
+         <TextureTransform scale="3 3"/>
+        </Appearance>
+        <box size="8.5 6 8.5"/>
+       </Shape>
+      </transform>
+     </Group>
+    </transform>
+			
+    <transform def="Earth">
+     <PositionInterpolator def='EarthTranslationInterp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='-4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2,  6 -2 0, 4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2'/>
+     <Shape>
+      <Appearance>
+       <imagetexture url="Textures/EarthTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+      </Appearance> 
+      <Sphere radius="1"/>
+     </Shape>
+    </transform>
+			
+    <transform def="Moon">
+     <PositionInterpolator def='MoonTranslationInterp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='0 -2 -5.4, -4.2 -2 -4.2, -5.4 -2 0, -4.2 -2 4.2, 0 -2 5.4, 4.2 -2 4.2,  5.4 -2 0, 4.2 -2 -4.2, 0 -2 -5.4'/>
+     <Shape>
+      <Appearance>
+       <imagetexture url="Textures/MoonTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+      </Appearance> 
+      <Sphere radius="0.26"/>
+     </Shape>
+    </transform>
+				
+    <transform def="Mars">
+     <PositionInterpolator def='MarsTranslationInterp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='0 -2 4.8, 3.36 -2 3.36,  4.8 -2 0, 3.36 -2 -3.36, 0 -2 -4.8, -3.36 -2 -3.36, -4.8 -2 0, -3.36 -2 4.2, 0 -2 4.8'/>
+     <Shape>
+      <Appearance>
+       <imagetexture url="Textures/MarsTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+      </Appearance> 
+      <Sphere radius="0.5"/>
+     </Shape>
+    </transform>
+				
+    <transform def="Sun">
+     <PositionInterpolator def='SunTranslationInterp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='12 -2 0, 8.4 -2 -8.4, 0 -2 -12, -8.4 -2 -8.4, -12 -2 0, -8.4 -2 8.4, 0 -2 12, 8.4 -2 8.4, 12 -2 0'/>
+     <Shape>
+      <Appearance>
+       <imagetexture url="Textures/SunTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+      </Appearance> 
+      <Sphere radius="2.2"/>
+     </Shape>
+    </transform>
+			
+    <route fromNode='Time' fromField='fraction_changed' toNode='OrientInterp' toField='set_fraction'/>
+    <route fromNode='OrientInterp' fromField='value_changed' toNode='Head' toField='set_rotation'/>	
+			
+    <route fromNode='Time' fromField='fraction_changed' toNode='EarthTranslationInterp' toField='set_fraction'/>
+    <route fromNode='EarthTranslationInterp' fromField='value_changed' toNode='Earth' toField='set_translation'/>
+			
+    <route fromNode='Time' fromField='fraction_changed' toNode='MarsTranslationInterp' toField='set_fraction'/>
+    <route fromNode='MarsTranslationInterp' fromField='value_changed' toNode='Mars' toField='set_translation'/>
+			
+    <route fromNode='Time' fromField='fraction_changed' toNode='MoonTranslationInterp' toField='set_fraction'/>
+    <route fromNode='MoonTranslationInterp' fromField='value_changed' toNode='Moon' toField='set_translation'/>
+			
+    <route fromNode='Time' fromField='fraction_changed' toNode='SunTranslationInterp' toField='set_fraction'/>
+    <route fromNode='SunTranslationInterp' fromField='value_changed' toNode='Sun' toField='set_translation'/>
+   </Scene>
+  </X3D>
+ </body>
+</html>
