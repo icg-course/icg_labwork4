@@ -1,0 +1,31 @@
+
+ <scene>
+ 
+ 
+  
+ <!-- Torus -->
+     <transform translation="0 0 0" scale="0.3 0.3 0.3">
+      <shape>
+       <appearance>
+        <imagetexture url="https://sun9-1.userapi.com/c840620/v840620000/54141/EgHG8vTrWAc.jpg" repeats="true" repeatt="true" scale="true" hidechildren="true"> </imagetexture>
+        <texturetransform scale="4 4"></texturetransform>
+       </appearance>
+       <torus></torus>
+      </shape>
+     </transform>
+	 
+	<!-- Torus -->
+     <transform translation="0 0 -0.1" scale="0.299 0.299 0.299">
+      <shape>
+       <appearance>
+        <imagetexture url="https://sun9-1.userapi.com/c840620/v840620446/52ce0/7r9GiXDL4-0.jpg" repeats="true" repeatt="true" scale="true" hidechildren="true"> </imagetexture>
+        <texturetransform scale="4 4"></texturetransform>
+       </appearance>
+       <torus></torus>
+      </shape>
+     </transform>
+  
+  
+  
+   
+    </scene>

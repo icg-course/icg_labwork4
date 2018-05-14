@@ -1,13 +1,144 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<html xmlns="https://www.w3.org/1999/xhtml">
+ <head>
+  <link rel="stylesheet" type="text/css" href="x3dom.css" />
+  <script type="text/javascript" src="x3dom.js"></script>
+ 
+	<script type="text/javascript">
+	
+		function aaa(){
+		
+		perm = document.getElementById('BOX').setAttribute("translation","5 5 5");
+		//perm.setAttribute("translation");
+		 return false;
+	  }
+	
+    </script>
+ </head>
+       
+ <body>
+  <X3D style="left:0px; top:0px; width:100%; height:100%; border: none;">
+   <Scene>	
+   
+   <!-- Box --> 
+    <Shape onClick='alert("Вы щелкнули по сфере.");'>
+
+<Sphere></Sphere>
+
+</Shape>
+   
+   
+    <TimeSensor def='Time' cycleInterval='10' loop='true' enabled='true'></TimeSensor>
+			
+			
+    <Background skyColor="0 0 0.1"></Background>
+			
+    <Viewpoint description='FrontView' position='0 0 30'></Viewpoint>
+	
+	<TimeSensor DEF='Time2' cycleInterval='5' loop='true'> </TimeSensor>
+
+<ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1'
+
+keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'>
+
+</ColorInterpolator>
+
+<transform translation="0 -2 0">
+
+<Shape>
+
+<Appearance>
+
+<Material DEF='Mat' diffuseColor='1 0 0'></Material>
+
+</Appearance>
+
+<Sphere></Sphere>
+
+</Shape>
+</transform>
+
+<ROUTE fromNode='Time2' fromField='fraction_changed' toNode='ColInt' toField='set_fraction'></ROUTE>
+
+<ROUTE fromNode='ColInt' fromField='value_changed' toNode='Mat' toField='set_diffuseColor'></ROUTE>
+		
+   	
+    <transform def="Donut" translation="-4.2 -2 -4.2" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='DonutInterp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='-4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2,  6 -2 0, 4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform def="Donut2" translation="-6 -2 0" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='Donut2Interp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='-6 -2 0, -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2,  6 -2 0, 4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2, -6 -2 0'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform def="Donut3" translation="-4.2 -2 4.2" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='Donut3Interp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue=' -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2,  6 -2 0, 4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform def="Donut4" translation="-4.2 -2 4.2" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='Donut4Interp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue=' 0 -2 6, 4.2 -2 4.2,  6 -2 0, 4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2, 0 -2 6'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform def="Donut5" translation="-4.2 -2 4.2" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='Donut5Interp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='4.2 -2 4.2,  6 -2 0, 4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform def="Donut6" translation="-4.2 -2 4.2" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='Donut6Interp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='6 -2 0, 4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2, 6 -2 0'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform def="Donut7" translation="-4.2 -2 4.2" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='Donut7Interp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='4.2 -2 -4.2, 0 -2 -6, -4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2, 6 -2 0, 4.2 -2 -4.2'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform def="Donut8" translation="-4.2 -2 4.2" rotation='1 0 0 -1.5708'>
+     <PositionInterpolator def='Donut8Interp' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='0 -2 -6, -4.2 -2 -4.2, -6 -2 0, -4.2 -2 4.2, 0 -2 6, 4.2 -2 4.2, 6 -2 0, 4.2 -2 -4.2, 0 -2 -6'></PositionInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+	
+	<transform id = "Donut9" translation="0 4 0" scale="3 3 3" onClick="aaa();">
+     <OrientationInterpolator def='Donut9Interp' key='0 0.5 1' keyValue='0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28'></OrientationInterpolator>
+		<Inline url="LR4p2.x3d"></Inline>
+    </transform>
+			
+    <route fromNode='Time' fromField='fraction_changed' toNode='DonutInterp' toField='set_fraction'></ROUTE>
+    <route fromNode='DonutInterp' fromField='value_changed' toNode='Donut' toField='set_translation'></ROUTE>
+	
+	<route fromNode='Time' fromField='fraction_changed' toNode='Donut2Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut2Interp' fromField='value_changed' toNode='Donut2' toField='set_translation'></ROUTE>
+	
+	 <route fromNode='Time' fromField='fraction_changed' toNode='Donut3Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut3Interp' fromField='value_changed' toNode='Donut3' toField='set_translation'></ROUTE>
+	
+	 <route fromNode='Time' fromField='fraction_changed' toNode='Donut4Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut4Interp' fromField='value_changed' toNode='Donut4' toField='set_translation'></ROUTE>
+	
+	<route fromNode='Time' fromField='fraction_changed' toNode='Donut5Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut5Interp' fromField='value_changed' toNode='Donut5' toField='set_translation'></ROUTE>
+	
+	<route fromNode='Time' fromField='fraction_changed' toNode='Donut6Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut6Interp' fromField='value_changed' toNode='Donut6' toField='set_translation'></ROUTE>
+	
+	<route fromNode='Time' fromField='fraction_changed' toNode='Donut7Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut7Interp' fromField='value_changed' toNode='Donut7' toField='set_translation'></ROUTE>
+	
+	<route fromNode='Time' fromField='fraction_changed' toNode='Donut8Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut8Interp' fromField='value_changed' toNode='Donut8' toField='set_translation'></ROUTE>
+	
+	<route fromNode='Time' fromField='fraction_changed' toNode='Donut9Interp' toField='set_fraction'></ROUTE>
+    <route fromNode='Donut9Interp' fromField='value_changed' toNode='Donut9' toField='set_rotation'></ROUTE>
+	
+	
+	<ROUTE fromNode='Time' fromField='fraction_changed' toNode='ColInt' toField='set_fraction'></ROUTE>
+	<ROUTE fromNode='ColInt' fromField='value_changed' toNode='Mat' toField='set_diffuseColor'></ROUTE>
+
+   </Scene>
+  </X3D>
+ </body>
 </html>
