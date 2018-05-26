@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
@@ -8,6 +8,146 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+<x3d width="1100px" height="650px">
+ <h1></h1>
+ <scene>
+     <!--Куб (Земля)-->
+     <Transform translation="0 -1 0">
+         <shape>
+             <appearance>
+                 <material diffuseColor="0 0 0"></material>
+                 <ImageTexture url='textures/Trava_2.png'></ImageTexture>
+                 <TextureTransform translation="0.05 0.05" rotation="0.707" scale="1 1"></TextureTransform>
+             </appearance>
+             <box size="60 0.01 60"></box>
+         </shape>
+     </Transform>
+
+     <!--Cфера (Колобок)-->
+     <Transform DEF="Sphere1" translation="3 0 0" rotation="0 0 0 -0.5">
+         <!--"0 1 0 -0.5">-->
+         <shape>
+             <appearance>
+                 <material diffuseColor="0 0 0"></material>
+                 <ImageTexture url='textures/kolobok_2.png'></ImageTexture>
+             </appearance>
+             <sphere radius="1"></sphere>
+         </shape>
+     </Transform>
+
+     <!--Группа роща-->
+     <Transform translation="-5 0 8">
+         <Group DEF="Grove">
+             <!--Конус (Елочка)-->
+             <Transform def="Cone_1" translation="-2 1 -4">
+                 <shape>
+                     <appearance>
+                         <Material DEF="ConMaterial" diffuseColor="0 1 0" transparency="0.1"></Material>
+                     </appearance>
+                     <cone bottomRadius="1" height="4" bottom="false"></cone>
+                 </shape>
+             </Transform>
+
+             <!--Копия конуса 1-->
+             <Transform translation="3 0 -6">
+                 <shape use="Cone_1">
+                 </shape>
+             </Transform>
+
+             <!--Копия конуса 2-->
+             <Transform translation="3 0 1">
+                 <shape use="Cone_1">
+                 </shape>
+             </Transform>
+
+             <!--Копия конуса 3-->
+             <Transform translation="-3 0 4">
+                 <shape use="Cone_1">
+                 </shape>
+             </Transform>
+         </Group>
+     </Transform>
+
+     <!--Копия рощи-->
+     <Transform translation="15 0 9" rotation="0 1 0 1">
+         <group use="Grove">
+         </group>
+     </Transform>
+
+     <!--IndexedFaceSet (Солнце)-->
+     <Transform translation="10 10 -40">
+         <Shape>
+             <Appearance>
+                 <Material DEF="IndFaceSetMaterial" diffuseColor="0 1 0"></Material>
+             </Appearance>
+             <IndexedFaceSet coordIndex='2 3 0 -1 2 0 1 -1 3 2 1 -1 3 1 0 -1'>
+                 <Coordinate DEF='Coord' point='0 1 1, 0 1 -1, -1 -1 0, 1 -1 0'></Coordinate>
+             </IndexedFaceSet>
+         </Shape>
+     </Transform>
+
+     <!--Фон-->
+     <Background groundAngle='0.9 1.5 1.57' groundColor='0.6 0.7 0.1 0.4 0.7 0.2 0.1 0.6 0.1 0 0.3 0.1' skyAngle='0.9 1.5 1.57'
+                 skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'></Background>
+
+     <!--Настройка точек наблюдения-->
+     <Viewpoint fieldOfView="1.39" position='0 0 14'></Viewpoint>
+
+     <!--Настрока навигации по сцене-->
+     <NavigationInfo headlight="false" type="EXAMINE"></NavigationInfo>
+
+     <!--Насторйка анимации-->
+     <!--Анимация движения Сферы (Колобок) в пространстве-->
+     <timeSensor DEF="MoveTime" cycleInterval="10" loop="true"></timeSensor>
+     <PositionInterpolator DEF="Move" key="0  0.05  0.1  0.15  0.2  0.25  0.3  0.35  0.4  0.45  0.5  0.55  0.6  0.65  0.7  0.75  0.8  0.85  0.9  0.95  1"
+                           keyValue="0 0 0  0 0 2  0 0 4  0 0 6  -1 0 8  -2.5 0 10  -4 0 12
+                           -6 0 12  -8 0 11.5  -10 0 11  -12 0 10
+                           -13 0 8.5  -12 0 6.5  -11 0 5  -10 0 3  -9 0 -0.5
+                           -7.5 0 -2  -6 0 -4  -3 0 -4  -1 0 -2  0 0 0  0 0 0  0 0 0  0 0 0  0 0 0  0 0 0">
+     </PositionInterpolator>
+     <Route fromNode="MoveTime" fromField="fraction_changed" toNode="Move" toField="set_fraction"></Route>
+     <Route fromNode="Move" fromField="value_changed" toNode="Sphere1" toField="translation"></Route>
+
+     <!--Анимация вращения Сферы (Колобок) вокруг своей оси-->
+     <timeSensor DEF="RouteTime" cycleInterval="10" loop="true"></timeSensor>
+     <OrientationInterpolator DEF='OrientInt' key="0  0.05  0.1  0.15  0.2  0.25  0.3  0.35  0.4  0.45  0.5  0.55  0.6  0.65  0.7  0.75  0.8  0.85  0.9  0.95  1"
+                              keyValue='1 0 0 0  1 0 0 3.14  1 0 0 6.28
+                              1 0 1 0  1 0 1 3.14  1 0 1 6.28
+                              1 0 0 0  1 0 0 3.14  1 0 0 6.28
+                              1 0 0 0  1 0 0 -3.14  1 0 0 -6.28
+                              1 0 0 0  1 0 0 -3.14  1 0 0 -6.28
+                              1 0 0 0  1 0 0 -3.14  1 0 0 -6.28
+                              1 0 0 0  1 0 0 -3.14  1 0 0 -6.28'>
+     </OrientationInterpolator>
+     <ROUTE fromNode='RouteTime' fromField='fraction_changed' toNode='OrientInt' toField='set_fraction'></ROUTE>
+     <ROUTE fromNode='OrientInt' fromField='value_changed' toNode='Sphere1' toField='set_rotation'></ROUTE>
+
+     <!--Анимация изменения цвета солнца-->
+     <TimeSensor DEF='ColIntTime' cycleInterval='5' loop='true'></TimeSensor>
+     <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='1 1 0, 1 0.8 0, 0.8 0.8 0, 1 1 0'></ColorInterpolator>
+     <ROUTE fromNode='ColIntTime' fromField='fraction_changed' toNode='ColInt' toField='set_fraction'></ROUTE>
+     <ROUTE fromNode='ColInt' fromField='value_changed' toNode='IndFaceSetMaterial' toField='set_diffuseColor'></ROUTE>
+
+     <!--Анимация изменения прозрачности Конуса (Cone_1)-->
+     <TimeSensor DEF='ScIntTime' cycleInterval='15' loop='true'></TimeSensor>
+     <ScalarInterpolator DEF='ScInt' key='0 0.5 1' keyValue='0.1 0.9 0.1'></ScalarInterpolator>
+     <ROUTE fromNode='ScIntTime' fromField='fraction_changed' toNode='ScInt' toField='set_fraction'></ROUTE>
+     <ROUTE fromNode='ScInt' fromField='value_changed' toNode='ConMaterial' toField='set_transparency'></ROUTE>
+
+     <!--Анимация мерцания солнца-->
+     <TimeSensor DEF='Time' cycleInterval='5' loop='true'></TimeSensor>
+     <CoordinateInterpolator DEF='CoordInt' key='0 0.2 0.4 0.6 0.8 1'
+                             keyValue='0 1 1, 0 1 -1, -1 -1 0, 1 -1 0,
+                                           0 2 2, 0 1 -1, -1 -1 0, 1 -1 0,
+                                           0 1 1, 0 2 -2, -1 -1 0, 1 -1 0,
+                                           0 1 1, 0 1 -1, -2 -2 0, 1 -1 0,
+                                           0 1 1, 0 1 -1, -1 -1 0, 2 -2 0,
+                                           0 1 1, 0 1 -1, -1 -1 0, 1 -1 0'>
+     </CoordinateInterpolator>
+     <ROUTE fromNode='Time' fromField='fraction_changed' toNode='CoordInt' toField='set_fraction'></ROUTE>
+     <ROUTE fromNode='CoordInt' fromField='value_changed' toNode='Coord' toField='set_point'></ROUTE>
+
+ </scene>
+  </x3d>
   </body> 
 </html>
