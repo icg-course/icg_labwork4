@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
@@ -8,6 +8,100 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+     <h1>Лабораторная № 5</h1>
+	<X3D width="1500px" height="700px">
+		<scene>
+			<Fog visibilityRange='40'></Fog>
+ 			<TimeSensor DEF='Time' cycleInterval='15' loop='true'> </TimeSensor> 
+			 <OrientationInterpolator DEF='Orient' key='0 0.5 1'                             
+					keyValue='1 0 0 0, 1 0 0 -3.14, 1 0 0 -6.28'>   
+			</OrientationInterpolator> 
+ 			<ColorInterpolator DEF='ColInt1' key='0 0.33 0.66 1'                       
+					keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'>   
+			</ColorInterpolator> 
+			<PositionInterpolator DEF='PosInt' key='0 0.23 0.5 0.75 1'                          
+				keyValue='10 1.7 -9.5, 8 1.7 -8, 6 1.7 -8, 4 1.7 -9, 2 1.7 -11 '>   
+			</PositionInterpolator> 
+			<Viewpoint position='-10 1 -10' orientation ='0 1 0 -1.8'></Viewpoint>
+			<NavigationInfo type="None"></NavigationInfo>
+			<transform DEF='Slen' translation='10 1.7 -8' scale='2 2' rotation='0 1 0 1.57'>
+				<shape>
+					<box></box>
+					<appearance>
+						<ImageTexture url='slender.png'></ImageTexture>
+					</appearance>
+				</shape>
+			</transform>
+			<transform DEF ='NLO' translation='20 -15  20' rotation='0 0 1 1.57' scale='1 1 1' center='0 0 -25'>
+				<transform>
+					<shape>
+						<sphere></sphere>
+						<appearance>
+							<ImageTexture url='alum.jpg'></ImageTexture>
+						</appearance>
+					</shape>
+				</transform>
+				<transform>
+					<shape>
+						<torus></torus>
+						<appearance>
+							<material DEF='Mat1' diffusecolor='1 0 0'></material>
+						</appearance>
+					</shape>
+				</transform>
+			</transform>
+			<ROUTE fromNode='Time' fromField='fraction_changed'           
+				toNode='PosInt' toField='set_fraction'></ROUTE>   
+			<ROUTE fromNode='PosInt' fromField='value_changed'           
+				toNode='Slen' toField='set_translation'></ROUTE> 
+			<ROUTE fromNode='Time' fromField='fraction_changed'  
+         			toNode='Orient' toField='set_fraction'></ROUTE> 
+			<ROUTE fromNode='Orient' fromField='value_changed' 
+               			toNode='NLO' toField='set_rotation'></ROUTE> 
+  			<ROUTE fromNode='Time' fromField='fraction_changed'           
+				toNode='ColInt1' toField='set_fraction'></ROUTE>   
+			<ROUTE fromNode='ColInt1' fromField='value_changed'           
+					toNode='Mat1' toField='set_diffuseColor'></ROUTE> 
+			<transform translation ='0 0 0' scale='50 50 50' rotation='1 0 0 -1.57'>
+				<shape>
+					<appearance>
+					 	<texturetransform scale='40 40' ></texturetransform>
+						<ImageTexture url='grass3.jpg'></ImageTexture>
+					</appearance>
+					<plane ></plane>
+				</shape>
+			</transform>
+			<transform translation ='17 1 -7' rotation='0 1 0 1.57'>
+				<shape>
+					<appearance>
+						<ImageTexture url='maya.jpg'></ImageTexture>
+					</appearance>
+					<torus></torus>
+				</shape>
+			</transform>
+			<transform translation ='1 5.4 1' scale='1 1.5 1'>
+				 <Inline url="tree.x3d"></Inline>	
+			</transform>
+			<transform translation='-5 5.4 -3' rotation='0 1 0 0.7' scale='1 1.5 1'>
+				 <Inline url='tree.x3d'></Inline>	
+			</transform>
+			<transform translation='0.5 5.4 -6' rotation='0 1 0 0.8' scale='1 1.5 1'>
+				 <Inline url='tree.x3d'></Inline>	
+			</transform>
+			<transform translation='6 5.4 0' rotation='0 1 0 1.4' scale='1 1.5 1'>
+				 <Inline url='tree.x3d'></Inline>	
+			</transform>
+			<transform translation='-3 5.4 -13' rotation='0 1 0 1.4' scale='1 1.5 1'>
+				 <Inline url='tree.x3d'></Inline>	
+			</transform>
+			<transform translation='5 5.4 -12' rotation='0 1 0 1.4' scale='1 1.5 1'>
+				 <Inline url='tree.x3d'></Inline>	
+			</transform>
+			<transform translation='13 5.4 -15' rotation='0 1 0 1.4' scale='1 1.5 1'>
+				 <Inline url='tree.x3d'></Inline>	
+			</transform>
+			<directionalLight id="directional" direction='0 0 1' on ="TRUE" intensity='1.0' shadowIntensity='0.0'> </directionalLight> 
+		</scene>
+	</X3D>
   </body> 
 </html>

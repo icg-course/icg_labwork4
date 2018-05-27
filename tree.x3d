@@ -1,0 +1,72 @@
+
+	<X3D width="700px" height="500px">
+		<scene>
+			<Group DEF="Tree"> 
+			<transform >
+				<shape> 
+					<appearance>
+						<material diffusecolor='0 0.7 0.4'></material>
+					</appearance>
+					<cone></cone>
+				</shape>
+			</transform>
+			<transform translation='0 -1 0' >
+				<shape> 
+					<appearance>
+						<material diffusecolor='0 0.7 0.4'></material>
+					</appearance>
+					<cone></cone>
+				</shape>
+			</transform>
+			<transform translation='0 -2 0' >
+				<shape> 
+					<appearance>
+						<material diffusecolor='0 0.7 0.4'></material>
+					</appearance>
+					<cone></cone>
+				</shape>
+			</transform>
+			<transform translation='0 -3 0' >
+				<shape> 
+					<appearance>
+						<ImageTexture url='wood.jpg'></ImageTexture>
+					</appearance>
+					<cylinder height ='1.5' radius='0.3'></cylinder>
+				</shape>
+			</transform>
+			</Group>
+			<Group DEF="Tree2"> 
+			<transform translation='-2 -1 2' >
+				<shape> 
+					<appearance>
+						<material diffusecolor='0 0.7 0.4'></material>
+					</appearance>
+					<cone></cone>
+				</shape>
+			</transform>
+			<transform translation='-2 -2 2' >
+				<shape> 
+					<appearance>
+						<material diffusecolor='0 0.7 0.4'></material>
+					</appearance>
+					<cone></cone>
+				</shape>
+			</transform>
+			<transform translation='-2 -3 2' >
+				<shape> 
+					<appearance>
+						<ImageTexture url='wood.jpg'></ImageTexture>
+					</appearance>
+					<cylinder height ='1.5' radius='0.3'></cylinder>
+				</shape>
+			</transform>
+			</Group>
+			<transform translation='3 0 1'>
+				<shape USE="Tree"></shape>
+			</transform>
+			<transform translation='2 0 2'>
+				<shape USE="Tree2"></shape>
+			</transform>
+			
+		</scene> 
+	</X3D>
