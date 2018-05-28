@@ -1,13 +1,108 @@
-<!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<head>
+    <title>лр5</title>
+    <link rel="stylesheet" type="text/css" href="https://x3dom.org/download/dev/x3dom.css"></link>
+    <script type="text/javascript" src="https://x3dom.org/download/dev/x3dom-full.js"></script>
+
+</head>
+<body>
+
+<style type="text/css">
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    X3D {
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
+<X3D>
+    <Scene>
+    <transform translation='0 -3 0'>
+        <!-- тор -->
+        <transform DEF="pend" rotation='0 0 0 0' scale='1 1 1' translation='0 0 0'>
+
+            <transform rotation='0 0 0 0' scale='1 1 1' translation='0 5 0'>
+                <shape>
+                    <appearance>
+                        <imagetexture url='text.png'></imagetexture>
+                    </appearance>
+                    <Torus outerRadius='0.6' innerRadius='0.1'></Torus>
+                </shape>
+            </transform>
+        </transform>
+
+        <!-- квадрат -->
+        <transform DEF="gear0">
+            <transform  scale='1 1 1' translation='0 5 0 ' DEF="gear">
+                <shape>
+                    <appearance>
+                        <material diffuseColor='#eee' DEF="gear0color"></material>
+                    </appearance>
+                    <box size="0.5 0.5 0.01"></box>
+                </shape>
+            </transform>
+        </transform>
+        <!-- башня -->
+        <transform rotation='0 0 0 0' scale='1 1 1' translation='0 2.8 0 ' DEF="gear">
+            <transform rotation='1 0 0 0' scale='1 1 1' translation='0 0 0' DEF="gear">
+                <shape>
+                    <appearance>
+                        <ImageTexture url="disk.png"></ImageTexture>
+                    </appearance>
+                    <cylinder radius="0.5" height="3"></cylinder>
+                </shape>
+            </transform>
+
+
+
+        </transform>
+    </transform>
+
+        <TimeSensor DEF='Time' cycleInterval='3' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='pend_rotaion' key='0 0.25 0.5  0.75 1'
+                                 keyValue='0 1 0 0, 0 1 0 1.6, 0 1 0 3.2, 0 1 0 4.8, 0 1 5 6.28'></OrientationInterpolator>
+        <OrientationInterpolator DEF='gear_rotaion0' key='0 0.25 0.5 0.500001 0.75 1'
+                                 keyValue='0 1 0 6.28, 0 1 0 5, 0 1 0 3.8, 0 1 0 2.6, 0 1 0 1.4, 0 1 0 0'></OrientationInterpolator>
+		<!-- вращение бублика-->
+        <ROUTE fromNode='Time' toNode='pend_rotaion' fromField='fraction_changed' toField='set_fraction'></ROUTE>  
+        <ROUTE fromNode='pend_rotaion' toNode='pend' fromField='value_changed' toField='set_rotation'></ROUTE> 
+		
+		<!-- вращение квадрата-->
+        <ROUTE fromNode='Time' toNode='gear_rotaion0' fromField='fraction_changed' toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='gear_rotaion0' toNode='gear0' fromField='value_changed' toField='set_rotation'></ROUTE>
+
+		<!-- вращение башни-->
+		
+		
+        <TimeSensor DEF='Time_arrow_minute' cycleInterval='30' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='arrow_rotation_minute' key='0 0.5 1'
+                                 keyValue='0 1 0 3.14, 0 1 01 0, 0 1 0 -3.14'></OrientationInterpolator>
+        <ROUTE fromNode='Time_arrow_minute' toNode='arrow_rotation_minute' fromField='fraction_changed'
+               toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='arrow_rotation_minute' toNode='gear' fromField='value_changed'
+               toField='set_rotation'></ROUTE>
+
+	   <PositionInterpolator DEF='pos' key='0 0.25 0.5 0.75 1' keyValue='-10 0 0, 1 5 0, 10 0 0, -1 -5 0, -10 0 0'/>
+		 <ROUTE fromNode='Time_arrow_minute' toNode='pos' fromField='fraction_changed'
+               toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='pos' toNode='gear' fromField='value_changed'
+               toField='set_translation'></ROUTE>
+			   
+		<!-- цвет -->
+        <TimeSensor DEF='Time_decor' cycleInterval='20' loop='true'></TimeSensor>
+        <ColorInterpolator DEF='ColInt' key='0 0.25 0.5 0.75 1' keyValue='1 0 0, 1 1 0, 0 1 0, 0 1 1, 0 0 1'/>
+        <ROUTE fromNode='Time_decor' toNode='ColInt' fromField='fraction_changed' toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='ColInt' toNode='gear0color' fromField='value_changed' toField='set_diffuseColor'></ROUTE>
+
+		
+    </Scene>
+</X3D>
+
+</body>
 </html>
