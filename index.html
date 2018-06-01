@@ -1,13 +1,110 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
-</html>
+<html> 
+        <head>      
+			<script type='text/javascript' src='https://www.x3dom.org/download/1.7.2/x3dom-full.js'></script>
+			<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link> 
+        </head> 
+        <body> 
+            <h1>Ћабораторна¤ работа є5</h1> 
+			<x3d width='640px' height='480px'> 
+				<Scene>
+				<Viewpoint description='Animation demo' orientation='1 0 0 -0.588003' position='0 8 12'></Viewpoint>
+				<Viewpoint centerOfRotation='5 0.1 5' description='View from above' orientation='1 0 0 -1.570796' position='0 15 0'></Viewpoint>
+
+				<Transform DEF='Pointer' translation='1 0 1'>
+				<Transform rotation='1 0 0 1.57'>
+				<Shape>
+					<Cone bottomRadius='0.5' height='1.5'></Cone> 
+					<Appearance>
+						<Material DEF='ConeMaterial' diffuseColor='0.427451 1 0.160784'/>
+					</Appearance>
+				</Shape>
+				</Transform>
+				</Transform> 
+				
+				<!-- »нтерпол¤тор цвета-->
+				<!-- ћигание красного сигнала-->
+				<Group DEF="Gr2">
+					<TimeSensor DEF='Time' cycleInterval='1' loop='true'> </TimeSensor> <!--cycleInterval - »нтервал цикла в секундах, loop Ц зациклен таймер или нет-->
+					<ColorInterpolator DEF='ColInt' key='0 0.5 1'
+													keyValue='1 1 0, 1 0 0, 0 1 0'>
+					</ColorInterpolator>
+					<transform translation='0 4 0'>
+						<Shape DEF='Sphere1'>
+							<Appearance>
+								<Material DEF='Mat' diffuseColor='1 1 0'></Material>
+							</Appearance>
+							<Sphere radius='0.64' ></Sphere>
+						</Shape>                            
+					</transform>
+
+					<ROUTE  fromNode='Time' fromField='fraction_changed'
+							toNode='ColInt' toField='set_fraction'></ROUTE>
+					<ROUTE  fromNode='ColInt' fromField='value_changed'
+							toNode='Mat' toField='set_diffuseColor'></ROUTE>
+					<ROUTE  fromNode='ColInt' fromField='value_changed'
+							toNode='Mat' toField='set_diffuseColor'></ROUTE>
+					<!-- ROUTE information for TransparencyAnimator node:  [from AnimationClock.fraction_changed to set_fraction ] [from value_changed to SphereMaterial.transparency ] -->
+					<ScalarInterpolator DEF='TransparencyAnimator' key='0 0.5 1' 
+																   keyValue='0 1 0'/> 
+					<!-- ROUTE information for AnimationClock node:  [from fraction_changed to TransparencyAnimator.set_fraction ] -->
+					<ROUTE fromNode='Time' fromField='fraction_changed' 
+						   toNode='TransparencyAnimator' toField='set_fraction'></ROUTE> 
+					<ROUTE fromNode='TransparencyAnimator' fromField='value_changed' 
+						   toNode='Mat' toField='transparency'></ROUTE>
+				</Group>
+				
+				<Shape DEF='Floor'>
+					<Box size='20 0.05 20'></Box> 
+					<Appearance>
+						<imageTexture url='texture.jpg'> </imageTexture>
+					</Appearance>
+				</Shape>
+				
+				<Group DEF="Gr3">
+					<!-- note that final value equals first value in keyValue array in order to support smooth looping --> 
+					<!-- first drive around the location --> 
+					<!-- ROUTE information for PositionAnimator node:  [from AnimationClock.fraction_changed to set_fraction ] [from value_changed to Pointer.set_translation ] -->
+					<PositionInterpolator DEF='PositionAnimator' key='0 0.2 0.25 0.45 0.5 0.7 0.75 0.95 1' 
+																 keyValue='-4 0 -4 -4 0 4 -4 0 4 4 0 4 4 0 4 4 0 -4 4 0 -4 -4 0 -4 -4 0 -4'> </PositionInterpolator> 
+					<ROUTE fromNode='PositionAnimator' fromField='value_changed' 
+						   toNode='Pointer' toField='set_translation'></ROUTE> 
+					<!-- then rotate the pointer to match next direction while paused at each position --> 
+					<!-- ROUTE information for OrientationAnimator node:  [from AnimationClock.fraction_changed to set_fraction ] [from value_changed to Pointer.set_rotation ] -->
+					<OrientationInterpolator DEF='OrientationAnimator' key='0 0.2 0.25 0.45 0.5 0.7 0.75 0.95 1' 
+																	   keyValue='0 1 0 0 0 1 0 0 0 1 0 1.57 0 1 0 1.57 0 1 0 3.14 0 1 0 3.14 0 1 0 4.71 0 1 0 4.71 0 1 0 6.283'></OrientationInterpolator>
+					<!-- final rotation value is 2pi rather than 0 so that rotation animation is smooth, not flip-flopping --> 
+					<ROUTE fromNode='OrientationAnimator' fromField='value_changed' 
+						   toNode='Pointer' toField='set_rotation'></ROUTE> 
+					<!-- put TimeSensor clock last so that animation design pattern and ROUTE events flow upward --> 
+					<!-- ROUTE information for AnimationClock node:  [from fraction_changed to PositionAnimator.set_fraction ] [from fraction_changed to OrientationAnimator.set_fraction ] -->
+					<TimeSensor DEF='AnimationClock' cycleInterval='5' loop='true'></TimeSensor> 
+					<ROUTE fromNode='AnimationClock' fromField='fraction_changed' 
+						   toNode='PositionAnimator' toField='set_fraction'></ROUTE> 
+					<ROUTE fromNode='AnimationClock' fromField='fraction_changed' 
+						   toNode='OrientationAnimator' toField='set_fraction'></ROUTE>
+					<!-- notice that explanatory Text is placed later in scene although it is graphically located above driving plane -->
+					<!-- note that final value equals first value in keyValue array in order to support smooth looping --> 
+				
+				</Group>
+				
+				<Group DEF="Gr4">
+					<Transform DEF='TRANS' translation="0 2 0">
+					<TimeSensor DEF='TIME' cycleInterval='5' loop='true'></TimeSensor> 
+					<CoordinateInterpolator DEF='COORD_INTERPOLATOR' key='0 0.17 0.34 0.51 0.68 0.86 1' keyValue='-1 1 1 -1 -1 1 1 1 1 1 -1 1 1 1 -1 1 -1 -1 -1 1 -1 -1 -1 -1 -2 1 1 -2 -1 1 2 1 1 2 -1 1 2 1 -1 2 -1 -1 -2 1 -1 -2 -1 -1 -1 1 1 -1 -1 1 1 1 1 1 -1 1 1 1 -1 1 -1 -1 -1 1 -1 -1 -1 -1 -1 1 2 -1 -1 2 1 1 2 1 -1 2 1 1 -2 1 -1 -2 -1 1 -2 -1 -1 -2 -1 1 1 -1 -1 1 1 1 1 1 -1 1 1 1 -1 1 -1 -1 -1 1 -1 -1 -1 -1 -1 2 1 -1 -2 1 1 2 1 1 -2 1 1 2 -1 1 -2 -1 -1 2 -1 -1 -2 -1 -1 1 1 -1 -1 1 1 1 1 1 -1 1 1 1 -1 1 -1 -1 -1 1 -1 -1 -1 -1'></CoordinateInterpolator>
+					<Shape>
+					<Appearance>
+					<Material></Material>
+					</Appearance> 
+					<IndexedFaceSet coordIndex='0 1 3 2 -1 4 5 7 6 -1 6 7 1 0 -1 2 3 5 4 -1 6 0 2 4 -1 1 7 5 3 -1' normalIndex='0 1 2 3 4 5 6 7'>
+
+					<Coordinate DEF='COORDINATE' point='-2 1 1 -2 -1 1 2 1 1 2 -1 1 2 1 -1 2 -1 -1 -2 1 -1 -2 -1 -1'></Coordinate>
+					</IndexedFaceSet>
+					</Shape>
+					</Transform> 
+					<ROUTE fromNode='TIME' fromField='fraction_changed' toNode='COORD_INTERPOLATOR' toField='set_fraction'></ROUTE>
+					<ROUTE fromNode='COORD_INTERPOLATOR' fromField='value_changed' toNode='COORDINATE' toField='set_point'></ROUTE>
+				</Group>
+				</Scene>
+			</x3d>
+        </body> 
+    </html>
