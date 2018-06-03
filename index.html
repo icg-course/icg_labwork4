@@ -8,15 +8,14 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
 <body>
-  <X3D   width='1100px' height='600px'>
+  <X3D width='1100px' height='600px'>
     <Scene DEF='scene'>
-    <transform DEF='one'  >
-<viewpoint  position="410  -100  300" fieldofview="0.78" description="camera" ></viewpoint>
+    <transform DEF='one'>
+<viewpoint  position="410  -100  300" fieldofview="0.78" description="camera"></viewpoint>
 </transform>
     <transform def="sky">
                   <shape>
                       <appearance>
-
                           <imagetexture url='sea2.jpg'></ImageTexture>
             <TextureTransform DEF='StreamTT' translation='0 -10 '></TextureTransform>
                       </appearance>
@@ -46,11 +45,11 @@
     </Transform>
 
 
-    <Transform DEF="Timepuz" >
+    <Transform DEF="Timepuz">
      <TimeSensor DEF='Time3' cycleInterval='0.2' loop='true'></TimeSensor>
      <PositionInterpolator DEF='CoordInt'
      key='0  1'
-     keyValue='560 -170 -500   600 -135 -500'>   </PositionInterpolator>
+     keyValue='560 -170 -500   600 -135 -500'></PositionInterpolator>
      <Transform  traslation='560 -170 -498'>
     <shape DEF="puzur">
         <appearance>
@@ -58,12 +57,12 @@
         </appearance>
         <sphere radius="1" solid="false"></sphere>
     </shape>
-  </Transform>
+    </Transform>
          <ROUTE fromNode="Time3" fromField="fraction_changed"
              toNode="CoordInt" toField="set_fraction"></ROUTE>
         <ROUTE fromNode="CoordInt" fromField="value_changed"
              toNode="Timepuz" toField="set_translation"></ROUTE>
-  </Transform>
+    </Transform>
 
 
   <Transform DEF='Timepuz1'>
@@ -90,7 +89,7 @@
       key="0 0.23 0.5 0.75 1"
       keyValue="200 0 0, 400 0 0, 600 0 0, 800 0 0, 1000 0 0">
     </PositionInterpolator>
-<Transform DEF="MinaG"   >
+<Transform DEF="MinaG">
   <TimeSensor DEF='Timecolor' cycleInterval='0.7' loop='true'></TimeSensor>
       <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
 <Transform >
