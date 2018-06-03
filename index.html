@@ -1,13 +1,228 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 5</title>
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<body>
+  <X3D width='1100px' height='600px'>
+    <Scene DEF='scene'>
+    <transform DEF='one'>
+<viewpoint  position="410  -100  300" fieldofview="0.78" description="camera"></viewpoint>
+</transform>
+    <transform def="sky">
+                  <shape>
+                      <appearance>
+                          <ImageTexture url='sea2.jpg'></ImageTexture>
+            <TextureTransform DEF='StreamTT' translation='0 -10 '></TextureTransform>
+                      </appearance>
+                      <sphere radius="800" solid="false"></sphere>
+                  </shape>
+              </transform>
+<fog visibilityRange="1700" color="0.19 0.29 0.56" fogType="EXPONENTIAL"></fog>
+
+    <TimeSensor DEF="Time2"  cycleInterval="5" loop="true" enabled="true"></TimeSensor>
+      <PositionInterpolator DEF="PosInt"
+        key="0 0.23 0.5 0.75 1"
+        keyValue="-10 -10 30 -10 10 30, 10 10 30, 10 -10 30, -10 -10 30">
+      </PositionInterpolator>
+    <Transform DEF="Trans2"   rotation='0 1 0 1.5708'>
+    <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OrientInt2"
+        key="0 0.5 1"
+        keyValue="0 0 1 -0.25, 0 0 1 0.25, 0 0 1 -0.25">
+      </OrientationInterpolator>
+      <Transform DEF="Trans" translation='500 -198 398' scale='4 4 4'>
+        <inline url="submarina.x3d"></inline>
+      </Transform>
+      <ROUTE fromNode="Time" fromField="fraction_changed"
+         toNode="OrientInt2" toField="set_fraction"></ROUTE>
+    <ROUTE fromNode="OrientInt2" fromField="value_changed"
+         toNode="Trans" toField="set_rotation"></ROUTE>
+    </Transform>
+
+
+    <Transform DEF="Timepuz">
+     <TimeSensor DEF='Time3' cycleInterval='0.2' loop='true'></TimeSensor>
+     <PositionInterpolator DEF='CoordInt'
+     key='0  1'
+     keyValue='560 -170 -500   600 -135 -500'></PositionInterpolator>
+     <Transform  traslation='560 -170 -498'>
+    <shape DEF="puzur">
+        <appearance>
+            <material diffusecolor="white"></material>
+        </appearance>
+        <sphere radius="1" solid="false"></sphere>
+    </shape>
+    </Transform>
+         <ROUTE fromNode="Time3" fromField="fraction_changed"
+             toNode="CoordInt" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="CoordInt" fromField="value_changed"
+             toNode="Timepuz" toField="set_translation"></ROUTE>
+    </Transform>
+
+
+  <Transform DEF='Timepuz1'>
+  <TimeSensor DEF='Time4' cycleInterval='0.1' loop='true' ></TimeSensor>
+  <PositionInterpolator DEF='CoordInt1'
+  key='0  1'
+  keyValue='560 -170 -480   600 -140 -500'>   </PositionInterpolator>
+  <Transform  traslation='560 -170 -498'>
+ <shape DEF="puzur1" >
+     <appearance>
+         <material diffusecolor="white"></material>
+     </appearance>
+     <sphere radius="2" solid="false"></sphere>
+ </shape>
+</Transform>
+<ROUTE fromNode="Time4" fromField="fraction_changed"
+    toNode="CoordInt1" toField="set_fraction"></ROUTE>
+<ROUTE fromNode="CoordInt1" fromField="value_changed"
+    toNode="Timepuz1" toField="set_translation"></ROUTE>
+  </Transform>
+
+  <TimeSensor DEF="Time6" cycleInterval="5" loop="true" enabled="true"></TimeSensor>
+    <PositionInterpolator DEF="PosInt3"
+      key="0 0.23 0.5 0.75 1"
+      keyValue="200 0 0, 400 0 0, 600 0 0, 800 0 0, 1000 0 0">
+    </PositionInterpolator>
+<Transform DEF="MinaG">
+  <TimeSensor DEF='Timecolor' cycleInterval='0.7' loop='true'></TimeSensor>
+      <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+<Transform >
+      <Shape DEF='Mina' >
+        <Appearance>
+          <Material DEF='Mat'></Material>
+        </Appearance>
+        <sphere radius="14" solid="false"></sphere>
+      </Shape>
+</Transform>
+<Transform  translation='-300 -200 -400'>
+<Shape USE='Mina'></Shape>
+</Transform>
+<Transform  translation='-500 -200 -400'>
+<Shape USE='Mina'></Shape>
+</Transform>
+<Transform  translation='-600 -300 -300'>
+<Shape USE='Mina'></Shape>
+</Transform>
+<Transform  translation='-300 -50 -400'>
+<Shape USE='Mina'></Shape>
+</Transform>
+<Transform  translation='-320 -100 -365' scale='10 10 10'>
+<TimeSensor DEF='Time' cycleInterval='3' loop='true'></TimeSensor>
+      <CoordinateInterpolator DEF='CoordInt' key='0 0.5  1'
+                              keyValue=
+                                        '0 1 1, 0 1 -1, -1 -1 0, 1 -1 0,
+                                         0 2 2, 0 1 -1, -1 -1 0, 1 -1 0,
+                                         0 1 1, 0 2 -2, -1 -1 0, 1 -1 0'>
+      </CoordinateInterpolator>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='red'></Material>
+        </Appearance>
+        <IndexedFaceSet coordIndex='2 3 0 -1 2 0 1 -1 3 2 1 -1 3 1 0 -1'>
+          <Coordinate DEF='Coord' point='0 5 5, 0 5 -5, -5 -5 0, 5 -5 0'></Coordinate>
+        </IndexedFaceSet>
+      </Shape>
+      <ROUTE fromNode='Time' fromField='fraction_changed'
+             toNode='CoordInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='CoordInt' fromField='value_changed'
+             toNode='Coord' toField='set_point'>
+      </ROUTE>
+    </Transform>
+<Transform   translation='-110 -300 -450'>
+<TimeSensor DEF='Time5' cycleInterval='5' loop='true'></TimeSensor>
+      <ScalarInterpolator DEF='ScInt' key='0 0.5 1' keyValue='0.1 0.9 0.1'></ScalarInterpolator>
+<Shape DEF='Mina1' >
+<Appearance>
+  <Material DEF='Mat1' transparency="0.1" diffusecolor="yellow"></Material>
+</Appearance>
+<sphere radius="14" solid="false"></sphere>
+</Shape>
+<ROUTE fromNode='Time5' fromField='fraction_changed'
+             toNode='ScInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='ScInt' fromField='value_changed'
+             toNode='Mat1' toField='set_transparency'>
+      </ROUTE>
+</Transform>
+
+<ROUTE fromNode='Time' fromField='fraction_changed'
+             toNode='ScInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='ScInt' fromField='value_changed'
+             toNode='Mat' toField='set_transparency'>
+      </ROUTE>
+      <ROUTE fromNode='Timecolor' fromField='fraction_changed'
+                toNode='ColInt' toField='set_fraction'>
+         </ROUTE>
+         <ROUTE fromNode='ColInt' fromField='value_changed'
+                toNode='Mat' toField='set_diffuseColor'>
+         </ROUTE>
+</Transform>
+
+
+<ROUTE fromNode="Time6" fromField="fraction_changed"
+  toNode="PosInt3" toField="set_fraction"></ROUTE>
+<ROUTE fromNode="PosInt3" fromField="value_changed"
+  toNode="MinaG" toField="set_translation"></ROUTE>
+
+
+
+  <PositionChaser DEF='Chaser'   duration="4"></PositionChaser>
+
+  <ROUTE fromNode="Time2" fromField="fraction_changed"
+      toNode="PosInt" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosInt" fromField="value_changed"
+      toNode="Chaser" toField="set_destination"></ROUTE>
+  <ROUTE fromNode="Chaser" fromField="value_changed"
+      toNode="Trans2" toField="set_translation"></ROUTE>
+
+
+      <Transform DEF='Box004'   translation='2.7 50 28.1' scale='55.1 2.1 56.5' >
+        <Shape>
+          <Appearance DEF='WireColor_4' >
+            <ImageTexture url="sea1.png"></ImageTexture>
+            <TextureTransform DEF='StreamTT' scale="1.3 1.3" translation="10 0 " ></TextureTransform>
+
+          </Appearance>
+          <Box size="50 3 50"></Box>
+        </Shape>
+      </Transform>
+
+      <TimeSensor DEF="StreamTextureTime" cycleInterval="30" loop="true">
+      </TimeSensor>
+
+      <PositionInterpolator DEF="StreamTexturePosition"
+                            key="0 0.5 1"
+                            keyValue="0 0 0,-0.5 0 0,-1 0 0">
+      </PositionInterpolator>
+
+      <ROUTE fromNode="StreamTextureTime" fromField="fraction_changed"
+           toNode="StreamTexturePosition" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="StreamTexturePosition" fromField="value_changed"
+                     toNode="StreamTT" toField="set_translation"></ROUTE>
+
+      <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OrientInt"
+                   key="0 0.5 1"
+                   keyValue="0 0 1 0, 0 0 1 -3.14, 0 0 1 -6.28">
+      </OrientationInterpolator>
+
+
+    <timesensor def="TS_e" cycleinterval="60" loop="true"></timesensor>
+          <orientationinterpolator def="OI_e" key="0, 0.5, 1" keyvalue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28">
+          </orientationinterpolator>
+          <route fromnode="TS_e" fromfield="fraction_changed" tonode="OI_e" tofield="set_fraction">
+          </route>
+          <route fromnode="OI_e" fromfield="value_changed" tonode="sky" tofield="set_rotation">
+          </route>
+    </Scene>
+  </X3D>
+  </body>
 </html>
