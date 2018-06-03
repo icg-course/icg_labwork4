@@ -82,7 +82,7 @@
 0.03 -0.06 -0.07 
 -0.01 0.04 0.05 
 0.04 -0.01 -0.07 
--0.06' solid='false' xDimension='10' xSpacing='0.1' zDimension='10' zSpacing='0.1' solid="false">
+-0.06'  xDimension='10' xSpacing='0.1' zDimension='10' zSpacing='0.1' solid="false">
                                 </ElevationGrid>
 
 </shape>
@@ -109,7 +109,7 @@
  </shape>
 <shape>
 <Appearance>
-						<Material emissiveColor="1 0 0"><Material/>
+						<Material emissiveColor="1 0 0"> </Material>
 					</Appearance>
 
  <IndexedLineSet coordIndex="0 1 2 3 0 –1 0 2 1 3 -1">
@@ -128,7 +128,7 @@
             <Coordinate point='0 1 0 0 0.1 0.1 0.05 0.05 0.05 0.1 0.1 0 0.05 0.05 -0.05 0 0.1 -0.1 -0.05 0.05 -0.05 -0.1 0.1 0 -0.05 0.05 0.05 0 -1 0 0.1 -0.1 0 0.05 -0.05 0.05 0 -0.1 0.1 -0.05 -0.05 0.05 -0.1 -0.1 0 -0.05 -0.05 -0.05 0 -0.1 -0.1 0.05 -0.05 -0.05 -1 0 0 -0.1 0 0.1 -0.1 0 -0.1 1 0 0 0.1 0 0.1 0.1 0 -0.1 0 0 1 0 0 -1'></Coordinate>
           </IndexedFaceSet>
         </Shape>
-<Transform/>
+
  <DirectionalLight direction="0 -1 0" intensity="0.3"></DirectionalLight>
  <TimeSensor DEF="TS_s" cycleInterval="2" loop="true"></TimeSensor>
  <OrientationInterpolator DEF="OI_s" key="0, 0.5, 1"
@@ -140,6 +140,7 @@
  <ROUTE fromNode="OI_s" fromField="value_changed"
  toNode="star" toField="set_rotation">
  </ROUTE>
+
 <background backurl="sky.jpg">
 	</background>
     <Transform translation='3 3 3'>
@@ -152,6 +153,7 @@
           <sphere> </sphere>
         </Shape>
 		</Transform>
+		 </Transform>
         <ROUTE fromNode='Time' fromField='fraction_changed'
                toNode='ColInt' toField='set_fraction'>
         </ROUTE>
@@ -160,6 +162,6 @@
         </ROUTE>
      
 	  </scene>
-    </X3D>
+    </x3d>
 </body>
 </html>
