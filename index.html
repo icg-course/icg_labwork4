@@ -16,7 +16,7 @@
     <transform def="sky">
                   <shape>
                       <appearance>
-                          <imagetexture url='sea2.jpg'></ImageTexture>
+                          <ImageTexture url='sea2.jpg'></ImageTexture>
             <TextureTransform DEF='StreamTT' translation='0 -10 '></TextureTransform>
                       </appearance>
                       <sphere radius="800" solid="false"></sphere>
@@ -36,7 +36,7 @@
         keyValue="0 0 1 -0.25, 0 0 1 0.25, 0 0 1 -0.25">
       </OrientationInterpolator>
       <Transform DEF="Trans" translation='500 -198 398' scale='4 4 4'>
-        <inline url="submarina.x3d" />
+        <inline url="submarina.x3d"></inline>
       </Transform>
       <ROUTE fromNode="Time" fromField="fraction_changed"
          toNode="OrientInt2" toField="set_fraction"></ROUTE>
@@ -224,6 +224,5 @@
           </route>
     </Scene>
   </X3D>
-
   </body>
 </html>
