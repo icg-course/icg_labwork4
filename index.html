@@ -1,13 +1,75 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<title>Zhitnikov 4541</title>
+		<p>Lab#5</p>
+		<script type='text/javascript' src='https://www.x3dom.org/download/dev/x3dom-full.js'></script>
+		<link rel='stylesheet' type='text/css' href='https://www.x3dom.org/release/x3dom.css'/>
+	</head>
+	<body>
+		 <x3d showStat='true' showLog='true' x='0px' y='0px' width='1280px' height='720px'> 
+			<scene>
+				<transform scale='0.5 0.5 0.5'>
+					<transform translation="15 0 -13" rotation='1 0 0 3.14'>
+						<shape>
+						   <Appearance>
+								<ImageTexture url="plain.png"></ImageTexture>
+						   </Appearance>
+						   <ElevationGrid xDimension="7" zDimension="6"
+								  height="0, 0, 0, 0, 0, 0, 0,
+										  0, 0, 0, 0, 0, 0, 0,
+										  0, 0, 0, 0, 0, 0, 0,
+										  0, 0, 0, 0, 0, 0, 0,
+										  0, 0, 0, 0, 0, 0, 0,
+										  0, 0, 0, 0, 0, 0, 0"
+								  xSpacing="5.0" zSpacing="5.0" solid="false">
+						   </ElevationGrid>
+						</shape>
+					</transform>
+					<transform DEF='node' translation='15.1 1.25 -12.95' >
+						<transform DEF='GreenCar' translation='15.1 1.25 -12.95' scale='0.5 0.5 0.5' rotation="0 1 0 0.1">
+								<inline url="green_car.x3d"/>
+						</transform>
+						
+						<transform DEF='platform' translation="15.1 0.5 -12.95">
+							<shape>
+								<appearance>
+									<material DEF="pod_Col" diffuseColor="1 0 0"></material>
+								</appearance>
+								<cylinder height='0.5' radius='2'></cylinder>
+							</shape>
+						</transform>
+					</transform>
+				</transform>
+					<Viewpoint position="48.06834 10.22637 -20.00900" orientation="-0.10316 0.99161 0.07789 1.81161" zNear="12.71901" zFar="65.94001" description="defaultX3DViewpointNode"></Viewpoint>
+					<Viewpoint position="11.57360 8.97047 -39.70322" orientation="-0.00483 0.99021 0.13949 3.29594" zNear="12.71901" zFar="65.94001" description="defaultX3DViewpointNode"></Viewpoint>
+					<Viewpoint position="17.27547 37.10120 -17.98254" orientation="0.05171 0.71414 0.69809 3.17118" zNear="12.71901" zFar="65.94001" description="defaultX3DViewpointNode"></Viewpoint>
+					<Viewpoint position="35.51185 8.66921 -37.84252" orientation="0.03288 0.99115 0.12863 2.47942" zNear="12.71901" zFar="65.94001" description="defaultX3DViewpointNode"></Viewpoint>
+		
+					<timeSensor DEF="time" cycleInterval="10" loop="true"></timeSensor>
+					<PositionInterpolator DEF="move" key="0 0.2 0.4 0.6 0.8" 
+													 keyValue="15.1 0.5 -12.95,
+															   7.8 0.5 -12.95,
+															   15.1 0.5 -12.95,
+															   22.9 0.5 -12.95,
+															   15.1 0.5 -12.95"></PositionInterpolator>
+															   
+					<ColorInterpolator DEF='ColInt' key='0 0.5 1'
+													keyValue='1 0 0, 0 1 0, 0 0 1'></ColorInterpolator>
+					
+					<OrientationInterpolator DEF='rotate' key='0 0.2 0.4 0.6 0.8'
+												keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28, 0 1 0 3.14, 0 1 0 0'></OrientationInterpolator>
+					
+					<Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"></Route>
+					<Route fromNode="move" fromField ="value_changed" toNode="node" toField="set_translation"></Route>
+					
+					<Route fromNode="time" fromField ="fraction_changed" toNode="rotate" toField="set_fraction"></Route>
+					<Route fromNode="rotate" fromField ="value_changed" toNode="GreenCar" toField="set_rotation"></Route>
+					
+					<Route fromNode="time" fromField ="fraction_changed" toNode="ColInt" toField="set_fraction"></Route>
+					<Route fromNode="ColInt" fromField ="value_changed" toNode="pod_Col" toField="set_diffuseColor"></Route>
+
+			</scene> 
+		</x3d>   
+	</body>
 </html>
