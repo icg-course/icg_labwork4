@@ -2,7 +2,7 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <title>Lab4</title>
-  <link rel="stylesheet" type="text/css" href="../x3d/x3dom.css" />
+  <link rel="stylesheet" type="text/css" href="../x3d/x3dom.css"></link>
   <script type="text/javascript" src="../x3d/x3dom-full.js"></script>
 
 </head>
@@ -41,7 +41,7 @@
         <PointLight id='point' on='TRUE' intensity='0.9000' ambientIntensity='0.0000' color='0.0 0.6 0.0' location='2 10 0.5 '  attenuation='0 0 0' radius='5.0000'> </PointLight>
         <SpotLight id='spot' on ="TRUE" beamWidth='0.9' color='0 0 1' cutOffAngle='0.78' location='0 0 12' radius='22'></SpotLight>
 
-        <Inline mapDEFToID="true" url="./X3D_Modules/Pumpkin.x3d"/></Inline>
+        <Inline mapDEFToID="true" url="./X3D_Modules/Pumpkin.x3d"></Inline>
 
         <Transform translation="0 -9.0 0" rotation="1 0 0 -1.57">
         <Shape>
@@ -55,12 +55,16 @@
     <div id="tools" style="width: 500px;">
       <input type="checkbox" checked="true" onclick="lightSwitch('point')">
           <label>point light</label>
+	  </input>
       <input type="checkbox" checked="true" onclick="lightSwitch('spot')">
           <label>spot light</label>
+	  </input>
       <input type="checkbox" checked="true" onclick="lightSwitch('directional')">
           <label>directional light</label>
+	  </input>
       <input type="checkbox" checked="true" onclick="headlight()">
           <label>headlight</label>
+	  </input>
     </div>
   </div>
 </body>
