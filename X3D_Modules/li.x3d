@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.2//EN" "http://www.web3d.org/specifications/x3d-3.2.dtd">
+<X3D>
+
+    <head></head>
+    <Scene>
+        <Group>
+            <Viewpoint description='Front View' position='0 0 15'></Viewpoint>
+            <Viewpoint description='Left View' orientation='0 1 0 -1.57' position='-15 0 0'></Viewpoint>
+            <Viewpoint description='Top View' orientation='1 0 0 -1.57' position='0 15 0'></Viewpoint>
+        </Group>
+
+        <Background skyColor="0.02 0.02 0.02"></Background>
+        <NavigationInfo headlight='false' type='"EXAMINE" "WALK" "FLY" "ANY"'></NavigationInfo>
+        <SpotLight beamWidth='1.4' cutOffAngle='0.707' on='false'></SpotLight>
+        <DirectionalLight on='false'></DirectionalLight>
+        <PointLight></PointLight>
+
+        <Collision DEF='MyCollisionNode' enabled='true'>
+
+            <transform translation="0 1.5 0">
+                <Shape>
+                    <Appearance>
+                        <imagetexture url="../Textures/MoonTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+                    </Appearance>
+                    <Sphere size="1.6 1.6 1.6" />
+                </Shape>
+            </transform>
+
+            <transform translation="5 2 6">
+                <Shape>
+                    <Appearance>
+                        <imagetexture url="../Textures/NightEarthTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+                    </Appearance>
+                    <Sphere size="2 2 2" />
+                </Shape>
+            </transform>
+
+            <transform translation="-10 4 -10">
+                <Shape>
+                    <Appearance>
+                        <imagetexture url="../Textures/MarsTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+                    </Appearance>
+                    <Sphere size="3 3 3" />
+                </Shape>
+            </transform>
+
+            <transform translation="-3 -3 -3">
+                <Shape>
+                    <Appearance>
+                        <Material/>
+                        <imagetexture url="../Textures/SandTexture.jpg" repeats="true" repeatt="true" scale="true" />
+                    </Appearance>
+                    <ElevationGrid xDimension="7" zDimension="7" creaseAngle="0.5" height="0.0, 0, 0, 0, 0, 0, 0,
+                                          0, 0.5, 0, -0.1, 0, 0.5, 0,
+                                          0, 0, 0, 0, 0, 0, 0,
+                                          0, -0.1, 0, 0.5, 0, -0.1, 0,
+                                          0, 0, 0, 0, 0, 0, 0,
+                                          0, 0.5, 0, -0.1, 0, 0.5, 0,
+                                          0, 0, 0, 0, 0, 0, 0" xSpacing="1" zSpacing="1" solid="false">
+                    </ElevationGrid>
+                </Shape>
+            </transform>
+
+            <Transform translation="-2 -2.5 -2" scale="0.5 0.5 0.5">
+                <Shape>
+                    <Appearance>
+                        <Material/>
+                        <imagetexture url="../Textures/PyramideTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+                    </Appearance>
+                    <Box/>
+                </Shape>
+            </Transform>
+
+            <Transform translation="-2 -2.3 2" scale="0.5 0.5 0.5">
+                <Shape>
+                    <Appearance>
+                        <Material/>
+                        <imagetexture url="../Textures/PyramideTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+                    </Appearance>
+                    <Sphere/>
+                </Shape>
+            </Transform>
+
+            <Transform translation="2 -2.3 -2" scale="0.5 0.5 0.5">
+                <Shape>
+                    <Appearance>
+                        <Material/>
+                        <imagetexture url="../Textures/PyramideTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+                    </Appearance>
+                    <Cone/>
+                </Shape>
+            </Transform>
+
+            <Transform translation="2 -2.5 2" scale="0.5 0.5 0.5">
+                <Shape>
+                    <Appearance>
+                        <Material/>
+                        <imagetexture url="../Textures/PyramideTexture.jpg" repeats="true" repeatt="true" scale="true"></imagetexture>
+                    </Appearance>
+                    <Cylinder/>
+                </Shape>
+            </Transform>
+            
+        </Collision>
+
+    </Scene>
+
+</X3D>

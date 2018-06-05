@@ -1,13 +1,67 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Lab4</title>
+  <link rel="stylesheet" type="text/css" href="../x3d/x3dom.css" />
+  <script type="text/javascript" src="../x3d/x3dom-full.js"></script>
+
+</head>
+<body>
+  <script>
+   function lightSwitch(id){
+       var light = document.getElementById(id);
+       if(light.getAttribute('on')!='TRUE')
+          light.setAttribute('on','TRUE');
+       else
+           light.setAttribute('on','FALSE');
+   }
+
+   function headlight()
+    {
+         var h = document.getElementById("head");
+        if(h.getAttribute('headlight')=='true')
+          h.setAttribute('headlight', 'false');
+        else
+            h.setAttribute('headlight', 'true');
+    }
+
+  </script>
+  <div id="content">
+    <X3D style="left:0px; top:0px; width:100%; height:100%; border: none;">
+      <scene>
+        <navigationInfo id="head" headlight='true' type='"EXAMINE"'></navigationInfo>
+        <background  skyColor="0 0 0"></background>
+
+        <Viewpoint position="2.17707 16.16816 -51.86298" orientation="0.01655 0.98801 0.15351 3.11421"></Viewpoint>
+        <Viewpoint description='FrontRight'	position="2 1.7 1.4" orientation="-0.5 0.8 0.23 0.82"></Viewpoint>
+        <Viewpoint description='FrontLeft'  position="-1 -1.4 1" orientation="0.7 -0.7 0.18 1"></Viewpoint>
+
+        <directionalLight id="directional" direction='0 -1 0' on ="TRUE" intensity='2.0' shadowIntensity='0.0'>
+        </directionalLight>
+        <PointLight id='point' on='TRUE' intensity='0.9000' ambientIntensity='0.0000' color='0.0 0.6 0.0' location='2 10 0.5 '  attenuation='0 0 0' radius='5.0000'> </PointLight>
+        <SpotLight id='spot' on ="TRUE" beamWidth='0.9' color='0 0 1' cutOffAngle='0.78' location='0 0 12' radius='22'></SpotLight>
+
+        <Inline mapDEFToID="true" url="./X3D_Modules/Pumpkin.x3d"/></Inline>
+
+        <Transform translation="0 -9.0 0" rotation="1 0 0 -1.57">
+        <Shape>
+           <Appearance><Material diffuseColor="0.7 0.7 0.7"></Material></Appearance>
+           <Plane solid="false" size="30 30"></Plane>
+       </Shape>
+       </Transform>
+	   
+     </scene>
+    </X3D>
+    <div id="tools" style="width: 500px;">
+      <input type="checkbox" checked="true" onclick="lightSwitch('point')">
+          <label>point light</label>
+      <input type="checkbox" checked="true" onclick="lightSwitch('spot')">
+          <label>spot light</label>
+      <input type="checkbox" checked="true" onclick="lightSwitch('directional')">
+          <label>directional light</label>
+      <input type="checkbox" checked="true" onclick="headlight()">
+          <label>headlight</label>
+    </div>
+  </div>
+</body>
 </html>

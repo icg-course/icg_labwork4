@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.2//EN" "http://www.web3d.org/specifications/x3d-3.2.dtd">
+<X3D>
+  <Scene>
+
+    <TimeSensor DEF='Time' cycleInterval='10' loop='true' enabled='true'/>
+
+		<OrientationInterpolator DEF='Pumpkin_OrientInt' key='0 1 2' keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 -3.14'/>
+
+		<PositionInterpolator DEF='PumpkinTwo_PositionInt' key='0 0.125 0.25 0.375 0.5 0.675 0.75 0.875 1' keyValue='-4.2 1 -4.2, -6 1 0, -4.2 1 4.2, 0 1 6, 4.2 1 4.2,  6 1 0, 4.2 1 -4.2, 0 1 -6, -4.2 1 -4.2'/>
+		
+		<ColorInterpolator DEF='Box_ColorInt' key='0, 0.5, 1, 1.5' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'/>
+
+    <Group>
+      <Viewpoint description='FrontRight'	position="2 1.7 1.4" orientation="-0.5 0.8 0.23 0.82"></Viewpoint>
+      <Viewpoint description='FrontLeft'  position="-1 -1.4 1" orientation="0.7 -0.7 0.18 1"></Viewpoint>
+    </Group>
+
+    <transform DEF="Pumpkin">
+
+      <transform translation="0 0 -1">
+        <Shape DEF="Front">
+          <Appearance>
+            <imagetexture url="../Textures/Pumpkin_FRONT.png" repeats="true" repeatt="true">
+              <texturetransform scale="1 1"></texturetransform>
+            </imagetexture>
+          </Appearance>
+          <IndexedTriangleStripSet index='2 0 3 1 -1' solid="true">
+            <Coordinate point='0 0 0, 0 1 0, 1 0 0, 1 1 0'></Coordinate>
+          </IndexedTriangleStripSet>
+        </Shape>
+      </transform>
+
+      <transform translation="0 0 0" rotation="0 1 0 1.57">
+        <Shape DEF="Flant">
+          <Appearance>
+            <imagetexture url="../Textures/Pumpkin_LEFT.png" repeats="true" repeatt="true">
+              <texturetransform scale="1 1"></texturetransform>
+            </imagetexture>
+          </Appearance>
+          <IndexedTriangleStripSet index='2 0 3 1 -1' solid="true">
+            <Coordinate point='0 0 0, 0 1 0, 1 0 0, 1 1 0'></Coordinate>
+          </IndexedTriangleStripSet>
+        </Shape>
+      </transform>
+
+      <transform translation="0 0 0" rotation="1 0 0 -1.57">
+        <Shape DEF="TOP_BOTTOM">
+          <Appearance>
+            <imagetexture url="../Textures/Pumpkin_TOP.png" repeats="true" repeatt="true">
+              <texturetransform scale="1 1"></texturetransform>
+            </imagetexture>
+          </Appearance>
+          <IndexedTriangleStripSet index='2 0 3 1 -1' solid="true">
+            <Coordinate point='0 0 0, 0 1 0, 1 0 0, 1 1 0'>
+            </Coordinate>
+          </IndexedTriangleStripSet>
+        </Shape>
+      </transform>
+
+      <transform translation="1 0 -1" rotation="0 1 0 -1.57">
+        <Shape USE="Flant"></Shape>
+      </transform>
+
+      <transform translation="1 0 0" rotation="0 1 0 3.14">
+        <Shape USE="Flant"></Shape>
+      </transform>
+
+      <transform translation="0 1 -1" rotation="1 0 0 1.57">
+        <Shape USE="TOP_BOTTOM"></Shape>
+      </transform>
+
+    </transform>
+
+    <transform DEF="PumpkinTwo" translation="2 0 2">
+      <transform use="Pumpkin">
+      </transform>
+    </transform>
+
+    <transform translation="-2 -1 -3">
+      <Shape>
+        <Appearance>
+          <imagetexture url="../Textures/SandFloor.jpg" repeats="true" repeatt="true"></imagetexture>
+          <TextureTransform scale="3 3"/>
+        </Appearance>
+        <ElevationGrid xDimension="6" zDimension="6" creaseAngle="0.5"
+        height="0.5, 0.5, -0.5, -0.5, 0.5, 0.5,
+                0.5, 0.5, -0.5, -0.5, 0.5, 0.5,
+                -0.5, -0.5, 0.5, 0.5, -0.5, -0.5,
+                -0.5, -0.5, 0.5, 0.5, -0.5, -0.5,
+                0.5, 0.5, -0.5, -0.5, 0.5, 0.5,
+                0.5, 0.5, -0.5, -0.5, 0.5, 0.5"
+        xSpacing="1" zSpacing="1" solid="true">
+        </ElevationGrid>
+      </Shape>
+    </transform>
+	
+	<Transform translation="0 -7 0">
+        <Shape>
+			<Appearance>
+				<Material diffuseColor="1 1 1" DEF="Test_Box"></Material>
+			</Appearance>
+           <Box solid="false" size="3 3 3"></Box>
+        </Shape>
+     </Transform>
+
+    <ROUTE fromNode='Time' fromField='fraction_changed' toNode='Pumpkin_OrientInt' toField='set_fraction'/>
+		<ROUTE fromNode='Pumpkin_OrientInt' fromField='value_changed' toNode='Pumpkin' toField='set_rotation'/>
+
+    <ROUTE fromNode='Time' fromField='fraction_changed' toNode='PumpkinTwo_PositionInt' toField='set_fraction'/>
+		<ROUTE fromNode='PumpkinTwo_PositionInt' fromField='value_changed' toNode='PumpkinTwo' toField='set_translation'/>
+		
+	<ROUTE fromNode='Time' fromField='fraction_changed' toNode='Box_ColorInt' toField='set_fraction'/>
+		<ROUTE fromNode='Box_ColorInt' fromField='value_changed' toNode='Test_Box' toField='set_diffuseColor'/>
+
+  </Scene>
+</X3D>
