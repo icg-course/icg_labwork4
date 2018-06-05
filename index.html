@@ -1,13 +1,135 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<html>
+<head>
+	<title>Exported X3DOM Scene</title>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="http://www.x3dom.org/x3dom/release/x3dom.css"/>
+	<script type="text/javascript" src="http://www.x3dom.org/x3dom/release/x3dom.js"></script>
+</head>
+<body>
+	<X3D id="someUniqueId" showStat="false" showLog="false" width="1350px" height="610px">
+		<Scene DEF="scene">
+			<Background skyColor="1 1 1"></Background>
+			<TimeSensor DEF="Time" cycleInterval="0.6" loop="true" enabled="true"></TimeSensor>
+			<TimeSensor DEF="Time1" cycleInterval="10" loop="true" enabled="true"></TimeSensor>
+		    <ColorInterpolator DEF="ColInt" key="0 0.33 0.66 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0"></ColorInterpolator>
+		  	<ScalarInterpolator DEF="ScInt" key='0 0.2 0.4 0.6 0.8 1' keyValue='0.5 0.6 0.8 1.1 0.8 0.5'></ScalarInterpolator>
+  			<CoordinateInterpolator DEF='CoordInt' key='0 0.2 0.4 0.6 0.8 1'
+                        keyValue='0 1 1, 0 1 -1, -1 -1 0, 1 -1 0, 0 2 1, 0 1 -2, -1 -2 0, 1 -2 0,
+                                  0 2 2, 0 1 -1, -1 -1 0, 1 -1 0, 0 4 2, 0 1 -2, -1 -2 0, 1 -2 0,
+                                  0 1 1, 0 2 -2, -1 -1 0, 1 -1 0, 0 2 1, 0 2 -4, -1 -2 0, 1 -2 0,
+                                  0 1 1, 0 1 -1, -2 -2 0, 1 -1 0, 0 2 1, 0 1 -2, -2 -4 0, 1 -2 0,
+                                  0 1 1, 0 1 -1, -1 -1 0, 2 -2 0, 0 2 1, 0 1 -2, -1 -2 0, 2 -4 0,
+                                  0 1 1, 0 1 -1, -1 -1 0, 1 -1 0, 0 1 1, 0 1 -2, -1 -2 0, 1 -2 0,'>
+  			</CoordinateInterpolator>
+		  	<OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"></OrientationInterpolator>
+		  	<PositionInterpolator DEF="PosInt" key="0 0.23 0.5 0.75 1" keyValue="-1 3 -1, 0 3 1, 1 3 0, 0 3 -1, -1 3 -1"/></PositionInterpolator>
+
+					<Transform translation='0 -0.5 0'>
+						<Shape>
+							<Appearance>
+								<imagetexture url="4.jpg"></imagetexture>
+								<texturetransform translation="0 0" scale="1 1" rotation="0" center="0.0"></texturetransform>
+							</Appearance>
+							<Cylinder radius='1' height='2'></Cylinder>
+						</Shape>
+					</Transform>
+					<Transform translation="0 1.5 0" >
+					<Shape>
+						<Appearance>
+							<Material diffuseColor='0.30 0.40 0.100'></Material>
+						</Appearance>
+						<Sphere DEF="Sphere" radius ="1"></Sphere>
+					</Shape>
+				</Transform>
+				<Transform  DEF="Box" translation="0 0 0" >
+					<Shape>
+						<Appearance>
+							<Material diffuseColor="0.30 0.40 0.100" ></Material>
+						</Appearance>
+						<Box size="6 0.5 0.2"></Box>
+					</Shape>
+				</Transform>
+				<Transform DEF="Group_2" translation="0 3 0" >
+					<Shape  >
+						<Appearance>
+							<Material diffuseColor="0.255 0.102 0.102" ></Material>
+						</Appearance>
+						<Cone bottomRadius ="1" height = "2"></Cone>
+					</Shape>
+				</Transform>
+				<Transform  translation="0.3 1.5 1">
+					<Shape>
+						<Appearance>
+							<Material DEF="Mat" diffuseColor="0.000 0.882 0.555" ></Material>
+						</Appearance>
+						<Torus innerRadius ="0.1" outerRadius = "0.3"></Torus>
+					</Shape>
+				</Transform>
+				<Transform translation="-0.3 1.5 1">
+					<Shape>
+						<Appearance>
+							<Material DEF="Mat1" diffuseColor="0.000 0.882 0.555" ></Material>
+						</Appearance>
+						<Torus innerRadius ="0.1" outerRadius = "0.3"></Torus>
+					</Shape>
+				</Transform>
+				<Transform translation="3 1.5 0" >
+					<Shape>
+						<Appearance>
+							<Material diffuseColor="0.000 0.882 0.555" ></Material>
+						</Appearance>
+					</Shape>
+				</Transform>
+				<Transform translation="0 -3.5 0" rotation="0 0 0 0">
+					<Shape>
+					    <Appearance>
+					      <Material  diffuseColor="0.305 0.3 0.555"></Material>
+					    </Appearance>
+					    <IndexedFaceSet coordIndex='2 3 0 -1 2 0 1 -1 3 2 1 -1 3 1 0 -1'>
+					      <Coordinate DEF='Coord' point='0 1 1, 0 1 -1, -1 -1 0, 1 -1 0'></Coordinate>
+					    </IndexedFaceSet>
+					 </Shape>
+				</Transform>
+
+
+			<ROUTE fromNode="Time" fromField="fraction_changed"
+                            toNode="ColInt" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="ColInt" fromField="value_changed"
+                            toNode="Mat" toField="set_diffuseColor"></ROUTE>
+
+             <ROUTE fromNode="Time" fromField="fraction_changed"
+                            toNode="ColInt" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="ColInt" fromField="value_changed"
+                            toNode="Mat1" toField="set_diffuseColor"></ROUTE>
+
+			<ROUTE fromNode='Time1' fromField='fraction_changed'
+			       toNode='PosInt' toField='set_fraction'></ROUTE>
+			<ROUTE fromNode='PosInt' fromField='value_changed'
+			       toNode='Group_2' toField='set_translation'></ROUTE>
+
+
+			<ROUTE fromNode='Time1' fromField='fraction_changed'
+			        toNode='CoordInt' toField='set_fraction'></ROUTE>
+			<ROUTE fromNode='CoordInt' fromField='value_changed'
+			        toNode='Coord' toField='set_point'></ROUTE>
+
+
+  			<ROUTE fromNode='Time' fromField='fraction_changed'
+         			toNode='OrientInt' toField='set_fraction'></ROUTE>
+  			<ROUTE fromNode='OrientInt' fromField='value_changed'
+         			toNode='Box' toField='set_rotation'></ROUTE>
+
+  			<ROUTE fromNode='Time1' fromField='fraction_changed'
+         			toNode='ScInt' toField='set_fraction'></ROUTE>
+  			<ROUTE fromNode='ScInt' fromField='value_changed'
+         			toNode='Sphere' toField='set_radius'></ROUTE>
+
+		    <Viewpoint fieldOfView ="0.39" orientation="0 0 0 0" position="4.5 0 40" >
+
+
+		</Scene>
+	</X3D>
+</body>
 </html>
