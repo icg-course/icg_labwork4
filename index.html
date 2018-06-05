@@ -1,13 +1,92 @@
-<!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css">
+
   </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+ <body>
+	<X3D width='800px' height='800px'>
+<Scene>
+	<Transform DEF='Earth' translation='-3 0 0'>
+		<Shape DEF='MyEarth'>
+			 <Appearance>
+				 <Material></Material>
+				 <ImageTexture url='earth.png' repeatS='true'></ImageTexture>
+			 </Appearance>
+			 <sphere radius='0.4'></sphere>
+		</Shape>
+	</Transform>
+
+	<TimeSensor DEF='TS_erde' cycleInterval='1' loop='true' ></TimeSensor>
+							<OrientationInterpolator DEF='OI_erde' key='0, 0.5, 1'
+																										 keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'></OrientationInterpolator>
+	<ROUTE fromNode='TS_erde' fromField='fraction_changed'
+				 toNode='OI_erde' toField='set_fraction'>
+	</ROUTE>
+	<ROUTE fromNode='OI_erde' fromField='value_changed'
+				 toNode='Earth' toField='set_rotation'>
+	</ROUTE>
+
+	<TimeSensor DEF='Time' cycleInterval='1' loop='true'  enabled='true'></TimeSensor>
+              <PositionInterpolator DEF='OI_erdes' key='0 0.15 0.3 0.4 0.5 0.6 0.7 0.85 1'
+							                                     keyValue='-4 0 0, -3 0 3, 0 0 4, 3 0 3, 4 0 0, 3 0 -3, 0 0 -4, -3 0 -3, -4 0 0'></PositionInterpolator>
+	<ROUTE fromNode='Time' fromField='fraction_changed'
+				 toNode='OI_erdes' toField='set_fraction'>
+  </ROUTE>
+	<ROUTE fromNode='OI_erdes' fromField='value_changed'
+				 toNode='Earth' toField='set_translation'>
+	</ROUTE>
+
+
+	<Transform DEF='Sun' translation='0 0 0'>
+		<Shape DEF='MySun'>
+			 <Appearance>
+				 <Material diffuseColor='2.5 1.7 0' specularColor='1 1 0' ambientIntensity='1'></Material>
+				 <ImageTexture url='sun.png' repeatS='true'></ImageTexture>
+			 </Appearance>
+			 <sphere></sphere>
+		</Shape>
+	</Transform>
+
+
+  <TimeSensor DEF='Time1' cycleInterval='5' loop='true'> </TimeSensor>
+	 <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1'
+	                                 keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'>   </ColorInterpolator>
+	<transform def='col' translation='-2 0 -5'>
+		  <Shape>
+				 <Appearance>
+					  <Material DEF='Mat' diffuseColor='1 0 0'></Material>
+				 </Appearance>
+						<Box></Box>
+			</Shape>
+	</transform>
+	<ROUTE fromNode='Time1' fromField='fraction_changed'
+				 toNode='ColInt' toField='set_fraction'></ROUTE>
+	<ROUTE fromNode='ColInt' fromField='value_changed'
+				 toNode='Mat' toField='set_diffuseColor'></ROUTE>
+
+         <Transform DEF='Sun1' translation='0 0 0'>
+           <Shape DEF='MySun1'>
+              <Appearance>
+                <Material diffuseColor='2.5 1.7 0' specularColor='1 1 0' ambientIntensity='1'></Material>
+                <ImageTexture url='sun.png' repeatS='true'></ImageTexture>
+              </Appearance>
+              <sphere></sphere>
+           </Shape>
+         </Transform>
+
+
+         <TimeSensor DEF='Time2' cycleInterval='1' loop='true'  enabled='true'></TimeSensor>
+                      <PositionInterpolator DEF='OI_erdes2' key='0 0.15 0.3 0.4 0.5 0.6 0.7 0.85 1'
+                                                          keyValue='0 -4 0, 0 -3 3, 0 0 4, 0 3 3, 0 4 0, 0 3 -3, 0 0 -4, 0 -3 -3, 0 -4 0'></PositionInterpolator>
+         <ROUTE fromNode='Time2' fromField='fraction_changed'
+                toNode='OI_erdes2' toField='set_fraction'>
+          </ROUTE>
+         <ROUTE fromNode='OI_erdes2' fromField='value_changed'
+                toNode='Sun1' toField='set_translation'>
+         </ROUTE>
+</Scene>
+</X3D>
+</body>
 </html>
