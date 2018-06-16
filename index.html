@@ -1,13 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+	<head>
+	<meta charset="utf-8" />
+	<title>Тищенко А. И. - Лабораторная работа 4</title>
+	<link rel="stylesheet" type="text/css"
+	href="http://x3dom.org/download/dev/x3dom.css" />
+	<script type="text/javascript"
+	src="http://x3dom.org/download/dev/x3dom-full.js"></script>
+	</head>
+	<body>
+		<X3D width="1300" height="400" showLog = 'true'>
+			<Scene>
+				<transform translation="-15 -2 -7">
+					<Shape>	
+						<appearance>
+							<ImageTexture url='carpet.jpg'/>
+						</appearance>
+						<ElevationGrid xDimension="5" zDimension="5"
+							   height=" 0, 0, 0, 0,0,
+										0, 0, 0, 0,0,
+										0, 0, 0, 0,0,
+										0, 0, 0, 0,0,"
+							   xSpacing="5.0" zSpacing="5.0" solid="false">
+							<Normal vector="0 1 0, 0.0 1.0 0.0, 0.0 1.0 0.0 ,0.0 1.0 0.0 ,0 1 0, 0 1 0,
+											-0.3 0.3 -0.3, 0.0 0.5 -0.5, 0.3 0.3 -0.3, 0 1 0, 0 1 0,
+											-0.5 0.5 0.0, -0.5 0.5 0.0, 0.5 0.5 0.0, 0 1 0, 0 1 0 ,
+											-0.3 0.3 -0.3, 0.0 0.5 -0.5 ,0.3 0.3 -0.3, 0 1 0 ,0 1 0,
+											0.0 1.0 0.0, 0.0 1.0 0.0, 0.0 1.0 0.0, 0 1 0"/>
+						</ElevationGrid>
+					</Shape>
+				</transform>
+				
+				
+				
+				<transform def='piano' translation="-5 0 0">
+					<inline url="piano.x3d"></inline>
+				</transform>
+				
+				<Viewpoint position="-5.29542 2.98680 6.94250" orientation="-0.99591 -0.08940 -0.01273 0.34391" zNear="0.00234" zFar="10000" 
+				description="defaultX3DViewpointNode"></Viewpoint>	
+				
+				<timeSensor DEF="time" cycleInterval="10" loop='true' enabled='true'></timeSensor>
+				<transform translation='-4.8 -1.2 4'>
+					<shape>
+						<appearance>
+							<material diffuseColor='#FFFACD'/>
+						</appearance>
+						<Cylinder height='1.5' radius='0.5'></Cylinder>
+					</shape>
+					<transform translation='0 0.7 0'>
+						<shape>
+							<appearance>
+								<material diffuseColor='#FFFACD'/>
+							</appearance>
+							<Cylinder height='0.2' radius='0.8'></Cylinder>
+						</shape>
+					</transform>
+				</transform>
+				
+				
+				<PositionInterpolator DEF="move_piano" key="0 0.2 0.4 0.6 0.8 1" keyValue=" -5 0 0,
+																							-5 3 0,
+																							-5 6 0,
+																							-5 6 0,
+																							-5 3 0,
+																							-5 0 0"/>
+				<OrientationInterpolator DEF="or_piano" key="0 0.4 0.6 0.8 1" keyValue="1 0 0 0,
+																						1 0 0 1.57,
+																						1 0 0 3.14,
+																						1 0 0 4.71,
+																						1 0 0 6.28"/>
+
+				<Route fromNode="time" fromField ="fraction_changed" toNode="move_piano" toField="set_fraction"></Route>
+				<Route fromNode="move_piano" fromField ="value_changed" toNode="piano" toField="set_translation"></Route>
+				
+				<Route fromNode="time" fromField ="fraction_changed" toNode="or_piano" toField="set_fraction"></Route>
+				<Route fromNode="or_piano" fromField ="value_changed" toNode="piano" toField="set_rotation"></Route>
+				
+					
+
+			</Scene>
+		</X3D>	
+	</body>
 </html>
