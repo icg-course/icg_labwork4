@@ -14,7 +14,7 @@
     <Scene>
 		<Collision enabled="true">
 		<TimeSensor id="Time" DEF='Time' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
-        <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='-3 -3 0, -3 3 0, 3 3 0, 3 -3 0, -3 -3 0'></PositionInterpolator>
+        	<PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='-3 -3 0, -3 3 0, 3 3 0, 3 -3 0, -3 -3 0'></PositionInterpolator>
 		<OrientationInterpolator DEF='orInt' key="0 0.25 0.5 0.75 1" keyValue="0 1 0 0,
 											0 1 0 1.57,
 											0 1 0 3.14,
@@ -102,7 +102,12 @@
 			</Shape>
 		</Transform>
 		
-		<Group DEF='light_col'>
+		<Group DEF='road_light_col'>
+				<SpotLight ambientIntensity='0' attenuation='1,0,0' beamWidth='1.5707963' color='0,1,1' 
+				cutOffAngle='1.5707963' direction='0,-1,0' global='false' intensity='1' location='0,5.5,10.2' 
+				metadata='X3DMetadataObject' on='true' radius='5' shadowCascades='1' shadowFilterSize='0' 
+				shadowIntensity='0' shadowMapSize='1024' shadowOffset='0' shadowSplitFactor='1' 
+				shadowSplitOffset='0.1' zFar='-1' zNear='-1' ></SpotLight>
 				<Transform translation='-20 2.2 40'>
 					<Collision enabled="true">
 						<Shape DEF='column'>
@@ -117,7 +122,7 @@
 						
 		<Transform rotation='0 1 0 3.14'>
 			<Collision enabled="true">
-				<Group USE='light_col'></Group>
+				<Group USE='road_light_col'></Group>
 			</Collision>
 		</Transform>
 		<!-- крыша -->
