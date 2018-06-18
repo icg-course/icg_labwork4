@@ -102,8 +102,7 @@
 				</IndexedFaceSet> 
 			</Shape>
 		</Transform>
-		
-		<Group DEF='road_light_col'>
+		<Group DEF='light_col'>
 						<SpotLight ambientIntensity='0' attenuation='1,0,0' beamWidth='1.5707963' color='0,1,1' 
 						cutOffAngle='1.5707963' direction='0,-1,0' global='false' intensity='1' location='0,5.5,10.2' 
 						metadata='X3DMetadataObject' on='true' radius='5' shadowCascades='1' shadowFilterSize='0' 
@@ -113,7 +112,7 @@
 							<Collision enabled="true">
 								<Shape DEF='column'>
 									<Appearance>
-										<material def='material' diffuseColor='1 1 1'/>
+										<material DEF='material' diffuseColor='1 1 1'/>
 									</Appearance>
 									<Cylinder height='6' radius='0.2'></Cylinder>
 								</Shape>
@@ -121,13 +120,12 @@
 						</Transform>
 		</Group>
 						
-		<transform rotation='0 1 0 3.14'>
-						<Collision enabled="true">
-							<Group USE='road_light_col'></Group>
-						</Collision>
-					</transform>
-		<!-- крыша -->
-		
+		<Transform rotation='0 1 0 3.14'>
+			<Collision enabled="true">
+				<Group USE='light_col'></Group>
+			</Collision>
+		</Transform>
+		<!-- крыша -->		
 		<Transform DEF="1o" translation="-20 0 -20"> 
 			<Shape> 
 				<Appearance> 
@@ -150,7 +148,7 @@
 			</Shape>
 		</Transform>
 		<!-- земля -->
-		<Transform DEF='RedCar' translation='-20 00 -20'>
+		<Transform  translation='-20 00 -20'>
 			<Shape> 
 				<Appearance> 
 					<material diffuseColor="green"></material>
@@ -161,8 +159,7 @@
 				4 0 2 7 -1
 				3 6 7 2 -1
 				5 2 3 6 -1
-				4 0 1 5 -1
-				" > 
+				4 0 1 5 -1"> 
 				<Coordinate point="
 				0 0 0 
 				40 0 0
