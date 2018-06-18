@@ -29,33 +29,32 @@
 			<Shape> 
 				<Appearance> 
 					<material diffuseColor="green"></material>
-				<ImageTexture URL='wood.jpg'/>
+					<ImageTexture URL='wood.jpg'/>
 				</Appearance> 
-		<IndexedFaceSet  solid="false"  
-		coordIndex="
-		2 3 1 0 -1
-		3 5 4 2 -1
-		0 6 7 1 -1
-		6 8 12 7 -1
-		5 13 9 12 -1
-		10 11 4 13 -1" > 
-		<Coordinate point="
-		0 0 0 
-		 0 20 0
-		  40 0 0
-		   40 20 0
-		  40 0 40
-		   40 20 40
-		0 0 40 
-		 0 20 40
-		  10 0 40
-		   10 10 40
-		    16 10 40
-			16 0 40 
-		    10 20 40
-				40 10 40"/>
-	
-		</IndexedFaceSet> 
+				<IndexedFaceSet  solid="false"  
+				coordIndex="
+				2 3 1 0 -1
+				3 5 4 2 -1
+				0 6 7 1 -1
+				6 8 12 7 -1
+				5 13 9 12 -1
+				10 11 4 13 -1" > 
+				<Coordinate point="
+				0 0 0 
+				 0 20 0
+				  40 0 0
+				   40 20 0
+				  40 0 40
+				   40 20 40
+				0 0 40 
+				 0 20 40
+				  10 0 40
+				   10 10 40
+					16 10 40
+					16 0 40 
+					10 20 40
+						40 10 40"></Coordinate>
+				</IndexedFaceSet> 
 			</Shape>
 		</Transform>
 		<!-- пол -->
@@ -65,39 +64,39 @@
 					<material diffuseColor="green"></material>
 					<ImageTexture URL='ss11.jpg'/>
 				</Appearance> 
-		<IndexedFaceSet  solid="false" 
-		coordIndex="
-		0 1 3 2	-1" > 
-		<Coordinate point="
-		0 0 0
-		40 0 0
-		0 0 40
-		40 0 40"></Coordinate>
-	</IndexedFaceSet> 
+				<IndexedFaceSet  solid="false" 
+				coordIndex="
+				0 1 3 2	-1" > 
+				<Coordinate point="
+				0 0 0
+				40 0 0
+				0 0 40
+				40 0 40"></Coordinate>
+				</IndexedFaceSet> 
 			</Shape>
 		</Transform>
 	<!-- дверь -->
 	<Transform DEF="Trans" translation="-20 0 -20"> 
 		<Anchor URL= "https://www.youtube.com/watch?v=uuL6cJPz3Nk"></Anchor>
-		<Inline URL="red.x3d"/>
+		<Inline URL="red.x3d"></Inline>
 	</Transform>
 		<!-- потолок -->
-	<Transform DEF="o" translation="-20 0 -20"> 
+	<Transform  translation="-20 0 -20"> 
 			<Shape> 
 				<Appearance> 
 					<material diffuseColor="green"></material>
 					<ImageTexture URL='potolok.jpg'></ImageTexture>
 				</Appearance> 
-		<IndexedFaceSet  solid="false" 
-		coordIndex="
-		0 1 2 3	 -1
-		" > 
-		<Coordinate point="
-		40 20 40
-		40 20 0
-		0  20  0
-		0 20 40"></Coordinate>
-		</IndexedFaceSet> 
+				<IndexedFaceSet  solid="false" 
+				coordIndex="
+				0 1 2 3	 -1
+				" > 
+				<Coordinate point="
+				40 20 40
+				40 20 0
+				0  20  0
+				0 20 40"></Coordinate>
+				</IndexedFaceSet> 
 			</Shape>
 		</Transform>
 		
@@ -124,9 +123,7 @@
 				<Group USE='road_light_col'></Group>
 			</Collision>
 		</Transform>
-		
 		<!-- крыша -->
-		
 		<Transform DEF="1o" translation="-20 0 -20"> 
 			<Shape> 
 				<Appearance> 
@@ -166,19 +163,7 @@
 				</Appearance> 
 			</Shape>
 		</Transform>
-	<ROUTE fromNode='Time' fromField='fraction_changed' 
-               toNode="orInt" toField='set_fraction'>
-        </ROUTE>
-        <ROUTE fromNode='orInt' fromField='value_changed' 
-               toNode='Trans' toField='set_rotation'>
-        </ROUTE>
-		
-		<ROUTE fromNode='Time' fromField='fraction_changed' 
-               toNode="PosInt" toField='set_fraction'>
-        </ROUTE>
-        <ROUTE fromNode='PosInt' fromField='value_changed' 
-               toNode='Trans' toField='set_translation'>
-        </ROUTE>
+	
 		<ROUTE fromNode='Time' fromField='fraction_changed' 
                toNode="colInt" toField='set_fraction'>
         </ROUTE>
