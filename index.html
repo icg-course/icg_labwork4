@@ -13,7 +13,7 @@
 <x3d width='1200px' height='900px' showlog = 'true'>
     <Scene>
 		<Collision enabled="true">
-<!--		<TimeSensor id="Time" DEF='Time' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+		<TimeSensor id="Time" DEF='Time' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
         <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='-3 -3 0, -3 3 0, 3 3 0, 3 -3 0, -3 -3 0'></PositionInterpolator>
 		<OrientationInterpolator DEF='orInt' key="0 0.25 0.5 0.75 1" keyValue="0 1 0 0,
 											0 1 0 1.57,
@@ -21,7 +21,7 @@
 											0 1 0 4.71,
 											0 1 0 6.28"></OrientationInterpolator>								
 		<ColorInterpolator DEF='colInt' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 , 1 1 0, 1 0 1, 1 1 1, 0 0 0'></ColorInterpolator>
--->
+
 		<navigationInfo avatarSize="0.001 1.2 0.5" speed="10" headlight="true" type="Fly"></navigationInfo>
         <Background groundAngle='0.9 1.5 1.57' groundColor='0.4 0.7 0.1 0.4 0.3 0.2 0.1 0.6 0.1 0 0.3 0.1' skyAngle='0.9 1.5 1.57' skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'></Background>
 		<PointLight location="90 90 90" color="1 0 0" intensity="0.7" shadowIntensity="0.1" shadowMapSize="1"></PointLight>
@@ -77,11 +77,11 @@
 			</Shape>
 		</Transform>
 	<!-- дверь -->
-<!--	<Transform DEF="Trans" translation="-20 0 -20"> 
+	<Transform DEF="Trans" translation="-20 0 -20"> 
 		<Anchor URL= "https://www.youtube.com/watch?v=uuL6cJPz3Nk"></Anchor>
 		<Inline URL="red.x3d"></Inline>
 	</Transform>
--->
+
 		<!-- потолок -->
 	<Transform  translation="-20 0 -20"> 
 			<Shape> 
@@ -165,7 +165,7 @@
 				</Appearance> 
 			</Shape>
 		</Transform>
-<!--	<ROUTE fromNode='Time' fromField='fraction_changed' 
+	<ROUTE fromNode='Time' fromField='fraction_changed' 
                toNode="orInt" toField='set_fraction'>
         </ROUTE>
         <ROUTE fromNode='orInt' fromField='value_changed' 
@@ -178,7 +178,7 @@
         <ROUTE fromNode='PosInt' fromField='value_changed' 
                toNode='Trans' toField='set_translation'>
         </ROUTE>
--->
+
 		<ROUTE fromNode='Time' fromField='fraction_changed' 
                toNode="colInt" toField='set_fraction'>
         </ROUTE>
