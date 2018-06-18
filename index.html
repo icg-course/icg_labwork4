@@ -23,14 +23,15 @@
 		<ColorInterpolator DEF='colInt' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 , 1 1 0, 1 0 1, 1 1 1, 0 0 0'/>
 		
 		<navigationInfo avatarSize="0.001 1.2 0.5" speed="10" headlight="true" type="Fly"></navigationInfo>
-        <Background groundAngle='0.9 1.5 1.57' groundColor='0.4 0.7 0.1 0.4 0.3 0.2 0.1 0.6 0.1 0 0.3 0.1' skyAngle='0.9 1.5 1.57' skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'/>
-				<PointLight location="90 90 90" color="1 0 0" intensity="0.7" shadowIntensity="0.1" shadowMapSize="1"></PointLight>
+        <Background groundAngle='0.9 1.5 1.57' groundColor='0.4 0.7 0.1 0.4 0.3 0.2 0.1 0.6 0.1 0 0.3 0.1' skyAngle='0.9 1.5 1.57' skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'>
+        </Background>
+		<PointLight location="90 90 90" color="1 0 0" intensity="0.7" shadowIntensity="0.1" shadowMapSize="1"></PointLight>
 		<!-- стены --> 
-		<Transform DEF="korobka dlya 3 lab" translation="-20 0 -20"> 
+				<Transform DEF="korobka dlya 3 lab" translation="-20 0 -20"> 
 			<Shape> 
 				<Appearance> 
 					<material diffuseColor="green"></material>
-					<ImageTexture URL='wood.jpg'/>
+				<ImageTexture URL='wood.jpg'/>
 				</Appearance> 
 		<IndexedFaceSet  solid="false"  
 		coordIndex="
@@ -41,7 +42,6 @@
 		5 13 9 12 -1
 		10 11 4 13 -1" > 
 		<Coordinate point="
-
 		0 0 0 
 		 0 20 0
 		  40 0 0
@@ -55,7 +55,8 @@
 		    16 10 40
 			16 0 40 
 		    10 20 40
-		 40 10 40"/>
+				40 10 40"/>
+	
 		</IndexedFaceSet> 
 			</Shape>
 		</Transform>
@@ -64,18 +65,18 @@
 			<Shape> 
 				<Appearance> 
 					<material diffuseColor="green"></material>
-					<ImageTexture URL='ss11.jpg'></ImageTexture>
+					<ImageTexture URL='ss11.jpg'/>
 				</Appearance> 
-				<IndexedFaceSet  solid="false" 
-					coordIndex="
-					0 1 3 2	 -1
-					" > 
-					<Coordinate point="
-					0 0 0
-					40 0 0
-					0 0 40
-					40 0 40"></Coordinate>
-				</IndexedFaceSet> 
+		<IndexedFaceSet  solid="false" 
+		coordIndex="
+		0 1 3 2	 -1
+		" > 
+		<Coordinate point="
+		0 0 0
+		40 0 0
+		0 0 40
+		40 0 40"></Coordinate>
+	</IndexedFaceSet> 
 			</Shape>
 		</Transform>
 	<!-- дверь -->
@@ -90,89 +91,85 @@
 					<material diffuseColor="green"></material>
 					<ImageTexture URL='potolok.jpg'></ImageTexture>
 				</Appearance> 
-				<IndexedFaceSet  solid="false" 
-				coordIndex="
-				0 1 2 3	 -1
-				" > 
-				<Coordinate point="
-				40 20 40
-				40 20 0
-				0  20  0
-				0 20 40"></Coordinate>
-				</IndexedFaceSet> 
+		<IndexedFaceSet  solid="false" 
+		coordIndex="
+		0 1 2 3	 -1
+		" > 
+		<Coordinate point="
+		40 20 40
+		40 20 0
+		0  20  0
+		0 20 40"></Coordinate>
+		</IndexedFaceSet> 
 			</Shape>
 		</Transform>
-		<Group DEF='light_col'>
-						<SpotLight ambientIntensity='0' attenuation='1,0,0' beamWidth='1.5707963' color='0,1,1' 
-						cutOffAngle='1.5707963' direction='0,-1,0' global='false' intensity='1' location='0,5.5,10.2' 
-						metadata='X3DMetadataObject' on='true' radius='5' shadowCascades='1' shadowFilterSize='0' 
-						shadowIntensity='0' shadowMapSize='1024' shadowOffset='0' shadowSplitFactor='1' 
-						shadowSplitOffset='0.1' zFar='-1' zNear='-1' ></SpotLight>
-						<Transform translation='-20 2.2 40'>
-							<Collision enabled="true">
-								<Shape DEF='column'>
-									<Appearance>
-										<material DEF='material' diffuseColor='1 1 1'/>
-									</Appearance>
-									<Cylinder height='6' radius='0.2'></Cylinder>
-								</Shape>
-							</Collision>
-						</Transform>
+		
+		<Group DEF='road_light_col'>
+				<SpotLight ambientIntensity='0' attenuation='1,0,0' beamWidth='1.5707963' color='0,1,1' 
+				cutOffAngle='1.5707963' direction='0,-1,0' global='false' intensity='1' location='0,5.5,10.2' 
+				metadata='X3DMetadataObject' on='true' radius='5' shadowCascades='1' shadowFilterSize='0' 
+				shadowIntensity='0' shadowMapSize='1024' shadowOffset='0' shadowSplitFactor='1' 
+				shadowSplitOffset='0.1' zFar='-1' zNear='-1' ></SpotLight>
+				<Transform translation='-20 2.2 40'>
+					<Collision enabled="true">
+						<Shape DEF='column'>
+							<Appearance>
+							<material def='material' diffuseColor='1 1 1'/>
+						</Appearance>
+						<Cylinder height='6' radius='0.2'></Cylinder>
+						</Shape>
+					</Collision>
+				</Transform>
 		</Group>
 						
 		<Transform rotation='0 1 0 3.14'>
 			<Collision enabled="true">
-				<Group USE='light_col'></Group>
+				<Group USE='road_light_col'></Group>
 			</Collision>
 		</Transform>
-		<!-- крыша -->		
+		
+		<!-- крыша -->
+		
 		<Transform DEF="1o" translation="-20 0 -20"> 
 			<Shape> 
 				<Appearance> 
 					<material diffuseColor="green"></material>
-					<ImageTexture URL='potolok.jpg'></ImageTexture>
+					<ImageTexture URL='potolok.jpg'/>
 				</Appearance> 
-				<IndexedFaceSet  solid="false" 
-				coordIndex="
-				0 1 4 -1
-				1 2 4 -1
-				2 3 4 -1
-				3 0 4 -1"> 
-				<Coordinate point="
-				40 20 40
-				40 20 0
-				0  20  0
-				0 20 40
-				20 30 20"/>
-				</IndexedFaceSet> 
+		<IndexedFaceSet  solid="false" 
+		coordIndex="
+		0 1 4 -1
+		1 2 4 -1
+		2 3 4 -1
+		3 0 4 -1
+		" > 
+		<Coordinate point="
+		40 20 40
+		40 20 0
+		0  20  0
+		0 20 40
+		20 30 20"></Coordinate>
+		</IndexedFaceSet> 
 			</Shape>
 		</Transform>
 		<!-- земля -->
-		<Transform  translation='-20 00 -20'>
+		<Transform DEF="zemlya" translation="-30 0 -30"> 
 			<Shape> 
+			<ElevationGrid  xDimension="5" zDimension="5"
+								height="0, 0, 0, 0,0,
+									0, 0, 0, 0,0,
+									0, 0, 0, 0,0,
+									0,3, 2, 4,1,
+									1 6, 5,7, 1"
+						xSpacing='20.0' zSpacing='20.0' solid="false">
+			</ElevationGrid>
 				<Appearance> 
 					<material diffuseColor="green"></material>
-					<ImageTexture URL='ss11.jpg'></ImageTexture>
+					<ImageTexture URL='ss11.jpg'/>
 				</Appearance> 
-				<IndexedFaceSet  solid="false" 
-				coordIndex="
-				4 0 2 7 -1
-				3 6 7 2 -1
-				5 2 3 6 -1
-				4 0 1 5 -1"> 
-				<Coordinate point="
-				0 0 0 
-				40 0 0
-				0 0 40 
-				40 0 40	
-				-40 0 -40
-				80 0 -40
-				80 0 80
-				-40 0 80"/>
-				</IndexedFaceSet>
 			</Shape>
 		</Transform>
-		<ROUTE fromNode='Time' fromField='fraction_changed' 
+	<ROUTE fromNode='Time' fromField='fraction_changed' 
                toNode="orInt" toField='set_fraction'>
         </ROUTE>
         <ROUTE fromNode='orInt' fromField='value_changed' 
