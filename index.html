@@ -23,9 +23,9 @@
       <Transform DEF="TransBox" translation="0 15 0">
         <Shape>
           <Appearance>
-            <Material DEF = "Mat" diffuseColor="0 0 1"></Material>
+            <Material DEF='Mat' diffuseColor="0 0 1"></Material>
           </Appearance>
-          <Box size="80 30 80" solid="false""></Box>
+          <Box size="80 30 80" solid="false"></Box>
         </Shape>
       </Transform>
       <!--Конец комнаты-->
@@ -56,14 +56,14 @@
       <!--Конец камер-->
 
       <!--TimeSensor на 20 секунд для движения постамента и бриллианта-->
-      <TimeSensor DEF = "TimeElem" cycleInterval="20" loop="true"></TimeSensor>
+      <TimeSensor DEF='TimeElem' cycleInterval="20" loop="true"></TimeSensor>
       <!--Изменения для положения постамента с бриллиантом-->
       <PositionInterpolator DEF='PosIntElem' key='0 0.30 0.70 1' keyValue='0 0 0, 0 -15 0, 0 0 0, 0 0 0'></PositionInterpolator>
 
       <!--Бриллиант на подставке-->
       <Transform DEF="TransElem" translation="0 0 0">
         <!--Ссылка на мой ВК-->
-        <Anchor url="https://vk.com/vlalkex" parameter="target="_self"">
+        <Anchor url="https://vk.com/vlalkex" parameter="target='_self'">
           <!--Встраивание бриллианта-->
           <Transform translation="0 10.5 0">
             <Inline url="brilliant.x3d"></Inline>
