@@ -1,13 +1,165 @@
-<!DOCTYPE html>
+<!--DOCTYPE html-->
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 5</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>4labaRiabov4642</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <X3D style="left:0px; top:0px; width:100%; height:100%; border: none;">
+    <Scene>
+
+      <!--TimeSensor на 5 секунд-->
+      <TimeSensor DEF="TimeBox" cycleInterval="5" loop="true"></TimeSensor>
+      <!--Изменения для цвета команты-->
+      <ColorInterpolator DEF="ColIntBox" key="0 0.16 0.33 0.5 0.67 0.84 1" keyValue="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 0 0 1"></ColorInterpolator>
+      <!--Изменения для поворота комнаты-->
+      <OrientationInterpolator DEF="OrientIntBox" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"></OrientationInterpolator>
+      <!--Изменения для множителя размеров комнаты-->
+      <PositionInterpolator DEF='PosIntBoxSCALE' key='0 0.25 0.5 0.75 1' keyValue='1 1 1, 1.7 1 1.7, 2.5 1 2.5, 1.7 1 1.7, 1 1 1'></PositionInterpolator>
+
+      <!--Комната-->
+      <Transform DEF="TransBox" translation="0 15 0">
+        <Shape>
+          <Appearance>
+            <Material DEF="Mat" diffuseColor="0 0 1"></Material>
+          </Appearance>
+          <Box size="80 30 80" solid="false""></Box>
+        </Shape>
+      </Transform>
+      <!--Конец комнаты-->
+
+      <!--Линейная анимация смены цвета комнаты-->
+      <ROUTE fromNode="TimeBox" fromField="fraction_changed" toNode="ColIntBox" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="ColIntBox" fromField="value_changed" toNode="Mat" toField="set_diffuseColor"></ROUTE>
+      <!--Линейная анимация вращения комнаты-->
+      <ROUTE fromNode="TimeBox" fromField="fraction_changed" toNode="OrientIntBox" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OrientIntBox" fromField="value_changed" toNode="TransBox" toField="set_rotation"></ROUTE>
+      <!--Линейная анимация множителя размера комнаты-->
+      <ROUTE fromNode="TimeBox" fromField="fraction_changed" toNode="PosIntBoxSCALE" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="PosIntBoxSCALE" fromField="value_changed" toNode="TransBox" toField="set_scale"></ROUTE>
+
+      <!--Камеры-->
+      <Viewpoint description="Начальный вид" position="0 16 40"></Viewpoint>
+      <Viewpoint description="Вид камера 1" position="-20 28 -20" orientation="0.2 1 0.3 -2.36"></Viewpoint>
+      <Viewpoint description="Вид камера 2" position="20 28 -20" orientation="-0.2 1 0.3 2.36"></Viewpoint>
+      <!--Конец камер-->
+
+      <!--Камеры как объекты-->
+      <Transform translation="-21 28 -21" rotation="-1 -1 0 -0.79">
+        <Inline url="camera.x3d"></Inline>
+      </Transform>
+      <Transform translation="21 28 -21" rotation="1 -1 0 0.79">
+        <Inline url="camera.x3d"></Inline>
+      </Transform>
+      <!--Конец камер-->
+
+      <!--TimeSensor на 20 секунд для движения постамента и бриллианта-->
+      <TimeSensor DEF="TimeElem" cycleInterval="20" loop="true"></TimeSensor>
+      <!--Изменения для положения постамента с бриллиантом-->
+      <PositionInterpolator DEF='PosIntElem' key='0 0.30 0.70 1' keyValue='0 0 0, 0 -15 0, 0 0 0, 0 0 0'></PositionInterpolator>
+
+      <!--Бриллиант на подставке-->
+      <Transform DEF="TransElem" translation="0 0 0">
+        <!--Ссылка на мой ВК-->
+        <Anchor url="https://vk.com/vlalkex" parameter="target="_self"">
+          <!--Встраивание бриллианта-->
+          <Transform translation="0 10.5 0">
+            <Inline url="brilliant.x3d"></Inline>
+          </Transform>
+          <!--Конец встраивания бриллианта-->
+        </Anchor>
+        <!--Конец ссылки-->
+
+        <!--Линии в виде подцветки-->
+        <Transform translation="0 8 0">
+          <Shape>
+            <IndexedLineSet coordIndex="0 1 2 3 4 5 6 7 0 -1" colorIndex="0 0 0 0 0 0 0 0 0 -1" colorPerVertex="true" >
+              <Coordinate point="-1.5 0 0, -1 0 -1, 0 0 -1.5, 1 0 -1, 1.5 0 0, 1 0 1, 0 0 1.5, -1 0 1"></Coordinate>
+              <Color color="1 1 1"></Color>
+            </IndexedLineSet>
+          </Shape>
+        </Transform>
+        <!--Конец линий-->
+
+        <!--Постамент из набора полигонов-->
+        <Shape>
+          <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" normalPerVertex="true" solid="false" coordIndex="0 1 2 3 -1 0 7 6 1 -1 1 6 5 2 -1 2 5 4 3 -1 0 3 4 7 -1 7 6 5 4 -1" colorIndex=" 1 1 1 1 -1 1 0 0 1 -1 1 0 0 1 -1 1 0 0 1 -1 1 1 0 0 -1 0 0 0 0 -1">
+            <Coordinate point="-2 0 2, -2 0 -2, 2 0 -2, 2 0 2, 2 8 2, 2 8 -2, -2 8 -2, -2 8 2"></Coordinate>
+            <Color color="0 0 0, 1 1 1"></Color>
+          </IndexedFaceSet>
+        </Shape>
+        <!--Конец постамента-->
+
+        <!--Подставка под бриллиант на постамент из треугольников-->
+        <Transform translation="0 8 0">
+          <Shape DEF="podstava">
+            <IndexedTriangleSet index="0 1 3 0 2 3 1 2 3" solid="false">
+              <Coordinate point="0 0 1, -0.2 0 0.7, 0.2 0 0.7, 0 1 0.4"></Coordinate>
+              <ColorRGBA color=".02 .22 .19 1, .02 .22 .19 1, .02 .22 .19 1, 0 1 .8 1"></ColorRGBA>
+            </IndexedTriangleSet>
+          </Shape>
+        </Transform>
+        <Transform translation="0 8 0" rotation="0 1 0 2.09">
+          <Shape USE="podstava">
+          </Shape>
+        </Transform>
+        <Transform translation="0 8 0" rotation="0 1 0 -2.09">
+          <Shape USE="podstava">
+          </Shape>
+        </Transform>
+        <!--Конец подставки-->
+      </Transform>
+      <!--Конец бриллианта на подставке-->
+
+      <!--Линейная анимация смены положения постамента с бриллиантом-->
+      <ROUTE fromNode="TimeElem" fromField="fraction_changed" toNode="PosIntElem" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="PosIntElem" fromField="value_changed" toNode="TransElem" toField="set_translation"></ROUTE>
+
+      <!--TimeSensor на 3 секунды для интенсивности свечения-->
+      <TimeSensor DEF='TimeLight' cycleInterval='3' loop='true'></TimeSensor>
+      <!--Изменения для интенсивности свечения 1 лампы-->
+      <ScalarInterpolator DEF='ScIntLight1' key='0 0.5 1' keyValue='0.1 0.9 0.1'></ScalarInterpolator>
+      <!--Изменения для интенсивности свечения 2 лампы-->
+      <ScalarInterpolator DEF='ScIntLight1' key='0 0.5 1' keyValue='0.1 0.9 0.1'></ScalarInterpolator>
+      
+      <!--Свет-->
+      <PointLight DEF="Light1" location="10 28 10" color="1 1 1" intensity="0.1" shadowIntensity="0.8" shadowMapSize="512"></PointLight>
+      <PointLight DEF="Light2" location="-10 28 10" color="1 1 1" intensity="0.1" shadowIntensity="0.8" shadowMapSize="512"></PointLight>
+      <SpotLight location="0 28 0" direction="0 -1 0" color="1 1 1" intensity="1" beamWidth="0.3" cutOffAngle="0.7"></SpotLight>
+      <!--Конец света 2012-->
+
+      <!--Линейная анимация интенсивности свет для 1 лампы-->
+      <ROUTE fromNode="TimeLight" fromField="fraction_changed" toNode="ScIntLight1" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="ScIntLight1" fromField="value_changed" toNode="Light1" toField="set_intensity"></ROUTE>
+      <!--Линейная анимация интенсивности свет для 2 лампы-->
+      <ROUTE fromNode="TimeLight" fromField="fraction_changed" toNode="ScIntLight2" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="ScIntLight2" fromField="value_changed" toNode="Light2" toField="set_intensity"></ROUTE>
+      
+      <!--Штора позади-->
+      <Transform translation="-18 19 -5" rotation="1 0 0 1.57">
+        <Shape >
+          <Appearance>
+            <ImageTexture url="one.jpg"></ImageTexture>
+            <Material></Material>
+          </Appearance>
+          <ElevationGrid xDimension="10" zDimension="10" xSpacing="4.0" zSpacing="2.2" solid="false"
+          height=
+          "0, 1, 0.5, -0.5, 1, 0, 0.5, -0.5, 1, 0,
+          -0.5, 1, 0, 0.5, -0.5, 1, 0, 1, 0.5, -0.5,
+          -0.5, 1, 0, 1, 0.5, -0.5, 1, 0, 0.5, -0.5,
+          0, 0.5, -0.5, 1, 0, 1, 0.5, -0.5, 1, 0,
+          0, 1, 0.5, -0.5, 1, 0, 0.5, -0.5, 1, 0,
+          0.5, -0.5, 1, -0.5, 1, 0, 1, 0.5, -0.5, 1,
+          0, 0.5, -0.5, 1, 0, -0.5, 1, 0, 0.5, -0.5,
+          1, 0, 0.5, 1, 0, 0.5, -0.5, 1, -0.5, 1,
+          1, 0, 0.5, -0.5, 1, 0, 1, 0.5, 0, 1,
+          1, 0.5, -0.5, 1, 0, -0.5, 1, 0, 0.5, -0.5"></ElevationGrid>
+        </Shape>
+      </Transform>
+      <!--Конец шторы-->
+    </Scene>
+  </X3D>
   </body> 
 </html>
