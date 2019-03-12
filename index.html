@@ -1,13 +1,372 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <h1>Дук laba4</h1>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom" width = "1024" height = "768">
+      <scene id="root">
+        <Shape>
+          <PointSet>
+            <Color color='1 0 0 1 0 0 1 0 0'></Color>
+            <Coordinate DEF='mypts' point='0 1 -1, 0 1.5 -2, 0 1.8 -3'></Coordinate>
+          </PointSet>
+        </Shape>
+
+        <Transform translation='0 1.1 -3.1'>
+          <Shape>
+            <PointSet>
+              <Color color='0 1 0 0 1 0 0 1 0'></Color>
+              <Coordinate USE='mypts'></Coordinate>
+            </PointSet>
+          </Shape>
+        </Transform>
+
+        <Shape>
+          <PointSet>
+            <Color color='1 0 0 0 1 0 0 0 1'></Color>
+            <Coordinate point='0 3 -8, 0 2.8 -11, 0 2.2 -13.3'></Coordinate>
+          </PointSet>
+        </Shape>
+
+
+        <!-- Windgs
+        <Transform translation="4 2.5 2.7" rotation="0 1 0 -0.55">
+          <Shape>
+            <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 -1' solid='false'>
+              <Coordinate point='-4.0 -1.0 -.5 -4.5 -2.0 -.5 -3.0 -.5 0 -2.5 -1.5 -.5 -2.0 -.5 -1 -1.5 -1.5 -.5 -.5 .5 -.5 0 0 0 1 .5 -.5 1.5 -2.0 -1 2.5 -2.0 -.5 2.5 -2.5 -.5 3.5 -2.0 -1.0'></Coordinate>
+            </IndexedTriangleStripSet>
+            <Appearance>
+              <Material diffuseColor='1 1 1'></Material>
+            </Appearance>
+          </Shape>
+        </Transform>
+
+        <Transform translation="-4.7 2.5 -0.4" rotation="0 1 0 3.14">
+          <Shape>
+            <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 -1' solid='false'>
+              <Coordinate point='-4.0 -1.0 -.5 -4.5 -2.0 -.5 -3.0 -.5 0 -2.5 -1.5 -.5 -2.0 -.5 -1 -1.5 -1.5 -.5 -.5 .5 -.5 0 0 0 1 .5 -.5 1.5 -2.0 -1 2.5 -2.0 -.5 2.5 -2.5 -.5 3.5 -2.0 -1.0'></Coordinate>
+            </IndexedTriangleStripSet>
+            <Appearance>
+              <Material diffuseColor='1 1 1'></Material>
+            </Appearance>
+          </Shape>
+        </Transform>
+         -->
+
+        <!-- ball
+        <Transform>
+          <Transform translation="-0.7 -0.7 0.7">
+            <Shape>
+              <Appearance>
+                <Material></Material>
+              </Appearance>
+              <IndexedLineSet colorIndex='0 1 -1 1 2 -1 2 3 -1 3 0 -1 6 7 -1 7 4 -1 4 5 -1 5 6 -1 0 6 -1 1 7 -1 2 4 -1 3 5 -1'
+                              coordIndex='0 1 -1 1 2 -1 2 3 -1 3 0 -1 6 7 -1 7 4 -1 4 5 -1 5 6 -1 0 7 -1 1 6 -1 2 5 -1 3 4 -1'>
+                <Color color='1 0 0 0 1 0 0 0 1 1 1 0 1 0 0 0 1 0 0 0 1 1 1 0 1 0 0 0 1 0 0 0 1 1 1 0'></Color>
+                <Coordinate point='0 0 0, 1.5 0 0, 1.5 1.5 0, 0 1.5 0, 0 1.5 -1.5, 1.5 1.5 -1.5, 1.5 0 -1.5, 0 0 -1.5'></Coordinate>
+              </IndexedLineSet>
+            </Shape>
+          </Transform>
+          <Anchor url="https://www.youtube.com/watch?v=pt8bwEWYxb0" parameter="target="_self"">
+            <Transform>
+              <Shape>
+                <appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="https://static3.depositphotos.com/1000111/107/i/450/depositphotos_1079607-stock-photo-beautiful-fine-brushed-golden-texture.jpg" repeatS="true" repeatT="true"></ImageTexture>
+                </appearance>
+                <sphere radius="0.8"></sphere>
+              </Shape>
+            </Transform>
+          </Anchor>
+        </Transform>
+        -->
+
+        <!--basket -->
+        <transform translation="0 3 -14">
+          <transform translation="0 0.8 -1.1" rotation="0 1 0 3.14" scale="0.8 1 1">
+            <shape>
+              <appearance>
+                <material diffuseColor="0 0 0"></material>
+              </appearance>
+              <text string="Memento mori" solid="false">
+              </text>
+            </shape>
+          </transform>
+        </transform>
+
+        <transform translation="0 3 22.3" >
+          <transform translation="0 0.8 -1.1" scale="0.8 1 1">
+            <shape>
+              <appearance>
+                <material diffuseColor="0 0 0"></material>
+              </appearance>
+              <text string="Molone labe" solid="false">
+              </text>
+            </shape>
+          </transform>
+        </transform>
+        <Group DEF='basket'>
+          <Collision>
+            <transform translation="0 3 -14">
+
+
+
+              <transform translation="0 -7 -2">
+                <shape>
+                  <appearance>
+                    <material diffuseColor="0.68, 0.67, 0.65"></material>
+                  </appearance>
+                  <box size="0.5 14 0.5"></box>
+                </shape>
+              </transform>
+
+              <transform translation="-0.025 -1.19 0.5" rotation="1 0 0 1.57">
+                <shape>
+                  <appearance>
+                    <material diffuseColor="1 0 0"></material>
+                  </appearance>
+                  <torus innerRadius="0.06" outerRadius="1"></torus>
+                </shape>
+              </transform>
+
+              <transform translation="0 0 -1">
+                <shape>
+                  <appearance>
+                    <material diffuseColor="0.68, 0.67, 0.65"></material>
+                  </appearance>
+                  <box size="5.25 4.5 0.15"></box>
+                </shape>
+              </transform>
+
+              <Transform translation="-1.5 -3.15 -0.907">
+                <Shape>
+                  <IndexedFaceSet solid='false' coordIndex='0 1 2 3 -1 3 4 5 2 -1'
+                                                colorIndex='1 0 0 1 -1 0 0 0 0 -1'>
+                    <Color color='1 0 0 1 0 0'></Color>
+                    <Coordinate point='1 1 0, 2 1 0, 2 2 0, 1 2 0, 1 2 0.5, 2 2 0.5'></Coordinate>
+                  </IndexedFaceSet>
+                </Shape>
+              </Transform>
+
+              <Transform translation="-0.5 0 -1" rotation="1 0 0 -1.57">
+                <Shape>
+                  <IndexedTriangleSet index='0 1 2 3 4 5 6 7 8 9 10 11' solid='false' ccw='true' colorPerVertex='true' normalPerVertex='true' containerField='geometry'>
+                    <Coordinate point='0 0 0 1 0 0 0.5 1 -0.5, 0.5 0 -1 1 0 0 0.5 1 -0.5, 0 0 0 0.5 1 -0.5 0.5 0 -1, 0 0 0 1 0 0 0.5 0 -1'></Coordinate>
+                    <Color color='0 0.8 0 0 1 1 1 0 0 1 0.5 0 0.8 0 1 1 1 0 0.6 0.3 0.1 1 0 0.5 0 1 0.5 0 0.8 0 0 1 1 1 0 0'></Color>
+                  </IndexedTriangleSet>
+                </Shape>
+              </Transform>
+
+            </transform>
+          </Collision>
+        </Group>
+
+        <Transform translation='0 0 6' rotation='0 1 0 3.14'>
+          <Group USE='basket'></Group>
+        </Transform>
+        <!--ground -->
+        <Transform scale="2.5 0.5 3" translation="-40 -10 -40">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='0.69 0.66 0.66' ></Material>
+            </Appearance>
+            <ElevationGrid xDimension="7" zDimension="6"
+                            height="1 1 1 1 1 1 1
+                                    1, 0.5, 0.25, 0.25, 0.5, 1, 0,
+                                    0.5, 0.25, 0, 0, 0.25, 0.5, 0,
+                                    0.5, 0.25, 0, 0, 0.25, 0.5, 0,
+                                    1, 0.5, 0.25, 0.25, 0.5, 1, 0,
+                                    1.5, 1, 0.5, 0.5, 1, 1.5, 0"
+                            xSpacing="5.0" zSpacing="5.0" solid="false"> </ElevationGrid>
+          </Shape>
+        </Transform>
+
+        <!--start laba3 -->
+        <Group>
+          <Viewpoint description='Front View' position='0 0 8'></Viewpoint>
+          <Viewpoint description='Basket View' orientation='1 0 0 -1.57' position='0 8 -15'></Viewpoint>
+          <Viewpoint description='Mem View' orientation='0 1 0 2.9' position='5 6 -25'></Viewpoint>
+          <Viewpoint description='Molone View' orientation='0 1 0 0.50' position='5 6 27'></Viewpoint>
+        </Group>
+
+        <NavigationInfo headlight='false' type='"EXAMINE" "WALK" "FLY" "ANY"'></NavigationInfo>
+        <SpotLight location='0 -10 0' direction='0 0 -1' beamWidth='1.570796' cutOffAngle='.785398' on='true'></SpotLight>
+        <DirectionalLight on='true'></DirectionalLight>
+        <PointLight location='0 15 0' radius='30' on='true' attenuation='1 1 1' ambientIntensity='1'></PointLight>
+        <Background DEF='day' groundAngle='1.35 1.45 1.52 1.57'
+                              groundColor='0.91372 0.58823 0.47843 0.98039 0.50196 0.44705 1 0.62745 0.47843 1 0.64705 0 1 1 1'
+                              skyColor='0.52941 0.80784 0.92156'></Background>
+
+        <Group>
+          <DirectionalLight ambientIntensity='1' direction='0 -1 -1' intensity='0.2'></DirectionalLight>
+          <Group DEF='ColumnPair'>
+            <Transform translation='-20 -4 0'>
+              <Shape DEF='Column'>
+                <Cylinder height='13' radius='0.3'></Cylinder>
+                <Appearance>
+                  <Material diffuseColor='0.46 0.48 0.47'></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+
+            <Transform translation='20 -4 0'>
+              <Shape USE='Column'></Shape>
+            </Transform>
+
+          </Group>
+          <Transform translation='0 0 -8'>
+            <Group USE='ColumnPair'></Group>
+          </Transform>
+          <Transform translation='0 0 -8'>
+            <Group USE='ColumnPair'></Group>
+          </Transform>
+          <Transform translation='0 0 8'>
+            <Group USE='ColumnPair'></Group>
+          </Transform>
+          <Transform translation='0 0 -16'>
+            <Group USE='ColumnPair'></Group>
+          </Transform>
+          <Transform translation='0 0 16'>
+            <Group USE='ColumnPair'></Group>
+          </Transform>
+          <Transform translation='0 0 -24'>
+            <Group USE='ColumnPair'></Group>
+          </Transform>
+          <Transform translation='-12 -4 -24'>
+            <Group USE='Column'></Group>
+          </Transform>
+          <Transform translation='-4 -4 -24'>
+            <Group USE='Column'></Group>
+          </Transform>
+          <Transform translation='4 -4 -24'>
+            <Group USE='Column'></Group>
+          </Transform>
+          <Transform translation='12 -4 -24'>
+            <Group USE='Column'></Group>
+          </Transform>
+          <Transform translation='0 0 24'>
+            <Group USE='ColumnPair'></Group>
+          </Transform>
+        </Group>
+
+        <Group DEF='sharp'>
+          <Transform translation='20 -4 0'>
+            <shape>
+              <appearance>
+                <TextureTransform scale="2 1"></TextureTransform>
+                <ImageTexture url="https://st.depositphotos.com/2117021/4580/i/950/depositphotos_45809091-stock-photo-metallic-texture-pattern-of-grille.jpg" repeatS="true" repeatT="true"></ImageTexture>
+              </appearance>
+              <box size="0.1 12 48"></box>
+            </shape>
+          </Transform>
+        </Group>
+
+        <Transform translation='-40 0 0'>
+          <Group USE='sharp'></Group>
+        </Transform>
+
+        <Transform translation='0 0 -4' rotation='0 1 0 1.57'>
+          <Transform translation='20 -4 0'>
+            <shape>
+              <appearance>
+                <TextureTransform scale="2 1"></TextureTransform>
+                <ImageTexture url="https://st.depositphotos.com/2117021/4580/i/950/depositphotos_45809091-stock-photo-metallic-texture-pattern-of-grille.jpg" repeatS="true" repeatT="true"></ImageTexture>
+              </appearance>
+              <box size="0.1 12 40"></box>
+            </shape>
+          </Transform>
+        </Transform>
+
+        <Transform translation='0 -9.5 3' rotation='0 1 0 1.57'>
+          <shape>
+            <appearance>
+              <TextureTransform scale="1 1"></TextureTransform>
+              <ImageTexture url="https://st2.depositphotos.com/2210070/5494/i/950/depositphotos_54942091-stock-photo-basketball-realistic-court-top-view.jpg" repeatS="true" repeatT="true"></ImageTexture>
+            </appearance>
+            <box size="40 0 40"></box>
+          </shape>
+        </Transform>
+
+        <Fog visibilityRange='180' color='0.42 0.29 0.29'></Fog>
+
+        <!-- laba4 -->
+
+        <TimeSensor DEF='TIME' loop='true' cycleInterval='5'></TimeSensor>
+        <!-- <TimeSensor DEF='TIME' cycleInterval='5'></TimeSensor>
+        <TouchSensor DEF='TOUCH' description='touch to activate'></TouchSensor> -->
+        <PositionInterpolator DEF='INTERP' key='0 0.2 0.4 0.6 0.8 1' keyValue='0 0 0, 0 2 -3, 0 3 -6, 0 3 -9, 0 2.5 -13, 0 1 -13.7'></PositionInterpolator>
+        <OrientationInterpolator DEF='OINTERP' key = '0 0.8 1' keyValue='0 0 0, 0 1 0, 1 1 1'></OrientationInterpolator>
+        <ColorInterpolator DEF='COLOR' key="0, 0.3333, 0.6666, 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0"></ColorInterpolator>
+
+        <Transform DEF='BALL'>
+          <!-- Windgs -->
+          <Transform translation="4 2.5 2.7" rotation="0 1 0 -0.55">
+            <Shape DEF = 'Wing1'>
+              <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 -1' solid='false'>
+                <Coordinate point='-4.0 -1.0 -.5 -4.5 -2.0 -.5 -3.0 -.5 0 -2.5 -1.5 -.5 -2.0 -.5 -1 -1.5 -1.5 -.5 -.5 .5 -.5 0 0 0 1 .5 -.5 1.5 -2.0 -1 2.5 -2.0 -.5 2.5 -2.5 -.5 3.5 -2.0 -1.0'></Coordinate>
+              </IndexedTriangleStripSet>
+              <Appearance>
+                <Material  DEF = 'ColorWing1' diffuseColor='1 1 1'></Material>
+              </Appearance>
+            </Shape>
+          </Transform>
+
+          <Transform translation="-4.7 2.5 -0.4" rotation="0 1 0 3.14">
+            <Shape DEF = 'Wing2'>
+              <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 -1' solid='false'>
+                <Coordinate point='-4.0 -1.0 -.5 -4.5 -2.0 -.5 -3.0 -.5 0 -2.5 -1.5 -.5 -2.0 -.5 -1 -1.5 -1.5 -.5 -.5 .5 -.5 0 0 0 1 .5 -.5 1.5 -2.0 -1 2.5 -2.0 -.5 2.5 -2.5 -.5 3.5 -2.0 -1.0'></Coordinate>
+              </IndexedTriangleStripSet>
+              <Appearance>
+                <Material DEF = 'ColorWing2' diffuseColor='1 1 1'></Material>
+              </Appearance>
+            </Shape>
+          </Transform>
+
+          <!-- ball -->
+          <Transform>
+            <Transform translation="-0.7 -0.7 0.7">
+              <Shape>
+                <Appearance>
+                  <Material></Material>
+                </Appearance>
+                <IndexedLineSet colorIndex='0 1 -1 1 2 -1 2 3 -1 3 0 -1 6 7 -1 7 4 -1 4 5 -1 5 6 -1 0 6 -1 1 7 -1 2 4 -1 3 5 -1'
+                                coordIndex='0 1 -1 1 2 -1 2 3 -1 3 0 -1 6 7 -1 7 4 -1 4 5 -1 5 6 -1 0 7 -1 1 6 -1 2 5 -1 3 4 -1'>
+                  <Color color='1 0 0 0 1 0 0 0 1 1 1 0 1 0 0 0 1 0 0 0 1 1 1 0 1 0 0 0 1 0 0 0 1 1 1 0'></Color>
+                  <Coordinate point='0 0 0, 1.5 0 0, 1.5 1.5 0, 0 1.5 0, 0 1.5 -1.5, 1.5 1.5 -1.5, 1.5 0 -1.5, 0 0 -1.5'></Coordinate>
+                </IndexedLineSet>
+              </Shape>
+            </Transform>
+
+              <Transform>
+                <Shape>
+                  <appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="https://static3.depositphotos.com/1000111/107/i/450/depositphotos_1079607-stock-photo-beautiful-fine-brushed-golden-texture.jpg" repeatS="true" repeatT="true"></ImageTexture>
+                  </appearance>
+                  <sphere radius="0.8"></sphere>
+                </Shape>
+              </Transform>
+          </Transform>
+
+        </Transform>
+
+        <!-- <ROUTE fromNode='TOUCH' fromField='touchTime' toNode='TIME' toField='startTime'></ROUTE> -->
+        <ROUTE fromNode='TIME' fromField='fraction_changed' toNode='INTERP' toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='INTERP' fromField='value_changed' toNode='BALL' toField='translation'></ROUTE>
+
+        <ROUTE fromNode='TIME' fromField='fraction_changed' toNode='COLOR' toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='COLOR' fromField='value_changed' toNode='ColorWing1' toField='set_diffuseColor'></ROUTE>
+        <ROUTE fromNode='COLOR' fromField='value_changed' toNode='ColorWing2' toField='set_diffuseColor'></ROUTE>
+
+        <!-- laba5 -->
+      </scene>
+    </X3D>
+  </body>
 </html>
