@@ -88,8 +88,8 @@
           </IndexedTriangleStripSet>
         </Shape>
       </Transform>
-      <ROUTE fromNode="Time"fromField="fraction_changed"toNode="CoordInt"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="CoordInt"fromField="value_changed"toNode="Coord"toField="set_point"></ROUTE>
+      <ROUTE fromNode="Time" fromField="fraction_changed" toNode="CoordInt" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="CoordInt" fromField="value_changed" toNode="Coord" toField="set_point"></ROUTE>
       <!--Солнце-->
       <Transform DEF="sun">
       <Shape>
@@ -103,10 +103,10 @@
         </Sphere>
       </Shape>
     </Transform>
-      <TimeSensor DEF="TS_sun"cycleInterval="20"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_sun"key="0, 0.5, 1"keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_sun"fromField="fraction_changed"toNode="OI_sun"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_sun"fromField="value_changed"toNode="sun"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_sun" cycleInterval="20" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_sun" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_sun" fromField="fraction_changed" toNode="OI_sun" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_sun" fromField="value_changed" toNode="sun" toField="set_rotation"></ROUTE>
       <!--Меркурия-->
       <Transform DEF="mercury" translation="-2.5 -1.4 3.4" center="0 0 0">
         <Shape  >
@@ -137,10 +137,10 @@
           </Sphere>
         </Shape>
       </Transform>
-      <TimeSensor DEF="TS_v"cycleInterval="243"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_v"key="0, 0.5, 1"keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_v"fromField="fraction_changed"toNode="OI_v"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_v"fromField="value_changed"toNode="venus"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_v" cycleInterval="243" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_v" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_v" fromField="fraction_changed" toNode="OI_v" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_v" fromField="value_changed" toNode="venus" toField="set_rotation"></ROUTE>
       <!--Земеля-->
       <Transform DEF="earth" translation="1.5 -1.3 6.2" rotation="1 0 0 0.1"> 
         <Shape>
@@ -154,10 +154,10 @@
           </Cylinder>
         </Shape>
       </Transform>
-      <TimeSensor DEF="TS_e"cycleInterval="1"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_e"key="0, 0.5, 1"keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_e"fromField="fraction_changed"toNode="OI_e"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_e"fromField="value_changed"toNode="earth"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_e" cycleInterval="1" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_e" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_e" fromField="fraction_changed" toNode="OI_e" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_e" fromField="value_changed" toNode="earth" toField="set_rotation"></ROUTE>
     <!--Луна-->
       <Transform DEF="moon" translation="0.75 -0.87 7" center="0.7 0.7 -0.7">
         <Shape>
@@ -171,10 +171,10 @@
           </Sphere>
         </Shape>
       </Transform>
-      <TimeSensor DEF="TS_m"cycleInterval="27.03"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_m"key="0, 0.5, 1"keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_m"fromField="fraction_changed"toNode="OI_m"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_m"fromField="value_changed"toNode="moon"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_m" cycleInterval="27.03" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_m" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_m" fromField="fraction_changed" toNode="OI_m" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_m" fromField="value_changed" toNode="moon" toField="set_rotation"></ROUTE>
       <!--Марс-->
       <Transform DEF="mars" translation="-10 -1.1 -3.2">
         <Shape>
@@ -188,10 +188,10 @@
           </Sphere>
         </Shape>
       </Transform>
-      <TimeSensor DEF="TS_mars"cycleInterval="1.6"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_mars"key="0, 0.5, 1"keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_mars"fromField="fraction_changed"toNode="OI_mars"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_mars"fromField="value_changed"toNode="mars"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_mars" cycleInterval="1.6" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_mars" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_mars" fromField="fraction_changed" toNode="OI_mars" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_mars" fromField="value_changed" toNode="mars" toField="set_rotation"></ROUTE>
       <!--Жупитер-->
       <Transform DEF="jupiter" translation="10.2 3.4 -4.8">
         <Shape>
@@ -205,10 +205,10 @@
           </Sphere>
         </Shape>
       </Transform>
-      <TimeSensor DEF="TS_j"cycleInterval="0.416"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_j"key="0, 0.5, 1"keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_j"fromField="fraction_changed"toNode="OI_j"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_j"fromField="value_changed"toNode="jupiter"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_j" cycleInterval="0.416" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_j" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_j" fromField="fraction_changed" toNode="OI_j" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_j" fromField="value_changed" toNode="jupiter" toField="set_rotation"></ROUTE>
       <!--Сотурн-->
       <Transform translation="-6 1.3 -8.8" rotation="1 0 0 0.3">
         <Transform rotation="1 0 0 0.4" DEF="saturn">
@@ -239,10 +239,10 @@
             </Shape>
         </Transform>
       </Transform>
-      <TimeSensor DEF="TS_s"cycleInterval="0.437"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_s"key="0, 0.5, 1"keyValue="0 0.7 0 0, 0 0.7 0 3.14, 0 0.7 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_s"fromField="fraction_changed"toNode="OI_s"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_s"fromField="value_changed"toNode="saturn"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_s" cycleInterval="0.437" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_s" key="0, 0.5, 1" keyValue="0 0.7 0 0, 0 0.7 0 3.14, 0 0.7 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_s" fromField="fraction_changed" toNode="OI_s" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_s" fromField="value_changed" toNode="saturn" toField="set_rotation"></ROUTE>
       <!--Юранус-->
       <Transform DEF="uranus" translation="5 3.9 -10">
         <Shape>
@@ -256,10 +256,10 @@
           </Sphere>
         </Shape>
       </Transform>
-      <TimeSensor DEF="TS_u"cycleInterval="0.71"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_u"key="0, 0.5, 1"keyValue="0 0.7 0 0, 0 0.7 0 3.14, 0 0.7 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_u"fromField="fraction_changed"toNode="OI_u"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_u"fromField="value_changed"toNode="uranus"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_u" cycleInterval="0.71" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_u" key="0, 0.5, 1" keyValue="0 0.7 0 0, 0 0.7 0 3.14, 0 0.7 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_u" fromField="fraction_changed" toNode="OI_u" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_u" fromField="value_changed" toNode="uranus" toField="set_rotation"></ROUTE>
       <!--Нетун-->
       <Transform DEF="neptun" translation="1 3.5 -11.7">
         <Shape>
@@ -273,10 +273,10 @@
           </Sphere>
         </Shape>
       </Transform>
-      <TimeSensor DEF="TS_n"cycleInterval="0.66"loop="true"></TimeSensor>
-      <OrientationInterpolator DEF="OI_n"key="0, 0.5, 1"keyValue="0 0.7 0 0, 0 0.7 0 3.14, 0 0.7 0 6.28"></OrientationInterpolator>
-      <ROUTE fromNode="TS_n"fromField="fraction_changed"toNode="OI_n"toField="set_fraction"></ROUTE>
-      <ROUTE fromNode="OI_n"fromField="value_changed"toNode="neptun"toField="set_rotation"></ROUTE>
+      <TimeSensor DEF="TS_n" cycleInterval="0.66" loop="true"></TimeSensor>
+      <OrientationInterpolator DEF="OI_n" key="0, 0.5, 1" keyValue="0 0.7 0 0, 0 0.7 0 3.14, 0 0.7 0 6.28"></OrientationInterpolator>
+      <ROUTE fromNode="TS_n" fromField="fraction_changed" toNode="OI_n" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OI_n" fromField="value_changed" toNode="neptun" toField="set_rotation"></ROUTE>
       <!--Колечько-->
       <Transform  rotation="0 0 1 0.2">
       <Transform scale="4 1 3" rotation="1 0 0 0.25">
