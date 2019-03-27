@@ -60,40 +60,42 @@
 						</Transform>
 					</Transform>
 				</Transform>
-				<Transform translation='0 -1 0'> 
-					<Transform rotation = "0 1 0 3.2">
-						<Group DEF="der">			
-							<Transform translation='0 0 1.5' > 
+				<Transform>
+					<Transform translation='0 -1 0'> 
+						<Transform rotation = "0 1 0 3.2" >
+							<Group DEF="der">
+								<Transform translation='0 0 2' center="0 0 2" DEF="derk" scale="1 1 1" > 
 									<inline  url="Deer.x3d"> </inline>
-								<Transform translation='0 0 2.5' > 
-										<inline  url="Deer.x3d"> </inline>
-									<Transform translation='2 0 0' > 
-											<inline  url="Deer.x3d"> </inline>
-										<Transform translation='2 0 0' > 
-												<inline  url="Deer.x3d"> </inline>
-											<Transform translation='0 0 -2.5' > 
-													<inline  url="Deer.x3d"> </inline>
-												<Transform translation='-2 0 0' > 
-														<inline  url="Deer.x3d"> </inline>
-													<Transform translation='-4 0 0' > 
-															<inline  url="Deer.x3d"> </inline>
-														<Transform translation='-2 0 0' > 
-																<inline  url="Deer.x3d"> </inline>
-															<Transform translation='0 0 2.5' > 
-																	<inline  url="Deer.x3d"> </inline>
-																<Transform translation='2 0 0' > 
-																	<inline  url="Deer.x3d"> </inline>
-																</Transform>
-															</Transform>
-														</Transform>
-													</Transform>
-												</Transform>
-											</Transform>
-										</Transform>
-									</Transform>
 								</Transform>
-							</Transform>
-						</Group>
+								<Transform translation='0 0 5'center="0 1 1" DEF="derk1" scale="1 1 1" > 
+										<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='2 0 2' center="0 1 1" DEF="derk2" scale="1 1 1" > 
+										<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='2 0 5' center="0 1 1" DEF="derk3" scale="1 1 1"> 
+										<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='-2 0 5' center="0 1 1" DEF="derk4" scale="1 1 1"> 
+										<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='-2 0 2' center="0 1 1" DEF="derk5" scale="1 1 1"> 
+									<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='4 0 2' center="0 1 1" DEF="derk6" scale="1 1 1"> 
+									<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='4 0 5' center="0 1 1" DEF="derk7" scale="1 1 1"> 
+									<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='-4 0 2' center="0 1 1" DEF="derk8" scale="1 1 1"> 
+									<inline  url="Deer.x3d"> </inline>
+								</Transform>
+								<Transform translation='-4 0 5' center="0 1 1" DEF="derk9" scale="1 1 1"> 
+									<inline  url="Deer.x3d"> </inline>
+								</Transform>
+							</Group>
+						</Transform>
 					</Transform>
 				</Transform>
 				<Transform translation='0 3 4' >
@@ -228,9 +230,11 @@
 				</Shape>
 			</Transform>
 			<Transform translation='7 0.5 0' rotation="1 0 0 1.5" DEF="TanezOleni"> 
-						<inline  url="Deer.x3d"> </inline>
-						<Transform translation='0 0 0' rotation="0 0 1 2" > 
+					<Transform DEF="scal" scale="1 1 1">
 							<inline  url="Deer.x3d"> </inline>
+							<Transform translation='0 0 0' rotation="0 0 1 2" > 
+								<inline  url="Deer.x3d"> </inline>
+					</Transform>
 				</Transform>
 			</Transform>
 			<Transform translation="0 -1.4 3.5">
@@ -262,14 +266,13 @@
 			</Shape>
 			</Transform>
 			<Fog visibilityRange='200'></Fog>
-			<navigationInfo type="walk" ></navigationInfo>
 			<Viewpoint id="front" position="10 0 0"></Viewpoint>
 			<Viewpoint id="front" position="2 30 0" orientation="0 1 1 3"></Viewpoint>
 			<Viewpoint id="front" position="0 1 15"></Viewpoint>
 			
 			<timeSensor DEF="time" cycleInterval="6" loop="true"></timeSensor>
 			
-			<PositionInterpolator DEF="move" key="0 0.5 1" keyValue="7 0.5 0  12 0.5 0  7 0.5 0"></PositionInterpolator>
+			<PositionInterpolator DEF="move" key="0 0.5 1" keyValue="7 0.5 0  20 2 0  7 0.5 0"></PositionInterpolator>
 			<Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"></Route>
 			<Route fromNode="move" fromField ="value_changed" toNode="TanezOleni" toField="translation"></Route>
 			
@@ -277,9 +280,34 @@
 			<Route fromNode="time" fromField ="fraction_changed" toNode="move1" toField="set_fraction"></Route>
 			<Route fromNode="move1" fromField ="value_changed" toNode="Uran" toField="translation"></Route>
 			
-			<PositionInterpolator DEF="move2" key="0 0.3 0.5 0.7 1 " keyValue="0 20 20  0 20 0 0 20 -30 0 -20 0 0 20 20 "></PositionInterpolator>
+			<PositionInterpolator DEF="move2" key="0 0.3 0.5 0.7 1 " keyValue="0 20 50  0 20 0 0 20 -30 0 -20 0 0 20 50 "></PositionInterpolator>
 			<Route fromNode="time" fromField ="fraction_changed" toNode="move2" toField="set_fraction"></Route>
 			<Route fromNode="move2" fromField ="value_changed" toNode="Saturn" toField="translation"></Route>
+
+			<TimeSensor DEF='newTime' cycleInterval='0.5' loop='true'></TimeSensor>
+			<PositionInterpolator DEF='ScInt' key='0 0.5 1' keyValue='1 1 1, 1.2 1.2 1.2, 1 1 1'></PositionInterpolator>
+			<ROUTE fromNode='newTime' fromField='fraction_changed' toNode='ScInt' toField='set_fraction'></ROUTE>
+        	<ROUTE fromNode='ScInt' fromField='value_changed' toNode='derk' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt' fromField='value_changed' toNode='derk3' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt' fromField='value_changed' toNode='derk4' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt' fromField='value_changed' toNode='derk6' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt' fromField='value_changed' toNode='derk8' toField='set_scale'></ROUTE>
+			
+			
+			<TimeSensor DEF='newTime1' cycleInterval='0.5' loop='true'></TimeSensor>
+			<PositionInterpolator DEF='ScInt1' key='0 0.5 1' keyValue='1 1 1, 0.8 0.8 0.8, 1 1 1'></PositionInterpolator>
+			<ROUTE fromNode='newTime1' fromField='fraction_changed' toNode='ScInt1' toField='set_fraction'></ROUTE>
+			<ROUTE fromNode='ScInt1' fromField='value_changed' toNode='derk1' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt1' fromField='value_changed' toNode='derk2' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt1' fromField='value_changed' toNode='derk5' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt1' fromField='value_changed' toNode='derk9' toField='set_scale'></ROUTE>
+			<ROUTE fromNode='ScInt1' fromField='value_changed' toNode='derk7' toField='set_scale'></ROUTE>
+			
+			
+			
+			
+			
+			<navigationInfo type="walik" ></navigationInfo>
 	</scene>
 </X3D>
 </body>
