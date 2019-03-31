@@ -1,13 +1,232 @@
-<!DOCTYPE html>
-<html lang="ru">
+  <!DOCTYPE html>
+  <html lang="ru">
   <head>  
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>Лабораторная работа №4</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
-</html>
+    <h1>Сычевальня</h1>
+    <X3D style="width:100%; height:100%">
+      <Scene>
+        <!--Комната-->
+        <Transform translation="0 15 0">
+          <Shape>
+            <Appearance>
+              <ImageTexture url="https://avatanplus.com/files/resources/mid/57a9f1774acde1566fd73a0a.jpg"></ImageTexture>
+            </Appearance>
+            <Box size="60 40 100" solid="false"></Box>
+          </Shape>
+        </Transform>
+        <!--Камера-->
+        <Viewpoint description="Начальный вид" position="0 5 40"></Viewpoint>
+        <!--Общий свет-->
+        <PointLight location="10 30 10" color="1 1 1" intensity="0.1" shadowIntensity="0.2" shadowMapSize="2500"></PointLight>
+        <!--На этом месте будет кататься yoba-->
+        <TimeSensor DEF='Timetoroll' cycleInterval='5' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='OrInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+        <PositionInterpolator DEF='PosInt' key='0 0.2 0.4 0.6 0.8 1' keyValue='0 0 0 5 0 0 6 0 8 -7 0 6 -5 0 4 0 0 0'></PositionInterpolator>
+        <Transform DEF='Tr' translation="0 0 -10">
+          <Shape>
+            <Appearance>
+              <ImageTexture url="https://pp.userapi.com/c851536/v851536081/ed4fb/ctvzxlgXiBA.jpg"></ImageTexture>
+            </Appearance>
+            <Sphere radius="5"></Sphere>
+          </Shape>
+        </Transform>
+      <ROUTE fromNode='Timetoroll' fromField='fraction_changed' toNode='OrInt' toField='set_fraction'></ROUTE>
+      <ROUTE fromNode='OrInt' fromField='value_changed' toNode='Tr' toField='set_rotation'></ROUTE>
+  <ROUTE fromNode='Timetoroll' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'></ROUTE>
+  <ROUTE fromNode='PosInt' fromField='value_changed' toNode='Tr' toField='set_translation'></ROUTE>
+  <!--Диванчик-->
+  <Group>
+    <Transform translation="0 -2 -35">
+      <Shape>
+        <Appearance>
+          <ImageTexture url="https://pp.userapi.com/c852236/v852236902/e9eb3/pQyWsKY8eCg.jpg"></ImageTexture>
+        </Appearance>
+        <Box size="30 5 20" solid="false"></Box>
+      </Shape>
+    </Transform>
+    <Transform translation="0 5 -35">
+      <Shape>
+        <Appearance>
+          <ImageTexture url="https://pp.userapi.com/c852236/v852236902/e9eb3/pQyWsKY8eCg.jpg"></ImageTexture>
+        </Appearance>
+        <Box size="30 15 5" solid="false"></Box>
+      </Shape>
+    </Transform>
+    <Transform rotation="1 0 0 -1.57" translation="15 2 -30">
+      <Shape>
+        <Appearance>
+          <ImageTexture url="https://pp.userapi.com/c852236/v852236902/e9eb3/pQyWsKY8eCg.jpg"></ImageTexture>
+        </Appearance>
+        <Cylinder radius="2" height="10"></Cylinder>
+      </Shape>
+    </Transform>
+    <Transform rotation="1 0 0 -1.57" translation="-15 2 -30">
+      <Shape>
+        <Appearance>
+          <ImageTexture url="https://pp.userapi.com/c852236/v852236902/e9eb3/pQyWsKY8eCg.jpg"></ImageTexture>
+        </Appearance>
+        <Cylinder radius="2" height="10"></Cylinder>
+      </Shape>
+    </Transform>
+  </Group>
+  <!--Пепе-->
+  <Transform translation="0 10 -30" scale = "2 2 2">
+    <Group DEF="pepe">
+      <TimeSensor DEF='Timetosee' cycleInterval='7' loop='true'></TimeSensor>
+      <OrientationInterpolator DEF='OI' key='0 0.5 1' keyValue='0 1 0 0 0 0 0.5 0 1 -0.6 0 0.2'></OrientationInterpolator>
+      <Transform DEF="one" translation="-0.2 0 0">
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://pp.userapi.com/c855420/v855420728/163d9/my8J30Cyh4k.jpg"></ImageTexture>
+          </Appearance>
+          <Sphere radius="1.1"></Sphere>
+        </Shape>
+      </Transform>
+      <OrientationInterpolator DEF='OI1' key='0 0.5 1' keyValue='0 1 0 0 0 0 0.5 0 1 -0.6 0 0.2'></OrientationInterpolator>
+      <Transform DEF='two' translation="1.2 0 0">
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://pp.userapi.com/c855420/v855420728/163f4/YCQo-KMP8ew.jpg"></ImageTexture>
+          </Appearance>
+          <Sphere radius="1.1"></Sphere>
+        </Shape>
+      </Transform>
+      <Transform translation="0.5 -1.5 -0.4">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='green'></Material>
+          </Appearance>
+          <Sphere radius="2"></Sphere>
+        </Shape>
+      </Transform>
+      <Transform rotation="1 0 0 -1.57" translation ="0.5 -1.6 0.2">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='1 0 0'></Material>
+          </Appearance>
+          <Torus innerRadius="0.15" outerRadius="1.6"></Torus>
+        </Shape>
+      </Transform>
+      <Transform rotation="1 0 0 -1.57" translation ="0.5 -1.8 0.2">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='1 0 0'></Material>
+          </Appearance>
+          <Torus innerRadius="0.15" outerRadius="1.6"></Torus>
+        </Shape>
+      </Transform>
+    <ROUTE fromNode='Timetosee' fromField='fraction_changed' toNode='OI' toField='set_fraction'></ROUTE>
+    <ROUTE fromNode='OI' fromField='value_changed' toNode='one' toField='set_rotation'></ROUTE>
+  <ROUTE fromNode='Timetosee' fromField='fraction_changed' toNode='OI1' toField='set_fraction'></ROUTE>
+  <ROUTE fromNode='OI1' fromField='value_changed' toNode='two' toField='set_rotation'></ROUTE>
+  </Group>
+  </Transform>
+  <!--Газетка-->
+  <TimeSensor DEF='Timetoread' cycleInterval="12" loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR' key='0 0.3 0.7 1' keyValue='0 0 0, 0 4 0, 0 0 0, 0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG'> 
+    <Transform translation="-5 -4 -23" rotation="1 0 0 -1.57">
+      <Shape>
+        <Appearance>
+          <ImageTexture url="https://pp.userapi.com/c846123/v846123998/1d4d72/IG6MT21Ezjw.jpg"></ImageTexture>
+        </Appearance>
+        <ElevationGrid xDimension="7" zDimension="6" xSpacing="2.0" zSpacing="2.0" solid="false"
+        height=
+        "1.5, 1, 0.5, 0.75, 1, 1.25,0,
+        1, 0.5, 0.25, 0.5, 0.75, 1,0,
+        0.75, 0.5, 0.25, 0, 0.25, 0.5, 0,
+        0.5, 0.25, 0.75, 0, 0.25, 0.5, 0,
+        1, 0.75, 0.5, 0.25, 0.5, 1,0,
+        1.5, 1, 0.5, 0.5, 1, 1.5,0">
+      </ElevationGrid>
+    </Shape>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timetoread" fromField="fraction_changed" toNode="PosIntR" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR" fromField="value_changed" toNode="TrG" toField="set_translation"></ROUTE>
+  <!--На этом месте висят часы-->
+  <Transform translation="0 25 -50"  rotation="1 0 0 -1.57">
+    <Shape>
+      <Appearance>
+        <ImageTexture url="https://pp.userapi.com/c849528/v849528532/1521e1/GN4Bp2uyuVE.jpg"></ImageTexture>
+      </Appearance>
+      <Cylinder radius="4" height="0.1"></Cylinder>
+    </Shape>
+    <!--Cтрелочки-->
+    <Transform translation="0 -1 0">
+      <Shape>
+        <Appearance>
+          <Material diffuseColor="black"></Material>
+        </Appearance>
+        <Sphere radius="0.35"></Sphere>
+      </Shape>
+    </Transform>
+    <Transform rotation="1 0 0 1.57">
+      <TimeSensor DEF='Time' cycleInterval='3.5' loop='true'></TimeSensor>
+      <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 1 0 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+      <Transform DEF='Trans' translation="0 0 1.3">
+        <Transform DEF='Trans2' translation="0 1.3 0">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="black"></Material>
+            </Appearance>
+            <Cylinder radius="0.1" height="3"></Cylinder>
+          </Shape>
+        </Transform>
+      </Transform>
+      <TimeSensor DEF='Time1' cycleInterval='45' loop='true'></TimeSensor>
+      <OrientationInterpolator DEF='OrientInt1' key='0 0.6 1' keyValue='0 1 0 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+      <Transform DEF ='Trans3' translation="0 0 1.7" rotation="0 0 1 0.785">
+        <Transform DEF='Trans4'translation="0 1.2 0">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="black"></Material>
+            </Appearance>
+            <Cylinder radius="0.1" height="2"></Cylinder>
+          </Shape>
+        </Transform>
+      </Transform>
+    </Transform>
+  </Transform> <!--большой трансформ, не трожь-->
+  <ROUTE fromNode='Time' fromField='fraction_changed' toNode='OrientInt' toField='set_fraction'></ROUTE>
+  <ROUTE fromNode='OrientInt' fromField='value_changed' toNode='Trans' toField='set_rotation'></ROUTE>
+  <ROUTE fromNode='Time1' fromField='fraction_changed' toNode='OrientInt1' toField='set_fraction'></ROUTE>
+  <ROUTE fromNode='OrientInt1' fromField='value_changed' toNode='Trans3' toField='set_rotation'></ROUTE>
+  <!--Лампа-->
+  <Transform translation="22 10 -30">
+    <Shape>
+      <Appearance>
+        <Material diffuseColor='#a89d9d' specularColor='1 1 1'></Material>
+      </Appearance>
+      <Cone bottomradius="2" height="3"></Cone>
+    </Shape>
+    <TimeSensor DEF="ColorTime" cycleInterval="5" loop="true"></TimeSensor>
+    <ColorInterpolator DEF="ColInt" key="0 0.15 0.3 0.5 0.69 0.85 1" keyValue="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 0 0 1"></ColorInterpolator>
+    <Transform translation="0 -6.4 0">
+      <Shape>
+        <Appearance>
+          <Material DEF='Material' diffuseColor='0 1 1' transparency = '0.4'></Material>
+        </Appearance>
+        <Cylinder radius="2" height="9.6"></Cylinder>
+      </Shape>
+    </Transform>
+    <ROUTE fromNode="ColorTime" fromField="fraction_changed" toNode="ColInt" toField="set_fraction"></ROUTE>
+    <ROUTE fromNode="ColInt" fromField="value_changed" toNode="Material" toField="set_diffuseColor"></ROUTE>
+    <Transform translation="0 -13 0">
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='#a89d9d'></Material>
+        </Appearance>
+        <Cylinder radius="2" height="3.5"></Cylinder>
+      </Shape>
+    </Transform>
+  </Transform>
+  </Scene>
+  </X3D>
+  </body>
+  </html>
