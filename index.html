@@ -1,13 +1,178 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
+<head>
+	<meta charset="utf-8" />
+  	<title>Ралли</title>
+  	<link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+   	<script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/custom.js"></script>
+</head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <h1>________________________Лабораторная № 4_______________________</h1>
+    <X3D style="width:1024px; height:768px" id="x3d" xmlns="https://www.x3dom.org/x3dom">
+      <Scene>
+        <!--фон-->
+        <Background groundAngle='4 5 2' groundColor='5 0.7 0.1 0.4 0.7 0.2 0.1 0.6 0.1 0 0.3 0.1' skyAngle='0.9 1.5 1.57' skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'>
+        </Background>
+         <!--туман-->
+        <Fog visibilityRange='200' fogType='EXPONENTIAL'></Fog>
+         <!--свет-->
+         <PointLight location="8 20 0" color="0 0 1" intensity="3" shadowIntensity="2" shadowMapSize="512"></PointLight>
+         <!--начальное положение-->
+         <Viewpoint position="10 8 27" orientation="0 1 0 0.5" ></Viewpoint> 
+         <Viewpoint position="20 8 27" orientation="0 1 0 0.5" ></Viewpoint> 
+         <!--перемещение машины по заданным координатам и имитирование езды по кочкам-->
+        <TimeSensor id="Time" DEF='Time' cycleInterval='2' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1 ' keyValue='-10 0 15, -10 0 -10, 18 0 -10, 
+        18 0 15, -10 0 15'>
+        </PositionInterpolator>
+        <OrientationInterpolator DEF='OrientInt' key='0 0.26 0.3 0.5 0.8 1.1' keyValue='1 0 0 0.1, 0 1 0 -1, 1 1 1 -0.2, 0 1 0 3.14, 0 1 0 1, 0 0 0 0'></OrientationInterpolator>
+        <Transform DEF= "Car" translation="-10 0 15">
+          <!--колеса1-->
+          <Group DEF='kolesa'>
+            <Transform rotation="0 0 1 1.5708">
+              <Shape>
+                <Appearance>
+                  <ImageTexture url=".\пок.jpg"> </ImageTexture>
+                  <Material ></Material>
+                </Appearance> 
+                <Cylinder radius="1" height="0.7"></Cylinder>
+              </Shape> 
+                <Transform translation="0 -0.05 0">
+                  <Shape>
+                    <Appearance>
+                      <ImageTexture url=".\колесо.jpg"> </ImageTexture>
+                      <Material ></Material>
+                    </Appearance> 
+                    <Cylinder radius="0.9" height="0.7"></Cylinder>
+                  </Shape> 
+                </Transform>
+            </Transform>
+            <Transform translation="-4 0 0" rotation="0 0 1 1.5708">  
+              <Shape>
+                <Appearance>
+                  <ImageTexture url=".\пок.jpg"> </ImageTexture>
+                  <Material ></Material>
+                </Appearance>
+                <Cylinder radius="1" height="0.7"></Cylinder>
+              </Shape>
+              <Transform translation="0 0.05 0">
+                <Shape>
+                  <Appearance>
+                    <ImageTexture url=".\колесо.jpg"> </ImageTexture>
+                    <Material ></Material>
+                  </Appearance> 
+                  <Cylinder radius="0.9" height="0.7"></Cylinder>
+                </Shape> 
+              </Transform>
+            </Transform>
+            <Transform translation="-2 0 0" >
+              <Inline url="box.x3d"></Inline>
+            </Transform>      
+          </Group>
+          <!--колеса2-->
+          <Transform translation="0 0 -7">
+            <Shape USE="kolesa"></Shape>
+          </Transform>
+          <!--кузов--> 
+          <Transform translation="-2 2.2 -2.6">
+            <Shape>
+              <Appearance>
+                <ImageTexture url=".\кузов.jpg"> </ImageTexture>
+                <Material ></Material>
+              </Appearance> 
+              <Box size="3 4 7"></Box>
+            </Shape>
+          </Transform>
+        <Anchor url="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%BB%D0%BB%D0%B8" parameter="target='_self'">
+          <Transform translation="-2 1.6 -7">
+            <Shape>
+              <Appearance>
+                <ImageTexture url=".\каб.jpg"> </ImageTexture>
+                <Material ></Material>
+              </Appearance> 
+              <Box size="2.9 2.8 3"></Box>
+            </Shape>
+          </Transform>
+        </Anchor>
+        <!--трансмиссия--> 
+        <Transform translation="-2 0 -3.5" rotation="1 0 0 1.5708">  
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='0 0 0'></Material>
+            </Appearance> 
+            <Cylinder radius="0.25" height="6.8"></Cylinder>
+          </Shape> 
+        </Transform>
+        <!--выхлоп--> 
+        <Transform translation="-1 0 0.5" rotation="1 0 0 1.5708">  
+          <Shape>
+            <Appearance>
+               <Material Color='1 0 0'></Material>
+            </Appearance> 
+            <Nozzle outerRadius="0.2" innerRadius="0.1" nozzleRadius="0.1" nozzleHeight="2" height="1.3"></Nozzle> 
+          </Shape> 
+        </Transform>
+      </Transform>
+      <!--поляна--> 
+      <Transform translation="-30 -1.49 -30" >
+        <Shape>
+          <ElevationGrid xDimension="6" zDimension="6" xSpacing="11" zSpacing="11" solid="false"
+                          height=
+                                  "1.5, 1, 0.5, 0.5, 1, 1.5,0,
+                                  1, 0.5, 0.5, 0.5, 0.5, 1,0,
+                                  0.5, 0.5, 0, 0, 0.5, 0.5,0,
+                                  0.5, 0.5, 0, 0, 0.5, 0.5,0,
+                                  1, 0.5, 0.5, 0.5, 0.5, 1,0,
+                                  1.5, 1, 0.5, 0.5, 1, 1.5,0">
+          </ElevationGrid>
+          <Appearance>
+          <ImageTexture url=".\песок.jpg">
+            <Material ></Material>
+          </ImageTexture>
+        </Appearance>
+        </Shape>
+      </Transform>
+
+      <ROUTE fromNode='Time' fromField='fraction_changed' 
+               toNode='PosInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='PosInt' fromField='value_changed' 
+               toNode='Car' toField='set_translation'>
+      </ROUTE>
+
+      <ROUTE fromNode='Time' fromField='fraction_changed' 
+               toNode='OrientInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='OrientInt' fromField='value_changed' 
+                 toNode='Car' toField='set_rotation'>
+      </ROUTE>
+       <!--флаг и смена цветов на нем-->
+      <Transform translation='0 0 0'> 
+        <Shape> 
+          <Appearance> 
+            <ImageTexture url='дерево.jpg'></ImageTexture> 
+          </Appearance> 
+          <Cylinder height='2.0' radius='0.05' > </Cylinder> 
+        </Shape> 
+        <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+        <Transform translation='0.5 0.8 0'> 
+          <Shape> 
+            <Appearance> 
+              <Material DEF='Flag'></Material>
+            </Appearance> 
+            <Box size="1 0.5 0.05" > </Box> 
+          </Shape> 
+        </Transform> 
+      </Transform>
+      <ROUTE fromNode='Time' fromField='fraction_changed'
+       toNode='ColInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='ColInt' fromField='value_changed' 
+       toNode='Flag' toField='set_diffuseColor'>
+      </ROUTE>
+      </Scene>
+    </X3D>
+  </body>
 </html>
