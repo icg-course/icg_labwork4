@@ -1,13 +1,254 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<head>
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <title>Лабораторная работа 4</title>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+  <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+</head>
+<x3d style="left:0px; top:0px; width:100%; height:100%; border:none;">
+  <scene>
+    <transform translation="0 0 0" rotation = "1 0 0 0.52">
+    <Inline url= "Umbrella.x3d"></Inline>
+    <Background backurl = "Beach.png"></Background>
+    <DirectionalLight ambientIntensity ="1" color = "1 1 1" location = "10 50 0" radius = "500" intensity = "1" shadowIntensity= "0.5" shadowMapSize= "4096"></DirectionalLight>
+    <Fog visibilityRange="1000"></Fog>
+	 
+<Collision DEF = "Scene" enabled = "true"> 
+		 
+	 
+      <transform translation="0 0 0" rotation = "1 0 0 1.57">
+        <shape>
+          <appearance>
+            <TextureTransform scale="3 3"></TextureTransform>
+            <ImageTexture url ="https://st2.depositphotos.com/1000848/9925/i/950/depositphotos_99255906-stock-photo-texture-of-tile-seamless-background.jpg" repeatS="True" repeatT="True"></ImageTexture>
+          </appearance>
+          <box size="5 5 0.2"></box>
+        </shape>
+      </transform>
+
+      <transform translation="0 0.11 0" rotation = "1 0 0 1.57">
+        <shape>
+          <appearance>
+            <ImageTexture url ="https://avatanplus.com/files/resources/mid/587a620bcfa8e1599e0efe4b.jpg" repeatS="True" repeatT="True"></ImageTexture>
+          </appearance>
+          <box size="4 4 0"></box>
+        </shape>
+      </transform>
+<!--.....................Круг в бассейне............................................................................................-->
+   <transform DEF = "Tor" rotation = "1 0 0 -1.57">  
+	<transform translation="0 0.11 0" rotation = "1 0 0 1.57">
+        <shape>
+          <appearance>
+            <TextureTransform scale="2 1"></TextureTransform>
+            <ImageTexture url ="https://st2.depositphotos.com/5483924/8223/v/450/depositphotos_82237332-stock-illustration-cake-glaze-colorful-seamless-pattern.jpg" repeatS="True" repeatT="True"></ImageTexture>
+          </appearance>
+          <torus innerRadius="0.2" outerRadius="0.5"></torus>
+        </shape>
+      </transform>
+     </transform>
+	
+	
+       <transform DEF = "Ball" translation="1.3 0.15 0">
+        <shape>
+          <appearance>
+            <material diffuseColor="2.56 0.3 0.4"></material>
+          </appearance>
+          <sphere radius = "0.25"></sphere>
+        </shape>
+        </transform>
+
+      <transform translation="-2.3 0.8 -1.5">
+        <shape>
+          <appearance>
+            <material diffuseColor="0.59 0.26 0.19"></material>
+          </appearance>
+          <cylinder height="1.5" radius="0.03" ></cylinder>
+        </shape>
+      </transform>
+
+      <transform translation="-2.3 1.5 -1.5">
+        <shape>
+          <appearance>
+            <TextureTransform scale="10 10"></TextureTransform>
+            <ImageTexture url ="https://st.depositphotos.com/2152431/3563/i/450/depositphotos_35634319-stock-photo-straw-background-basket-weave-texture.jpg" repeatS="True" repeatT="True"></ImageTexture>
+          </appearance>
+          <cone bottom="True" bottomRadius="1" height="0.7"></cone>
+        </shape>
+      </transform>
+
+      <transform translation="0 0.12 2.3" rotation="1 0 0 4.71">
+        <shape>
+          <appearance>
+            <material diffuseColor="0 0 0"></material>
+          </appearance>
+          <text string="Open from 9AM" solid="false" >
+            <fontstyle size = "0.5"></fontstyle>
+          </text>
+        </shape>
+      </transform>
+
+      <transform translation="1 0.1 1">
+        <shape>
+          <appearance>
+            <material diffuseColor="1 0 0"></material>
+          </appearance>
+          <sphere radius = "0.08"></sphere>
+        </shape>
+      </transform>
+	
+
+      <transform translation="1 0.11 1" rotation = "1 0 0 1.57">
+        <shape>
+          <appearance>
+            <material diffuseColor="1 1 1"></material>
+          </appearance>
+          <torus innerRadius="0.05" outerRadius="0.03"></torus>
+        </shape>
+      </transform>
+
+      <transform translation="1 0.22 1">
+        <shape>
+          <appearance>
+            <material diffuseColor="1 1 1"></material>
+          </appearance>
+          <cone bottom="True" bottomRadius="0.02" height="0.1"></cone>
+        </shape>
+      </transform>
+    
+     <shape>
+          <pointset>
+        <Color color="0 0 0, 0 0 0, 0 0 0"></Color>
+        <Coordinate point="1.8 0.12 2.35, 1.85 0.12 2.35, 1.9 0.12 2.35"></Coordinate>
+          </pointset>
+        </shape>
+
+    <shape>
+    <IndexedLineSet coordIndex="0 1 2 -1" 
+            colorIndex="0 1 2 -1"
+            colorPerVertex="true"> 
+      <Coordinate point="2.2 0.1 1, 1 1 1, 1 0.1 1"></Coordinate>
+      <Color color="0 0 0,0 1 1, 0 0 0"></Color>
+    </IndexedLineSet>
+      </shape>
+    
+    <shape>
+      <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+              creaseAngle="0" solid="false"
+              coordIndex="0 4 7 3 -1 
+                    5 6 2 1 -1 
+                    4 5 6 7 -1 
+                    6 7 3 2 -1
+                    0 4 5 1 -1
+                    0 1 2 3 -1"
+              colorIndex="0 1 2 3 -1 
+                    4 5 6 0 -1 
+                    1 2 3 4 -1 
+                    5 6 0 1 -1
+                    3 2 1 0 -1
+                    4 6 2 0 -1">
+        <Coordinate point="2 0.5 -1, 2.2 0.5 -1, 2.2 0.5 -1.5, 2 0.5 -1.5, 
+                   2 0 -1, 2.2 0 -1, 2.2 0 -1.5, 2 0 -1.5"></Coordinate>
+        <Color color="1 1 1, 0 1 1, 0 1 1, 0 0 1, 0 0 1, 0 1 1, 1 1 1"></Color></IndexedFaceSet>
+    </shape>
+    
+    <shape>
+      <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+              creaseAngle="0" solid="false"
+              coordIndex="0 4 7 3 -1 
+                    5 6 2 1 -1 
+                    4 5 6 7 -1 
+                    6 7 3 2 -1
+                    0 4 5 1 -1
+                    0 1 2 3 -1"
+              colorIndex="0 1 2 3 -1 
+                    4 5 6 0 -1 
+                    1 2 3 4 -1 
+                    5 6 0 1 -1
+                    3 2 1 0 -1
+                    4 6 2 0 -1">
+        <Coordinate point="1 0.6 -1, 2.2 0.6 -1, 2.2 0.6 -1.5, 1 0.6 -1.5, 
+                   1 0.5 -1, 2.2 0.5 -1, 2.2 0.5 -1.5, 1 0.5 -1.5"></Coordinate>
+        <Color color="1 1 1, 0 1 1, 0 1 1, 0 0 1, 0 0 1, 0 1 1, 1 1 1"></Color></IndexedFaceSet>
+    </shape>
+    
+
+    <Transform translation="-5 0 -5">
+    <Shape>
+      <Appearance>
+              <ImageTexture url="pesok.jpeg"></ImageTexture>
+            </Appearance>
+          <ElevationGrid xDimension="2" zDimension="2" 
+                          height=
+                                  "0, 0,   
+                                   0, 0, "
+                  xSpacing="10" zSpacing="10" solid="false">
+          </ElevationGrid>
+        </Shape>
+    </Transform>
+<!--.....................Пирамида............................................................................................-->	
+   <Transform DEF = "Pyramide"  translation="-4 0 -2" rotation="1 0 0 2">
+	<Anchor url="https://travel.yandex.ru" parameter="target="_self"">
+      <Shape>
+              <IndexedTriangleSet solid="false" ccw="true" colorPerVertex="true" normalPerVertex="true" containerField="geometry"
+                  index="0 1 2 
+                     3 4 5 
+                     6 7 8 
+                     9 10 11">
+                <Coordinate point="0 0 0, 1 0 0, 0.5 1 -0.5, 0.5 0 -1, 
+                   1 0 0, 0.5 1 -0.5, 0 0 0, 0.5 1 -0.5, 
+                   0.5 0 -1, 0 0 0, 1 0 0, 0.5 0 -1"></Coordinate>
+                <Color color="1 1 0, 1 0 1, 1 0 0, 1 0.5 0, 0.8 0 0, 1 1 0, 0.6 0 0, 0.8 0.5 0, 1 1 0, 1 0.8 0, 1 1 0, 1 0.5 0"></Color>
+              </IndexedTriangleSet>
+      </Shape>
+	</Anchor>
+   </Transform>
+ 
+	
+<!--.....................Прозрачная стена............................................................................................-->   
+    <Transform translation="-1.57 1 -2.51" rotation="1 0 0 1.57">
+      <shape>
+        <IndexedTriangleStripSet index="0 1 2 3 4 5 -1" solid="false">
+          <Coordinate point="0 0 1, -1 0 1, 4.1 0 1, -1 0 0, 4.1 0 0, 4.1 0 0 "></Coordinate>
+          <ColorRGBA color="0.8 0 1, 0 1 1 1, 1 0 0 1, 1 0.5 0 1, 0.8 0 1 1, 1 1 0 1, 0.6 0.3 0.1 1, 1 0 0.5 1, 0 1 0.5 1"></ColorRGBA>
+        </IndexedTriangleStripSet>
+      </shape>
+    </Transform>
+		   
+<!--.....................МЯЧ............................................................................................--> 		   
+	<transform DEF = "Ball1" translation="1 0.2 0">
+      <shape USE ="Ball"></shape>
+    </transform>
+ </Collision>
+		
+		
+<!--.....................АНИМАЦИЯ МЯЧА............................................................................................-->
+		
+        <TimeSensor DEF="TS_Ball" cycleInterval="1" loop="true"></TimeSensor>
+        <PositionInterpolator DEF="PI_Ball" key="0, 0.2, 0.4, 0.6, 0.8, 1 " keyValue="1 0.2 0 , 1 0.6 0, 1 0.8 0, 1 1 0, 1 0.8 0, 1 0.2 0 "></PositionInterpolator>
+		<ROUTE fromNode="TS_Ball" fromField="fraction_changed"
+               toNode="PI_Ball" toField="set_fraction">
+        </ROUTE>
+		<ROUTE fromNode="PI_Ball" fromField="value_changed"
+               toNode="Ball1" toField="translation">
+        </ROUTE>
+		
+<!--.....................АНИМАЦИЯ ПИРАМИДЫ............................................................................................-->	
+		<TimeSensor DEF="TS_Pyr" cycleInterval="2" loop="true"></TimeSensor>
+        <OrientationInterpolator DEF="OI_Pyr" key="0, 0.5, 1 " keyValue="0 0 1 0, 0 0 1 0.1, 0 0 1 0"></OrientationInterpolator>
+		<ROUTE fromNode="TS_Pyr" fromField="fraction_changed"
+               toNode="OI_Pyr" toField="set_fraction">
+        </ROUTE>
+		<ROUTE fromNode="OI_Pyr" fromField="value_changed"
+               toNode="Tor" toField="set_rotation">
+        </ROUTE>
+ 
+  </transform>
+
+  </scene>
+</x3d>
+<body>
+</body>
 </html>
+

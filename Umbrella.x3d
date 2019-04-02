@@ -1,0 +1,20 @@
+    <Scene>  
+      <transform translation="-2.3 0.8 1.6">
+        <shape>
+          <appearance>
+            <material diffuseColor="0.59 0.26 0.19"></material>
+          </appearance>
+          <cylinder height="1.5" radius="0.03" ></cylinder>
+        </shape>
+      </transform>
+
+      <transform translation="-2.3 1.5 1.6">
+        <shape>
+          <appearance>
+            <TextureTransform scale="10 10"></TextureTransform>
+            <ImageTexture url ="https://st.depositphotos.com/2152431/3563/i/450/depositphotos_35634319-stock-photo-straw-background-basket-weave-texture.jpg" repeatS="True" repeatT="True"></ImageTexture>
+          </appearance>
+          <cone bottom="True" bottomRadius="1" height="0.7"></cone>
+        </shape>
+      </transform>
+    </Scene>
