@@ -1,0 +1,95 @@
+	<Scene>
+  <Group DEF = "SnowMan2" >		  
+		<transform translation="-0.5 0.6 -1">
+          <shape>
+            <appearance>
+				<TextureTransform scale="1 1"></TextureTransform>
+				<ImageTexture url ="snow.jpg" repeatS="True" repeatT="True"></ImageTexture>
+            </appearance>
+			  <sphere radius = "0.6"></sphere>
+          </shape>
+        </transform>
+
+			  
+		<transform translation="-0.5 1.5 -1">
+          <shape>
+            <appearance>
+				<TextureTransform scale="1 1"></TextureTransform>
+				<ImageTexture url ="snow.jpg" repeatS="True" repeatT="True"></ImageTexture>
+            </appearance>
+			  <sphere radius = "0.4"></sphere>
+          </shape>
+        </transform>
+			  
+		<transform translation="-0.5 2.1 -1">
+          <shape>
+            <appearance>
+				<TextureTransform scale="1 1"></TextureTransform>
+				<ImageTexture url ="snow.jpg" repeatS="True" repeatT="True"></ImageTexture>
+            </appearance>
+			  <sphere radius = "0.25"></sphere>
+          </shape>
+        </transform>
+
+
+		<transform translation="-0.5 2.4 -1">
+          <shape>
+            <appearance>
+              <material diffuseColor="1 0 0"></material>
+            </appearance>
+            <cylinder height = "0.3" radius = "0.2"></cylinder>
+          </shape>
+    	</transform>
+
+
+        <transform translation="-0.5 2.25 -1">
+          <shape>
+            <appearance>
+              <material diffuseColor="1 0 0"></material>
+            </appearance>
+            <cylinder height = "0.01" radius = "0.4"></cylinder>
+          </shape>
+    	</transform>
+
+		<transform translation="-0.6 1.5 -1">
+          <shape>
+            <appearance>
+			  <material diffuseColor="0 0 0"></material>
+            </appearance>
+            <box size="1.52 0.01 0.02"></box>
+          </shape>
+        </transform>
+
+
+        <transform translation="0 1.42 -1" rotation= "0 0 1 0.45">
+          <shape>
+            <appearance>
+			  <material diffuseColor="0 0 0"></material>
+            </appearance>
+            <box size="0.4 0.01 0.02"></box>
+          </shape>
+        </transform>    	
+ 
+    <transform translation="-0.6 2.1 -0.77">
+          <shape>
+            <appearance>
+        <TextureTransform scale="1 1"></TextureTransform>
+        <material diffuseColor="0 0 0"></material>
+            </appearance>
+        <torus innerRadius="0.01" outerRadius="0.03"></torus>
+          </shape>
+        </transform>
+        
+        
+    <transform translation="-0.4 2.1 -0.77" rotation = "1 0 0 0.27">
+          <shape>
+            <appearance>
+        <TextureTransform scale="1 1"></TextureTransform>
+        <material diffuseColor="0 0 0"></material>
+            </appearance>
+        <torus innerRadius="0.01" outerRadius="0.03"></torus>
+          </shape>
+        </transform>
+
+	</Group>	 
+  </Scene> 
