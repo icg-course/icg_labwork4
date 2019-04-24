@@ -172,7 +172,7 @@
               <PositionInterpolator DEF='PosInt_White5' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'
                                     keyValue='-1.75 -0.2 0.5, -1.75 -0.2 0.5, -1.75 -0.3 0.5, -1.75 -0.3 0.5, -1.75 -0.2 0.5, -1.75 -0.3 0.5,
                                   -1.75 -0.2 0.5, -1.75 -0.2 0.5, -1.75 -0.3 0.5, -1.75 -0.3 0.5, -1.75 -0.2 0.5'></PositionInterpolator>
-              <ROUTE fromNode='Time' fromField='fraction_changed'
+              <ROUTE fromNode='Time_for_deer' fromField='fraction_changed'
                      toNode='PosInt_White5' toField='set_fraction'>
               </ROUTE>
               <ROUTE fromNode='PosInt_White5' fromField='value_changed'
@@ -184,22 +184,31 @@
               <DirectionalLight ambientIntensity="0.5" direction="0 -1 0" on="true" shadowIntensity='0.5'
                               shadowCascades="0.5"
                               intensity="0.8" global="true"></DirectionalLight>
-              <NavigationInfo Headlight="false" type='NONE'></NavigationInfo>
+              <NavigationInfo Headlight="false"></NavigationInfo>
               <Viewpoint fieldOfView="1" position="-8 -1.5 4"
                        orientation="0 -1 0 0.5"></Viewpoint>
               <Viewpoint fieldOfView="1" position="0 -0.5 -9" orientation="-1 0 0 0.3">></Viewpoint>
+              <Transform DEF="DEER1">
               <Transform DEF="DEER" rotation="0 1 0 1.57" translation="0 -4 0">
                 <Inline url="Deer.x3d"></Inline>
               </Transform>
-              <TimeSensor id="Time_for_deer" DEF='Time_for_deer' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
-              <PositionInterpolator DEF='PosInt_Deer' key='0 0.2 0.4 0.6 0.8 1'
-                                    keyValue='6 -4 0, 3 -2 0, 0 -4 0, -3 -2 0, -6 -4 0, -8 -2 0'></PositionInterpolator>
-              <ROUTE fromNode='Time_for_deer' fromField='fraction_changed'
+            </Transform>
+            <TimeSensor id="Time_for_sun" DEF='Time_for_deer' cycleInterval='10' loop='true' enabled='true'></TimeSensor>
+              <PositionInterpolator DEF='PosInt_Deer' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'
+                                    keyValue='6 -4 0, 3 -2 0, 0 -4 0, -3 -2 0, -6 -4 0, -8 -2 0, -6 -4 0, -3 -2 0,  0 -4 0, 3 -2 0, 6 -4 0'></PositionInterpolator>
+              <ROUTE fromNode='Time' fromField='fraction_changed'
                      toNode='PosInt_Deer' toField='set_fraction'>
               </ROUTE>
               <ROUTE fromNode='PosInt_Deer' fromField='value_changed'
                      toNode='DEER' toField='set_translation'>
               </ROUTE>
+              <OrientationInterpolator DEF='OrientInt_Deer' key='0 0.5 1' keyValue='0 1 0 0 0 1 0 -3.14 0 1 0 -6.28'></OrientationInterpolator>
+              <ROUTE fromNode='Time_for_deer' fromField='fraction_changed'
+                 toNode='OrientInt_Deer' toField='set_fraction'>
+               </ROUTE>
+               <ROUTE fromNode='OrientInt_Deer' fromField='value_changed'
+                 toNode='DEER1' toField='set_rotation'>
+               </ROUTE>
           <!--<ПОЛЕ>-->
           <Transform translation='-12 -5 -20'>
               <Shape>
@@ -248,7 +257,7 @@
                         <ImageTexture url="A135A_wood-siding_021914-1160x773.jpg"></ImageTexture>
                         <Texturetransform repeatS="True" repeatT="True" scale="1.5 1.5"></Texturetransform>
                     </Appearance>
-                    <Box size="10 1 10"></Box>
+                    <Box size="10 1 7.5"></Box>
                 </Shape>
             </Transform>
         </Transform>
@@ -405,6 +414,32 @@
         <ROUTE fromNode='ColInt' fromField='value_changed'
                toNode='Mat' toField='set_diffuseColor'>
         </ROUTE>
+        <!--<Солнце>-->
+        <Transform DEF="Sun">
+          <Transform DEF="Sun1" translation="0 0 -20">
+            <Shape>
+                <Appearance>
+                  <ImageTexture url="SUN.jpg"></ImageTexture>
+                </Appearance>
+                <Sphere radius="2"></Sphere>
+              </Shape>
+              </Transform>
+            </Transform>
+            <TimeSensor id="Time_for_sun" DEF='Time_for_sun' cycleInterval='15' loop='true' enabled='true'></TimeSensor>
+            <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0.5 1 0 0 0.5 1 0 -3.14 0.5 1 0 -6.28'></OrientationInterpolator>
+            <ROUTE fromNode='Time_for_sun' fromField='fraction_changed'
+               toNode='OrientInt' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='OrientInt' fromField='value_changed'
+               toNode='Sun' toField='set_rotation'>
+        </ROUTE>
+        <OrientationInterpolator DEF='OrientInt1' key='0 0.5 1' keyValue='0 1 0 0 0 1 0 -3.14 0 1 0 -6.28'></OrientationInterpolator>
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+           toNode='OrientInt1' toField='set_fraction'>
+         </ROUTE>
+         <ROUTE fromNode='OrientInt1' fromField='value_changed'
+           toNode='Sun1' toField='set_rotation'>
+         </ROUTE>
           </Scene>
       </X3D>
   </body>
