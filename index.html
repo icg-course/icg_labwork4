@@ -9,13 +9,14 @@
   </head>
   <body>
     <article>
-      <h1>Лабораторная работа №4</h1>
+      <h1>Давим в мясо</h1>
       <p>Павлов Михаил, гр. 4642</p>
     </article>
     <x3d id="x3d" xmlns="https://www.x3dom.org/x3dom"  style="width:100%; height:85%; border:none;">
       <scene>
         
-        <!-- пол, потолок и стены -->
+        <!-- ПОЛ, ПОТОЛОК И СТЕНЫ -->
+        <!-- пол -->
         <transform>
           <Shape>
             <Appearance>
@@ -24,7 +25,8 @@
             <Box size="80 0.01 40"></Box>
           </Shape>
         </transform>
-        <transform translation="0 30 0">
+        <!-- потолок -->
+        <transform translation="0 45 0">
           <Shape>
             <Appearance>
               <Material diffuseColor='#c0c0c0'></Material>
@@ -32,31 +34,32 @@
             <Box size="80 0.01 40"></Box>
           </Shape>
         </transform>
-        <transform translation="0 15 -20">
+        <!-- стены -->
+        <transform translation="0 22.5 -20">
           <Shape>
             <Appearance>
               <ImageTexture url="https://raw.githubusercontent.com/mihalichpalich/icg_labwork4/gh-pages/wall.jpg"></ImageTexture>
               <TextureTransform  scale="2 2"></TextureTransform>
             </Appearance>
-            <Box size="80 30 0.01"></Box>
+            <Box size="80 45 0.01"></Box>
           </Shape>
         </transform>
-        <transform translation="-40 15 0">
+        <transform translation="-40 22.5 0">
           <Shape>
             <Appearance>
               <ImageTexture url="https://raw.githubusercontent.com/mihalichpalich/icg_labwork4/gh-pages/wall.jpg"></ImageTexture>
               <TextureTransform  scale="2 2"></TextureTransform>
             </Appearance>
-            <Box size="0.01 30 40"></Box>
+            <Box size="0.01 45 40"></Box>
           </Shape>
         </transform>
-        <transform translation="40 15 0">
+        <transform translation="40 22.5 0">
           <Shape>
             <Appearance>
               <ImageTexture url="https://raw.githubusercontent.com/mihalichpalich/icg_labwork4/gh-pages/wall.jpg"></ImageTexture>
               <TextureTransform  scale="2 2"></TextureTransform>
             </Appearance>
-            <Box size="0.01 30 40"></Box>
+            <Box size="0.01 45 40"></Box>
           </Shape>
         </transform> 
 
@@ -71,20 +74,20 @@
           </Shape>
         </transform>
         <!-- отверстия -->
-        <transform translation="-40 15 0">
+        <transform translation="-40 16.5 0">
           <Shape>
             <Appearance>
               <Material diffuseColor='black'></Material>
             </Appearance>
-            <Box size="0.02 7 8"></Box>
+            <Box size="0.02 10 8"></Box>
           </Shape>
         </transform>
-        <transform translation="40 15 0">
+        <transform translation="40 16.5 0">
           <Shape>
             <Appearance>
               <Material diffuseColor='black'></Material>
             </Appearance>
-            <Box size="0.02 7 8"></Box>
+            <Box size="0.02 10 8"></Box>
           </Shape>
         </transform>
         <!-- сама лента -->
@@ -96,25 +99,111 @@
             <Box size="80 0.01 8"></Box>
           </Shape>
         </transform>
-        <!-- цилиндры -->
-        <group DEF="tsylindry">
-          <transform translation="-35 9.7 0" rotation="1 0 0 -1.57">
+        <!-- барабаны -->
+        <transform translation="-30 9.7 0" rotation="1 0 0 -1.57">
+          <group DEF="baraban">
             <shape>
               <Appearance>
                 <Material diffuseColor='#c0c0c0'></Material>
               </Appearance>
               <cylinder radius="1.7" height="8" solid="false"></cylinder>
             </shape>
-            <transform translation="0 -4 0">
+            <transform DEF="gear" translation="0 -4 0">
               <shape>
                 <Appearance>
                   <ImageTexture url="https://raw.githubusercontent.com/mihalichpalich/icg_labwork4/gh-pages/gear.png"></ImageTexture>
                 </Appearance>
                 <cylinder radius="1.7" height="0.01" solid="false"></cylinder>
               </shape>
-            </transform>         
-          </transform>
-        </group>
+            </transform>  
+          </group>       
+        </transform>
+
+        <transform translation="0 9.7 0" rotation="1 0 0 -1.57">
+          <group USE="baraban"></group>
+        </transform>
+
+        <transform translation="15 9.7 0" rotation="1 0 0 -1.57">
+          <group USE="baraban"></group>
+        </transform>
+
+        <transform translation="30 9.7 0" rotation="1 0 0 -1.57">
+          <group USE="baraban"></group>
+        </transform>
+
+        <transform translation="-15 9.7 0" rotation="1 0 0 -1.57">
+          <group USE="baraban"></group>
+        </transform>
+
+        <!-- пресс -->
+        <transform DEF="cylindr" translation="0 45 0">
+          <shape>
+            <Appearance>
+              <Material diffuseColor='#475258'></Material>
+            </Appearance>
+            <cylinder radius="1" height="25" solid="false"></cylinder>
+          </shape>
+        </transform>
+        <transform DEF="box_press" translation="0 32 0">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='#475258'></Material>
+            </Appearance>
+            <Box size="10 1 10"></Box>
+          </Shape>
+        </transform>
+
+        <!-- коробочка -->
+        <transform DEF="box" translation="-45 16.5 0">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='#ad8762'></Material>
+            </Appearance>
+            <Box size="10 10 8"></Box>
+          </Shape>
+        </transform>
+
+        <!-- АНИМАЦИИ -->
+        <!-- анимация барабанов -->
+        <TimeSensor DEF='rotation_start' cycleInterval='6' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='rotation_end' key='0 0.5 1' keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'></OrientationInterpolator>
+        <ROUTE fromNode='rotation_start' fromField='fraction_changed' 
+               toNode='rotation_end' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='rotation_end' fromField='value_changed' 
+               toNode='gear' toField='set_rotation'>
+        </ROUTE>
+
+        <!-- анимация пресса -->
+        <!-- анимация цилиндра -->
+        <TimeSensor DEF='Time_cylindr' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='cylindr_pos' key='0 1' keyValue='0 45 0, 0 35 0'></PositionInterpolator>
+        <ROUTE fromNode='Time_cylindr' fromField='fraction_changed' 
+               toNode='cylindr_pos' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='cylindr_pos' fromField='value_changed' 
+               toNode='cylindr' toField='set_translation'>
+        </ROUTE>
+        <!-- анимация бокса -->
+        <TimeSensor DEF='Time_box_press' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='box_press_pos' key='0 1' keyValue='0 32 0, 0 22 0'></PositionInterpolator>
+        <ROUTE fromNode='Time_box_press' fromField='fraction_changed' 
+               toNode='box_press_pos' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='box_press_pos' fromField='value_changed' 
+               toNode='box_press' toField='set_translation'>
+        </ROUTE>
+
+        <!-- анимация коробки -->
+        <TimeSensor DEF='box_move' cycleInterval='10' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='box_pos' key='0 1' keyValue='-45 16.5 0, 45 16.5 0'></PositionInterpolator>
+        <ROUTE fromNode='box_move' fromField='fraction_changed' 
+               toNode='box_pos' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='box_pos' fromField='value_changed' 
+               toNode='box' toField='set_translation'>
+        </ROUTE>
+
       </scene>
     </x3d>
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
