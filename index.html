@@ -94,7 +94,7 @@
         <transform translation="0 11.5 0">
           <Shape>
             <Appearance>
-              <Material diffuseColor='#e9e9e9'></Material>
+              <Material DEF="string"></Material>
             </Appearance>
             <Box size="80 0.01 8"></Box>
           </Shape>
@@ -157,7 +157,8 @@
         <transform DEF="box" translation="-45 16.5 0">
           <Shape>
             <Appearance>
-              <Material diffuseColor='#ad8762'></Material>
+              <ImageTexture url="https://raw.githubusercontent.com/mihalichpalich/icg_labwork4/gh-pages/karton.jpg"></ImageTexture>
+              <TextureTransform  scale="2 2"></TextureTransform>
             </Appearance>
             <Box size="10 10 8"></Box>
           </Shape>
@@ -172,12 +173,12 @@
         </ROUTE>
         <ROUTE fromNode='rotation_end' fromField='value_changed' 
                toNode='gear' toField='set_rotation'>
-        </ROUTE>
+        </ROUTE>       
 
         <!-- анимация пресса -->
         <!-- анимация цилиндра -->
-        <TimeSensor DEF='Time_cylindr' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
-        <PositionInterpolator DEF='cylindr_pos' key='0 1' keyValue='0 45 0, 0 35 0'></PositionInterpolator>
+        <TimeSensor DEF='Time_cylindr' cycleInterval='10' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='cylindr_pos' key='0 0.5 1' keyValue='0 45 0, 0 35 0, 0 45 0'></PositionInterpolator>
         <ROUTE fromNode='Time_cylindr' fromField='fraction_changed' 
                toNode='cylindr_pos' toField='set_fraction'>
         </ROUTE>
@@ -185,8 +186,8 @@
                toNode='cylindr' toField='set_translation'>
         </ROUTE>
         <!-- анимация бокса -->
-        <TimeSensor DEF='Time_box_press' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
-        <PositionInterpolator DEF='box_press_pos' key='0 1' keyValue='0 32 0, 0 22 0'></PositionInterpolator>
+        <TimeSensor DEF='Time_box_press' cycleInterval='10' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='box_press_pos' key='0 0.5 1' keyValue='0 32 0, 0 22 0, 0 32 0'></PositionInterpolator>
         <ROUTE fromNode='Time_box_press' fromField='fraction_changed' 
                toNode='box_press_pos' toField='set_fraction'>
         </ROUTE>
@@ -203,6 +204,19 @@
         <ROUTE fromNode='box_pos' fromField='value_changed' 
                toNode='box' toField='set_translation'>
         </ROUTE>
+
+        <!-- анимация ленты -->
+        <TimeSensor DEF='Time_string' cycleInterval='10' loop='true'></TimeSensor>
+        <ColorInterpolator DEF='ColString' key='0 0.5 0.6 1' keyValue='1 0 0, 1 0 0, 0 1 0, 0 1 0'></ColorInterpolator>
+        <ROUTE fromNode='Time_string' fromField='fraction_changed'
+               toNode='ColString' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='ColString' fromField='value_changed' 
+               toNode='string' toField='set_diffuseColor'>
+        </ROUTE>
+
+        <!-- Камера -->
+        <Viewpoint description="Начальный вид" position="0 28 60" orientation="1 0 0 -0.1"></Viewpoint>
 
       </scene>
     </x3d>
