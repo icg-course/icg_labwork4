@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css"  ></link>
 
     <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
@@ -299,16 +299,17 @@
         <!-- laba4 -->
 
         <TimeSensor DEF='TIME' loop='true' cycleInterval='5'></TimeSensor>
+        <TimeSensor DEF='TIME2' loop='true' cycleInterval='0.03'></TimeSensor>
         <!-- <TimeSensor DEF='TIME' cycleInterval='5'></TimeSensor>
         <TouchSensor DEF='TOUCH' description='touch to activate'></TouchSensor> -->
         <PositionInterpolator DEF='INTERP' key='0 0.2 0.4 0.6 0.8 1' keyValue='0 0 0, 0 2 -3, 0 3 -6, 0 3 -9, 0 2.5 -13, 0 1 -13.7'></PositionInterpolator>
-        <OrientationInterpolator DEF='OINTERP' key = '0 0.8 1' keyValue='0 0 0, 0 1 0, 1 1 1'></OrientationInterpolator>
+        <OrientationInterpolator DEF='OINTERP2' key = '0 1' keyValue='0 0 1 2.5, 0 0 1 3.14'></OrientationInterpolator>
         <ColorInterpolator DEF='COLOR' key="0, 0.3333, 0.6666, 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0"></ColorInterpolator>
 
         <Transform DEF='BALL'>
           <!-- Windgs -->
-          <Transform translation="4 2.5 2.7" rotation="0 1 0 -0.55">
-            <Shape DEF = 'Wing1'>
+          <Transform translation="3.9 2.3 0.5" center='-4.5 -2.0 -.5' rotation="0 1 0 -0.55" DEF = 'Wing1'>
+            <Shape >
               <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 -1' solid='false'>
                 <Coordinate point='-4.0 -1.0 -.5 -4.5 -2.0 -.5 -3.0 -.5 0 -2.5 -1.5 -.5 -2.0 -.5 -1 -1.5 -1.5 -.5 -.5 .5 -.5 0 0 0 1 .5 -.5 1.5 -2.0 -1 2.5 -2.0 -.5 2.5 -2.5 -.5 3.5 -2.0 -1.0'></Coordinate>
               </IndexedTriangleStripSet>
@@ -318,20 +319,22 @@
             </Shape>
           </Transform>
 
-          <Transform translation="-4.7 2.5 -0.4" rotation="0 1 0 3.14">
-            <Shape DEF = 'Wing2'>
-              <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 -1' solid='false'>
-                <Coordinate point='-4.0 -1.0 -.5 -4.5 -2.0 -.5 -3.0 -.5 0 -2.5 -1.5 -.5 -2.0 -.5 -1 -1.5 -1.5 -.5 -.5 .5 -.5 0 0 0 1 .5 -.5 1.5 -2.0 -1 2.5 -2.0 -.5 2.5 -2.5 -.5 3.5 -2.0 -1.0'></Coordinate>
-              </IndexedTriangleStripSet>
-              <Appearance>
-                <Material DEF = 'ColorWing2' diffuseColor='1 1 1'></Material>
-              </Appearance>
-            </Shape>
+          <Transform  translation="-2.9 0.5 -0.5"  rotation="0 1 0 3.14" >
+            <Transform DEF = 'Wing2' center='-4.0 -1.0 -.5'>
+              <Shape >
+                <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 -1' solid='false'>
+                  <Coordinate point='-4.0 -1.0 -.5 -4.5 -2.0 -.5 -3.0 -.5 0 -2.5 -1.5 -.5 -2.0 -.5 -1 -1.5 -1.5 -.5 -.5 .5 -.5 0 0 0 1 .5 -.5 1.5 -2.0 -1 2.5 -2.0 -.5 2.5 -2.5 -.5 3.5 -2.0 -1.0'></Coordinate>
+                </IndexedTriangleStripSet>
+                <Appearance>
+                  <Material DEF = 'ColorWing2' diffuseColor='1 1 1'></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
           </Transform>
 
           <!-- ball -->
           <Transform>
-            <Transform translation="-0.7 -0.7 0.7">
+            <Transform translation="-0.7 -0.7 0.7" >
               <Shape>
                 <Appearance>
                   <Material></Material>
@@ -357,6 +360,9 @@
 
         </Transform>
 
+
+
+
         <!-- <ROUTE fromNode='TOUCH' fromField='touchTime' toNode='TIME' toField='startTime'></ROUTE> -->
         <ROUTE fromNode='TIME' fromField='fraction_changed' toNode='INTERP' toField='set_fraction'></ROUTE>
         <ROUTE fromNode='INTERP' fromField='value_changed' toNode='BALL' toField='translation'></ROUTE>
@@ -364,6 +370,16 @@
         <ROUTE fromNode='TIME' fromField='fraction_changed' toNode='COLOR' toField='set_fraction'></ROUTE>
         <ROUTE fromNode='COLOR' fromField='value_changed' toNode='ColorWing1' toField='set_diffuseColor'></ROUTE>
         <ROUTE fromNode='COLOR' fromField='value_changed' toNode='ColorWing2' toField='set_diffuseColor'></ROUTE>
+
+
+
+        <!-- <ROUTE fromNode='TIME2' fromField='fraction_changed' toNode='OINTERP2' toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='OINTERP2' fromField='value_changed' toNode='BALL' toField='set_rotation'></ROUTE> -->
+
+        <ROUTE fromNode='TIME2' fromField='fraction_changed' toNode='OINTERP2' toField='set_fraction'></ROUTE>
+        <ROUTE fromNode='OINTERP2' fromField='value_changed' toNode='Wing1' toField='set_rotation'></ROUTE>
+        <ROUTE fromNode='OINTERP2' fromField='value_changed' toNode='Wing2' toField='set_rotation'></ROUTE>
+
 
         <!-- laba5 -->
       </scene>
