@@ -94,7 +94,7 @@
         <transform translation="0 11.5 0">
           <Shape>
             <Appearance>
-              <Material DEF="string"></Material>
+              <Material></Material>
             </Appearance>
             <Box size="80 0.01 8"></Box>
           </Shape>
@@ -153,6 +153,16 @@
           </Shape>
         </transform>
 
+        <!-- лампочка -->
+        <transform translation="15 5 5" rotation="1 0 0 1.57">
+          <Shape>
+            <Appearance>
+              <Material DEF="lamp" diffuseColor="red"></Material>
+            </Appearance>
+            <Dish radius="3" height="0.5"></Dish> 
+          </Shape>
+        </transform>
+
         <!-- коробочка -->
         <transform DEF="box" translation="-45 16.5 0">
           <Shape>
@@ -205,14 +215,14 @@
                toNode='box' toField='set_translation'>
         </ROUTE>
 
-        <!-- анимация ленты -->
-        <TimeSensor DEF='Time_string' cycleInterval='10' loop='true'></TimeSensor>
-        <ColorInterpolator DEF='ColString' key='0 0.5 0.6 1' keyValue='1 0 0, 1 0 0, 0 1 0, 0 1 0'></ColorInterpolator>
-        <ROUTE fromNode='Time_string' fromField='fraction_changed'
-               toNode='ColString' toField='set_fraction'>
+        <!-- анимация лампочки -->
+        <TimeSensor DEF='Time_lamp' cycleInterval='10' loop='true'></TimeSensor>
+        <ColorInterpolator DEF='Collamp' key='0 0.5 0.6 1' keyValue='1 0 0, 1 0 0, 0 1 0, 0 1 0'></ColorInterpolator>
+        <ROUTE fromNode='Time_lamp' fromField='fraction_changed'
+               toNode='Collamp' toField='set_fraction'>
         </ROUTE>
-        <ROUTE fromNode='ColString' fromField='value_changed' 
-               toNode='string' toField='set_diffuseColor'>
+        <ROUTE fromNode='Collamp' fromField='value_changed' 
+               toNode='lamp' toField='set_diffuseColor'>
         </ROUTE>
 
         <!-- Камера -->
@@ -220,6 +230,6 @@
 
       </scene>
     </x3d>
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
   </body> 
 </html>
