@@ -1,13 +1,214 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<head>
+  <meta charset="utf-8" />
+  <title>Лаба 1</title>
+   <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+  <script src="https://www.x3dom.org/download/1.7.2/x3dom-full.js"></script>
+</head>
+<body>
+  <h1>Забиваю на баги</h1>
+  <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom" style="width:100%; height:100%">    
+    <Scene>
+<!--Комната-->
+<Transform translation="0 15 0">
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='gray'></Material>
+    </Appearance>
+    <Box size="600 400 1000" solid="false"></Box>
+  </Shape>
+</Transform>
+<!--Камера-->
+  <Viewpoint description="Начальный вид" position="0 20 40"></Viewpoint>
+
+<Transform translation="0 5 0">
+          <Shape>
+            <Appearance> 
+              <Material diffuseColor='red'></Material>
+            </Appearance>
+            <Box size="24 3 24" solid="false"></Box>
+          </Shape>
+        </Transform>
+
+        <Transform translation="-11.9 12 0" rotation="0 1 0 1.57">
+          <Shape DEF="stol">
+            <Appearance> 
+              <Material diffuseColor='red'></Material>
+            </Appearance>
+            <Box size="24 12 0.3" solid="false"></Box>
+          </Shape>
+        </Transform>
+
+         <Transform translation="11.9 12 0" rotation="0 1 0 1.57">
+          <Shape USE="stol">
+          </Shape>
+        </Transform>
+
+        <Transform translation="0 12 11.9">
+          <Shape USE="stol">
+          </Shape>
+        </Transform>
+        
+        <Transform translation="0 12 -11.9">
+          <Shape USE="stol">
+          </Shape>
+        </Transform>
+
+         <Transform translation="0 12 4">
+          <Shape USE="stol">
+          </Shape>
+        </Transform>
+
+      <Transform translation="0 12 -4">
+          <Shape USE="stol">
+          </Shape>
+        </Transform>
+
+        <Transform translation="4 12 0" rotation="0 1 0 1.57">
+          <Shape USE="stol">
+          </Shape>
+        </Transform>
+
+        <Transform translation="-4 12 0" rotation="0 1 0 1.57">
+          <Shape USE="stol">
+          </Shape>
+        </Transform>
+
+<Transform translation="0 5 0">
+          <Shape>
+            <Appearance> 
+              <Material diffuseColor='red'></Material>
+            </Appearance>
+            <Box size="24 3 24" solid="false"></Box>
+          </Shape>
+        </Transform>
+
+        <TimeSensor DEF='Timeup' cycleInterval="2"    loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'  keyValue='0 0 0,0 0 0, 0 15 0, 0 0 0,0 0 0,0 0 0 ,0 0 0, 0 0 0 , 0 0 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG'> 
+     <Transform translation="0 4 0" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup" fromField="fraction_changed" toNode="PosIntR" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR" fromField="value_changed" toNode="TrG" toField="set_translation"></ROUTE>
+      
+
+       
+     <TimeSensor DEF='Timeup1' cycleInterval="2"  loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR1'  key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'  keyValue='0 0 0,0 0 0, 0 0 0, 0 0 0,0 15 0,0 0 0 ,0 0 0, 0 0 0 , 0 0 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG1'> 
+     <Transform translation="-8 4 0" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup1" fromField="fraction_changed" toNode="PosIntR1" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR1" fromField="value_changed" toNode="TrG1" toField="set_translation"></ROUTE>
+
+   <TimeSensor DEF='Timeup2' cycleInterval="2"   loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR2' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1' keyValue='0 0 0,0 0 0, 0 0 0, 0 15 0,0 0 0,0 0 0 ,0 0 0, 0 0 0 , 0 0 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG2'> 
+     <Transform translation="8 4 0" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup2" fromField="fraction_changed" toNode="PosIntR2" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR2" fromField="value_changed" toNode="TrG2" toField="set_translation"></ROUTE>
+
+
+     <TimeSensor DEF='Timeup3' cycleInterval="2"  loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR3' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'  keyValue='0 0 0,0 15 0, 0 0 0, 0 0 0,0 0 0,0 0 0 ,0 0 0, 0 0 0 , 0 0 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG3'> 
+     <Transform translation="-8 4 -8" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup3" fromField="fraction_changed" toNode="PosIntR3" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR3" fromField="value_changed" toNode="TrG3" toField="set_translation"></ROUTE>
+      
+
+     <TimeSensor DEF='Timeup4' cycleInterval="2"   loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR4' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1' keyValue='0 0 0,0 0 0, 0 0 0, 0 0 0,0 0 0,0 0 0 ,0 15 0, 0 0 0 , 0 0 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG4'> 
+     <Transform translation="0 4 -8" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup4" fromField="fraction_changed" toNode="PosIntR4" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR4" fromField="value_changed" toNode="TrG4" toField="set_translation"></ROUTE>
+       
+       <TimeSensor DEF='Timeup5' cycleInterval="2"  loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR5' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1' keyValue='0 0 0,0 0 0, 0 0 0, 0 0 0,0 0 0,0 0 0 ,0 0 0, 0 0 0 , 0 0 0,0 15 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG5'> 
+     <Transform translation="-8 4 8" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup5" fromField="fraction_changed" toNode="PosIntR5" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR5" fromField="value_changed" toNode="TrG5" toField="set_translation"></ROUTE>
+
+      
+ <TimeSensor DEF='Timeup6' cycleInterval="2"  loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR6' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1' keyValue='0 0 0,0 0 0, 0 0 0, 0 0 0,0 0 0,0 0 0 ,0 0 0, 0 0 0 , 0 15 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG6'> 
+     <Transform translation="8 4 -8" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup6" fromField="fraction_changed" toNode="PosIntR6" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR6" fromField="value_changed" toNode="TrG6" toField="set_translation"></ROUTE>
+
+ <TimeSensor DEF='Timeup7' cycleInterval="2"  loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR7' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1' keyValue='0 0 0,0 0 0, 0 0 0, 0 0 0,0 0 0,0 15 0 ,0 0 0, 0 0 0 , 0 0 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG7'> 
+     <Transform translation="0 4 8" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup7" fromField="fraction_changed" toNode="PosIntR7" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR7" fromField="value_changed" toNode="TrG7" toField="set_translation"></ROUTE>
+
+  <TimeSensor DEF='Timeup8' cycleInterval="2"  loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR8' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1' keyValue='0 0 0,0 0 0, 0 0 0, 0 0 0,0 0 0,0 0 0 ,0 0 0, 0 15 0 , 0 0 0,0 0 0,0 0 0'></PositionInterpolator>
+  <Transform DEF='TrG8'> 
+     <Transform translation="8 4 8" rotation="0 1 0 3.14"  scale="2 2 2">
+      <Inline url="andr.x3d" ></Inline>
+  </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup8" fromField="fraction_changed" toNode="PosIntR8" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR8" fromField="value_changed" toNode="TrG8" toField="set_translation"></ROUTE>
+
+  <TimeSensor DEF='Timetoroll' cycleInterval='1' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='OrInt'key='0 0.125 0.25 0.375 0.5  0.625 0.75 0.875 1' keyValue='1 0 0 0, 1 0 0 -1.57,1 0 0 0, 1 0 0 -1.57,1 0 0 0,1 0 0 -1.57,1 0 0 0,1 0 0 -1.57,1 0 0 0'></OrientationInterpolator>
+         <PositionInterpolator DEF='PosInt' key='0 0.125 0.25 0.375 0.5  0.625 0.75 0.875 1' keyValue='0 45 0,-8 15 -4, 0 45 0, 8 15 -4, 0 45 0,8 15 12, 0 45 0, -8 15 12, 0 45 0'></PositionInterpolator>
+        <Transform DEF='Tr0'translation='0 45 5'>
+          <Transform translation='0 5 5' rotation='1 0 0 -1.57' >
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FDD9B5'></Material>
+          </Appearance>
+          <Cylinder radius="3" height="10"></Cylinder>
+        </Shape>
+      </Transform>
+       <Transform translation='0 -5 5'  >
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#ff9538'></Material>
+          </Appearance>
+          <Cylinder radius="1" height="20"></Cylinder>
+        </Shape>
+      </Transform>
+    </Transform>
+
+  <ROUTE fromNode='Timetoroll' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'></ROUTE>
+  <ROUTE fromNode='PosInt' fromField='value_changed' toNode='Tr0' toField='set_translation'></ROUTE>
+      <ROUTE fromNode='Timetoroll' fromField='fraction_changed' toNode='OrInt' toField='set_fraction'></ROUTE>
+      <ROUTE fromNode='OrInt' fromField='value_changed' toNode='Tr0' toField='set_rotation'></ROUTE>
+  
+
+
+  </Scene>
+</X3D>
+</body>
 </html>
