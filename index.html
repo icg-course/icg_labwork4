@@ -1,13 +1,372 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<head>
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <title>Лабораторная работа 3</title>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+  <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+</head>
+<x3d style="left:0px; top:0px; width:100%; height:100%; border:none;">
+  <scene>
+    <!-- Объекты на сцене -->
+    <transform translation="0 0 0" rotation = "0 0 0 0">
+      <!--Безугольник бесконечно-вечности-->
+      <Group DEF="Nonegone">
+        <transform DEF="Wire1" translation="0 0 0" rotation = "1 0 0 -1.57">
+          <shape>
+            <IndexedLineSet coordIndex="
+            0 1 2 0 2 3 0 3 4 0 4 5 0 5
+            1 6 2 7 3 8 4 9 5 10 1
+            10 11 6 7 11 7 8 11 8 9 11 9 10 11 10 6
+
+             -1" 
+                    colorIndex="0 1 2 0 -1"
+                    colorPerVertex='true'> 
+              <Coordinate point="
+                    0 0 2,
+
+                    0.55277 1.70128 0.89443,
+                    1.78885 0  0.89443,
+                    0.55277 -1.70128 0.89443,
+                   -1.4472 -1.05144 0.89443,
+                   -1.4472 1.05144 0.89443,
+
+                    1.4472 1.05144 -0.89443,
+                    1.4472 -1.05144 -0.89443,
+                    -0.55277 -1.70128 -0.89443,
+                    -1.78885 0  -0.89443,
+                    -0.55277 1.70128 -0.89443,
+
+                    0 0 -2">
+                     
+              </Coordinate>
+              <Color color="
+                    1 1 1,
+
+                    0 0 1,
+                    0 1 0,
+                    1 0 0,
+                    0 1 0,
+                    0 0 1,
+
+                    1 0 0,
+                    0 1 0,
+                    0 0 1,
+                    0 1 0,
+                    1 0 0,
+
+                    1 1 1">              
+                </Color>
+            </IndexedLineSet>
+          </shape>
+        </transform>
+
+        <transform DEF="Wire2" translation="0 0 0" rotation = "1 0 0 0">
+          <shape>
+            <IndexedLineSet coordIndex="
+            0 1 2 0 2 3 0 3 4 0 4 5 0 5
+            1 6 2 7 3 8 4 9 5 10 1
+            10 11 6 7 11 7 8 11 8 9 11 9 10 11 10 6
+
+             -1" 
+                    colorIndex="0 1 2 0 -1"
+                    colorPerVertex='true'> 
+              <Coordinate point="
+                    0 0 2,
+
+                    0.55277 1.70128 0.89443,
+                    1.78885 0  0.89443,
+                    0.55277 -1.70128 0.89443,
+                   -1.4472 -1.05144 0.89443,
+                   -1.4472 1.05144 0.89443,
+
+                    1.4472 1.05144 -0.89443,
+                    1.4472 -1.05144 -0.89443,
+                    -0.55277 -1.70128 -0.89443,
+                    -1.78885 0  -0.89443,
+                    -0.55277 1.70128 -0.89443,
+
+                    0 0 -2">
+                     
+              </Coordinate>
+              <Color color="
+                    1 1 1,
+
+                    1 0 1,
+                    0 1 1,
+                    1 1 0,
+                    0 1 1,
+                    1 0 1,
+
+                    1 1 0,
+                    0 1 1,
+                    1 0 1,
+                    0 1 1,
+                    1 1 0,
+
+                    1 1 1">              
+                </Color>
+            </IndexedLineSet>
+          </shape>
+        </transform>
+
+        <!--Подпись
+        <transform translation="0 0 -3" rotation = "1 0 0 1.57">
+            <Anchor url="https://ru.wikipedia.org/wiki/Nonagon_Infinity">
+              <shape>
+                <appearance>
+                  <material diffuseColor="1 1 1"></material>
+                </appearance>
+                <text string="Nonagon of Infiternity" solid="false" >
+                  <fontstyle size = "1"></fontstyle>
+                </text>
+              </shape>
+            </Anchor>
+        </transform>-->
+      </Group>
+      <!--Пъедастрал парадоксов-->
+      <transform translation="0 0 0" rotation = "1 0 0 1.57" scale = "0.5 0.5 0.5">
+        <shape>
+          <IndexedFaceSet 
+              ccw="true" 
+              colorPerVertex="true" 
+              convex="true"                 
+              creaseAngle="0" 
+              solid="false"                 
+              coordIndex="
+              4 5 6 -1
+
+              0 1 2 -1
+              2 3 0 -1
+
+              0 4 1 -1
+
+              4 5 1 -1
+              1 5 2 -1
+
+              2 5 6 -1
+              2 6 3 -1
+
+              0 4 6 -1
+              0 3 6 -1
+               "                  
+              colorIndex="
+              3 0 2 -1
+
+              0 1 2 -1
+              2 3 0 -1
+
+              0 3 1 -1
+
+              3 0 1 -1
+              1 0 2 -1
+
+              2 0 1 -1
+              2 1 3 -1
+
+              0 3 1 -1
+              0 3 1 -1
+              ">   
+            <Coordinate point="
+               1 -1 -1,
+              -1 -1 -1,
+              -1  1 -1,
+               1  1 -1,
+
+               0 -0.707 1,
+              -0.707 0.5 1
+               0.707 0.5 1,
+               ">              
+            </Coordinate>   
+            <Color color="
+                1 1 0,
+                1 0.5 1,
+                1 0 1,
+                0 1 1">              
+              </Color>
+          </IndexedFaceSet> 
+        </shape>
+
+        <!--Подпись-->
+        <transform translation= "1 -1 0" rotation = "1 0 0 1.57">
+          <Anchor url="https://zhitanska.com/content/paradoksy-vselennoj">
+            <shape>
+              <appearance>
+                <material diffuseColor="1 1 1"></material>
+              </appearance>
+              <text string="Pedestral of Paradox" solid="false" >
+                <fontstyle size = "0.6"></fontstyle>
+              </text>
+            </shape>
+          </Anchor>
+        </transform>
+
+        <!--Атоматрикс сингуфлияции-->
+        <transform DEF="Diamond" translation= "0 0 1.5">
+          <shape>
+            <appearance>
+              <TextureTransform scale="1 1"></TextureTransform>
+              <ImageTexture url ="diamond.jpg" repeatS="True" repeatT="True"></ImageTexture>
+            </appearance>
+            <box size="0.3 0.3 0.3"></box>
+          </shape>
+          <!--Подпись-->
+          <transform translation= "0 -0.75 -0.5" rotation = "1 0 0 1.57">
+            <shape>
+              <appearance>
+                <material diffuseColor="1 1 1"></material>
+              </appearance>
+              <text string="Atomatrix of Singuflation" solid="false" >
+                <fontstyle size = "0.25"></fontstyle>
+              </text>
+            </shape>
+          </transform>
+        </transform>
+      </transform>
+      <!--Самоцветы вокруг-->
+      <transform DEF="Glowstones">
+        <!--Рубин-->
+        <transform translation="2.25 -1 2.25">
+          <inline url="octaedr-ruby.html">
+          <!-- Источник света -->
+          <shape>
+            <PointLight location = "2.25 -1 2.25" color = "1 0 0" radius = "4" global = "false">          
+            </PointLight>
+          </shape>
+        </transform>
+        <!--Сапфир-->
+        <transform translation="-2.25 -1 2.25">
+          <inline url="octaedr-saphire.html">
+          <!-- Источник света -->
+          <shape>
+            <PointLight location = "-2.25 -1 2.25" color = "0 0 1" radius = "4" global = "false">          
+            </PointLight>
+          </shape>
+        </transform>
+        <!--Изумруд-->
+        <transform translation="2.25 -1 -2.25">
+          <inline url="octaedr-emerald.html">
+          <!-- Источник света -->
+          <shape>
+            <PointLight location = "2.25 -1 -2.25" color = "0 1 0" radius = "4" global = "false">          
+            </PointLight>
+          </shape>
+        </transform>
+        <!--Янтарь-->
+        <transform translation="-2.25 -1 -2.25">
+          <inline url="octaedr-ember.html">
+          <!-- Источник света -->
+          <shape>
+            <PointLight location = "-2.25 -1 -2.25" color = "1 1 0" radius = "4" global = "false">          
+            </PointLight>
+          </shape>
+        </transform>
+      </transform>
+
+      <!-- Обезъянка -->
+      <transform DEF="Monkey0" translation = "0 0 3" scale = "0.5 0.5 0.5" rotation = "0 0 1 3.14">
+        <inline url="blender-monkey.x3d">
+      </transform>
+      <transform DEF="Monkey1" translation = "3 0 0" scale = "0.5 0.5 0.5" rotation = "0 1 0 3.14">
+        <inline url="blender-monkey.x3d">
+      </transform>
+      <transform DEF="Monkey2" translation = "0 0 -3" scale = "0.5 0.5 0.5" rotation = "1 0 0 3.14">
+        <inline url="blender-monkey.x3d">
+      </transform>
+      <transform DEF="Monkey3" translation = "-3 0 0" scale = "0.5 0.5 0.5" rotation = "0 0 1 3.14">
+        <inline url="blender-monkey.x3d">
+      </transform>
+    </transform>
+
+    <!-- Оси -->
+    <transform>
+      <inline url="axis.html">
+    </transform>
+
+    <!-- Фон 
+    <Background backurl="image_2285e-Quasars.jpg"></Background>-->
+
+    <!-- Туман -->
+    <Fog color = "0.25 0 0.75" fogType  = "EXPONENTIAL" visibilityRange = "40"></Fog>
+
+    <!-- Навигация
+    <NavigationInfo headlight="true" type="EXAMINE"></NavigationInfo>
+    <Viewpoint description="Start View" orientation="0 0 1 0" position="0 0 10"></Viewpoint>
+    <Viewpoint description="Next View" orientation="0 1 0 3.14" position=" 0 0 -10"></Viewpoint>
+    <Viewpoint description="Next View" orientation="1 0 0 3.14" position=" 0 0 -3"></Viewpoint>
+    <Viewpoint description="Next View" orientation="1 0 0 3.14" position=" 0 0 -40"></Viewpoint>-->
+
+    <!-- Анимация -->
+    <!-- Таймеры -->
+    <TimeSensor DEF="Timer0" cycleInterval="1.618" loop="true"></TimeSensor>
+    <TimeSensor DEF="Timer1" cycleInterval="3" loop="true"></TimeSensor>
+    <TimeSensor DEF="Timer2" cycleInterval="7" loop="true"></TimeSensor>
+    <TimeSensor DEF="Timer3" cycleInterval="11" loop="true"></TimeSensor>
+
+
+    <!-- Интерполяторы -->
+    <OrientationInterpolator DEF="OrientM0" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"> 
+    </OrientationInterpolator>
+    <OrientationInterpolator DEF="OrientM1" key="0, 0.5, 1" keyValue="0 0 1 0, 0 0 1 3.14, 0 0 1 6.28"> 
+    </OrientationInterpolator>
+    <OrientationInterpolator DEF="OrientM2" key="0, 0.5, 1" keyValue="1 0 0 0, 1 0 0 3.14, 1 0 0 6.28"> 
+    </OrientationInterpolator>
+    <OrientationInterpolator DEF="OrientM3" key="0, 0.5, 1" keyValue="1 1 1 0, 1 1 1 3.14, 1 1 1 6.28"> 
+    </OrientationInterpolator>
+    <OrientationInterpolator DEF="OrientGStones" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"> 
+    </OrientationInterpolator>
+    <OrientationInterpolator DEF="OrientWire1" key="0, 0.5, 1" keyValue="1 1 1 0, 1 1 1 3.14, 1 1 1 6.28"> 
+    </OrientationInterpolator>
+    <OrientationInterpolator DEF="OrientWire2" key="0, 0.5, 1" keyValue="1 1 1 0, 1 1 1 3.14, 1 1 1 6.28"> 
+    </OrientationInterpolator>
+    <PositionInterpolator DEF="PosDiamond" key="0 0.23 0.5 0.75 1" keyValue="0 0 1.5, 0 0 1.75, 0 0 2, 0 0 1.75, 0 0 1.5"> 
+    </PositionInterpolator> 
+
+    <!-- Связи -->
+    <!-- Обезьяна 0 -->
+    <ROUTE fromNode="Timer1" fromField="fraction_changed" 
+            toNode="OrientM0" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="OrientM0" fromField="value_changed" 
+            toNode="Monkey0" toField="set_rotation"> </ROUTE>
+    <!-- Обезьяна 1 -->
+    <ROUTE fromNode="Timer1" fromField="fraction_changed" 
+            toNode="OrientM1" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="OrientM1" fromField="value_changed" 
+            toNode="Monkey1" toField="set_rotation"> </ROUTE> 
+    <!-- Обезьяна 2 -->
+    <ROUTE fromNode="Timer1" fromField="fraction_changed" 
+            toNode="OrientM2" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="OrientM2" fromField="value_changed" 
+            toNode="Monkey2" toField="set_rotation"> </ROUTE>
+    <!-- Обезьяна 3 -->
+    <ROUTE fromNode="Timer1" fromField="fraction_changed" 
+            toNode="OrientM3" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="OrientM3" fromField="value_changed" 
+            toNode="Monkey3" toField="set_rotation"> </ROUTE>
+    <!-- Самоцветы -->
+    <ROUTE fromNode="Timer2" fromField="fraction_changed" 
+            toNode="OrientGStones" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="OrientGStones" fromField="value_changed" 
+            toNode="Glowstones" toField="set_rotation"> </ROUTE>
+    <!-- Фрактал 1 -- >
+    <ROUTE fromNode="Timer0" fromField="fraction_changed" 
+            toNode="OrientWire1" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="OrientWire1" fromField="value_changed" 
+            toNode="Wire1" toField="set_rotation"> </ROUTE>
+    <!-- Фрактал 2 -->
+    <ROUTE fromNode="Timer0" fromField="fraction_changed" 
+            toNode="OrientWire2" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="OrientWire2" fromField="value_changed" 
+            toNode="Wire2" toField="set_rotation"> </ROUTE>
+    <!-- Алмаз -->
+    <ROUTE fromNode="Timer3" fromField="fraction_changed" 
+            toNode="PosDiamond" toField="set_fraction"> </ROUTE>
+    <ROUTE fromNode="PosDiamond" fromField="value_changed" 
+            toNode="Diamond" toField="set_translation"> </ROUTE>
+
+  </scene>
+</x3d>
+<body>
+</body>
 </html>

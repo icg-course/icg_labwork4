@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <title>Рубин</title>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+  <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+</head>
+<x3d style="left:0px; top:0px; width:100%; height:100%; border:none;">
+  <scene>
+    <background groundColor = "0 0 0" skyColor = "0 0 0"></background>
+    <transform rotation = "1 0 0 1.57" scale = "0.2 0.2 0.2">
+    	<shape>
+    		<appearance>
+  			 <material diffuseColor="1 0 0" shininess = "0.75"></material>
+    		</appearance>
+      		<IndexedFaceSet
+      			  ccw="true" 
+                  colorPerVertex="true" 
+                  convex="true"                 
+                  creaseAngle="0" 
+                  solid="false"
+                  coordIndex="
+                  0 1 2 -1
+                  0 2 3 -1
+                  0 3 4 -1
+                  0 4 1 -1
+
+                  5 1 2 -1
+                  5 2 3 -1
+                  5 3 4 -1
+                  5 4 1 -1
+                  ">
+                <Coordinate point="
+                   0 0 1,
+                   0.707 -0.707 0,
+                   -0.707 -0.707 0,
+                   -0.707 0.707 0,
+                   0.707 0.707 0,
+                   0 0 -1">              
+                </Coordinate>    
+      		</IndexedFaceSet>
+    	</shape>
+    </transform>
+  </scene>
+</x3d>
+<body>
+</body>
+</html>
