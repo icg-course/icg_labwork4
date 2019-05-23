@@ -1,0 +1,113 @@
+    <Scene>
+	  <!-- Тарелка    -->
+	    <Transform rotation="1 0 0 3.1416">
+		<Transform scale="2 2 2">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor="white"></Material>
+          </Appearance>
+          <Dish radius="0.5" height="1"></Dish> 
+        </Shape>
+		</Transform>
+		</Transform>
+		<Transform rotation="1 0 0 3.1416">
+		<Transform scale="1.7 1.7 1.7">
+		<Transform translation="0 -0.005 0">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor="red"></Material>
+          </Appearance>
+          <Dish radius="0.5" height="1"></Dish> 
+        </Shape>
+		</Transform>
+		</Transform>
+		</Transform>
+		
+		 <!-- макарошки    -->
+		<Transform rotation="1 0 0 -1.5708">
+         <Shape>
+          <Appearance>
+            <Material diffuseColor='yellow'></Material>
+          </Appearance>
+          <Cylinder radius="0.05" height="2"></Cylinder>
+        </Shape>
+        </Transform>
+		<Transform rotation="1 0 1 1.6">
+         <Shape>
+          <Appearance>
+            <Material diffuseColor='yellow'></Material>
+          </Appearance>
+          <Cylinder radius="0.05" height="2"></Cylinder>
+        </Shape>
+        </Transform>
+		<Transform rotation="0 0 1 1.55">
+		<Transform translation="0 0 1">
+         <Shape>
+          <Appearance>
+            <Material diffuseColor='yellow'></Material>
+          </Appearance>
+          <Cylinder radius="0.05" height="2"></Cylinder>
+        </Shape>
+        </Transform>
+		</Transform>
+		<Transform rotation="0 0 1 -1.5">
+		<Transform translation="0 0 -1">
+         <Shape>
+          <Appearance>
+            <Material diffuseColor='yellow'></Material>
+          </Appearance>
+          <Cylinder radius="0.05" height="2"></Cylinder>
+        </Shape>
+        </Transform>
+		</Transform>
+		<Transform rotation="1 1 0 2.8">
+		<Transform translation="0 0 0">
+         <Shape>
+          <Appearance>
+            <Material diffuseColor='yellow'></Material>
+          </Appearance>
+          <Cylinder radius="0.05" height="2"></Cylinder>
+        </Shape>
+        </Transform>
+		</Transform>
+		
+		 <!-- хлеб какой то    -->
+		<Transform rotation="1 1 0 1.5708">
+		<Transform scale="0.5 0.5 0.5">
+		<Transform translation="1 1 1.5">
+		<Shape>
+          <Torus innerRadius="0.3" outerRadius="1.0"></Torus>
+          <Appearance>
+            <Material diffuseColor="brown"></Material>
+          </Appearance>
+        </Shape>
+		</Transform>
+		</Transform>
+		
+		
+		
+		 <!-- сухарики    -->
+		<Transform scale="0.3 0.3 0.3">
+		<Transform translation="-0.1 2 1.5">
+		<Shape>
+          <Appearance>
+            <Material diffuseColor='orange'></Material>
+          </Appearance>
+          <Box size="1 1 1"></Box>
+        </Shape>
+		</Transform>
+		</Transform>
+		<Transform scale="0.3 0.3 0.3">
+		<Transform translation="1 -2.5 -0.7">
+		<Transform rotation="1 1 0 1.5708">
+		<Shape>
+          <Appearance>
+            <Material diffuseColor='orange'></Material>
+          </Appearance>
+          <Box size="1 1 1"></Box>
+        </Shape>
+		</Transform>
+		</Transform>
+		</Transform>	
+    </Transform>	
+  </Scene>
