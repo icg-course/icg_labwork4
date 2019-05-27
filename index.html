@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>Лаба 4</title>
+<link rel="stylesheet" href="https://www.x3dom.org/download/1.5.1/x3dom.css" />
+    <script src="https://www.x3dom.org/download/1.5.1/x3dom.js"></script>
+
   </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+  	<body>
+    <h1>Лаба 3</h1>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom" width='1000px' height='600px'>
+      <Scene>
+
+
+<TimeSensor DEF='Timetoroll' cycleInterval='5' loop='true'></TimeSensor> 
+<OrientationInterpolator DEF='OrInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator> 
+<PositionInterpolator DEF='PosInt' key='0 0.2 0.4 0.6 0.8 1' keyValue='0 0 0 5 0 0 6 0 8 -7 0 6 -5 0 4 0 0 0'></PositionInterpolator>
+
+<Transform rotation="0 0 1 -3.2" scale="5 5 5", Transform DEF="Tr">
+   <Transform translation="0 0 0" rotation="1 0 0 1.6">
+      <Inline url="logocopyVer2.x3d"></Inline>
+   </Transform>
+</Transform>
+
+          <ROUTE fromNode='Timetoroll' fromField='fraction_changed' toNode='OrInt' toField='set_fraction'></ROUTE> 
+<ROUTE fromNode='OrInt' fromField='value_changed' toNode='Tr' toField='set_rotation'></ROUTE> 
+<ROUTE fromNode='Timetoroll' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'></ROUTE> 
+<ROUTE fromNode='PosInt' fromField='value_changed' toNode='Tr' toField='set_translation'></ROUTE>
+
+
+
+<Transform translation='2 50 0' rotation="1 0 0 1.6">
+<shape>
+  <appearance> 
+    <ImageTexture url="guapbm.jpg"></ImageTexture>
+  </appearance>
+  <box size = "45 20 20"></box>
+</shape>
+</Transform>
+
+      <!--Камеры-->
+
+      <Viewpoint description="вьюпоинт 1" position="3 -10 0" orientation="1 0 0 1.6"></Viewpoint>
+
+
+      </Scene>
+    </X3D>
+  </body>
 </html>
