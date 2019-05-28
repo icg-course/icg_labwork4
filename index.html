@@ -1,13 +1,103 @@
-<!DOCTYPE html>
+<!--DOCTYPE html-->
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<head>
+  <meta charset="utf-8" />
+  <title>Gondola</title>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+  <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+</head>
+<body>
+  <X3D style="left:0px; top:0px; width:100%; height:100%; border: none;">
+    <Scene>
+      
+	
+	  
+      <!--Камеры в группе-->
+      <Viewpoint description="Начальный вид" position="0 16 40"></Viewpoint>
+      <Viewpoint description="Вид камера 1" position="-20 28 -20" orientation="0.2 1 0.3 -2.36"></Viewpoint>
+      <Viewpoint description="Вид камера 2" position="20 28 -20" orientation="-0.2 1 0.3 2.36"></Viewpoint>
+      <!--Коцен камер в группе-->
+	  
+
+      
+      <!--Гондола-->
+      <Transform translation="0 32 0" rotation = "0 1 0 -3.1" scale = "6 6 6">
+          <Inline url="gondola.x3d"></Inline>
+      </Transform>
+	  
+	  <!--Дерево-->
+	  <Transform translation="0 25 -18" rotation = "1 0 0 -0.4" scale = "1.2 1.2 1.2">
+          <Inline url="tree.x3d"></Inline>
+      </Transform>
+	  
+	  
+	  
+	  <transform def="SUN" translation="60 50 -80" scale = "5 5 5">
+          <shape>
+            <appearance>
+              <material def="SUN_col" diffuseColor="#ff0000"></material>
+            </appearance>
+            <sphere radius = "1"></sphere>
+          </shape>
+        </transform>
+	  
+	  <!--Земля-->
+	  <transform translation='0 0 -5' scale = "15 15 15">
+        <shape>
+            <appearance>
+              <ImageTexture url="earthmap1k.jpg" repeatS="True"  repeatT="True"></ImageTexture>
+              <TextureTransform translation = "0 0"></TextureTransform>
+              <TwoSidedMaterial shininess="0.0" backDiffuseColor="0 0 1" backShininess="0.0"
+               separateBackColor="true" backTransparency="0.0"></TwoSidedMaterial>
+            </appearance>
+            <sphere radius = "2"></sphere>
+        </shape>
+        </transform>
+		<!--Земля-->
+		<!--Конец ссылки-->
+		
+
+	<TimeSensor def="SUN_col_sensor" loop="true" cycleInterval="20"></TimeSensor>
+        <ColorInterpolator def="SUN_col_pos" key="0 0.5 1" keyValue="1 0 0, 0 1 0, 0 0 1">
+        </ColorInterpolator>
+        <Route fromNode="SUN_col_sensor" fromField="fraction_changed" toNode="SUN_col_pos" toField="set_fraction"></Route>
+        <Route fromNode="SUN_col_pos" fromField="value_changed" toNode="SUN_col" toField="set_diffuseColor"></Route>
+	  
+      <TimeSensor DEF='Timeup' cycleInterval="10"    loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'  keyValue='0 50 -15,0 45 -12, 0 30 -15, 0 25 -15,0 20 -17,0 15 -15 ,0 13 -11, 0 10 -14 , 0 7 -17,0 4 -13,0 0 -10'></PositionInterpolator>
+  <Transform DEF='TrG'> 
+     <!--Лист-->
+	  <Transform "translation="0 50 -15" rotation = "0 1 0 -3.1" scale = "2 2 2">
+          <Inline url="list.x3d"></Inline>
+      </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup" fromField="fraction_changed" toNode="PosIntR" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR" fromField="value_changed" toNode="TrG" toField="set_translation"></ROUTE>
+  
+  <TimeSensor DEF='Timeup2' cycleInterval="8"    loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR2' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'  keyValue='0 40 -30,0 33 -35, 0 30 -33, 0 27 -31,0 25 -28,0 15 -27 ,0 13 -30, 0 10 -33 , 0 7 -17,0 4 -30,0 0 -27'></PositionInterpolator>
+  <Transform DEF='TrG2'> 
+     <!--Лист-->
+	  <Transform "translation="0 50 -15" rotation = "0 1 0 -3.1" scale = "2 2 2">
+          <Inline url="list.x3d"></Inline>
+      </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup2" fromField="fraction_changed" toNode="PosIntR2" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR2" fromField="value_changed" toNode="TrG2" toField="set_translation"></ROUTE>
+  
+  
+   <TimeSensor DEF='Timeup3' cycleInterval="12"    loop="true"></TimeSensor>
+  <PositionInterpolator DEF='PosIntR3' key='0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1'  keyValue='10 50 -7, 12 45 -10, 10 40 -8, 7 27 -12,6 25 -15,8 15 -11 ,14 13 -8, 15 10 -7 , 13 7 -10,10 4 -12,8 0 -10'></PositionInterpolator>
+  <Transform DEF='TrG3'> 
+     <!--Лист-->
+	  <Transform "translation="10 50 -7" rotation = "0 1 0 -3.1" scale = "2 2 2">
+          <Inline url="list.x3d"></Inline>
+      </Transform>
+  </Transform>
+  <ROUTE fromNode="Timeup3" fromField="fraction_changed" toNode="PosIntR3" toField="set_fraction"></ROUTE>
+  <ROUTE fromNode="PosIntR3" fromField="value_changed" toNode="TrG3" toField="set_translation"></ROUTE>
+    
+    </Scene>
+  </X3D>
+</body>
 </html>
