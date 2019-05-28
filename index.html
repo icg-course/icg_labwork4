@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
@@ -8,6 +8,200 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <h1>Иванов А.В. 4642</h1>
+    <x3d id="x3d" xmlns="https://www.x3dom.org/x3dom"  style="width:100%; height:85%; border:none;">
+      <scene>
+        <transform def="robot">
+          <!-- Тело -->
+          <shape>
+            <appearance>
+              <imagetexture url="./1.png"></imagetexture>
+            </appearance>
+            <box size="1 1 1"></box>
+          </shape>
+          <!-- Ноги -->
+          <transform translation="-0.6 -0.4 -0.2" rotation="0 0 1 1.57">
+            <shape>
+              <appearance>
+                <imagetexture url="./2.jpg"></imagetexture>
+              </appearance>
+              <cylinder radius="0.3" height="0.2">
+              </cylinder>
+            </shape>
+          </transform>
+          <transform translation="-0.6 -0.4 0.3" rotation="0 0 1 1.57">
+            <shape>
+              <appearance>
+                <imagetexture url="./2.jpg"></imagetexture>
+              </appearance>
+              <cylinder radius="0.2" height="0.2">
+              </cylinder>
+            </shape>
+          </transform>
+
+          <transform translation="0.6 -0.4 -0.2" rotation="0 0 1 1.57">
+            <shape>
+              <appearance>
+                <imagetexture url="./2.jpg"></imagetexture>
+              </appearance>
+              <cylinder radius="0.3" height="0.2">
+              </cylinder>
+            </shape>
+          </transform>
+          <transform translation="0.6 -0.4 0.3" rotation="0 0 1 1.57">
+            <shape>
+              <appearance>
+                <imagetexture url="./2.jpg"></imagetexture>
+              </appearance>
+              <cylinder radius="0.2" height="0.2">
+              </cylinder>
+            </shape>
+          </transform>
+
+          <!-- Шея и голова -->
+          <transform translation="0 0.65 0">
+            <!-- Шея -->
+            <transform rotation="1 0 0 -0.7">
+              <shape>
+                <appearance>
+                  <imagetexture url="./2.jpg"></imagetexture>
+                </appearance>
+                <box size="0.2 0.5 0.1"></box>
+              </shape>
+            </transform>
+            <transform rotation="1 0 0 0.7" translation="0 0.3 0">
+              <shape>
+                <appearance>
+                  <imagetexture url="./2.jpg"></imagetexture>
+                </appearance>
+                <box size="0.2 0.5 0.1"></box>
+              </shape>
+            </transform>
+            <!-- Голова -->
+            <transform def="head" translation="0 0.45 0.1">
+              <shape>
+                <appearance>
+                  <imagetexture url="./2.jpg"></imagetexture>
+                </appearance>
+                <box size="0.7 0.3 0.4"></box>
+              </shape>
+              <transform translation="0.2 0 0.2">
+                <shape>
+                  <appearance>
+                    <TextureTransform scale="1.5 0.9" translation="0.15 0.1"></TextureTransform>
+                    <imagetexture url="./3.jpg"></imagetexture>
+                  </appearance>
+                  <sphere radius="0.11"></sphere>
+                </shape>
+              </transform>
+              <transform translation="-0.2 0 0.2">
+                <shape>
+                  <appearance>
+                    <TextureTransform scale="1.5 0.9" translation="0.15 0.1"></TextureTransform>
+                    <imagetexture url="./3.jpg"></imagetexture>
+                  </appearance>
+                  <sphere radius="0.11"></sphere>
+                </shape>
+              </transform>
+            </transform>
+          </transform>
+          <!-- Подъемник -->
+          <transform def="pod" translation="0 0 0.5">
+            <transform translation="-0.3 0 0">
+              <shape>
+                <appearance>
+                  <imagetexture url="./2.jpg"></imagetexture>
+                </appearance>
+                <box size="0.2 1.3 0.1"></box>
+              </shape>
+              <transform translation="0 -0.61 0.25">
+                <shape>
+                  <appearance>
+                    <imagetexture url="./2.jpg"></imagetexture>
+                  </appearance>
+                  <box size="0.2 0.05 0.4"></box>
+                </shape>
+              </transform>
+            </transform>
+
+            <transform translation="0.3 0 0">
+              <shape>
+                <appearance>
+                  <imagetexture url="./2.jpg"></imagetexture>
+                </appearance>
+                <box size="0.2 1.3 0.1"></box>
+              </shape>
+              <transform translation="0 -0.61 0.25">
+                <shape>
+                  <appearance>
+                    <imagetexture url="./2.jpg"></imagetexture>
+                  </appearance>
+                  <box size="0.2 0.05 0.4"></box>
+                </shape>
+              </transform>
+            </transform>
+          </transform>
+        </transform>
+        <!-- Груз -->
+        <transform def="cargo" translation="-1.2 0 2">
+          <shape>
+            <appearance>
+              <material def="cargo_col" diffuseColor="#ff0000"></material>
+            </appearance>
+            <box size="1 1 1"></box>
+          </shape>
+        </transform>
+        <!-- Земля -->
+        <transform rotation="1 0 0 -1.57" translation="0 -0.6 0">
+          <shape>
+            <appearance>
+              <material diffuseColor="#00ff00"></material>
+            </appearance>
+            <plane size="10 10"></plane>
+          </shape>
+        </transform>
+
+        <!-- Анимация -->
+        <!-- Движение робота вперед -->
+        <TimeSensor def="robot_move_sensor" loop="true" cycleInterval="20"></TimeSensor>
+        <PositionInterpolator def="robot_move_pos" key="0 0.5 0.75 1" keyValue="3 0 -3, 3 0 -3, 0 0 2, 0 0 2">
+        </PositionInterpolator>
+        <Route fromNode="robot_move_sensor" fromField="fraction_changed" toNode="robot_move_pos" toField="set_fraction"></Route>
+        <Route fromNode="robot_move_pos" fromField="value_changed" toNode="robot" toField="set_translation"></Route>
+
+        <TimeSensor def="robot_r1_sensor" loop="true" cycleInterval="20"></TimeSensor>
+        <OrientationInterpolator def="robot_r1_pos" key="0 0.5 0.75 1" keyValue="0 1 0 0, 0 1 0 0, 0 1 0 -1.57, 0 1 0 -1.57">
+        </OrientationInterpolator>
+        <Route fromNode="robot_r1_sensor" fromField="fraction_changed" toNode="robot_r1_pos" toField="set_fraction"></Route>
+        <Route fromNode="robot_r1_pos" fromField="value_changed" toNode="robot" toField="set_rotation"></Route>
+
+        <!-- Поворот головы  -->
+        <TimeSensor def="robot_r2_sensor" loop="true" cycleInterval="10"></TimeSensor>
+        <OrientationInterpolator def="robot_r2_pos" key="0 0.2 0.4 0.6 1" keyValue="0 1 0 0, 0 1 0 1.57, 0 1 0 0, 0 1 0 -1.57, 0 1 0 0">
+        </OrientationInterpolator>
+        <Route fromNode="robot_r2_sensor" fromField="fraction_changed" toNode="robot_r2_pos" toField="set_fraction"></Route>
+        <Route fromNode="robot_r2_pos" fromField="value_changed" toNode="head" toField="set_rotation"></Route>
+
+        <!-- Анимация подъемника -->
+        <TimeSensor def="robot_pod_sensor" loop="true" cycleInterval="20"></TimeSensor>
+        <PositionInterpolator def="robot_pod_pos" key="0 0.98 1" keyValue="0 0 0.5, 0 0 0.5, 0 1 0.5">
+        </PositionInterpolator>
+        <Route fromNode="robot_pod_sensor" fromField="fraction_changed" toNode="robot_pod_pos" toField="set_fraction"></Route>
+        <Route fromNode="robot_pod_pos" fromField="value_changed" toNode="pod" toField="set_translation"></Route>
+
+        <!-- Анимация груза -->
+        <TimeSensor def="cargo_sensor" loop="true" cycleInterval="20"></TimeSensor>
+        <PositionInterpolator def="cargo_pos" key="0 0.98 1" keyValue="-1.2 0 2, -1.2 0 2, -1.2 3 2">
+        </PositionInterpolator>
+        <Route fromNode="cargo_sensor" fromField="fraction_changed" toNode="cargo_pos" toField="set_fraction"></Route>
+        <Route fromNode="cargo_pos" fromField="value_changed" toNode="cargo" toField="set_translation"></Route>
+
+        <TimeSensor def="cargo_col_sensor" loop="true" cycleInterval="20"></TimeSensor>
+        <ColorInterpolator def="cargo_col_pos" key="0 0.5 1" keyValue="1 0 0, 0 1 0, 0 0 1">
+        </ColorInterpolator>
+        <Route fromNode="cargo_col_sensor" fromField="fraction_changed" toNode="cargo_col_pos" toField="set_fraction"></Route>
+        <Route fromNode="cargo_col_pos" fromField="value_changed" toNode="cargo_col" toField="set_diffuseColor"></Route>
+      </scene>
+    </x3d>
+  </body>
 </html>
