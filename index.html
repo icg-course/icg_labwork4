@@ -3,11 +3,445 @@
   <head>  
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>Magaz</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <h1>Risunok iz 3d</h1>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom" width = "1000" height = "700"> 
+    <Scene>
+
+      
+      
+           <Transform translation="0 15 0">
+             <Shape>
+               <Appearance>
+                 <Material diffuseColor="#FAFAD2"></Material>
+               </Appearance>
+               <Box size="150 50 150" solid="false"></Box>
+             </Shape>
+           </Transform>
+<Viewpoint description="Начальный вид" position="0 16 40" orientation="0 0 0 0"></Viewpoint>
+<Viewpoint description="2" position="-5 5 -5" orientation="2 5 -1 -1.36"></Viewpoint>
+<Viewpoint description="3" position="5 5 -5" orientation="-2 5 -1 1.36"></Viewpoint>
+<NavigationInfo avatarSize="8 12 0" type="WALK" speed="15"></NavigationInfo>
+
+
+
+<!--App Store-->
+           <Transform translation="0 15 -70">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Store.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="120 50 1" solid="false"></Box>
+             </Shape>
+           </Transform>
+          <!--Подставка-->
+           <Transform translation="0 -5 -60">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol1.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="25 1 7" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="11.5 -8.1 -62.5">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol1.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="1.5 -6 1.5" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="-11.5 -8.1 -62.5">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol1.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="1.5 -6 1.5" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="-11.5 -8.1 -57.5">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol1.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="1.5 -6 1.5" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="11.5 -8.1 -57.5">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol1.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="1.5 -6 1.5" solid="false"></Box>
+             </Shape>
+           </Transform>
+      <!--Яблоко-->
+           <transform DEF="let" translation="0 0 -50"> 
+              <shape> 
+                 <appearance> 
+                  <ImageTexture url="Apple.jpg" repeatT="false"></ImageTexture>  
+                 </appearance> 
+                 <sphere radius = "4"></sphere> 
+              </shape> 
+            </transform> 
+
+       <TimeSensor DEF='Time_box_press' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='box_press_pos' key='0 0.2 0.4 0.6 0.8 1' keyValue='10 15 -60 , 20 25 -60 , -10 15 -60 , -20 25 -60 , 10 15 -60 , 10 15 -60 '></PositionInterpolator>
+        <ROUTE fromNode='Time_box_press' fromField='fraction_changed' 
+               toNode='box_press_pos' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='box_press_pos' fromField='value_changed' 
+               toNode='let' toField='set_translation'>
+        </ROUTE>
+
+           
+
+<!--iPhone X-->
+<Transform DEF="telephone" translation="0 -0.5 -60" rotation='0 1 0 0.75' >  
+    <Collision enabled="true" bboxCenter="0 9 -5" bboxSize="18 18 10">
+        <transform translation='0 0 0'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Zfon.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "2.6 5 0.2"></box> 
+            </shape> 
+        </transform>
+
+        <transform translation='0 0 0.1'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Lfon.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "2.6 5 0.05"></box> 
+            </shape> 
+        </transform>  
+
+        
+
+       </Collision>
+    </Transform> 
+    
+    <Transform translation="6 0 0" > 
+        <Shape USE="telephone"></Shape>   
+    </Transform>
+
+    <Transform translation="-6 0 0" > 
+        <Shape USE="telephone">  </Shape> 
+    </Transform>
+
+    <TimeSensor DEF='rotation_start' cycleInterval='6' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='rotation_end' key='0 0.5 1' keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'></OrientationInterpolator>
+        <ROUTE fromNode='rotation_start' fromField='fraction_changed' 
+               toNode='rotation_end' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='rotation_end' fromField='value_changed' 
+               toNode='telephone' toField='set_rotation'>
+        </ROUTE>
+
+
+
+
+<!--балки между отделами-->
+           <Transform  translation="75 15 -60">
+             <Shape>
+               <Appearance>
+                 <Material  DEF="Box" diffuseColor="#FAFAD2"></Material>
+               </Appearance>
+               <Box size="30 50 20" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <TimeSensor DEF='Time_lamp' cycleInterval='5' loop='true'></TimeSensor>
+           <ColorInterpolator DEF='Collamp' key='0 0.3 0.6 1' keyValue='1 0 0, 1 0 0, 0 1 0, 0 1 0'></ColorInterpolator>
+           <ROUTE fromNode='Time_lamp' fromField='fraction_changed'
+               toNode='Collamp' toField='set_fraction'>
+           </ROUTE>
+           <ROUTE fromNode='Collamp' fromField='value_changed' 
+                toNode='Box' toField='set_diffuseColor'>
+           </ROUTE>
+
+
+           <Transform  translation="-75 15 -60">
+             <Shape>
+               <Appearance>
+                 <Material  DEF="Fox" diffuseColor="#FAFAD2"></Material>
+               </Appearance>
+               <Box size="30 50 20" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <TimeSensor DEF='Time_lamp' cycleInterval='5' loop='true'></TimeSensor>
+           <ColorInterpolator DEF='Collamp' key='0 0.3 0.6 1' keyValue='1 0 0, 1 0 0, 0 1 0, 0 1 0'></ColorInterpolator>
+           <ROUTE fromNode='Time_lamp' fromField='fraction_changed'
+               toNode='Collamp' toField='set_fraction'>
+           </ROUTE>
+           <ROUTE fromNode='Collamp' fromField='value_changed' 
+               toNode='Fox' toField='set_diffuseColor'>
+           </ROUTE>
+
+
+
+
+<!--Gelaxe Fold-->
+<Transform DEF="Fold" translation="-58 -0.5 0"  >  
+    <Collision enabled="true" bboxCenter="0 9 -5" bboxSize="18 18 10">
+        <transform translation='0 0 0'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Fold3.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "0.2 5 2.6"></box> 
+            </shape> 
+        </transform>
+
+        <transform translation='0.1 0 0'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Fold2.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "0.05 5 2.6"></box> 
+            </shape> 
+        </transform>
+    </Collision>
+</Transform>
+
+        <transform translation='-58 -0.5 2.4'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Fold1.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "0.2 5 2.6"></box> 
+            </shape> 
+        </transform>
+
+            <!--Samsung-->
+           <transform DEF="Sam" translation="0 0 -50"> 
+              <shape> 
+                 <appearance> 
+                  <ImageTexture url="Samsung.jpg" repeatT="false"></ImageTexture>  
+                 </appearance> 
+                 <sphere radius = "4"></sphere> 
+              </shape> 
+            </transform> 
+
+       <TimeSensor DEF='Time_box_press' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='box_press_pos' key='0 0.2 0.4 0.6 0.8 1' keyValue='-60 15 10 , -60 35 -20 , -60 15 10 , -60 35 -20 , -60 15 30 , -60 15 10 '></PositionInterpolator>
+        <ROUTE fromNode='Time_box_press' fromField='fraction_changed' 
+               toNode='box_press_pos' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='box_press_pos' fromField='value_changed' 
+               toNode='Sam' toField='set_translation'>
+        </ROUTE>
+
+        <TimeSensor DEF='rotation_start' cycleInterval='6' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='rotation_end' key='0 0.5 1' keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'></OrientationInterpolator>
+        <ROUTE fromNode='rotation_start' fromField='fraction_changed' 
+               toNode='rotation_end' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='rotation_end' fromField='value_changed' 
+               toNode='Sam' toField='set_rotation'>
+        </ROUTE>
+
+
+       
+
+
+        <!--Samsung Store-->
+           <Transform translation="-72 15 0">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="store1.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="1 50 150" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+         <!--Подставка-->
+           <Transform translation="-60 -5 0">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol2.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="7 0.2 25" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="-57.5 -8.1 1.5">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol2.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="1.5 -6 15.5" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="-58 -10 1">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol2.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="5 1 18" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+
+
+
+
+<Transform DEF="Find" translation="58 -0.5 0"  >  
+    <Collision enabled="true" bboxCenter="0 9 -5" bboxSize="18 18 10">
+        <transform translation='0 0 0'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Find1.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "0.2 5 2.6"></box> 
+            </shape> 
+        </transform>
+
+        <transform translation='0.1 0 0'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Find2.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "0.05 5 2.6"></box> 
+            </shape> 
+        </transform>
+    </Collision>
+</Transform>
+
+       <transform DEF="Cam" translation='58 1.6 -0.6'> 
+            <shape> 
+                <appearance> 
+                    <ImageTexture url="Camm.jpg" repeatT="false"></ImageTexture> 
+                </appearance> 
+                <box size = "0.05 0.8 0.5"></box> 
+            </shape> 
+        </transform>
+
+        <TimeSensor DEF='box_move' cycleInterval='11' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='box_pos' key='0 0.5 1' keyValue='58 1.6 -0.6 , 58 2.3 -0.6 , 58 1.6 -0.6 '></PositionInterpolator>
+        <ROUTE fromNode='box_move' fromField='fraction_changed' 
+               toNode='box_pos' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='box_pos' fromField='value_changed' 
+               toNode='Cam' toField='set_translation'>
+        </ROUTE>
+
+
+
+           <!--Oppo Store-->
+           <Transform translation="72 15 0">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Store3.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="1 50 150" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <!--Подставка-->
+           <Transform translation="58 -5 1">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol2.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="7 0.2 27" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="58 -7.3 10" rotation="1 0 0 0.7">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol2.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="5 -6 0.2" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="58 -7.3 -8" rotation="1 0 0 -0.7">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol2.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="5 -6 0.2" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="58 -10 1">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Stol2.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="5 1 18" solid="false"></Box>
+             </Shape>
+           </Transform> 
+
+
+            <!--Oppo-->
+           <transform DEF="Op" translation="0 0 -50"> 
+              <shape> 
+                 <appearance> 
+                  <ImageTexture url="Oppo.jpg" repeatT="false"></ImageTexture>  
+                 </appearance> 
+                 <sphere radius = "4"></sphere> 
+              </shape> 
+            </transform> 
+
+       <TimeSensor DEF='Time_box_press' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='box_press_pos' key='0 0.2 0.4 0.6 0.8 1' keyValue='60 15 10 , 60 35 -20 , 60 15 10 , 60 35 -20 , 60 15 30 , 60 15 10 '></PositionInterpolator>
+        <ROUTE fromNode='Time_box_press' fromField='fraction_changed' 
+               toNode='box_press_pos' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='box_press_pos' fromField='value_changed' 
+               toNode='Op' toField='set_translation'>
+        </ROUTE>
+
+        <TimeSensor DEF='rotation_start' cycleInterval='6' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='rotation_end' key='0 0.5 1' keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'></OrientationInterpolator>
+        <ROUTE fromNode='rotation_start' fromField='fraction_changed' 
+               toNode='rotation_end' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='rotation_end' fromField='value_changed' 
+               toNode='Op' toField='set_rotation'>
+        </ROUTE>
+           
+ <Transform translation="0 15 0">
+             <Shape>
+               <Appearance>
+                 <Material diffuseColor="#FAFAD2"></Material>
+               </Appearance>
+               <Box size="150 50 150" solid="false"></Box>
+             </Shape>
+           </Transform>
+           
+ <Transform translation="0 15 0">
+             <Shape>
+               <Appearance>
+                 <Material diffuseColor="#FAFAD2"></Material>
+               </Appearance>
+               <Box size="150 50 150" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+           <Transform translation="0 -10.4 0">
+             <Shape>
+               <Appearance>
+                 <ImageTexture url="Pol.jpg" repeatT="false"></ImageTexture>
+               </Appearance>
+               <Box size="150 1 150" solid="false"></Box>
+             </Shape>
+           </Transform>
+
+       </h1>
   </body> 
 </html>
