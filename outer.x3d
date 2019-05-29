@@ -1,0 +1,8 @@
+<Scene>
+  <Shape>
+    <Box size="300 180 0"></Box>
+    <Appearance>
+      <MovieTexture repeatS="false" repeatT="false" url="videoplayback.mp4" loop="true" speed="100"></MovieTexture>
+    </Appearance>
+  </Shape>
+</Scene>
