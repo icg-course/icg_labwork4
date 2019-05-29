@@ -1,13 +1,142 @@
-<!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>Водичка</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/custom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <h1>Водичка</h1>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom" style="width:1025px; height:768px">
+      <Scene>
+
+        <Viewpoint position="0 5 0" orientation="0 1 0.2 -2" description="camera"></Viewpoint>
+        <Viewpoint position="10 10 2" orientation="0 1 0.6 -2" description="camera"></Viewpoint>
+        <Viewpoint position="-4 10 4" orientation="0 1.5 0 -2" description="camera"></Viewpoint>
+
+
+        <Fog visibilityRange='100' fogType='EXPONENTIAL'></Fog>
+
+        <PointLight location="-12 22 4" color="0 0 1" intensity="2" shadowIntensity="0.5" shadowMapSize="512"></PointLight>
+        <SpotLight ambientIntensity='0' attenuation='1,0,0' beamWidth='1.5707963' color='1,1,1' cutOffAngle='1.5707963' direction='0,0,0' global='false' intensity='1' location='5,10,5'   radius='10' shadowCascades='1' shadowFilterSize='0' shadowIntensity='0' shadowMapSize='1024' shadowOffset='0' shadowSplitFactor='1' shadowSplitOffset='0.1' zFar='-1' zNear='-1' ></SpotLight>
+
+        <Background groundAngle='0.9 1.5 1.57' groundColor='0.6 0.3 0.1 0.2 0.1 0.2 0.1 0.6 0.1 0 0.3 0.1' skyAngle='0.9 1.5 1.57' skyColor='0.28 0.18 0.36 0.2 0.44 0.85 0.51 0.81 0.95 0.47 0.8 0.2'>
+        </Background>
+        <Transform translation= ' 0 -0.2 0'>
+        <Shape DEF="flag">
+          <ElevationGrid xDimension="7" zDimension="6" xSpacing="8" zSpacing="6.0" solid="false"
+                          height=
+                                  "-1.5, 1, 0.5, 0.5, 1, 1.5,0,
+                                  -1, 0.5, 0.25, 0.25, 0.5, 2,0,
+                                  0.5, 0.25, 0, 0, 0.25, 0.5,0,
+                                  0.5, 0.25, 0, 0, 0.25, 0.5,0,
+                                  -1, 0.5, 0.25, 0.25, 0.5, 1,0,
+                                  -1.5, 0, 0.5, 0.5, 2, 1.5,0">
+          </ElevationGrid>
+          <Appearance>
+            <ImageTexture  url='water.jpg' ></ImageTexture>
+          </Appearance>
+        </Shape>
+      </Transform>
+        <!--Первая лодка-->
+        
+        <Group DEF="boat">
+        <Transform translation='6 0.4 5.2' rotation="0 1 0 0.1">
+        <Transform DEF='BoatMove'>
+        <Shape>
+            <Appearance>
+              <ImageTexture  DEF="boatTexture" url='wood.jpg' ></ImageTexture>
+              </Appearance>
+              <Box size='3 0.2 5' > </Box>  
+        </Shape>
+        <Transform translation='0 0.5 2.5'> 
+          <Shape DEF="bord1">
+              <Appearance>
+                <ImageTexture  USE="boatTexture"></ImageTexture>
+                </Appearance>
+                <Box size='3 1 0.15' > </Box>  
+          </Shape>
+        </Transform>
+          <Transform translation='0 0.5 -2.5'> 
+          <Shape USE="bord1">
+          </Shape>
+        </Transform>
+        <Transform translation='1.5 0.5 0'>
+          <Shape DEF="bord2">
+                <Appearance>
+                  <ImageTexture  USE="boatTexture"></ImageTexture>
+                  </Appearance>
+                  <Box size='0.15 1 5' > </Box>  
+            </Shape>
+        </Transform>
+        <Transform translation='-1.5 0.5 0' >
+          <Shape USE="bord2"></Shape>
+        </Transform>
+        <Transform translation='0 1 0'>
+          <Shape>
+                  <Appearance>
+                    <ImageTexture  USE="boatTexture"></ImageTexture>
+                    </Appearance>
+                    <Cylinder height='2.0' radius='0.05' > </Cylinder>  
+          </Shape>
+        <Transform translation='0.5 0.8 0'>
+          <Anchor url="https://ru.wikipedia.org/wiki/%D0%92%D0%BE%D0%B5%D0%BD%D0%BD%D0%BE-%D0%BC%D0%BE%D1%80%D1%81%D0%BA%D0%BE%D0%B9_%D1%84%D0%BB%D0%BE%D1%82_%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B9_%D0%A4%D0%B5%D0%B4%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8" parametr="target='_self'">
+          <Shape>
+                  <Appearance>
+                    <ImageTexture   url='russia.png' ></ImageTexture>
+                  </Appearance>
+                    <Box size="1 0.5 0.05" > </Box>  
+          </Shape>
+          </Anchor>
+        </Transform>
+        </Transform>
+      </Transform>
+    </Group>
+  </Transform>
+
+    <!--Вторая лодка-->
+    <Transform translation= "10 -0.2 4 " rotation="0 1 0 0.6">
+      <Group USE="boat"></Group>
+    </Transform>
+
+    <!--Третья лодка-->
+    <Transform translation= "16 -0.2 13 " rotation="0 1 0 1.2">
+      <Group USE="boat"></Group>
+    </Transform>
+
+   
+   <!--Бойки-->
+    <Group DEF="Sphere">
+     <Transform translation= "14 0.5 5 ">
+      <Inline url="bbb.x3d"></Inline>
+    </Transform>
+   </Group>
+
+   <Transform translation= "14 -0.5 5 ">
+      <Group USE="Sphere"></Group>
+   </Transform>
+
+   <Transform translation= "14 -0.5 12 ">
+      <Group USE="Sphere"></Group>
+   </Transform>
+ 
+
+
+   <!--Свет-->
+   <SpotLight ambientIntensity='0' attenuation='1,0,0' beamWidth='1.5707963' color='1,1,1' cutOffAngle='1.5707963' direction='0,0,-1'  intensity='1' location='0,10,0' radius='100' direction =" 10 0 4"> 
+   </SpotLight>
+   <!--Таймер-->
+   <timeSensor DEF="time" cycleInterval="2" loop="true" enabled="true"> </timeSensor>
+   <OrientationInterpolator DEF="move" key="0 0.3 0.5 0.6 1" keyValue="1 0 0 0.1, 1 1 1 -0.2, 0 1 0 0.3, 0 1 0 0.2, 1 0 0 0.1"> </OrientationInterpolator> 
+   <PositionInterpolator DEF="move2" key="0 0.23 0.5 0.75 1" keyValue="-0.2 0 0, -0.2 0 0.2, 0.2 0 0, 0.2 0 0.2, -0.2 0 0"> </PositionInterpolator> 
+   <OrientationInterpolator DEF="move3" key="0 0.2 0.4 0.8 1" keyValue="1 0 0 0.05, 1 0 0 -0.05, 1 0 1 0.05, 0 1 0 0.05, 1 0 0 0.05"> </OrientationInterpolator> 
+   <Route fromNode="time" fromField ="fraction_changed" toNode="move2" toField="set_fraction"> </Route> 
+   <Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"> </Route> 
+   <Route fromNode="move2" fromField ="value_changed" toNode="BoatMove" toField="translation"> </Route> 
+   <Route fromNode="move" fromField ="value_changed" toNode="BoatMove" toField="set_rotation"> </Route> 
+      </Scene>
+    </X3D>
+  </body>
 </html>
