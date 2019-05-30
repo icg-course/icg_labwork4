@@ -12,230 +12,89 @@
     <h1>По кочкам, по кочкам</h1>
     <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">
       <Scene>
-<!--Viewpoint and NavigationInfo-->
-        <Viewpoint position="150 20 600"></Viewpoint>
-        <NavigationInfo avatarSize="1 5 2" speed="15" type="WALK"></NavigationInfo>
-<!--Inline-->
-      <Group def="vid">
-        <Transform translation="150 80 0">
-          <Inline url="outer.x3d"></Inline>
-        </Transform>
-      </Group>
-    <Transform translation="0 0 300" rotation="0 1 0 1.57">
-      <Group use="vid"></Group>
-    </Transform>
-    <Transform translation="300 0 0" rotation="0 -1 0 1.57">
-      <Group use="vid"></Group>
-    </Transform>
-    <Transform translation="150 169.5 150" rotation="-1 0 0 1.57">
-      <Inline url="outer2.x3d"></Inline>
-    </Transform>
-<!--Fog of war and other-->
-<Fog visibilityRange="600"></Fog>
-  <Transform translation="150 -10 450">
-  <Shape>
-    <Box size="100 0 300"></Box>
-    <Appearance>
-    <ImageTexture url="floor.jpg"></ImageTexture>
-    <Texturetransform repeatS="True" repeatT="true" scale="7 7"></Texturetransform>
-    </Appearance>
-  </Shape>
-</Transform>
-
-  <Transform translation="50 80 300" rotation="0 0 -1 1.57">
-    <Group def="heref">
-      <Shape>
-        <Box size="180 100 0"></Box>
-        <Appearance>
-          <MovieTexture repeatS="false" repeatT="false" url="videoplayback.mp4" loop="true" speed="100"></MovieTexture>
-        </Appearance>
-      </Shape>
-    </Group>
-  </Transform>
-  <Transform translation="250 80 300" rotation="0 0 1 1.57">
-    <Group use="heref"></Group>
-  </Transform>
-<!--ALL light-->
-  <DirectionLight location="150 100 150" direction="0 100 0" color="1 1 1" intensity="1" shadowIntensity="0.8" shadowMapSize="500"></DirectionLight>
-  <PointLight location="150 30 150" color="1 0 0" intensity="0.7" shadowIntensity="0.5" shadowMapSize="500"></PointLight>
-  <PointLight location="150 60 150" color="0 0 1" intensity="0.7" shadowIntensity="0.5" shadowMapSize="500"></PointLight>
-  <SpotLight location="130 90 180" direction="130 0 180" color="0 1 0" intensity="2" beamWidth="0.2" cutOffAngle="0.7"></SpotLight>
-
-<Transform translation="150 40.5 145"><!--Transform of temple-->
+        <ViewPoint position="0 3 15"></ViewPoint>
 <!--Платформа-->
-         <Group def="Plane">
-             <Transform translation="0 1 2">
-            <Shape>
-                <Appearance>
-                    <Material diffuseColor="linen"></Material>
-                </Appearance>
-                <Box size="20 0.5 30"></Box>
-            </Shape>
-             </Transform>
-         </Group>
-         <Transform translation="0 -0.5 0" scale="1 1 1.1">
-           <Group use="Plane"></Group>
-         </Transform>
-         <Transform translation="0 -1 0" scale="1 1 1.2">
-           <Group use="Plane"></Group>
-         </Transform>
-         <Transform translation="0 -1.5 0" scale="1 1 1.3">
-           <Group use="Plane"></Group>
-         </Transform>
-<!--Колонна-->
-<!--Цилиндр-->
-        <Group def="Pillar">
-            <Transform translation="-9 6.25 15">
-                <Shape>
-                    <Appearance>
-                        <ImageTexture url="texture.jpg"></ImageTexture>
-                        <Texturetransform repeatS="True" repeatT="True" scale="7 7"></Texturetransform>
-                    </Appearance>
-                    <Cylinder radius="0.75" height="10"></Cylinder>
-                </Shape>
-            </Transform>-->
-<!--Сопло-->
-            <Transform translation="-9 2 15"  rotation="1 0 0 3.14">
-                <Shape>
-                    <Appearance>
-                        <Material diffuseColor='#663300'></Material>
-                    </Appearance>
-                    <Nozzle outerRadius="0.8" innerRadius="0.75" nozzleRadius="1" nozzleHeight="0.75" height="1.5"></Nozzle>
-                </Shape>
-                <Transform translation="0 -8.5 0"  rotation="1 0 0 3.14">
-                    <Shape>
-                        <Appearance>
-                            <Material diffuseColor='#663300'></Material>
-                        </Appearance>
-                        <Nozzle outerRadius="0.8" innerRadius="0.75" nozzleRadius="1" nozzleHeight="0.75" height="1.5"></Nozzle>
-                    </Shape>
-                </Transform>
-            </Transform>
-          </Group>
-<!--Текст-->
-<Transform translation="0 12.5 17.05" scale="0.04 0.04 0.04">
-<Shape>
-  <Text string='"Ζεύς"' solid='false'>
-    <FontStyle family="TYPEWRITER" size='30' spacing='1' language='el'></FontStyle>
-  </Text>
-  <Appearance>
-    <Material diffuseColor='#000000'></Material>
-  </Appearance>
-</Shape>
-</Transform>
-<!--Крыша-->
-<Transform translation="0 13 2">
-   <Shape>
-    <Appearance>
-      <Material diffuseColor="linen"></Material>
-    </Appearance>
-    <Pyramid height="2.5" xbottom="20" ybottom="30" xtop="0" ytop="30" xoff="0" yoff="0"></Pyramid>
-  </Shape>
-</Transform>
-<!--Копии-->
-<Group def="Row">
-      <Transform>
-        <Group use="Pillar"></Group>
-      </Transform>
-      <Transform translation="0 0 -5">
-        <Group use="Pillar"></Group>
-      </Transform>
-      <Transform translation="0 0 -10">
-        <Group use="Pillar"></Group>
-      </Transform>
-      <Transform translation="0 0 -15">
-        <Group use="Pillar"></Group>
-      </Transform>
-      <Transform translation="0 0 -20">
-        <Group use="Pillar"></Group>
-      </Transform>
-      <Transform translation="0 0 -25">
-        <Group use="Pillar"></Group>
-      </Transform>
-  </Group>
-      <Transform translation="18 0 0">
-        <Group use="Row"></Group>
-      </Transform>
-      <Transform translation="0 10.5 0">
-        <Group use="Plane"></Group>
-      </Transform>
-</Transform>
-<!--Земля-->
-          <Transform scale="20 20 20">
-            <Shape>
-              <ElevationGrid xDimension="11" zDimension="11" xSpacing="1.5" zSpacing="1.5" solid="false"
-                              height=
-                                     "-0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5,
-                                      -0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5, -0.5,
-                                      -0.5,  0.5,  0,    0,    0,    0,    0,    0,    0,    0.5, -0.5,
-                                      -0.5,  0.5,  0,    1,    1,    1,    1,    1,    0,    0.5, -0.5,
-                                      -0.5,  0.5,  0,    1,    2,    2,    2,    1,    0,    0.5, -0.5,
-                                      -0.5,  0.5,  0,    1,    2,    2,    2,    1,    0,    0.5, -0.5,
-                                      -0.5,  0.5,  0,    1,    2,    2,    2,    1,    0,    0.5, -0.5,
-                                      -0.5,  0.5,  0,    1,    1,    1,    1,    1,    0,    0.5, -0.5,
-                                      -0.5,  0.5,  0,    0,    0,    0,    0,    0,    0,    0.5, -0.5,
-                                      -0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5,  0.5, -0.5,
-                                      -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5">
-              </ElevationGrid>
-              <Appearance>
-                <ImageTexture url="stone.jpg"></ImageTexture>
-                <Texturetransform repeatS="True" repeatT="True" scale="3 3"></Texturetransform>
-              </Appearance>
-            </Shape>
-          </Transform>
-<!--Конь-->
-<Anchor url="https://www.youtube.com/watch?v=O3rpmctmC_M" parametr="target='_self'">
-          <Transform translation="150 60 150">
-          <Group def="horse1">
-            <Transform>
-              <Shape>
-                <IndexedTriangleSet index='0 1 2 1 2 3 1 3 4 2 3 5 3 5 6 3 4 6 5 6 7 4 6 8 4 8 9 8 9 10 8 10 11 6 8 11 9 10 12 10 12 13 12 13 14 10 11 15 13 15 16 10 13 15 16 15 17 15 11 17 6 11 18' solid='false'>
-                  <Coordinate point='0 0.5 0, 1 3.5 0, 8.7 5.7 0, 5 6.2 1, 0.3 8 0, 3.5 11.3 0, -1 11 0.5, -4 14 0, -1 8.11 1, -3.7 4.6 0, -3 9.6 0.5, -2.3 10.2 0.5, -4.82 5.1 0, -4.8 7.7 0, -5.5 5.4 0, -3.2 10.3 0.5, -3.7 10.8 0, -1.99 13.2 0.1, -2.2 12.2 0.3'></Coordinate>
-                  <ColorRGBA color='0 0 1 1, 0 0 1 1, 0 0 1 1, 0 0 0 0.5, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 0 0 0 1, 0 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 0 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1'></ColorRGBA>
-                </IndexedTriangleSet>
-              </Shape>
-            </Transform>
-          </Group>
-
-          <Group def="horse2">
-            <Transform>
-              <Shape>
-                <IndexedTriangleSet index='0 1 2 1 2 3 1 3 4 2 3 5 3 5 6 3 4 6 5 6 7 4 6 8 4 8 9 8 9 10 8 10 11 6 8 11 9 10 12 10 12 13 12 13 14 10 11 15 13 15 16 10 13 15 16 15 17 15 11 17 6 11 18' solid='false'>
-                  <Coordinate point='0 0.5 0, 1 3.5 0, 8.7 5.7 0, 5 6.2 -1, 0.3 8 0, 3.5 11.3 0, -1 11 -0.5, -4 14 0, -1 8.11 -1, -3.7 4.6 0, -3 9.6 -0.5, -2.3 10.2 -0.5, -4.82 5.1 0, -4.8 7.7 0, -5.5 5.4 0, -3.2 10.3 -0.5, -3.7 10.8 0, -1.99 13.2 -0.1, -2.2 12.2 -0.3'></Coordinate>
-                  <ColorRGBA color='0 0 1 1, 0 0 1 1, 0 0 1 1, 0 0 0 0.5, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 0 0 0 1, 0 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 0 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1'></ColorRGBA>
-                </IndexedTriangleSet>
-              </Shape>
-            </Transform>
-          </Group>
-          </Transform>
-</Anchor>
-<!--IndexedFaceSet-->
-        <Transform translation="149 45 150">
           <Shape>
-            <IndexedFaceSet solid='false' colorIndex='1 0 0 1 -1 0 1 1 0 -1 0 1 1 0 -1 1 1 1 1 -1 1 0 0 1 -1 1 0 0 1 -1' coordIndex='0 1 2 3 -1 2 3 4 5 -1 1 2 5 6 -1 0 3 4 7 -1 4 5 6 7 -1 0 1 6 7 -1'>
-              <Color color='1 0 0 0.29, 0.19, 0.95'></Color>
-              <Coordinate point='2 0 0, 2 2 0, 2 2 2, 2 0 2, 0 0 2, 0 2 2, 0 2 0, 0 0 0'></Coordinate>
-            </IndexedFaceSet>
+              <Appearance>
+                  <Material diffuseColor="linen"></Material>
+              </Appearance>
+              <Box size="5 0.5 5"></Box>
+          </Shape>
+        <Transform translation="0 0.5 0">
+          <Shape>
+              <Appearance>
+                  <Material diffuseColor="linen"></Material>
+              </Appearance>
+              <Box size="3 0.5 3"></Box>
           </Shape>
         </Transform>
-<!--Pointset-->
-    <Transform translation="149 40 150">
-      <Group def="point">
-        <Shape>
-          <Pointset>
-            <Coordinate point="0.95 -15.45 22.7,-4.6 -14.5 22.63,-8.2 -13.6 21.95,-11.65 -12.73 20.7,-14.9 -11.83 18.9,-17.85 -10.95 16.6,-20.4 -10.4 13.88,-22.52 -9.23 10.75,-24.12 -8.4 7.3,-25.17 -7.58 3.64,-25.63 -6.8 -0.18,-25.49 -6 -4.05,-24.74 -5.29 -7.87,-23.4 -4.56 -11.6,-21.5 -3.9 -15,-19.1 -3.18 -18.13,-16.13 -2.51 -20.85,-12.8 -1.84 -23.1,-9.16 -1.25 -24.8,-1.23 0.03 -26.44,2.85 0.65 -26.31,6.9 1.3 -24.17,10.8 1.9 -24.17,14.42 2.55 -22.2,17.7 3.2 -19.65,20.6 3.9 -16.6,23 4.6 -13.2,24.8 5.3 -9.4,26 6 -5.3,26.6 6.8 -1.1,26.5 7.6 3.2,25.7 8.4 7.4,24.3 9.2 11.4,22.2 10.1 15.2,19.6 10.9 18.6,16.4 11.8 21.6,12.8 12.7 24,8.9 13.6 25.9,4.7 14.6 27.1"></Coordinate>
-            <Color color="1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 0 0 1, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 1 0 0, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 0 1, 0 1 0"></Color>
-          </Pointset>
-        </Shape>
-      </Group>
-      <Transform translation="0 30 0">
-        <Group use="point"></Group>
-      </Transform>
-      <Transform translation="0 60 0">
-        <Group use="point"></Group>
-      </Transform>
-    </Transform>
-  </Scene>
-  </X3D>
-</body>
+<!--Балка-поршень-->
+        <TimeSensor DEF='Timetoread' cycleInterval="6" loop="true"></TimeSensor>
+        <PositionInterpolator DEF='PosIntR' key='0 0.3 0.7 1' keyValue='0 0.85 0, 0 5 0, 0 5 0, 0 0.85 0'></PositionInterpolator>
+        <Transform def="TrG" translation="0 0.85 0" rotation="0 0 1 1.57">
+          <Shape>
+              <Appearance>
+                  <Material diffuseColor="linen"></Material>
+              </Appearance>
+              <Cylinder radius="0.1" height="3"></Cylinder>
+          </Shape>
+          <TimeSensor def='Time' cycleInterval='3' loop='true'></TimeSensor>
+          <Transform def="Trans" translation="0 0 0" rotation="0 0 -1 1.57">
+          <OrientationInterpolator def='OrientInt' key='0 0.5 1' keyValue='1 0 0 0, 1 0 0 -3.14, 1 0 0 -6.28'></OrientationInterpolator>
+          <Transform def="Trans" translation="0 0 0" rotation="0 0 -1 1.57">
+            <Shape>
+              <IndexedLineSet colorIndex='0 1 -1 1 2 -1 2 3 -1 3 4 -1 4 5 -1 5 6 -1 6 7 -1 7 8 -1 8 9 -1' coordIndex='0 1 -1 1 2 -1 2 3 -1 3 4 -1 4 5 -1 5 6 -1 6 7 -1 7 8 -1 8 9 -1'>
+                <Color color='0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0'></Color>
+                <Coordinate point='-1.4 0 0, -1.4 4 0, -0.2 4 0, -0.2 3.5 0, -1 3 0, 1 3 0, 0.2 3.5 0, 0.2 4 0, 1.4 4 0, 1.4 0 0'></Coordinate>
+              </IndexedLineSet>
+            </Shape>
+          </Transform>
+          <ROUTE fromNode='Time' fromField='fraction_changed' toNode='OrientInt' toField='set_fraction'></ROUTE>
+          <ROUTE fromNode='OrientInt' fromField='value_changed' toNode='Trans' toField='set_rotation'></ROUTE>
+          </Transform>
+        </Transform>
+        <ROUTE fromNode="Timetoread" fromField="fraction_changed" toNode="PosIntR" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="PosIntR" fromField="value_changed" toNode="TrG" toField="set_translation"></ROUTE>
+<!--Опора-->
+        <Transform translation="-1.6 2.6 0">
+          <Shape>
+              <Appearance>
+                  <Material diffuseColor="linen"></Material>
+              </Appearance>
+              <Cylinder radius="0.1" height="5"></Cylinder>
+          </Shape>
+        </Transform>
+        <Transform translation="1.6 2.6 0">
+          <Shape>
+              <Appearance>
+                  <Material diffuseColor="linen"></Material>
+              </Appearance>
+              <Cylinder radius="0.1" height="5"></Cylinder>
+          </Shape>
+        </Transform>
+<!--Коны-->
+    <TimeSensor def="ColorTime" cycleInterval="5" loop="true"></TimeSensor>
+    <ColorInterpolator def="ColInt" key="0 0.15 0.3 0.5 0.69 0.85 1" keyValue="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 0 0 1"></ColorInterpolator>
+        <Transform def="lam1" translation="0 1.2 1" rotation="0 0 1 3.14">
+          <Shape>
+              <Appearance>
+                  <Material def="Material" diffuseColor="linen"></Material>
+              </Appearance>
+              <Cone bottomradius="0.5" height="1"></Cone>
+          </Shape>
+        </Transform>
+        <Transform def="lam2" translation="0 4 -3" >
+          <Shape>
+              <Appearance>
+                  <Material def="Material1" diffuseColor="linen"></Material>
+              </Appearance>
+              <Cone bottomradius="0.5" height="1"></Cone>
+          </Shape>
+        </Transform>
+        <ROUTE fromNode="ColorTime" fromField="fraction_changed" toNode="ColInt" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="ColInt" fromField="value_changed" toNode="Material" toField="set_diffuseColor"></ROUTE>
+        <ROUTE fromNode="ColInt" fromField="value_changed" toNode="Material1" toField="set_diffuseColor"></ROUTE>
+      </Scene>
+    </X3D>
+  </body>
 </html>
