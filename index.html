@@ -8,6 +8,48 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <h1>Пых-пых</h1>
+    <X3D width="800px" height="600px">
+		<Scene>
+			<!-- Голова-->
+			<Transform>
+				<Inline url= "https://z0mb1eg0d.github.io/icg_labwork1/"></Inline>
+			</Transform>
+
+			<!-- Кольцо Дыма -->
+			<Transform DEF="Smoke" translation="0.5 -0.45 1.6" scale="0.5 0.5 0.5">
+				<Shape>
+					<Appearance>
+						<Material diffusecolor="#d1d1d1" transparency="0.5"></Material>
+					</Appearance>
+					<Torus innerradius="0.05" outerradius="0.2"></Torus>
+				</Shape>
+			</Transform>
+
+			<!-- огонек -->
+			<Transform translation="0.5 -0.45 1.55" rotation=" 1 0 0 1.570796" >
+				<Shape>
+					<Appearance>
+						<Material DEF="Sigara" diffusecolor="black" transparency="0"></Material>
+					</Appearance>
+					<Cylinder height="0.101" radius="0.201"></Cylinder>
+			</Transform>
+
+			<!-- Таймер -->
+			<timeSensor DEF="time" cycleInterval="3" loop="true" enabled="true"></timeSensor>
+			<PositionInterpolator DEF="Ring" key="0 1 2 3" keyValue="0 -0.45 1, 0 0.5 3, 0 1 4, 0 1.5 5"></PositionInterpolator>
+			<!--кольцо летит вверх -->
+			<ROUTE fromNode="time" fromField="fraction_changed" toNode="Ring" toField="set_fraction"></ROUTE>
+			<ROUTE fromNode="Ring" fromField="value_changed" toNode="Smoke" toField="translation"></ROUTE>
+			<!-- кольцо меняет размер -->
+			<PositionInterpolator DEF="Ring1" key="0 1 2 3" keyValue="0.5 0.5 0.5, 1 1 1, 1.5 1.5 1.5, 2 2 2"></PositionInterpolator>
+			<ROUTE fromNode="time" fromField="fraction_changed" toNode="Ring1" toField="set_fraction"></ROUTE>
+			<ROUTE fromNode="Ring1" fromField="value_changed" toNode="Smoke" toField="scale"></ROUTE>
+			<!-- Сигарета загорается-->
+			<ScalarInterpolator DEF="Fire" key="0 .5 .75 1" keyValue="0, 0.5, 0.8, 0"></ScalarInterpolator>
+			<ROUTE fromNode="time" fromField="fraction_changed" toNode="Fire" toField="set_fraction"></ROUTE>
+			<ROUTE fromNode="Fire" fromField="value_changed" toNode="Sigara" toField="transparency"></ROUTE>
+		</Scene>
+	</X3D>
   </body> 
 </html>
