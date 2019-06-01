@@ -1,13 +1,220 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>STEPANOV</title>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/1.7.2/x3dom.css" />
+  <script src="https://www.x3dom.org/download/1.7.2/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <h1>Степанов С.С. ИКГ Лаб.4</h1>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom" width='1600px' height='800px'>
+      <Scene>
+     <Background backUrl='qwert.jpg'></Background>
+
+        
+
+       
+         <Fog DEF="lolo" color="1 0 0" visibilityRange='25' fogType='EXPONENTIAL'></Fog>
+         
+<TimeSensor  DEF='Time3' cycleInterval='5' loop='true'></TimeSensor>
+<ColorInterpolator DEF="Coll" key="0 0.33 0.66 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0"></ColorInterpolator>
+              
+              <ROUTE fromNode="Time3" fromField="fraction_changed" 
+               toNode="Coll" toField="set_fraction">
+                </ROUTE>
+                <ROUTE fromNode="Coll" fromField="value_changed" 
+               toNode="lolo" toField="set_color">
+                </ROUTE>
+
+
+
+
+
+     
+<transform translation='8 1 0' scale="3 3 3"> 
+        <Shape def="conus">
+          <Appearance>
+            <ImageTexture url="https://pp.userapi.com/c846220/v846220379/1d1a45/2DH4kSCOd_A.jpg">
+            </ImageTexture>
+            <Material diffuseColor='red' 
+            ></Material>
+          </Appearance>
+          <cone></cone>
+        </Shape>
+        </transform>
+                                <!--ЗАБОР-->
+        <transform translation='-13 0 -12.4'> 
+           <group DEF="gr4">
+            <group DEF="gr3">
+           <group DEF="gr2">
+          <group DEF="gr1">
+         <Transform translation="0 0 0" scale='0.1 0.3 0.3'>
+          <Shape DEF="stake">
+         <Appearance> <ImageTexture url="https://pp.userapi.com/c854124/v854124403/1681f/fw8_i3P84G0.jpg">
+            </ImageTexture>
+          </Appearance>
+            <IndexedFaceSet ccw="true" colorPerVertex="false" convex="true" creaseAngle="0" normalPerVertex="false" solid="false" 
+                            coordIndex=" 0 1 3 4 2 0 -1 5 6 8 9 7 5 -1 0 5 7 2 -1 0 5 6 1 -1 1 6 8 3 -1 3 8 9 4 -1 7 2 4 9 "
+                           >
+              <Coordinate point="0 0 0,   2 0 0,   0 4 0,   2 4 0,   1 5 0
+                                 0 0 -0.5,   2 0 -0.5,   0 4 -0.5,   2 4 -0.5,   1 5 -0.5,
+                                 ">
+              </Coordinate>
+            </IndexedFaceSet>
+         
+          </Shape>
+        </Transform>
+
+         <Transform translation="0.25 0 0" scale='0.1 0.3 0.3'>
+          <Shape USE="stake">
+          </Transform>
+
+         <Transform translation="0.5 0 0" scale='0.1 0.3 0.3'>
+          <Shape USE="stake">
+          </Transform>
+
+         <Transform translation="0.75 0 0" scale='0.1 0.3 0.3'>
+          <Shape USE="stake">
+          </Transform>
+  
+          </group>
+
+<Transform translation="1 0 0">
+ <group USE="gr1">
+ </Transform>
+<Transform translation="1.25 0 0">
+ <group USE="gr1">
+ </Transform>
+<Transform translation="1.5 0 0">
+ <group USE="gr1">
+ </Transform>
+<Transform translation="1.75 0 0">
+ <group USE="gr1">
+ </Transform>
+ </group>
+
+ <Transform translation="2 0 0">
+ <group USE="gr2">
+ </Transform>
+  <Transform translation="4 0 0">
+ <group USE="gr2">
+ </Transform>
+ <Transform translation="6 0 0">
+ <group USE="gr2">
+ </Transform>
+  <Transform translation="8 0 0">
+ <group USE="gr2">
+ </Transform>
+</group>
+<Transform translation="10 0 0">
+ <group USE="gr3">
+ </Transform>
+ <Transform translation="18 0 0">
+ <group USE="gr3">
+ </Transform>
+</group>
+  </transform>
+
+
+ <Transform translation="-13 0 16">
+ <group USE="gr4">
+ </Transform>
+</group>
+  </transform>
+
+ <Transform translation="-13 0 16" rotation="0 1 0 1.57 ">
+ <group USE="gr4">
+ </Transform>
+</group>
+  </transform>
+
+ <Transform translation="15.8 0 16" rotation="0 1 0 1.57 ">
+ <group USE="gr4">
+ </Transform>
+</group>
+  </transform>
+
+
+
+
+ <Transform DEF="Trans" translation="3.8 0 5" rotation="0 1 0 1.57 ">
+<inline url="Deer.x3d"></inline>
+ </transform>
+
+       <TimeSensor id="Time1" DEF='Time1' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+        <TimeSensor id="Time" DEF='Time' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+        <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='-4 0 2, 3 0 2, 3 0 5, 0 0 5, -4 0 2 '></PositionInterpolator>
+        <OrientationInterpolator DEF="kek" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+        <ROUTE fromNode='Time' fromField='fraction_changed' 
+               toNode='PosInt' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt' fromField='value_changed' 
+               toNode='Trans' toField='set_translation'>
+        </ROUTE>
+                <ROUTE fromNode='Time1' fromField='fraction_changed' 
+               toNode='kek' toField='set_fraction'>
+        </ROUTE>
+                <ROUTE fromNode='kek' fromField='value_changed' 
+               toNode='Trans' toField='set_rotation'>
+        </ROUTE>
+
+
+ <Transform translation="1.8 0 8" rotation="0 1 0 1.57 ">
+<inline url="Deer.x3d"></inline>
+ </transform>
+ 
+ <Transform def="deer01" translation="5.5 3 0" rotation="1 0 0 1.57 " scale="1.5 1.5 1.5" >
+<inline url="Deer.x3d"></inline>
+ </transform>
+<TimeSensor id="Time2" DEF='Time2' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+<OrientationInterpolator DEF="kek2" key="0 0.5 1" keyValue="1 0 0 0, 1 0 0 3.14, 1 0 0 6.28"></OrientationInterpolator>
+                <ROUTE fromNode='Time2' fromField='fraction_changed' 
+               toNode='kek2' toField='set_fraction'>
+                </ROUTE>
+                <ROUTE fromNode='kek2' fromField='value_changed' 
+               toNode='deer01' toField='set_rotation'>
+                </ROUTE>
+
+        <Shape >
+          <Appearance>
+            <ImageTexture url="https://pp.userapi.com/c845418/v845418913/1e8654/8k0eyIhvD3Q.jpg">
+            </ImageTexture>
+
+          </Appearance>
+          <box size="36 0.1 36"></box>
+        </Shape>
+        </transform>
+
+<Transform translation="5.5 3 0" rotation="0 0 1 1.57">
+          <Shape>
+          <Appearance>
+            <Material diffuseColor='black'></Material>
+          </Appearance>
+          <Cylinder radius="0.1" height="4.3"></Cylinder>
+        </Shape>
+   </transform>
+
+<Transform DEF="cyl" translation="0 0 2.5" >
+          <Shape>
+          <Appearance>
+            <ImageTexture url="https://pp.userapi.com/c845322/v845322015/1e4fd7/pP9FHh0XmoA.jpg">
+            </ImageTexture>
+          </Appearance>
+          <Cylinder radius="5" height="0.3"></Cylinder>
+        </Shape>
+   </transform>
+
+   <TimeSensor id="Time5" DEF='Time5' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+   <OrientationInterpolator DEF="POsp" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+
+        <ROUTE fromNode='Time5' fromField='fraction_changed' 
+               toNode='POsp' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='POsp' fromField='value_changed' 
+               toNode='cyl' toField='set_rotation'>
+
+      </Scene>
+    </X3D>
+  </body>
 </html>
