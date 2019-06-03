@@ -1,13 +1,492 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
-</html>
+<
+  <html> 
+     <head>
+      <meta charset="utf-8" />
+       <title>labr</title> 
+       <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+      <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+      <link rel="stylesheet" href="../css/custom.css" />
+      <script src="../js/custom.js"></script>
+     </head> 
+     <body> 
+       <h1>IKG LR4</h1> 
+       <p> 
+         x3d scene - "podobie tanka"
+       </p> 
+     <x3d width='1000px' height='600px'> 
+     
+   <scene> 
+   <viewpoint position='25 0 25'></viewpoint>
+  
+   <Background groundAngle='1.309 1.570796' groundColor='0.1 0.1 0.0 0.4 0.25 0.2 0.6 0.6 0.6' skyAngle='1.309 1.571' skyColor='0.0 0.2 0.7 0.0 0.5 1.0 1.0 1.0 1.0'           
+                  frontUrl="front.jpg" 
+                  backUrl="back.jpg" 
+                  leftUrl="right.jpg" 
+                  rightUrl="left.jpg" 
+                  topUrl="bottom.jpg"
+                  bottomUrl="top.jpg">
+   </Background>
+  
+  
+   <Transform DEF="Trans">
+        
+        <transform  rotation="0 0 1 -1.570" translation="3 3.4 0"> <!-- орудие танка -->
+        <shape> 
+         <appearance> 
+            <material DEF='Mat' diffuseColor='1 0 0'></material>
+         </appearance> 
+        <RectangularTorus innerradius="0.3" outerradius="0.5" height="18"></RectangularTorus> 
+        </shape> 
+      </transform> 
+  
+      <transform DEF="bashnya" translation="-2 3 0"> <!-- bashnya -->
+        <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 1'></material>
+           <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21cb/N1k1tq3ikBA.jpg"></ImageTexture> 
+         </appearance> 
+        <Cylinder radius="5" height="3"></Cylinder> 
+        </shape> 
+      </transform> 
+  
+        <transform translation="-2 5 2"> <!-- bashenka -->
+        <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material>
+           <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21cb/N1k1tq3ikBA.jpg"></ImageTexture> 
+         </appearance> 
+        <Cylinder radius="1" height="1"></Cylinder> 
+        </shape> 
+      </transform> 
+  
+      <transform translation='0 1.6 0'> 
+        <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material> 
+           <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21cb/N1k1tq3ikBA.jpg"></ImageTexture>
+         </appearance> 
+         <box size="15 1 10"></box> 
+        </shape> 
+      </transform>
+  
+      <transform translation="0 0 0" >
+       <Shape>
+            <Appearance>
+              <Material diffuseColor="1 0 1"></Material>
+              <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21cb/N1k1tq3ikBA.jpg"></ImageTexture>
+            </Appearance>
+            <Pyramid height="2.5" xbottom="20" ybottom="15" xtop="18" ytop="13" xoff="0" yoff="0"></Pyramid> 
+          </Shape>
+      </transform> 
+  
+      <transform translation="0 -2 0" >
+       <shape> 
+         <appearance> 
+           <Material diffuseColor="linen"></Material>
+           <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21cb/N1k1tq3ikBA.jpg"></ImageTexture> 
+         </appearance> 
+         <box size="19.3 2 12"></box> 
+        </shape> 
+      </transform> 
+  
+     <Group DEF="Gus1"> 
+       <Transform translation="-5 -2.9 6"  rotation="1 0 0 -1.57" >
+        <transform DEF="cyl" >
+        <shape DEF="koleso"> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material> 
+           <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21f0/Db2CLVUbmh0.jpg"></ImageTexture>
+         </appearance> 
+        <Cylinder radius="0.9" height="1.2"></Cylinder> 
+        </shape> 
+      </transform> 
+    </Transform>
+      
+      <transform translation="-7.5 -2.9 6" rotation="1 0 0 -1.570" >
+      <transform DEF="cyl2" >
+      <shape USE="koleso"> 
+        </shape> 
+        </transform>
+        </transform> 
+  
+      
+      <transform translation="-2.5 -2.9 6" rotation="1 0 0 -1.570" >
+      <transform DEF="cyl3" >
+      <shape USE="koleso"> 
+        </shape> 
+        </transform> 
+      </transform>
+  
+      
+      <transform translation="0 -2.9 6" rotation="1 0 0 -1.570" >
+      <transform DEF="cyl4" >
+      <shape USE="koleso"> 
+        </shape> 
+        </transform>
+        </transform> 
+  
+      
+      <transform translation="2.5 -2.9 6" rotation="1 0 0 -1.570" >
+      <transform DEF="cyl5" >
+      <shape USE="koleso"> 
+        </shape> 
+        </transform>
+        </transform> 
+  
+      
+      <transform translation="5 -2.9 6" rotation="1 0 0 -1.570" >
+      <transform DEF="cyl6" >
+      <shape USE="koleso"> 
+        </shape> 
+        </transform>
+        </transform> 
+  
+    
+      <transform translation="7.5 -2.9 6" rotation="1 0 0 -1.570" >
+      <transform DEF="cyl7" >
+      <shape USE="koleso"> 
+        </shape> 
+        </transform>
+      </transform>
+     </Group>
+  
+      <transform DEF="kol" translation="0 0 -12">
+      <shape USE="Gus1"> 
+        </shape> 
+        </transform> 
+  
+        <transform translation="-1.4 -4.5 6.7"> <!-- koordinati gusenicy sverhu -->
+      <Group DEF="hodovaya"> <!--наполнение гусениц -->
+      <transform  translation="1.6 2.75 0" >
+       <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material> 
+         <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21f0/Db2CLVUbmh0.jpg"></ImageTexture>
+         </appearance> 
+         <box size="18.5 0.5 1"></box> 
+        </shape> 
+      </transform> 
+  
+      <transform  translation="1.6 0.73 0">
+       <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material>
+          <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21f0/Db2CLVUbmh0.jpg"></ImageTexture>
+         </appearance> 
+         <box size="18.5 0.5 1"></box> 
+        </shape> 
+      </transform> 
+  
+      <transform rotation="0 0 1 -0.78"  translation="-8.1 1.28 0" >
+       <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material> 
+          <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21f0/Db2CLVUbmh0.jpg"></ImageTexture>
+         </appearance> 
+         <box size="1.8 0.5 1"></box> 
+        </shape> 
+      </transform> 
+  
+      <transform rotation="0 0 1 0.78"  translation="-8.1 2.2 0" >
+       <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material>
+          <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21f0/Db2CLVUbmh0.jpg"></ImageTexture>
+         </appearance> 
+         <box size="1.8 0.5 1"></box> 
+        </shape> 
+      </transform> 
+  
+      <transform rotation="0 0 1 0.78"  translation="11.3 1.28 0" >
+       <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material>
+          <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21f0/Db2CLVUbmh0.jpg"></ImageTexture>
+         </appearance> 
+         <box size="1.8 0.5 1"></box> 
+        </shape> 
+      </transform> 
+  
+      <transform rotation="0 0 1 -0.78"  translation="11.3 2.2 0" >
+       <shape> 
+         <appearance> 
+           <material diffuseColor='0 1 0'></material>
+          <ImageTexture url="https://pp.userapi.com/c852024/v852024614/f21f0/Db2CLVUbmh0.jpg"></ImageTexture>
+         </appearance> 
+         <box size="1.8 0.5 1"></box> 
+        </shape> 
+      </transform> 
+  
+        <Group DEF="zubci"> <!-- зубцы гусениц -->
+          <transform translation="-5.54 0.48 0" >
+       <shape DEF="treug"> 
+         <appearance> 
+           <material diffuseColor='0 1 1'></material>
+           <ImageTexture url="https://pp.userapi.com/c852320/v852320614/f6693/ZasltjdCdDU.jpg "></ImageTexture> 
+         </appearance> 
+         <box size="0.25 0.05 1"></box> 
+        </shape> 
+        </transform> 
+        
+        <transform   translation="-5.84 0.48 0" >
+       <shape USE="treug"> 
+        </shape> 
+        </transform> 
+        
+        <transform   translation="-6.14 0.48 0" >
+       <shape USE="treug"> 
+        </shape> 
+        </transform> 
+        
+        <transform   translation="-6.44 0.48 0" >
+       <shape USE="treug"> 
+        </shape> 
+        </transform> 
+        
+        <transform   translation="-6.74 0.48 0" >
+       <shape USE="treug"> 
+        </shape> 
+        </transform> 
+        
+        <transform   translation="-7.04 0.48 0" >
+       <shape USE="treug"> 
+        </shape> 
+        </transform> 
+        
+        <transform   translation="-7.34 0.48 0" >
+       <shape USE="treug"> 
+        </shape> 
+        </transform> 
+        
+        <transform   translation="-7.64 0.48 0" >
+       <shape USE="treug"> 
+        </shape> 
+        </transform> 
+      </Group>
+      
+      <transform translation="2.44 0 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="4.94 0 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="7.44 0 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform>
+        
+        <transform translation="9.94 0 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="12.44 0 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform>
+        
+        <transform translation="14.94 0 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="16.19 0 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="2.44 2.55 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="4.94 2.55 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="7.44 2.55 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform>
+        
+        <transform translation="9.94 2.55 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="12.44 2.55 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform>
+        
+        <transform translation="14.94 2.55 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+        
+        <transform translation="16.19 2.55 0">
+      <shape USE="zubci"> 
+        </shape> 
+        </transform> 
+    </Group>	   
+    </transform>
+  
+    <transform translation="-1.4 -4.5 -6.7">
+      <shape USE="hodovaya"> 
+        </shape> 
+        </transform> 
+  
+      <Transform translation="-2  3.3  5" scale="0.14 0.14 0.14 "> <!-- zvezda1-->
+        <anchor url='https://www.youtube.com/watch?v=xD7vw_f1swI' parameter="target='_self'">
+        <shape>
+           <IndexedTriangleStripSet index='0 1 10 -1 1 2 10 -1 2 10 3 -1 3 4 10 -1 4 10 5 -1 5 6 10 -1 6 10 7 -1 7 8 10 -1 8 10 9 -1 0 9 10' solid='false'> 
+                <Coordinate DEF='Coord' point='0 8 0,-2 2 0,-8.39 2.12 0,-3.28 -1.6 0,-5.2 -7.69 0,0 -4 0,5.15 -7.71 0,3.26 -1.5 0,8.39 2.21 0,2 2 0,0.04 -0.58 0.1'></Coordinate>
+            </IndexedTriangleStripSet>
+            <appearance>
+                    <material diffuseColor='#8B0000'></material>
+                </appearance>
+            </shape>
+            </anchor>
+        </Transform>
+  
+        <!-- <Transform rotation="0 1 0 -1.57" translation="-2  3.3  5" scale="0.14 0.14 0.14" > 
+        <shape>
+           <IndexedTriangleStripSet index='0 1 10 -1 1 2 10 -1 2 10 3 -1 3 4 10 -1 4 10 5 -1 5 6 10 -1 6 10 7 -1 7 8 10 -1 8 10 9 -1 0 9 10' solid='false'> 
+                <Coordinate point='0 8 0,-2 2 0,-8.39 2.12 0,-3.28 -1.6 0,-5.2 -7.69 0,0 -4 0,5.15 -7.71 0,3.26 -1.5 0,8.39 2.21 0,2 2 0,0.04 -0.58 0.1'></Coordinate>
+            </IndexedTriangleStripSet>
+            <appearance>
+                    <material diffuseColor='#8B0000'></material>
+                </appearance>
+            </shape>
+        </Transform> -->
+  
+  
+  </Transform>
+  
+              
+    
+      
+  
+        <Transform rotation="0 1 0 1.57" translation="-30 -4.1 30" scale="1 1.5 0.7 " > <!-- setka-->
+          <Shape>
+                <ElevationGrid xDimension="10" zDimension="6" xSpacing="10.0" zSpacing="30.0" solid="false"
+                                height=
+                                        "0,2,0,0,0,0,1,0,2,0,
+                                        0,2,0,0,0,1,0,0,2,0,
+                                        0,2,0,0,0,0,1,0,2,0,
+                                       0,0,0,0,0,0,0,0,2,0,
+                                        0,2,0,0,0,0,1,0,2,0,
+                                        0,0,0,0,0,0,0,0,2,0,">
+                </ElevationGrid>
+                <Appearance>
+                  <Material diffuseColor='#BDB76B'></Material>
+                  <ImageTexture url="https://pp.userapi.com/c851532/v851532697/f9f5f/BgS5yMcqQzw.jpg"></ImageTexture> 
+                </Appearance>
+              </Shape>
+                  </Transform>
+  
+        <Transform > <!-- bunker-->
+          <Transform   translation="0 -3.6 -33" scale="2.4 3 4">
+    <Shape>
+              <appearance>
+                  <material diffuseColor='#C0C0C0'></material>
+                  <ImageTexture url="https://pp.userapi.com/c849336/v849336946/172626/EyOd4f7pUZI.jpg"></ImageTexture> 
+              </appearance>
+      <IndexedFaceSet ccw="true" convex="true"
+           creaseAngle="0" solid="false"
+           coordIndex="0 1 3 2 -1 4 5 7 6 -1 2 6 4 0 -1 1 8 9 3 -1 5 10 11 7 -1 0 1 5 4 -1 8 10 12 13  ">
+       <Coordinate point=" -7 7 0,7 7 0,-7 0 0,7 0 0,
+       -7 7 15,7 7 15,-7 0 15,7 0 15,
+       7 7 4,7 0 4, 7 7 10, 7 0 10
+       7 5 10,7 5 4"></Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+  </Transform>
+  </Transform >
+  
+  <SpotLight location="5 5 5" color="1 1 1" intensity="1" ></SpotLight>
+      
+  <navigationInfo type="walk"  avatarSize="1 7 0.75" speed='8'></navigationInfo>
+  
+    
+  <TimeSensor DEF="Time" cycleInterval="10" loop="true"> </TimeSensor> <!-- cvet orudia -->	
+  <ColorInterpolator DEF="ColInt" key="0 0.33 0.66 1"
+  keyValue="0.1 0 0, 0 0.2 0, 0 0 0.3, 0.1 0 0">
+  </ColorInterpolator>
+  
+  <ROUTE fromNode="Time" fromField="fraction_changed"
+  toNode="ColInt" toField="set_fraction">
+  </ROUTE>
+  <ROUTE fromNode="ColInt" fromField="value_changed"
+  toNode="Mat" toField="set_diffuseColor">
+  </ROUTE>
+  
+  <TimeSensor DEF='Timee' cycleInterval='12' loop='true' ></TimeSensor> <!-- dlya tanka -->
+  <ScalarInterpolator DEF='ScInt' key='0 0.5 1' keyValue='0.1 0.9 0.1'></ScalarInterpolator>
+  <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' 
+          keyValue='0 0 0, 0 0 -4, 50 0 -4, 0 0 -4, 0 0 0 '>
+  </PositionInterpolator> 
+      <ROUTE fromNode='Timee' fromField='fraction_changed'     
+                 toNode='PosInt' toField='set_fraction'>          
+          </ROUTE>
+          <ROUTE fromNode='PosInt' fromField='value_changed' 
+                 toNode='Trans' toField='set_translation'>           
+          </ROUTE>
+  
+          <TimeSensor id="Time5" DEF='Time5' cycleInterval='5' loop='true' enabled='true'></TimeSensor>
+     <OrientationInterpolator DEF="POsp" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
+  
+          <ROUTE fromNode='Time5' fromField='fraction_changed' 
+                 toNode='POsp' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='POsp' fromField='value_changed' 
+                 toNode='cyl' toField='set_rotation'>
+          </ROUTE>
+  
+       
+       <ROUTE fromNode='Time5' fromField='fraction_changed' 
+                 toNode='POsp' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='POsp' fromField='value_changed' 
+                 toNode='cyl2' toField='set_rotation'>
+          </ROUTE>
+          <ROUTE fromNode='Time5' fromField='fraction_changed' 
+                 toNode='POsp' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='POsp' fromField='value_changed' 
+                 toNode='cyl3' toField='set_rotation'>
+          </ROUTE>
+          <ROUTE fromNode='Time5' fromField='fraction_changed' 
+                 toNode='POsp' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='POsp' fromField='value_changed' 
+                 toNode='cyl4' toField='set_rotation'>
+          </ROUTE>
+          <ROUTE fromNode='Time5' fromField='fraction_changed' 
+                 toNode='POsp' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='POsp' fromField='value_changed' 
+                 toNode='cyl5' toField='set_rotation'>
+          </ROUTE>
+          <ROUTE fromNode='Time5' fromField='fraction_changed' 
+                 toNode='POsp' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='POsp' fromField='value_changed' 
+                 toNode='cyl6' toField='set_rotation'>
+          </ROUTE>
+          <ROUTE fromNode='Time5' fromField='fraction_changed' 
+                 toNode='POsp' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='POsp' fromField='value_changed' 
+                 toNode='cyl7' toField='set_rotation'>
+          </ROUTE>
+       </scene> 
+    </x3d> 
+     </body> 
+  </html>
