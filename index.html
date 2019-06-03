@@ -4,15 +4,13 @@
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Magaz</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
-    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/1.5.1/x3dom.css" />
+    <script src="https://www.x3dom.org/download/1.5.1/x3dom-full.js"></script>
   </head>
   <body>
     <h1>Risunok iz 3d</h1>
     <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom" width = "1000" height = "700"> 
     <Scene>
-
-      
       
            <Transform translation="0 15 0">
              <Shape>
@@ -26,8 +24,6 @@
 <Viewpoint description="2" position="-5 5 -5" orientation="2 5 -1 -1.36"></Viewpoint>
 <Viewpoint description="3" position="5 5 -5" orientation="-2 5 -1 1.36"></Viewpoint>
 <NavigationInfo avatarSize="8 12 0" type="WALK" speed="15"></NavigationInfo>
-
-
 
 <!--App Store-->
            <Transform translation="0 15 -70">
@@ -101,7 +97,6 @@
         <ROUTE fromNode='box_press_pos' fromField='value_changed' 
                toNode='let' toField='set_translation'>
         </ROUTE>
-
            
 
 <!--iPhone X-->
@@ -123,9 +118,7 @@
                 </appearance> 
                 <box size = "2.6 5 0.05"></box> 
             </shape> 
-        </transform>  
-
-        
+        </transform>         
 
        </Collision>
     </Transform> 
@@ -146,8 +139,6 @@
         <ROUTE fromNode='rotation_end' fromField='value_changed' 
                toNode='telephone' toField='set_rotation'>
         </ROUTE>
-
-
 
 
 <!--балки между отделами-->
@@ -189,8 +180,6 @@
            </ROUTE>
 
 
-
-
 <!--Gelaxe Fold-->
 <Transform DEF="Fold" translation="-58 -0.5 0"  >  
     <Collision enabled="true" bboxCenter="0 9 -5" bboxSize="18 18 10">
@@ -223,6 +212,7 @@
             </shape> 
         </transform>
 
+
             <!--Samsung-->
            <transform DEF="Sam" translation="0 0 -50"> 
               <shape> 
@@ -249,11 +239,7 @@
         </ROUTE>
         <ROUTE fromNode='rotation_end' fromField='value_changed' 
                toNode='Sam' toField='set_rotation'>
-        </ROUTE>
-
-
-       
-
+        </ROUTE> 
 
         <!--Samsung Store-->
            <Transform translation="-72 15 0">
@@ -292,7 +278,6 @@
                <Box size="5 1 18" solid="false"></Box>
              </Shape>
            </Transform>
-
 
 
 
@@ -336,7 +321,6 @@
         <ROUTE fromNode='box_pos' fromField='value_changed' 
                toNode='Cam' toField='set_translation'>
         </ROUTE>
-
 
 
            <!--Oppo Store-->
