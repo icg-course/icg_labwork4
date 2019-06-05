@@ -1,13 +1,492 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<head> 
+ <meta charset="utf-8" /> 
+ <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]--> 
+ <title>Лабораторная работа 4</title>  
+ <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" /> 
+ <script src="https://www.x3dom.org/download/x3dom.js"></script> 
+</head> 
+
+<body>
+ <h1>Lab work</h1>
+ <X3D style="left:0px; top:0px; width:100%; height:100%; border:none;">
+  <Scene>
+  
+   <Viewpoint orientation="0 0 0 0" position="0.13 2.51 11.24" ></Viewpoint>
+   <Viewpoint orientation="0 0 0 0" position="10 6 14" ></Viewpoint>
+   <Fog color="0.4 0.4 0.4" fogType="LINEAR" visibilityRange="40"></Fog>
+ 
+   <Background groundAngle='4 5 2' 
+    groundColor='0 0 0 0 0' 
+    skyAngle='0 0 0 0 0' 
+    skyColor='0.13 0.10 0.2 0.21 0.44 0.31 0.67 0.7 0.62 0.94 0.86 0.55 0.83'></Background>
+
+	<NavigationInfo avatarSize="0.5 1.75 0.9" speed="3" type="ANY"></NavigationInfo>
+	
+	<Sound>
+	 <AudioClip url='circ.mp3' loop='true' enabled='true'></AudioClip>
+	</Sound>
+	
+
+   <PointLight location="20 20 20" color="1 1 1" intensity="0.005" shadowIntensity="3" shadowMapSize="300"></PointLight>
+   <SpotLight color="1 1 1" intensity="1" location="0 0 5" radius="10" on="TRUE" global="TRUE" direction="0 0 0"></SpotLight>
+   <DirectionalLight color="1 1 1" on="TRUE" intensity="1" global="TRUE" dedication="0 0 0"></DirectionalLight
+
+  <transform rotation="0 0 0 0" translation="0 0 0">
+     <Shape>
+	   <Appearance>
+	     <ImageTexture url="pol.jpg"></ImageTexture>
+	     <Material></Material>
+	   </Appearance>
+       <Box size="100 0.1 100"></Box>
+     </Shape>
+  </transform>
+
+   
+<!--НОГИ-->
+   <transform rotation="2 2 2 2" translation="0.4 1.25 0.8">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="leg.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+   </transform>
+   
+   <transform rotation="2 2 2 2" translation="0.38 1.27 1.3">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="leg.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.2"></Sphere>
+     </Shape>
+   </transform>
+   
+   <transform rotation="0 0 0 0" translation="0.38 0.7 1.3">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="leg.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+   </transform>
+   
+   <transform rotation="0 0 0 0" translation="0.38 0.2 1.5">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="snekers.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Box size="0.4 0.2 0.8"></Box>
+     </Shape>
+   </transform>
+   
+   <transform rotation="2 2 2 2" translation="-0.37 1.25 0.8">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="leg.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+   </transform>
+   
+   <transform rotation="2 2 2 2" translation="-0.38 1.27 1.3">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="leg.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.2"></Sphere>
+     </Shape>
+   </transform>
+   
+   <transform rotation="0 0 0 0" translation="-0.38 0.7 1.3">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="leg.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+   </transform>
+   
+   <transform rotation="0 0 0 0" translation="-0.38 0.2 1.5">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="snekers.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Box size="0.4 0.2 0.8"></Box>
+     </Shape>
+   </transform>
+
+<!--ТУЛОВИЩЕ-->
+	<transform rotation="0 0 0 0" translation="0 2 0">
+     <Shape>
+		  <Appearance>
+		  <TextureTransform center="0.5 0.7" rotation="1" scale="1 1" translation="0.2 0.1"></TextureTransform>
+		  <ImageTexture url="rubashka.jpg"></ImageTexture>
+		  </Appearance>
+		  <Cylinder height="2" radius="0.5"></Cylinder>
+     </Shape>
+   </transform>
+   
+<!--ГОЛОВА-->   
+	<transform DEF="Head" rotation="0 0 0 0" translation="0 3.6 0">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="face1.png"></ImageTexture>
+		  <Material emissiveColor="0 0 0"></Material>
+		  </Appearance>
+		  <Sphere radius="0.6"></Sphere>
+     </Shape>
+	</transform>
+	
+	<transform rotation="0 0 0 0" translation="0 4.1 0">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="colpack.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cone bottomRadius="0.6" height="3" bottom="false"></Cone>
+     </Shape>
+	</transform>
+
+<!--РУКИ-->
+	<transform rotation="0 0 0 0" translation="0.5 2.9 0">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.25"></Sphere>
+     </Shape>
+	</transform>
+	
+	<transform rotation="1 0 0 2" translation="0.6 2.7 0.5">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+    </transform>
+   
+    <transform rotation="0 0 0 0" translation="0.6 2.47 1">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.2"></Sphere>
+     </Shape>
+	</transform>
+	
+	<transform rotation="0 0 1 -4" translation="1 2.82 1">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+    </transform>
+	
+	<transform rotation="0 0 0 0" translation="1.4 3.165 1">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.2"></Sphere>
+     </Shape>
+	</transform>
+
+	<transform rotation="0 0 0 0" translation="-0.5 2.9 0">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.25"></Sphere>
+     </Shape>
+	</transform>
+	
+	<transform rotation="1 0 0 2" translation="-0.6 2.7 0.5">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+    </transform>
+   
+    <transform rotation="0 0 0 0" translation="-0.6 2.47 1">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.2"></Sphere>
+     </Shape>
+	</transform>
+	
+	<transform rotation="0 0 1 4" translation="-1 2.82 1">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Cylinder height="1" radius="0.2"></Cylinder>
+     </Shape>
+    </transform>
+	
+	<transform rotation="0 0 0 0" translation="-1.4 3.165 1">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Sphere radius="0.2"></Sphere>
+     </Shape>
+	</transform>
+
+	<!--tor-->
+	<transform rotation="0 0 0 0" translation="0 3 -6">
+     <Shape>
+		  <Appearance>
+		  <ImageTexture url="hand.jpg"></ImageTexture>
+		  <Material></Material>
+		  </Appearance>
+		  <Torus innerRadius="1" outerRadius="2"></Torus>
+     </Shape>
+	</transform>
+	
+	<!--TEXT-->
+	<transform rotation="0 0 0 0" translation="0 6 0">
+	 <Anchor url="https://самара.квестгид.рф/images/quest/100xNxupload_64524ef673f33ec537c0783b9a75bb36.jpg.pagespeed.ic.kvj7REfGlm.jpg" parameter="target='_self'"> 
+     <Shape DEF="Text">
+		<Text maxExtent="6" length="7" string="Хочешь посмотреть мой домик внутри?"></Text>
+	   <Appearance>
+	     <Material></Material>
+	   </Appearance>
+	  </Shape>
+	  <Shape USE="Text">
+	   
+     </Shape>
+   </transform>
+	
+	<Group DEF="House1">
+	<!--ДОМИК-->
+     <Transform translation="6 0 -12" rotation="0 0 0 0">
+      <Shape>
+       <Appearance>
+         <ImageTexture url="2.jpg"></ImageTexture>
+       </Appearance>
+       <IndexedFaceSet ccw="false" colorPerVertex="true" convex="true"
+			creaseAngle="0" normalPerVertex="true" solid="false"
+			coordIndex = "0 1 3 2 0 -1 4 5 7 6 4 -1 0 4 6 2 0 -1 1 5 7 3 1 -1 2 6 7 3 2 -1 0 4 5 1 0 -1"
+			colorIndex = "0 1 3 2 0 -1 4 5 7 6 4 -1 0 4 6 2 0 -1 1 5 7 3 1 -1 2 6 7 3 2 -1 0 4 5 1 0 -1"
+			colorPerVertex = "true">
+         <Color color="0 0 0, 0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1"></Color>
+           <Coordinate point="0 0 0, 0 0 10, 0 10 0, 0 10 10, 10 0 0, 10 0 10, 10 10 0, 10 10 10"></Coordinate>
+       </IndexedFaceSet>
+      </Shape>
+     </Transform>
+	
+	<!--ВЫТЯНУТЫЙ ТРЕУГОЛЬНИК-->
+     <Transform translation="16 10 -12" rotation="0 0 1 1.57">
+      <Shape>
+       <Appearance>
+         <ImageTexture url="1.jpg"></ImageTexture>
+       </Appearance>
+       <IndexedTriangleStripSet index="0 1 4 3 2 1 0 2 4" solid="false">
+         <Coordinate point="0 0 0, 0 0 10, 0 10 0, 0 10 10, 10 5 5></Coordinate>
+         <Color color="0 0 0, 0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1"></Color>
+       </IndexedTriangleStripSet> 
+     </Shape>
+     </Transform>
+	 
+	<!--ЧТО-ТО СТРАННОЕ-->
+     <Transform translation="16 10.5 -12" rotation="0 0 1 1.57">
+      <Shape>       
+	   <IndexedTriangleSet index="0 1 4 0 2 5 3 1 7 3 2 6" solid="false">
+         <Coordinate point="0 0 0, 0 0 10, 0 10 0, 0 10 10, 10 0 5, 10 5 0, 10 10 5, 10 5 10"></Coordinate>
+         <Color color="0 0 0, 0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1"></Color>
+       </IndexedTriangleSet>
+      </Shape>
+     </Transform>
+	
+	<!--ТОЧКИ-->
+     <Transform translation="5.5 0 -12">
+      <Shape>
+       <PointSet>
+        <Color color="0 0 0, 0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 0 1 0, 1 0 1"></Color>
+          <Coordinate point="0 0 0, 0 0 11, 0 11 0, 0 11 11, 11 0 0, 11 0 11, 11 11 0, 11 11 11"></Coordinate>
+       </PointSet>
+      </Shape>
+     </Transform>
+	</Group>
+	
+	<!--ДОМИКИ ГРУППА-->
+	<Transform translation="20 0 -10">
+		<Shape USE="House1"></Shape>
+	</Transform>
+	
+	<Transform translation="-25 0 0">
+		<Shape USE="House1"></Shape>
+	</Transform>
+
+	<Transform translation="-10 0 -20">
+		<Shape USE="House1"></Shape>
+	</Transform>
+	
+	<!--КВАДРАТ-->
+    <Transform translation="-2.5 0.1 -1" rotation="0 0 0 0">
+      <Shape>
+       <IndexedLineSet  coordIndex = "0 1 3 2 0 -1 4 5 7 6 4 -1 0 4 6 2 0 -1 1 5 7 3 1 -1"
+						colorIndex = "0 1 3 2 0 -1 4 5 7 6 4 -1 0 4 6 2 0 -1 1 5 7 3 1 -1"
+						colorPerVertex = "true">
+         <Color color="0 0 0, 0 1 1, 0 1 0, 0 1 0, 1 0 0, 1 0 1, 1 1 0, 1 0 1"></Color>
+         <Coordinate point="0 0 0, 0 0 5, 0 5 0, 0 5 5, 5 0 0, 5 0 5, 5 5 0, 5 5 5"></Coordinate>
+       </IndexedLineSet>
+      </Shape>
+     </Transform>
+	  
+	<!--ВСТРАИВАЕМЫЙ ЭЛЕМЕНТ--> 	
+	<Transform DEF="MiniCloune1" translation="6 0 0">   
+		<Inline url="lab22.x3d"></Inline>  
+	</Transform> 
+	
+	<Transform DEF="MiniCloune2" translation="-6 0 0">   
+		<Inline url="lab22.x3d"></Inline>  
+	</Transform>
+
+	<!--ИНТЕРПОЛЯТОР ЦВЕТА-->
+    <TimeSensor DEF="Time" cycleInterval="5" loop="true"> </TimeSensor>  
+		<ColorInterpolator DEF="ColInt" key="0 0.33 0.66 1"           
+						   keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0">   
+		</ColorInterpolator>  
+	<Transform translation="0 0.5 0">
+	<Shape>     
+		<Appearance>     
+			<Material DEF="Mat" diffuseColor="1 0 0"></Material> 
+		</Appearance>    
+		<Box DEF="Box" size="1 1 1"></Box> 
+	</Shape>  
+	</Transform>
+	<ROUTE fromNode="Time" fromField="fraction_changed"         
+		   toNode="ColInt" toField="set_fraction"></ROUTE>   
+	<ROUTE fromNode="ColInt" fromField="value_changed"         
+		   toNode="Mat" toField="set_diffuseColor">
+	</ROUTE>
+
+	<!--ОРИНТЕЙШН ИНТЕРПОЛЯТОР-->
+			<!--MC1-->
+    <TimeSensor DEF="TS_MC1" cycleInterval="1" loop="true"></TimeSensor>   
+    <OrientationInterpolator DEF="OI_MC1" key="0, 0.5, 1"                    
+							 keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">   
+	</OrientationInterpolator>   
+	<ROUTE fromNode="TS_MC1" fromField="fraction_changed"        
+		   toNode="OI_MC1" toField="set_fraction">  
+	</ROUTE>  
+	<ROUTE fromNode="OI_MC1" fromField="value_changed"          
+		   toNode="MiniCloune1" toField="set_rotation">
+	</ROUTE>
+	
+			<!--MC2-->
+	 <TimeSensor DEF="TS_MC2" cycleInterval="1" loop="true"></TimeSensor>   
+    <OrientationInterpolator DEF="OI_MC2" key="0, 0.5, 1"                    
+							 keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">   
+	</OrientationInterpolator>   
+	<ROUTE fromNode="TS_MC2" fromField="fraction_changed"        
+		   toNode="OI_MC2" toField="set_fraction">  
+	</ROUTE>  
+	<ROUTE fromNode="OI_MC2" fromField="value_changed"          
+		   toNode="MiniCloune2" toField="set_rotation">
+	</ROUTE>
+	
+			<!--Head-->
+	<TimeSensor DEF="TS_LH" cycleInterval="3" loop="true"></TimeSensor>   
+    <OrientationInterpolator DEF="OI_LH" key="0, 0.5, 1"                    
+							 keyValue="0 0 1 0, 0 0 1 3.14, 0 0 1 6.28">   
+	</OrientationInterpolator>   
+	<ROUTE fromNode="TS_LH" fromField="fraction_changed"        
+		   toNode="OI_LH" toField="set_fraction">  
+	</ROUTE>  
+	<ROUTE fromNode="OI_LH" fromField="value_changed"          
+		   toNode="Head" toField="set_rotation">
+	</ROUTE>
+	
+			<!--HOROVOD-->
+   <TimeSensor DEF="Horovod" cycleInterval="5" loop="true"></TimeSensor> 
+  <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+						   keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"> 
+  </OrientationInterpolator>  
+  <Shape USE="Box"></Shape> 
+	<Transform DEF="Trans1"> 
+	<Transform DEF="Trans2" translation="-9 0 0">   
+  <Shape USE="MiniCloune1"></Shape>   
+  </Transform>  
+  </Transform> 
+  <ROUTE fromNode="Horovod" fromField="fraction_changed"     
+  toNode="OrientInt" toField="set_fraction"></ROUTE>  
+  <ROUTE fromNode="OrientInt" fromField="value_changed"   
+  toNode="Trans1" toField="set_rotation"></ROUTE> 
+	
+	<TimeSensor DEF="Horovod" cycleInterval="5" loop="true"></TimeSensor> 
+  <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+						   keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"> 
+  </OrientationInterpolator>  
+  <Shape USE="Box"></Shape> 
+	<Transform DEF="Trans1"> 
+	<Transform DEF="Trans2" translation="-3 0 0">   
+  <Shape USE="MiniCloune1"></Shape>   
+  </Transform>  
+  </Transform> 
+  <ROUTE fromNode="Horovod" fromField="fraction_changed"     
+  toNode="OrientInt" toField="set_fraction"></ROUTE>  
+  <ROUTE fromNode="OrientInt" fromField="value_changed"   
+  toNode="Trans1" toField="set_rotation"></ROUTE> 
+	
+	<TimeSensor DEF="Horovod" cycleInterval="5" loop="true"></TimeSensor> 
+  <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+						   keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"> 
+  </OrientationInterpolator>  
+  <Shape USE="Box"></Shape> 
+	<Transform DEF="Trans1"> 
+	<Transform DEF="Trans2" translation="-6 0 -3">   
+  <Shape USE="MiniCloune1"></Shape>   
+  </Transform>  
+  </Transform> 
+  <ROUTE fromNode="Horovod" fromField="fraction_changed"     
+  toNode="OrientInt" toField="set_fraction"></ROUTE>  
+  <ROUTE fromNode="OrientInt" fromField="value_changed"   
+  toNode="Trans1" toField="set_rotation"></ROUTE>
+  
+	<TimeSensor DEF="Horovod" cycleInterval="5" loop="true"></TimeSensor> 
+  <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+						   keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"> 
+  </OrientationInterpolator>  
+  <Shape USE="Box"></Shape> 
+	<Transform DEF="Trans1"> 
+	<Transform DEF="Trans2" translation="-6 0 3">   
+  <Shape USE="MiniCloune1"></Shape>   
+  </Transform>  
+  </Transform> 
+  <ROUTE fromNode="Horovod" fromField="fraction_changed"     
+  toNode="OrientInt" toField="set_fraction"></ROUTE>  
+  <ROUTE fromNode="OrientInt" fromField="value_changed"   
+  toNode="Trans1" toField="set_rotation"></ROUTE>
+	
+  </Scene>
+ </X3D>
+</body>
 </html>
