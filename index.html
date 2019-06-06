@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-  <title>Лабораторная работа 3</title>
+  <title>Лабораторная работа 4</title>
   <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
   <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
 </head>
@@ -228,7 +228,7 @@
       <transform DEF="Glowstones">
         <!--Рубин-->
         <transform translation="2.25 -1 2.25">
-          <inline url="octaedr-ruby.html">
+          <inline url="octaedr-ruby.html"></inline>
           <!-- Источник света -->
           <shape>
             <PointLight location = "2.25 -1 2.25" color = "1 0 0" radius = "4" global = "false">          
@@ -237,7 +237,7 @@
         </transform>
         <!--Сапфир-->
         <transform translation="-2.25 -1 2.25">
-          <inline url="octaedr-saphire.html">
+          <inline url="octaedr-saphire.html"></inline>
           <!-- Источник света -->
           <shape>
             <PointLight location = "-2.25 -1 2.25" color = "0 0 1" radius = "4" global = "false">          
@@ -246,7 +246,7 @@
         </transform>
         <!--Изумруд-->
         <transform translation="2.25 -1 -2.25">
-          <inline url="octaedr-emerald.html">
+          <inline url="octaedr-emerald.html"></inline>
           <!-- Источник света -->
           <shape>
             <PointLight location = "2.25 -1 -2.25" color = "0 1 0" radius = "4" global = "false">          
@@ -255,7 +255,7 @@
         </transform>
         <!--Янтарь-->
         <transform translation="-2.25 -1 -2.25">
-          <inline url="octaedr-ember.html">
+          <inline url="octaedr-ember.html"></inline>
           <!-- Источник света -->
           <shape>
             <PointLight location = "-2.25 -1 -2.25" color = "1 1 0" radius = "4" global = "false">          
@@ -266,22 +266,22 @@
 
       <!-- Обезъянка -->
       <transform DEF="Monkey0" translation = "0 0 3" scale = "0.5 0.5 0.5" rotation = "0 0 1 3.14">
-        <inline url="blender-monkey.x3d">
+        <inline url="blender-monkey.x3d"></inline>
       </transform>
       <transform DEF="Monkey1" translation = "3 0 0" scale = "0.5 0.5 0.5" rotation = "0 1 0 3.14">
-        <inline url="blender-monkey.x3d">
+        <inline url="blender-monkey.x3d"></inline>
       </transform>
       <transform DEF="Monkey2" translation = "0 0 -3" scale = "0.5 0.5 0.5" rotation = "1 0 0 3.14">
-        <inline url="blender-monkey.x3d">
+        <inline url="blender-monkey.x3d"></inline>
       </transform>
       <transform DEF="Monkey3" translation = "-3 0 0" scale = "0.5 0.5 0.5" rotation = "0 0 1 3.14">
-        <inline url="blender-monkey.x3d">
+        <inline url="blender-monkey.x3d"></inline>
       </transform>
     </transform>
 
     <!-- Оси -->
     <transform>
-      <inline url="axis.html">
+      <inline url="axis.html"></inline>
     </transform>
 
     <!-- Фон 
@@ -314,7 +314,7 @@
     </OrientationInterpolator>
     <OrientationInterpolator DEF="OrientM3" key="0, 0.5, 1" keyValue="1 1 1 0, 1 1 1 3.14, 1 1 1 6.28"> 
     </OrientationInterpolator>
-    <OrientationInterpolator DEF="OrientGStones" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"> 
+    <OrientationInterpolator DEF="OrientGStones" key="0, 0.5, 0.75, 1" keyValue="0 1 0 0, 0 1 0 1.57, 0 1 0 3.14, 0 1 0 6.28"> 
     </OrientationInterpolator>
     <OrientationInterpolator DEF="OrientWire1" key="0, 0.5, 1" keyValue="1 1 1 0, 1 1 1 3.14, 1 1 1 6.28"> 
     </OrientationInterpolator>
