@@ -11,8 +11,7 @@
   <scene>
     <transform translation="0 0 0" rotation = "1 0 0 0.52">
     <Inline url= "Umbrella.x3d"></Inline>
-    <Background backurl = "Beach.png"></Background>
-    <DirectionalLight ambientIntensity ="1" color = "1 1 1" location = "10 50 0" radius = "500" intensity = "1" shadowIntensity= "0.5" shadowMapSize= "4096"></DirectionalLight>
+    <DirectionalLight ambientIntensity ="1" color = "1 1 1" location = "10 50 0" radius = "100" intensity = "1" shadowIntensity= "0.1" shadowMapSize= "4024"></DirectionalLight>
     <Fog visibilityRange="1000"></Fog>
 	 
 <Collision DEF = "Scene" enabled = "true"> 
@@ -179,17 +178,18 @@
       <Appearance>
               <ImageTexture url="pesok.jpeg"></ImageTexture>
             </Appearance>
-          <ElevationGrid xDimension="2" zDimension="2" 
+          <ElevationGrid xDimension="4" zDimension="3" 
                           height=
-                                  "0, 0,   
-                                   0, 0, "
+                                  "0, 0, 0, 0,   
+                                   0, 0, 0, 0,
+								   0, 0, 0, 0"
                   xSpacing="10" zSpacing="10" solid="false">
           </ElevationGrid>
         </Shape>
     </Transform>
 <!--.....................Пирамида............................................................................................-->	
    <Transform DEF = "Pyramide"  translation="-4 0 -2" rotation="1 0 0 2">
-	<Anchor url="https://travel.yandex.ru" parameter="target="_self"">
+	<Anchor url="https://travel.yandex.ru" parameter="target='_self'">
       <Shape>
               <IndexedTriangleSet solid="false" ccw="true" colorPerVertex="true" normalPerVertex="true" containerField="geometry"
                   index="0 1 2 
@@ -220,18 +220,29 @@
 	<transform DEF = "Ball1" translation="1 0.2 0">
       <shape USE ="Ball"></shape>
     </transform>
- </Collision>
+ 
 		
 		
 <!--.....................АНИМАЦИЯ МЯЧА............................................................................................-->
 		
-        <TimeSensor DEF="TS_Ball" cycleInterval="1" loop="true"></TimeSensor>
+        <TimeSensor DEF="TS_Ball" cycleInterval="2" loop="true"></TimeSensor>
         <PositionInterpolator DEF="PI_Ball" key="0, 0.2, 0.4, 0.6, 0.8, 1 " keyValue="1 0.2 0 , 1 0.6 0, 1 0.8 0, 1 1 0, 1 0.8 0, 1 0.2 0 "></PositionInterpolator>
 		<ROUTE fromNode="TS_Ball" fromField="fraction_changed"
                toNode="PI_Ball" toField="set_fraction">
         </ROUTE>
 		<ROUTE fromNode="PI_Ball" fromField="value_changed"
                toNode="Ball1" toField="translation">
+        </ROUTE>
+		
+		<!--.....................АНИМАЦИЯ МЯЧА2............................................................................................-->
+		
+		<TimeSensor DEF="TS_Ball2" cycleInterval="2" loop="true"></TimeSensor>
+        <PositionInterpolator DEF="PI_Ball2" key="0, 0.1, 0.5, 1 " keyValue="1 1 1, 1 0.6 1 , 1 0.9 1, 1 1 1"></PositionInterpolator>
+		<ROUTE fromNode="TS_Ball2" fromField="fraction_changed"
+               toNode="PI_Ball2" toField="set_fraction">
+        </ROUTE>
+		<ROUTE fromNode="PI_Ball2" fromField="value_changed"
+               toNode="Ball1" toField="set_scale">
         </ROUTE>
 		
 <!--.....................АНИМАЦИЯ ПИРАМИДЫ............................................................................................-->	
@@ -243,7 +254,7 @@
 		<ROUTE fromNode="OI_Pyr" fromField="value_changed"
                toNode="Tor" toField="set_rotation">
         </ROUTE>
- 
+ </Collision>
   </transform>
 
   </scene>
