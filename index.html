@@ -1,13 +1,100 @@
-<!DOCTYPE html>
+<!--DOCTYPE html-->
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>4laba</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <X3D width='1200px' height='600px'>
+      <Scene>
+        <!--Помещение-->
+        <Transform translation="0 17 0">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='indianred'></Material>
+            </Appearance>
+            <Box size="100 50 100" solid="false"></Box>
+          </Shape>
+        </Transform>
+
+        <!--TimeSensor на 10 секунд-->
+        <TimeSensor DEF="TimeCamera" cycleInterval="10" loop="true"></TimeSensor>
+        <!--Изменения для поворота камеры-->
+        <OrientationInterpolator DEF="OrientIntBoxCamera" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28"></OrientationInterpolator>
+        <!--Камера, при нажатии переходит на мою страницу вк-->
+        <Transform translation="0 14 -20">
+          <Transform DEF="TransBoxCamera"center="0 0 -2.5" rotation="0 1 0 0">
+            <Anchor url=" https://vk.com/nataliimrr" parameter="target='_self'">
+              <Inline url="lab1.x3d"></Inline>
+            </Anchor>
+          </Transform>
+        </Transform>
+        <!--Линейная анимация вращения комнаты-->
+        <ROUTE fromNode="TimeCamera" fromField="fraction_changed" toNode="OrientIntBoxCamera" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="OrientIntBoxCamera" fromField="value_changed" toNode="TransBoxCamera" toField="set_rotation"></ROUTE>
+
+        <!--Стойка для камеры-->
+        <Transform translation="0 14 -20">
+          <Inline url="lab2.x3d"></Inline>
+        </Transform>
+
+        <!--Общий свет-->
+        <PointLight location="7 30 0" color="1 1 1" intensity="0.1" shadowIntensity="2" shadowMapSize="2000"></PointLight>
+
+        <!--TimeSensor на 5 секунд-->
+        <TimeSensor DEF="TimeLight" cycleInterval="5" loop="true"></TimeSensor>
+        <!--Изменения для света 1-->
+        <ColorInterpolator DEF="ColIntLight1" key="0 0.16 0.33 0.5 0.67 0.84 1" keyValue="0 1 0.8, 0 1 0, 0 1 1, 1 0.5 0, 1 0 1, 1 1 0, 0 1 0.8"></ColorInterpolator>
+        <!--Изменения для света 2-->
+        <ColorInterpolator DEF="ColIntLight2" key="0 0.16 0.33 0.5 0.67 0.84 1" keyValue="1 0.5 0, 1 0 1, 1 1 0, 0 1 0.8, 0 1 0, 0 1 1, 1 0.5 0"></ColorInterpolator>
+        <!--Свет для камеры-->
+        <SpotLight DEF="Light1" location="0 30 -30" direction="-0.5 -1 0" color="0 1 0.8" intensity="3" beamWidth="0.2" cutOffAngle="0.7"></SpotLight>
+        <SpotLight DEF="Light2" location="0 30 -30" direction="0.5 -1 0" color="1 0.5 0" intensity="3" beamWidth="0.2" cutOffAngle="0.7"></SpotLight>
+        <DirectionalLight location="0 30 -40" direction="0 0 1" color="1 1 1" intensity="0.1" shadowIntensity="0.8" shadowMapSize="512"></DirectionalLight>
+        <!--Линейная анимация смены цвета 1-->
+        <ROUTE fromNode="TimeLight" fromField="fraction_changed" toNode="ColIntLight1" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="ColIntLight1" fromField="value_changed" toNode="Light1" toField="set_color"></ROUTE>
+        <!--Линейная анимация смены цвета 2-->
+        <ROUTE fromNode="TimeLight" fromField="fraction_changed" toNode="ColIntLight2" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="ColIntLight2" fromField="value_changed" toNode="Light2" toField="set_color"></ROUTE>
+
+        <!--коврик-->
+        <Transform translation="2.5 -7 -23.5">
+          <Shape DEF="Bottom">
+            <Appearance>
+              <ImageTexture url="kov.jpg"></ImageTexture>
+            </Appearance>
+            <Box size="20 0.1 20"></Box>
+          </Shape>
+        </Transform>
+
+        <!--TimeSensor на 2 секунды-->
+        <TimeSensor DEF="TimeMonitor" cycleInterval="2" loop="true"></TimeSensor>
+        <!--Изменения для множителя размеров экрана-->
+        <PositionInterpolator DEF='PosIntMonitorScale' key='0 0.3 0.4 0.5 0.6 0.7 1' keyValue='1 1 1, 1 1 1, 0.2 1 1, 0.7 0.7 1, 1 0.2 1, 1 1 1, 1 1 1'></PositionInterpolator>
+        <!--Экран--> 
+        <Transform DEF="TransMonitor" translation='-8 8 10' rotation='0 1 0 -0.74'>
+          <Shape>
+            <Appearance>
+              <ImageTexture url="ek.jpg"></ImageTexture>
+            </Appearance>
+            <Box size="30 20 0.2"></Box>
+          </Shape>
+        </Transform>
+        <!--Линейная анимация множителя размера комнаты-->
+        <ROUTE fromNode="TimeMonitor" fromField="fraction_changed" toNode="PosIntMonitorScale" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="PosIntMonitorScale" fromField="value_changed" toNode="TransMonitor" toField="set_scale"></ROUTE>
+        <Transform translation='-8 8 10.05' rotation='0 1 0 -0.74'>
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='white'></Material>
+            </Appearance>
+            <Box size="30 20 0.2"></Box>
+          </Shape>
+        </Transform>
+      </Scene>
+    </X3D>
   </body> 
 </html>
