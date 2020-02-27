@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/icg-course/icg_labwork4.svg?branch=gh-pages)](https://travis-ci.org/icg-course/icg_labwork4)
+[![Build Status](https://travis-ci.com/icg-course/icg_labwork4.svg?branch=gh-pages)](https://travis-ci.com/icg-course/icg_labwork4)
 # Репозиторий лабораторной работы №4 (Линейная анимация)
 
 Данный репозиторий предназначен для выполнения и сдачи лабораторной работы №4.
