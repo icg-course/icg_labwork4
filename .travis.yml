@@ -6,7 +6,8 @@ branches:
   only:
     - gh-pages
     - /.*/
-before_install: npm install -g grunt-cli
+before_install: npm install -g fast-xml-parser
+script: xml2js -V *.html 
 cache:
   directories:
     - node_modules
