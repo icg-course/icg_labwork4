@@ -1,13 +1,226 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+   <head>
+      <meta charset="utf-8" />
+      <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <![endif]-->
+      <title>LR4_ICG</title>
+      <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+      <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+      <link rel="stylesheet" href="style.css" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
+   </head>
+   <body class="back">
+      <div class="back1">
+         <nav class="nav">
+         </nav>
+         <article>
+            <h1 class="h1">Лабораторная работа №4</h1>
+			<a class="h1">Камеры:</a>
+			    <button onclick="document.getElementById('right').setAttribute('set_bind','true');">Вид сверху</button>
+				<button onclick="document.getElementById('front').setAttribute('set_bind','true');">Вид с конца дороги</button>
+				<button onclick="document.getElementById('near').setAttribute('set_bind','true');">Ближний вид</button>
+            <div class="akcya">
+               <X3D>
+                  <Scene>
+                     <!--сцена-->
+                     <Background backUrl="fon.jpg">
+					</Background>
+                     <Transform translation='20 -23 -290' >
+					<Viewpoint id="front" position="0 20 -250" orientation="0.01451 0.99989 0.002 3.15833" description="camera"></Viewpoint> 
+					<Viewpoint id="right" position="25 330 100" orientation="0 1 1 3.15833" description="camera"></Viewpoint>
+					<Viewpoint id="near" position="-55 20 200" orientation="-0.00318 -0.99950 -0.03159 2.06609" description="camera"></Viewpoint> 
+					
+					<TimeSensor DEF='Time1' cycleInterval='5' loop='true'></TimeSensor>
+					<TimeSensor DEF='Time2' cycleInterval='11' loop='true' ></TimeSensor>
+					<OrientationInterpolator DEF='OrientInt1' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+				
+					<PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75' keyValue='0 .5 200,0 .5 -100,0 .5 -350,0 .5 -400'></PositionInterpolator>
+                        <!--для поворота всей сцены-->
+                        <!--ФУРА-->
+						<Transform DEF="Kamaz1" translation="0 .5 200">
+						
+						<Group DEF="KamazG" >
+                        <Transform >
+                           <Group DEF="chassisPart">
+							<Transform translation="20 1.6 0" rotation="0 1 0 1.57">
+                              <Transform DEF='Wheel1' ><!--ШИНА1-->
+                                 <Shape>
+                                    <Appearance>
+									<Material diffusecolor="#060e1a"></Material>
+                                    </Appearance>
+                                    <Torus innerRadius=".8" outerRadius="1.4"></Torus>
+                                 </Shape>
+                              </Transform>
+							  </Transform>
+							  
+							  
+                              <Transform translation="5 1.6 0" rotation="0 1 0 1.57"><!--ШИНА2-->
+							  <Transform DEF='Wheel2'>
+                                 <Shape>
+                                    <Appearance>
+                                       <Material diffusecolor="#060e1a"></Material>
+                                    </Appearance>
+                                    <Torus innerRadius=".8" outerRadius="1.4"></Torus>
+                                 </Shape>
+								</Transform>
+                              </Transform>
+                              <Transform translation="5 1.6 0" rotation="0 0 1 1.57"><!--ДИСК2-->
+                                 
+                                 <Shape>
+                                    <Appearance>
+                                       <Material diffusecolor="#181818"></Material>
+                                    </Appearance>
+                                    <RectangularTorus innerRadius=".5" outerRadius=".8"></RectangularTorus>
+                                 </Shape>
+                              </Transform>
+                              <Transform translation="20 1.6 0" rotation="0 0 1 1.57"><!--ДИСК1-->
+                                 
+                                 <Shape>
+                                    <Appearance>
+                                       <Material diffusecolor="#181818"></Material>
+                                    </Appearance>
+                                    <RectangularTorus innerRadius=".5" outerRadius=".8"></RectangularTorus>
+                                 </Shape>
+                              </Transform>
+                              <Transform translation="12.5 1.6 0" rotation="0 0 1 1.57"><!--ШТАНГА-->
+                                 
+                                 <Shape>
+                                    <Appearance>
+                                       <Material diffusecolor="#353434"></Material>
+                                    </Appearance>
+                                    <Cylinder radius="0.5" height="16"></Cylinder>
+                                 </Shape>
+                              </Transform>
+                           </Group>
+                           <Transform translation="0 0 10" ><!--ШАССИ 2-->
+                              <Group USE="chassisPart"></Group>
+                           </Transform >
+                           <Transform translation="0 0 35" ><!--ШАССИ 3-->
+                              <Group USE="chassisPart"></Group>
+                           </Transform >
+                           <Transform translation="0 0 40" >
+                              
+                              <Group USE="chassisPart"></Group><!--ШАССИ 4-->
+                           </Transform >
+                           <Transform translation="0 0 45" ><!--ШАССИ 5-->
+                              
+                              <Group USE="chassisPart"></Group>
+                           </Transform >
+                           <Transform translation="12.5 1.6 6"><!--КУЗОВ_НИЗ-->     
+                              <Shape>
+                                 <Appearance>
+                                    <Material diffusecolor="#152271"></Material>
+                                 </Appearance>
+                                 <Box size=" 13 2.5 20"></Box >
+                              </Shape>
+                           </Transform>
+                           <Transform translation="12.5 8 10"> <!--КУЗОВ_ВВЕРХ-->
+                             
+                              <Shape>
+                                 <Appearance>
+                                    <Material diffusecolor="#152271"></Material>
+                                 </Appearance>
+                                 <Box size=" 13 12 3"></Box >
+                              </Shape>
+                           </Transform>
+                           <Transform translation="12.5 8 2.5"><!--КУЗОВ_КАБИНА-->
+                              
+                              <Shape>
+                                 <Appearance>
+                                    <Material diffusecolor="#121a49"></Material>
+                                 </Appearance>
+                                 <Box size=" 13 11 12"></Box >
+                              </Shape>
+                           </Transform>
+                           <Transform translation="12.5 10 1.5"><!--СТЕКЛО-->
+                              
+                              <Shape>
+                                 <Appearance>
+                                    <Material diffusecolor="#e0fdfe"></Material>
+                                 </Appearance>
+                                 <Box size=" 13.5 5 10.5"></Box >
+                              </Shape>
+                           </Transform>
+                           <Transform translation="8 1.5 -3.25"><!--ФАРА1-->
+                              <Shape>
+                                 <Appearance>
+                                    <Material diffusecolor="#fffddd"></Material>
+                                 </Appearance>
+                                 <Box size=" 3.5 1.5 2"></Box >
+                              </Shape>
+                           </Transform>
+                           <Transform translation="16.5 1.5 -3.25"><!--ФАРА2-->
+                              <Shape>
+                                 <Appearance>
+                                    <Material diffusecolor="#fffddd"></Material>
+                                 </Appearance>
+                                 <Box size=" 3.5 1.5 2"></Box >
+                              </Shape>
+                           </Transform>
+                           <Transform translation="12.5 2 32"><!--КУЗОВ_НИЗ2-->
+                              
+                              <Shape>
+                                 <Appearance>
+                                    <Material diffusecolor="#181818"></Material>
+                                 </Appearance>
+                                 <Box size=" 13 1.8 30"></Box >
+                              </Shape>
+                           </Transform>
+                           <Transform translation="12.5 9.5 29.5"><!--КУЗОВ_БАК-->                 
+                              <Shape>
+                                 <Appearance>
+								 <ImageTexture url="bag.jpg"></ImageTexture>
+                                 <Texturetransform scale="2 1" ></Texturetransform>
+                                 </Appearance>
+                                 <Box size=" 13 13 35"></Box >
+                              </Shape>
+                           </Transform>
+                        </Transform>
+						</Group>
+						</Transform>
+						
+						<Transform DEF="Kamaz2" translation="-2 .5 -100" rotation="0 1 0 3.14" >
+							<Group USE="Kamaz1"></Group>
+						</Transform>
+                        <!--Окружение-->
+                        <Transform translation = "0 0 0">
+                           <Transform> <!--Дорога-->
+                             
+                              <Shape>
+                                 <Appearance>
+                                    <ImageTexture url="road.jpg"></ImageTexture>
+                                    <Texturetransform scale="1 1" ></Texturetransform>
+                                 </Appearance>
+                                 <Box size = "50 0 500"></Box>
+                              </Shape>
+                           </Transform>
+                           <Transform translation = "30 -0.3 0" > <!--трава-->  
+                              <Shape>
+                                 <Appearance>
+								 <ImageTexture url="https://thumbs.dreamstime.com/b/%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83%D1%80%D0%B0-%D1%81%D1%83%D1%85%D0%BE%D0%B9-%D1%82%D1%80%D0%B0%D0%B2%D1%8B-10061786.jpg"></ImageTexture>
+                                 <Texturetransform scale="15 15" ></Texturetransform>
+                                 </Appearance>
+                                 <Box size = "500 0 500"></Box>
+                              </Shape>
+                           </Transform>
+                        </Transform>            
+					 </Transform>
+					   <ROUTE fromNode='Time1' fromField='fraction_changed' toNode='OrientInt1' toField='set_fraction'> </ROUTE>
+					   <ROUTE fromNode='Time2' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'></ROUTE>
+					   <ROUTE fromNode='PosInt' fromField='value_changed' toNode='Kamaz1' toField='set_translation'></ROUTE>
+					   
+					   <ROUTE fromNode='OrientInt1' fromField='value_changed' toNode='Wheel1' toField='set_rotation'></ROUTE>
+					   <ROUTE fromNode='OrientInt1' fromField='value_changed' toNode='Wheel2' toField='set_rotation'></ROUTE>
+					 
+                  </Scene>
+               </X3D>
+            </div>
+         </article>
+         <nav class="footer">
+            <a class="h1">(c) GORIN 2020</a>
+         </nav>
+      </div>
+   </body>
 </html>
