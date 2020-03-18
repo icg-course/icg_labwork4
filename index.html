@@ -1,23 +1,101 @@
-<html lang="ru">
+<head>
 
-	<head>
 
-		<meta charset="utf-8"></meta>
 
-		<title>Solar system</title>
+      <meta charset="utf-8" />
 
-		<link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css"></link>
 
-		<script src="https://www.x3dom.org/download/dev/x3dom.js"></script>
 
-	</head>
+      <!--[if IE]>
 
-	<body>
-		<x3d>
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+
+      <![endif]-->
+
+
+
+    <title>Solar System</title>
+
+
+
+    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+
+
+
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+
+
+
+    <link rel="stylesheet" href="style.css" />
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
+    <style>
+        .button {
+    background-color: #С0С0С0;
+    border: none;
+    color: black;
+    padding: 9px 32px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+    </style>
+   </head>
+
+
+
+   <body style='background-color:black' class="back">
+
+
+
+      <div class="back1">
+
+
+
+         <nav class="nav">
+
+
+
+         </nav>
+
+
+
+         <article>
+
+
+			    <button class = 'button' onclick="document.getElementById('general').setAttribute('set_bind','true');">General</button>
+
+				<button class = 'button' onclick="document.getElementById('Merc').setAttribute('set_bind','true');">Mercury</button>
+
+				<button class = 'button' onclick="document.getElementById('Ven').setAttribute('set_bind','true');">Venus</button>                                   
+			    <button class = 'button' onclick="document.getElementById('Earth').setAttribute('set_bind','true');">Earth</button>
+
+				<button class = 'button' onclick="document.getElementById('Mars').setAttribute('set_bind','true');">Mars</button>
+
+				<button class = 'button' onclick="document.getElementById('Jupiter').setAttribute('set_bind','true');">Jupiter</button> 
+             
+			    <button class = 'button' onclick="document.getElementById('Saturn').setAttribute('set_bind','true');">Saturn</button>
+
+				<button class = 'button' onclick="document.getElementById('Uranus').setAttribute('set_bind','true');">Uranus</button>
+
+				<button class = 'button' onclick="document.getElementById('Neptun').setAttribute('set_bind','true');">Neptune</button>             
+
+            <div class="akcya">
+
+
+
+               <X3D>
 			<scene>
                 <pointlight location = '0 0 0' radius = '500'></pointlight>
                 <background  backUrl = "sky.png" ></background>
-                <viewpoint position = '0 0 20000'></viewpoint>
+                <viewpoint id = "general" position = '0 0 20000'></viewpoint>
                 
 
                     
@@ -31,8 +109,9 @@
                     </shape>
                 </transform>
                 </Group>
+                
                 <Group DEF = "Mercury">
-                <transform DEF = 'merc_anim' translation="1000 0 0">
+                <transform DEF = 'merc_anim' translation="1000 0 0" rotation = '1 0 0 0.57'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="merc.jpg"></ImageTexture>
@@ -40,7 +119,7 @@
                         <sphere radius = '17.5'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '1000 0 317'></viewpoint> 
+                <viewpoint id = "Merc" position = '1000 0 317'></viewpoint> 
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
@@ -59,7 +138,7 @@
                         <sphere radius = '43.5'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '1282 0 343'></viewpoint>
+                <viewpoint id = "Ven" position = '1282 0 343'></viewpoint>
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
@@ -78,7 +157,7 @@
                         <sphere radius = '45.8'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '1592 0 345'></viewpoint>
+                <viewpoint id = "Earth" position = '1592 0 345'></viewpoint>
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
@@ -97,7 +176,7 @@
                         <sphere radius = '24.4'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '2290 0 324'></viewpoint>
+                <viewpoint id = "Mars" position = '2290 0 324'></viewpoint>
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
@@ -116,7 +195,7 @@
                         <sphere radius = '150'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '3432 0 450'></viewpoint>
+                <viewpoint id = 'Jupiter' position = '3432 0 450'></viewpoint>
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
@@ -135,7 +214,7 @@
                         <sphere radius = '100'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '5935 0 400'></viewpoint>
+                <viewpoint id = 'Saturn' position = '5935 0 400'></viewpoint>
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
@@ -154,7 +233,7 @@
                         <sphere radius = '70'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '8291 0 370'></viewpoint>
+                <viewpoint id = 'Uranus' position = '8291 0 370'></viewpoint>
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
@@ -173,7 +252,7 @@
                         <sphere radius = '60'></sphere>
                     </shape>
                 </transform>
-                <viewpoint position = '10291 0 360'></viewpoint>
+                <viewpoint id= 'Neptun' position = '10291 0 360'></viewpoint>
                 <transform translation="0 0 0">
                     <shape>
                         <appearance>
