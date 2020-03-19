@@ -27,7 +27,7 @@ D_real = [D_merc,D_ven,D_earth,D_mars,D_jup,D_sat,D_ur,D_nep]
 D_new = ['---']
 
 for i in R_real:
-    R_new.append(i/k * 10)
+    R_new.append(i/k)
     
 for i in D_real:
     D_new.append(i/k/100 + 500)
