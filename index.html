@@ -29,21 +29,17 @@
     <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
     <script>
         function camera1(){
-            document.getElementById('general').setAttribute('set_bind','true');
             document.getElementById('Merc').setAttribute('set_bind','true');
         }  
          function toggle()     {
               var button = document.getElementById("but_stop");
               var TS = document.getElementById("TS1");   
               var TS_enabled = TS.getAttribute("enabled");
+             
               if (TS_enabled == "true") {
-                            TS.setAttribute("enabled", "false");
-                                         button.value = "Анимировать";
-                                        }         
-              else {
-                            TS.setAttribute("enabled", "true");
-                                        button.value = :"Остановить";        
-                                } 
+                    TS.setAttribute("enabled", "false");      }         
+              else {  TS.setAttribute("enabled", "true");    } 
+
 
     </script>
 
@@ -117,7 +113,8 @@
           <button class="dropbtn">Cameras</button>
           <div class="dropdown-content">
             <button class = 'button' onclick="document.getElementById('general').setAttribute('set_bind','true');">System</button>
-            <button class = 'button' onclick="camera1();">Mercury</button>
+            <button class = 'button' onclick="document.getElementById('sun').setAttribute('set_bind','true');">Sun</button>
+            <button class = 'button' onclick="document.getElementById('Merc').setAttribute('set_bind','true');">Mercury</button>
             <button class = 'button' onclick="document.getElementById('Ven').setAttribute('set_bind','true');">Venus</button>    
             <button class = 'button' onclick="document.getElementById('Earth').setAttribute('set_bind','true');">Earth</button>
             <button class = 'button' onclick="document.getElementById('Mars').setAttribute('set_bind','true');">Mars</button>
@@ -131,8 +128,32 @@
         <div class="dropdown">
           <button class="dropbtn">Animation</button>
           <div class="dropdown-content">
-            <button id = 'but_start' class = 'button' onclick="toggle();">Start</button>
-            <button id = 'but_stop' class = 'button' onclick="toggle();">Stop</button>                 
+            <button id = 'but_start' class = 'button' onclick="stop();">Stop</button> 
+              <script>
+                    function stop(){
+                        document.getElementById('TSm').setAttribute('enabled', 'false');
+                        document.getElementById('TSv').setAttribute('enabled', 'false');
+                        document.getElementById('TSe').setAttribute('enabled', 'false');
+                        document.getElementById('TSma').setAttribute('enabled', 'false');
+                        document.getElementById('TSj').setAttribute('enabled', 'false');
+                        document.getElementById('TSs').setAttribute('enabled', 'false');
+                        document.getElementById('TSu').setAttribute('enabled', 'false');
+                        document.getElementById('TSn').setAttribute('enabled', 'false');
+                    }
+                </script>
+            <button id = 'but_start' class = 'button' onclick="start();">Start</button>   
+                <script>
+                    function start(){
+                        document.getElementById('TSm').setAttribute('enabled', 'true');
+                        document.getElementById('TSv').setAttribute('enabled', 'true');
+                        document.getElementById('TSe').setAttribute('enabled', 'true');
+                        document.getElementById('TSma').setAttribute('enabled', 'true');
+                        document.getElementById('TSj').setAttribute('enabled', 'true');
+                        document.getElementById('TSs').setAttribute('enabled', 'true');
+                        document.getElementById('TSu').setAttribute('enabled', 'true');
+                        document.getElementById('TSn').setAttribute('enabled', 'true');
+                    }
+                </script>    
           </div>
         </div>
 
@@ -161,12 +182,13 @@
                 <background  backUrl = "sky.png" ></background>
                 <Viewpoint id = 'general' position="266.54208 25830.79523 1379.18914" orientation="-0.99994 0.00011 -0.01077 1.51757" 
 	 centerOfRotation="0.00000 0.00000 0.00000" description=""></Viewpoint>
-                
+                <Viewpoint id = 'sun' position="-2812.66395 209.91418 -982.29634" orientation="-0.01286 -0.99896 -0.04374 1.90860" 
+	 centerOfRotation="0.00000 0.00000 0.00000" description=""></Viewpoint>
 
                     
                 <Group DEF = "Sun">
                 <transform DEF = "sun_anim">
-                    <shape>
+                    <shape onclick='alert("Вы щелкнули по сфере.");'>
                         <appearance>
                             <ImageTexture  url="sun.jpg"></ImageTexture>
                         </appearance>
@@ -323,7 +345,7 @@
                         <appearance>
                             <ImageTexture  url="ring1.png"></ImageTexture>
                         </appearance>
-                          <cylinder radius = '200'></cylinder>
+                          <cylinder radius = '200' height = '.5'></cylinder>
                     </shape>
                     </transform>
                 </transform>
@@ -407,7 +429,7 @@
                 
                 
                  
-                 <TimeSensor id='TS' DEF="TS_m" cycleInterval="10" loop="true"></TimeSensor>
+                 <TimeSensor id='TSm' DEF="TS_m" cycleInterval="10" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_m" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -425,7 +447,7 @@
                 
                 
                 
-                 <TimeSensor id='TS' DEF="TS_v" cycleInterval="5" loop="true"></TimeSensor>
+                 <TimeSensor id='TSv' DEF="TS_v" cycleInterval="5" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_v" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -443,7 +465,7 @@
                 
                 
                 
-                 <TimeSensor id='TS' DEF="TS_e" cycleInterval="27" loop="true"></TimeSensor>
+                 <TimeSensor id='TSe' DEF="TS_e" cycleInterval="27" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_e" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -461,7 +483,7 @@
                 
                 
                 
-                 <TimeSensor id='TS' DEF="TS_ma" cycleInterval="12" loop="true"></TimeSensor>
+                 <TimeSensor id='TSma' DEF="TS_ma" cycleInterval="12" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_ma" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -479,7 +501,7 @@
                 
                 
                 
-                 <TimeSensor id='TS' DEF="TS_j" cycleInterval="50" loop="true"></TimeSensor>
+                 <TimeSensor id='TSj' DEF="TS_j" cycleInterval="50" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_j" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -497,7 +519,7 @@
                 
                 
                 
-                 <TimeSensor id='TS' DEF="TS_s" cycleInterval="19" loop="true"></TimeSensor>
+                 <TimeSensor id='TSs' DEF="TS_s" cycleInterval="19" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_s" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -515,7 +537,7 @@
                 
                 
                 
-                 <TimeSensor id='TS' DEF="TS_u" cycleInterval="16" loop="true"></TimeSensor>
+                 <TimeSensor id='TSu' DEF="TS_u" cycleInterval="16" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_u" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -533,7 +555,7 @@
                 
                 
                 
-                 <TimeSensor id='TS' DEF="TS_n" cycleInterval="4" loop="true"></TimeSensor>
+                 <TimeSensor id='TSn' DEF="TS_n" cycleInterval="4" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_n" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
