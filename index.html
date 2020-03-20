@@ -27,6 +27,25 @@
 
 
     <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <script>
+        function camera1(){
+            document.getElementById('general').setAttribute('set_bind','true');
+            document.getElementById('Merc').setAttribute('set_bind','true');
+        }  
+         function toggle()     {
+              var button = document.getElementById("but_stop");
+              var TS = document.getElementById("TS1");   
+              var TS_enabled = TS.getAttribute("enabled");
+              if (TS_enabled == "true") {
+                            TS.setAttribute("enabled", "false");
+                                         button.value = "Анимировать";
+                                        }         
+              else {
+                            TS.setAttribute("enabled", "true");
+                                        button.value = :"Остановить";        
+                                } 
+
+    </script>
 
 
 
@@ -98,7 +117,7 @@
           <button class="dropbtn">Cameras</button>
           <div class="dropdown-content">
             <button class = 'button' onclick="document.getElementById('general').setAttribute('set_bind','true');">System</button>
-            <button class = 'button' onclick="document.getElementById('Merc').setAttribute('set_bind','true');">Mercury</button>
+            <button class = 'button' onclick="camera1();">Mercury</button>
             <button class = 'button' onclick="document.getElementById('Ven').setAttribute('set_bind','true');">Venus</button>    
             <button class = 'button' onclick="document.getElementById('Earth').setAttribute('set_bind','true');">Earth</button>
             <button class = 'button' onclick="document.getElementById('Mars').setAttribute('set_bind','true');">Mars</button>
@@ -112,8 +131,8 @@
         <div class="dropdown">
           <button class="dropbtn">Animation</button>
           <div class="dropdown-content">
-            <button class = 'button' onclick="document.getElementById('general').setAttribute('set_bind','true');">Start</button>
-            <button class = 'button' onclick="document.getElementById('Merc').setAttribute('set_bind','true');">Stop</button>                 
+            <button id = 'but_start' class = 'button' onclick="toggle();">Start</button>
+            <button id = 'but_stop' class = 'button' onclick="toggle();">Stop</button>                 
           </div>
         </div>
 
@@ -136,12 +155,12 @@
 
 
 
-        <X3D width='1700px' height='900px'>
+        <X3D  width='1700px' height='900px'>
 			<scene>
-                <pointlight location = '0 0 0' radius = '500'></pointlight>
+              <pointlight location = '1000 1000 1000' radius = '500'></pointlight>
                 <background  backUrl = "sky.png" ></background>
                 <Viewpoint id = 'general' position="266.54208 25830.79523 1379.18914" orientation="-0.99994 0.00011 -0.01077 1.51757" 
-	zNear="9044.23370" zFar="48519.15801" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description=""></Viewpoint>
+	 centerOfRotation="0.00000 0.00000 0.00000" description=""></Viewpoint>
                 
 
                     
@@ -160,12 +179,14 @@
                 
                 <Group DEF = "Mercury">
                 <transform DEF = 'merc_anim' translation="0 0 1000" center="0 0 -1000">
+                <transform DEF = 'merc_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="merc.jpg"></ImageTexture>
                         </appearance>
                         <sphere radius = '17.5'></sphere>
                     </shape>
+                </transform>
                 </transform>
                     
                 <viewpoint id = "Merc" position = '1000 0 317'></viewpoint> 
@@ -175,21 +196,24 @@
                         <appearance>
                             <Material emissiveColor = '1 0 0'></Material> 
                         </appearance>
-                        <torus outerRadius = '1000' innerRadius = '1'></torus>
+                        <torus outerRadius = '1000' innerRadius = '.91'></torus>
                     </shape>
-                </transform>                
+                
+                </transform>
                 </Group>
                 
                 
                 
                 <Group DEF = 'Venus'>
                 <transform DEF = 'ven_anim'  translation="0 0 1282" center = "0 0 -1282">
+                <transform DEF = 'ven_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="venus.jpg"></ImageTexture>
                         </appearance>
                         <sphere radius = '43.5'></sphere>
                     </shape>
+                </transform>
                 </transform>
                     
                 <viewpoint id = "Ven" position = '1282 0 343'></viewpoint>
@@ -199,7 +223,7 @@
                         <appearance>
                             <Material emissiveColor = '0 0 1'></Material> 
                         </appearance>
-                        <torus outerRadius = '1282' innerRadius = '1'></torus>
+                        <torus outerRadius = '1282' innerRadius = '.91'></torus>
                     </shape>
                 </transform>
                 </Group>
@@ -208,12 +232,14 @@
                 
                 <Group DEF = "Earth">    
                 <transform  DEF = 'earth_anim'  translation="0 0 1592" center = '0 0 -1592'>
+                <transform  DEF = 'earth_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="earth.jpg"></ImageTexture>
                         </appearance>
                         <sphere radius = '45.8'></sphere>
                     </shape>
+                    </transform>
                 </transform>
                     
                 <viewpoint id = "Earth" position = '1592 0 345'></viewpoint>
@@ -223,7 +249,7 @@
                         <appearance>
                             <Material emissiveColor = '0 1 0'></Material> 
                         </appearance>
-                        <torus outerRadius = '1592' innerRadius = '1'></torus>
+                        <torus outerRadius = '1592' innerRadius = '.91'></torus>
                     </shape>
                 </transform>
                 </Group> 
@@ -232,12 +258,14 @@
                 
                 <Group DEF = "Mars">
                 <transform DEF = 'mars_anim'  translation="0 0 2290" center = '0 0 -2290'>
+                    <transform DEF = 'mars_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="mars.jpg"></ImageTexture>
                         </appearance>
                         <sphere radius = '24.4'></sphere>
                     </shape>
+                    </transform>
                 </transform>
                     
                 <viewpoint id = "Mars" position = '2290 0 324'></viewpoint>
@@ -247,7 +275,7 @@
                         <appearance>
                             <Material emissiveColor = '1 0 0'></Material> 
                         </appearance>
-                        <torus outerRadius = '2290' innerRadius = '1'></torus>
+                        <torus outerRadius = '2290' innerRadius = '.91'></torus>
                     </shape>
                 </transform>                
                 </Group>
@@ -256,12 +284,14 @@
                 
                 <Group DEF = "Jupiter">
                 <transform DEF = 'jup_anim'  translation="0 0 3432" center = '0 0 -3432'>
+                <transform DEF = 'jup_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="Jup.jpg"></ImageTexture>
                         </appearance>
                         <sphere radius = '150'></sphere>
                     </shape>
+                    </transform>
                 </transform>
                     
                 <viewpoint id = 'Jupiter' position = '3432 0 450'></viewpoint>
@@ -271,7 +301,7 @@
                         <appearance>
                             <Material emissiveColor = '0 0 1'></Material> 
                         </appearance>
-                        <torus outerRadius = '3432' innerRadius = '1'></torus>
+                        <torus outerRadius = '3432' innerRadius = '.91'></torus>
                     </shape>
                 </transform>                
                 </Group>
@@ -280,12 +310,14 @@
                 
                 <Group DEF = "Saturn">
                 <transform DEF = 'sat_anim'  translation="0 0 5935" center = '0 0 -5935'>
+                    <transform DEF = 'sat_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="Sat.png"></ImageTexture>
                         </appearance>
                         <sphere radius = '100'></sphere>
                     </shape>
+                    </transform>
                 </transform>
                     
                 <viewpoint id = 'Saturn' position = '5935 0 400'></viewpoint>
@@ -295,7 +327,7 @@
                         <appearance>
                             <Material emissiveColor = '1 0 0'></Material> 
                         </appearance>
-                        <torus outerRadius = '5935' innerRadius = '1'></torus>
+                        <torus outerRadius = '5935' innerRadius = '.91'></torus>
                     </shape>
                 </transform>
                 </Group>
@@ -304,12 +336,14 @@
                 
                 <Group DEF = "Uranus">
                 <transform DEF = 'ur_anim'  translation="0 0 8291" center = '0 0 -8291'>
+                    <transform DEF = 'ur_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="Ur.jpg"></ImageTexture>
                         </appearance>
                         <sphere radius = '70'></sphere>
                     </shape>
+                    </transform>
                 </transform>
                     
                 <viewpoint id = 'Uranus' position = '8291 0 370'></viewpoint>
@@ -319,7 +353,7 @@
                         <appearance>
                             <Material emissiveColor = '0 0 1'></Material> 
                         </appearance>
-                        <torus outerRadius = '8291' innerRadius = '1'></torus>
+                        <torus outerRadius = '8291' innerRadius = '.91'></torus>
                     </shape>
                 </transform>
                 </Group>
@@ -328,12 +362,14 @@
                 
                 <Group DEF = "Neptune">
                 <transform DEF = 'nep_anim'  translation="0 0 10291" center = '0 0 -10291'>
+                    <transform DEF = 'nep_anim1'>
                     <shape>
                         <appearance>
                             <ImageTexture  url="nep.jpg"></ImageTexture>
                         </appearance>
                         <sphere radius = '60'></sphere>
                     </shape>
+                    </transform>
                 </transform>
                     
                 <viewpoint id= 'Neptun' position = '10291 0 360'></viewpoint>
@@ -343,7 +379,7 @@
                         <appearance>
                             <Material emissiveColor = '0 1 0'></Material> 
                         </appearance>
-                        <torus outerRadius = '10291' innerRadius = '1'></torus>
+                        <torus outerRadius = '10291' innerRadius = '.91'></torus>
                     </shape>
                 </transform>
                 </Group>
@@ -353,15 +389,17 @@
  
                 
                 
-                 <TimeSensor DEF="TS_e" cycleInterval="1" loop="true"></TimeSensor>
+                 <TimeSensor id='TS1' DEF="TS_e" cycleInterval="1" loop="true"></TimeSensor>
                 
                  <OrientationInterpolator DEF="OI_e" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
                  <ROUTE fromNode="TS_e" fromField="fraction_changed" toNode="OI_e" toField="set_fraction"></ROUTE>
                 
+                 
+                
                 
                  
-                 <TimeSensor DEF="TS_m" cycleInterval="10" loop="true"></TimeSensor>
+                 <TimeSensor id='TS' DEF="TS_m" cycleInterval="10" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_m" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -369,9 +407,17 @@
                 
                  <ROUTE fromNode="OI_m" fromField="value_changed" toNode="merc_anim" toField="set_rotation"></ROUTE>
                 
+                 <TimeSensor DEF="TS_m1" cycleInterval="10" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_m1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_m1" fromField="fraction_changed" toNode="OI_m1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_m1" fromField="value_changed" toNode="merc_anim1" toField="set_rotation">
+                 </ROUTE>  
                 
                 
-                 <TimeSensor DEF="TS_v" cycleInterval="5" loop="true"></TimeSensor>
+                
+                 <TimeSensor id='TS' DEF="TS_v" cycleInterval="5" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_v" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -379,9 +425,17 @@
                 
                  <ROUTE fromNode="OI_v" fromField="value_changed" toNode="ven_anim" toField="set_rotation"></ROUTE>
                 
+                 <TimeSensor DEF="TS_v1" cycleInterval="4" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_v1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_v1" fromField="fraction_changed" toNode="OI_v1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_v1" fromField="value_changed" toNode="ven_anim1" toField="set_rotation">
+                 </ROUTE>
                 
                 
-                 <TimeSensor DEF="TS_e" cycleInterval="27" loop="true"></TimeSensor>
+                
+                 <TimeSensor id='TS' DEF="TS_e" cycleInterval="27" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_e" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -389,9 +443,17 @@
                 
                  <ROUTE fromNode="OI_e" fromField="value_changed" toNode="earth_anim" toField="set_rotation"></ROUTE>
                 
+                 <TimeSensor DEF="TS_e1" cycleInterval="10" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_e1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_e1" fromField="fraction_changed" toNode="OI_e1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_e1" fromField="value_changed" toNode="earth_anim1" toField="set_rotation">
+                 </ROUTE>
                 
                 
-                 <TimeSensor DEF="TS_ma" cycleInterval="12" loop="true"></TimeSensor>
+                
+                 <TimeSensor id='TS' DEF="TS_ma" cycleInterval="12" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_ma" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -399,9 +461,17 @@
                 
                  <ROUTE fromNode="OI_ma" fromField="value_changed" toNode="mars_anim" toField="set_rotation"></ROUTE>
                 
+                 <TimeSensor DEF="TS_m1" cycleInterval="27" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_m1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_m1" fromField="fraction_changed" toNode="OI_m1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_m1" fromField="value_changed" toNode="mars_anim1" toField="set_rotation">
+                 </ROUTE>
                 
                 
-                 <TimeSensor DEF="TS_j" cycleInterval="3" loop="true"></TimeSensor>
+                
+                 <TimeSensor id='TS' DEF="TS_j" cycleInterval="50" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_j" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -409,9 +479,17 @@
                 
                  <ROUTE fromNode="OI_j" fromField="value_changed" toNode="jup_anim" toField="set_rotation"></ROUTE>
                 
+                 <TimeSensor DEF="TS_j1" cycleInterval="0.5" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_j1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_j1" fromField="fraction_changed" toNode="OI_j1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_j1" fromField="value_changed" toNode="jup_anim1" toField="set_rotation">
+                 </ROUTE>
                 
                 
-                 <TimeSensor DEF="TS_s" cycleInterval="19" loop="true"></TimeSensor>
+                
+                 <TimeSensor id='TS' DEF="TS_s" cycleInterval="19" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_s" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -419,9 +497,17 @@
                 
                  <ROUTE fromNode="OI_s" fromField="value_changed" toNode="sat_anim" toField="set_rotation"></ROUTE> 
                 
+                 <TimeSensor DEF="TS_s1" cycleInterval="4" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_s1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_s1" fromField="fraction_changed" toNode="OI_s1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_s1" fromField="value_changed" toNode="sat_anim1" toField="set_rotation">
+                 </ROUTE>
                 
                 
-                 <TimeSensor DEF="TS_u" cycleInterval="16" loop="true"></TimeSensor>
+                
+                 <TimeSensor id='TS' DEF="TS_u" cycleInterval="16" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_u" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
@@ -429,15 +515,31 @@
                 
                  <ROUTE fromNode="OI_u" fromField="value_changed" toNode="ur_anim" toField="set_rotation"></ROUTE> 
                 
+                 <TimeSensor DEF="TS_u1" cycleInterval="12" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_u1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_u1" fromField="fraction_changed" toNode="OI_u1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_u1" fromField="value_changed" toNode="ur_anim1" toField="set_rotation">
+                 </ROUTE>
                 
                 
-                 <TimeSensor DEF="TS_n" cycleInterval="4" loop="true"></TimeSensor>
+                
+                 <TimeSensor id='TS' DEF="TS_n" cycleInterval="4" loop="true"></TimeSensor>
                  
                  <OrientationInterpolator DEF="OI_n" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"></OrientationInterpolator>
                  
                  <ROUTE fromNode="TS_n" fromField="fraction_changed" toNode="OI_n" toField="set_fraction"></ROUTE>
                 
                  <ROUTE fromNode="OI_n" fromField="value_changed" toNode="nep_anim" toField="set_rotation"></ROUTE>                
+                
+                 <TimeSensor DEF="TS_n1" cycleInterval="21" loop="true"></TimeSensor>
+                 <OrientationInterpolator DEF="OI_n1" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+                 </OrientationInterpolator>                 
+                 <ROUTE fromNode="TS_n1" fromField="fraction_changed" toNode="OI_n1" toField="set_fraction">
+                 </ROUTE>
+                 <ROUTE fromNode="OI_n1" fromField="value_changed" toNode="nep_anim1" toField="set_rotation">
+                 </ROUTE>
                 
                 
 			</scene>
