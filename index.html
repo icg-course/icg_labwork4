@@ -30,6 +30,7 @@
 
 
 
+
     <link rel="stylesheet" href="style.css" />
 
 
@@ -41,19 +42,82 @@
     border: none;
     color: black;
     padding: 9px 32px;
-    text-align: left;
+    text-align: right;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
 }
+        /* Dropdown Button */
+.dropbtn {
+    background-color: #С0С0С0;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding:9px 32px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #808080;}
     </style>
    </head>
 
 
 
    <body style='background-color:black' class="back">
+       <div class="dropdown">
+          <button class="dropbtn">Cameras</button>
+          <div class="dropdown-content">
+            <button class = 'button' onclick="document.getElementById('general').setAttribute('set_bind','true');">System</button>
+            <button class = 'button' onclick="document.getElementById('Merc').setAttribute('set_bind','true');">Mercury</button>
+            <button class = 'button' onclick="document.getElementById('Ven').setAttribute('set_bind','true');">Venus</button>    
+            <button class = 'button' onclick="document.getElementById('Earth').setAttribute('set_bind','true');">Earth</button>
+            <button class = 'button' onclick="document.getElementById('Mars').setAttribute('set_bind','true');">Mars</button>
+            <button class = 'button' onclick="document.getElementById('Jupiter').setAttribute('set_bind','true');">Jupiter</button> 
+            <button class = 'button' onclick="document.getElementById('Saturn').setAttribute('set_bind','true');">Saturn</button>
+            <button class = 'button' onclick="document.getElementById('Uranus').setAttribute('set_bind','true');">Uranus</button>
+            <button class = 'button' onclick="document.getElementById('Neptun').setAttribute('set_bind','true');">Neptune</button>                 
+          </div>
+        </div>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Animation</button>
+          <div class="dropdown-content">
+            <button class = 'button' onclick="document.getElementById('general').setAttribute('set_bind','true');">Start</button>
+            <button class = 'button' onclick="document.getElementById('Merc').setAttribute('set_bind','true');">Stop</button>                 
+          </div>
+        </div>
 
-
+     
 
       <div class="back1">
 
@@ -70,29 +134,9 @@
          <article>
 
 
-			    <button class = 'button' onclick="document.getElementById('general').setAttribute('set_bind','true');">General</button>
-<!--
-				<button class = 'button' onclick="document.getElementById('Merc').setAttribute('set_bind','true');">Mercury</button>
-
-				<button class = 'button' onclick="document.getElementById('Ven').setAttribute('set_bind','true');">Venus</button>    
-             
-			    <button class = 'button' onclick="document.getElementById('Earth').setAttribute('set_bind','true');">Earth</button>
-
-				<button class = 'button' onclick="document.getElementById('Mars').setAttribute('set_bind','true');">Mars</button>
-
-				<button class = 'button' onclick="document.getElementById('Jupiter').setAttribute('set_bind','true');">Jupiter</button> 
-             
-			    <button class = 'button' onclick="document.getElementById('Saturn').setAttribute('set_bind','true');">Saturn</button>
-
-				<button class = 'button' onclick="document.getElementById('Uranus').setAttribute('set_bind','true');">Uranus</button>
-
-				<button class = 'button' onclick="document.getElementById('Neptun').setAttribute('set_bind','true');">Neptune</button>             
--->
-            <div class="akcya">
 
 
-
-        <X3D>
+        <X3D width='1700px' height='900px'>
 			<scene>
                 <pointlight location = '0 0 0' radius = '500'></pointlight>
                 <background  backUrl = "sky.png" ></background>
