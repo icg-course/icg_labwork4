@@ -177,7 +177,7 @@
 					document.getElementById('windowsat').style.display = state;			
 					document.getElementById('wrapsat').style.display = state; 	}
                else if(what == 'ur'){
-					document.getElementById('windowsur').style.display = state;			
+					document.getElementById('windowur').style.display = state;			
 					document.getElementById('wrapur').style.display = state; 	}	
                else if(what == 'nep'){
 					document.getElementById('windownep').style.display = state;			
@@ -256,7 +256,20 @@
             <button class = 'button' onclick="document.getElementById('Neptun').setAttribute('set_bind','true');">Neptune</button>                 
           </div>
         </div>
-       
+        <div class="dropdown">
+          <button class="dropbtn">Information</button>
+            <div class="dropdown-content">
+            <button class = 'button' onclick="show('block', 'sun')">Sun</button>
+            <button class = 'button' onclick="show('block', 'merc')">Mercury</button>
+            <button class = 'button' onclick="show('block', 'ven')">Venus</button>    
+            <button class = 'button' onclick="show('block', 'earth')">Earth</button>
+            <button class = 'button' onclick="show('block', 'mars')">Mars</button>
+            <button class = 'button' onclick="show('block', 'jup')">Jupiter</button> 
+            <button class = 'button' onclick="show('block', 'sat')">Saturn</button>
+            <button class = 'button' onclick="show('block', 'ur')">Uranus</button>
+            <button class = 'button' onclick="show('block', 'nep')">Neptune</button> 
+            </div>
+        </div>
         <div class="dropdown">
           <button class="dropbtn">Animation</button>
           <div class="dropdown-content">
