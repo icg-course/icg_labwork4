@@ -18,7 +18,7 @@ D_sat = 1513325783 * 500
 D_ur = 3004419704 * 500
 D_nep = 4553946490 * 500
 
-k = 1392000
+k = 139200
 
 R_real = [R_sun,R_merc,R_ven,R_earth,R_mars,R_jup,R_sat,R_ur,R_nep]
 R_new = []
@@ -30,7 +30,7 @@ for i in R_real:
     R_new.append(i/k)
     
 for i in D_real:
-    D_new.append(i/k/100 + 500)
+    D_new.append(i/k + 5000)
 
 name = ['Sun','Merc','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune']
 print(name)    
