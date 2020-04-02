@@ -1,13 +1,637 @@
-<!DOCTYPE html>
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <h1>Студент группы 4741. Новосвит Андрей. Лабораторная № 4.</h1>
+		<X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">
+		<Scene>
+		<!--Background-->
+		 <Background backUrl="other\desert.png" >
+        </Background>
+		<!--Black Wall-->
+			<Transform translation="0 -0.665 0">
+				<Shape>
+				  	<Appearance>
+					<Material DEF="Mat" diffuseColor="black"></Material>
+				  	</Appearance>
+				 	 <RectangularTorus height="1.337" innerRadius="8.5" outerRadius="7.8" ></RectangularTorus> 
+				</Shape>
+			</Transform>
+		<!--Interpolator Button-->	
+			<TimeSensor DEF='Time' cycleInterval='5' loop='true'></TimeSensor>
+			<ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+			<ROUTE fromNode='Time' fromField='fraction_changed'
+					toNode='ColInt' toField='set_fraction'>
+			</ROUTE>
+			<ROUTE fromNode='ColInt' fromField='value_changed' 
+					toNode='Mat' toField='set_diffuseColor'>
+			</ROUTE>
+		<!--Arrow-->	
+			<Transform DEF="Arrow" translation="0 0 0">	
+			<Transform translation="0 0 0"  rotation = "1 0 1 -1.57">
+				<Shape >
+					 <Appearance>
+						<ImageTexture url='other\arrow.png'>
+						</ImageTexture>	
+					  </Appearance>
+					  <Dish radius="8" height="8" diameter="0.25"></Dish> 
+				</Shape>
+			</Transform>	
+			</Transform>
+		<!--ROTATION FACE-->
+				<TimeSensor DEF='Time' cycleInterval='5' loop='true'></TimeSensor>
+				<OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0 0 1 0 3.14 0 1 0 6.28'></OrientationInterpolator>
+				<ROUTE fromNode='Time' fromField='fraction_changed' 
+					   toNode='OrientInt' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='OrientInt' fromField='value_changed' 
+					   toNode='Arrow' toField='set_rotation'>
+				</ROUTE>	   
+		<!--Center-->	
+			<Transform translation="0 1 0" rotation = "0 0 0 0">	
+				<Shape>
+					<Appearance>
+						<ImageTexture url='other\gray.png'>
+						</ImageTexture>	
+					 </Appearance>
+					 <Dish radius="3" height="3" diameter="4"></Dish> 
+				</Shape>
+			</Transform>
+		<!--Center1-->		
+			<Transform translation="0 0 0" rotation = "0 1 0 3.14">		
+				<Shape>
+					 <Appearance>
+						<ImageTexture url='other\gray.png'>
+						</ImageTexture>	
+					 </Appearance>
+					 <Nozzle outerRadius="0.25" innerRadius="2" nozzleRadius="2.05" nozzleHeight="0.5" height="2"></Nozzle> 
+				</Shape>
+			</Transform>
+		<!--Center2-->
+			<Transform translation="0 2 0" rotation = "0 0 1 -3.14">	
+				<Shape>
+					<Appearance>
+						<ImageTexture url='other\blackgray.png'>
+						</ImageTexture>	
+					 </Appearance>
+					 <Dish radius="1" height="3" diameter="4"></Dish> 
+				</Shape>			
+			</Transform>
+		<!--Whell-->	
+			<Transform translation="0 -1.01 0" rotation = "0 0 0 0">	
+				<Shape>
+						<Appearance>
+							<ImageTexture url='other\wheel.png'>
+							</ImageTexture>	
+						</Appearance>
+						<Cylinder radius="8" height="0.1"></Cylinder>
+				</Shape>
+			</Transform>
+		<!--Glass Sticks-->
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 0.17">
+				<Shape DEF="Stick">
+					  <Box size="16 0.1 0.25 "></Box>
+						<Appearance>
+							<ImageTexture url='other\stick.png'>
+							</ImageTexture>	
+						</Appearance>
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 0.35">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 0.52">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 0.7">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 0.87">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 1.05">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 1.22">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 1.4">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 1.57">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 1.75">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 1.92">
+				<Shape USE="Stick">
+					</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 2.09">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 2.27">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 2.44">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 2.62">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 2.79">
+				<Shape USE="Stick">
+					</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 2.97">
+				<Shape USE="Stick">
+				</Shape>
+			</Transform>
+			<Transform translation="0 -0.9 0" rotation = "0 1 0 3.14">
+				<Shape USE="Stick">
+					</Shape>
+			</Transform>
+		<!--Numbers-->
+		<!--0-->
+			<Transform translation="7.464233732069999 -0.7 0.65576626793" rotation = "0 1 0 1.4">
+				<Shape>
+						<Box DEF="Box" size="0.5 0.1 0.5"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\0.png'>
+							</ImageTexture>
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--1-->
+			<Transform translation="-7.464233732069999 -0.7 -0.65576626793" rotation = "0 1 0 -1.75">
+				<Shape>
+						<Box USE="Box"></Box>
+						 <Appearance>
+						<ImageTexture url='numbers\1.png'>
+						</ImageTexture>
+						 </Appearance>
+				</Shape>
+			</Transform>
+		<!--2-->
+			<Transform translation="7.464233732069999 -0.7 -0.65576626793" rotation = "0 1 0 1.75">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\2.png'>
+							</ImageTexture>
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--3-->
+			<Transform translation="-7.464233732069999 -0.7 0.65576626793" rotation = "0 1 0 -1.4">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\3.png'>
+							</ImageTexture>
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--4-->
+			<Transform translation="7.18231164275 -0.7 1.9192208931000039" rotation = "0 1 0 1.22">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\4.png'>
+							</ImageTexture>
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--5-->	
+			<Transform translation="-7.18231164275 -0.7 -1.9192208931000039" rotation = "0 1 0 -1.92">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\5.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--6-->
+			<Transform translation="7.18231164275 -0.7 -1.9192208931000039" rotation = "0 1 0 1.92">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\6.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--7-->
+			<Transform translation="-7.18231164275 -0.7 1.9192208931000039" rotation = "0 1 0 -1.22">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\7.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--8-->
+			<Transform translation="6.726545374829997 -0.7 3.17345462517" rotation = "0 1 0 1.05">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\8.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--9-->
+			<Transform translation="-6.726545374829997 -0.7 -3.17345462517" rotation = "0 1 0 -2.09">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\9.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--10-->
+			<Transform translation="6.726545374829997 -0.7 -3.17345462517" rotation = "0 1 0 2.09">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\10.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--11-->
+			<Transform translation="-6.726545374829997 -0.7 3.17345462517" rotation = "0 1 0 -1.05">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\11.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--12-->
+			<Transform translation="0.65576626793 -0.7 7.464233732069999 " rotation = "0 1 0 0.17">
+				<Shape>
+						<Box USE="Box"></Box>
+						  <Appearance>
+							<ImageTexture url='numbers\12.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--13-->
+			<Transform translation="-0.65576626793 -0.7 -7.464233732069999" rotation = "0 1 0 -2.97">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\13.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--14-->
+			<Transform translation="-0.65576626793 -0.7 7.464233732069999" rotation = "0 1 0 -0.17">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\14.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--15-->
+			<Transform translation="0.65576626793 -0.7 -7.464233732069999" rotation = "0 1 0 2.97">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\15.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--16-->
+			<Transform translation="1.9192208931000039 -0.7 7.18231164275" rotation = "0 1 0 0.35">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\16.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--17-->
+			<Transform translation="-1.9192208931000039 -0.7 -7.18231164275" rotation = "0 1 0 -2.79">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\17.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--18-->
+			<Transform translation="-1.9192208931000039 -0.7 7.18231164275" rotation = "0 1 0 -0.35">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\18.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--19-->
+			<Transform translation="1.9192208931000039 -0.7 -7.18231164275" rotation = "0 1 0 2.79">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\19.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--20-->
+			<Transform translation="3.17345462517 -0.7 6.726545374829997" rotation = "0 1 0 0.52">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\20.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--21-->
+			<Transform translation="-3.17345462517 -0.7 -6.726545374829997" rotation = "0 1 0 -2.62">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\21.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--22-->
+			<Transform translation="-3.17345462517 -0.7 6.726545374829997" rotation = "0 1 0 -0.52">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\22.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--23-->
+			<Transform translation="3.17345462517 -0.7 -6.726545374829997" rotation = "0 1 0 2.62">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\23.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--24-->
+			<Transform translation="5.998857017589995 -0.7 4.283065071710005" rotation = "0 1 0 0.87">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\24.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+        <!--25-->			
+			<Transform translation="-5.998857017589995 -0.7 -4.283065071710005" rotation = "0 1 0 -2.27">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\25.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+        <!--26-->			
+			<Transform translation="5.998857017589995 -0.7 -4.283065071710005" rotation = "0 1 0 2.27">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\26.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--27-->
+				<Transform translation="-5.998857017589995 -0.7 4.283065071710005" rotation = "0 1 0 -0.87">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\27.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+        <!--28-->			
+			<Transform translation="4.283065071710005 -0.7 5.998857017589995" rotation = "0 1 0 0.7">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\28.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+        <!--29-->			
+			<Transform translation="-4.283065071710005 -0.7 -5.998857017589995" rotation = "0 1 0 -2.44">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\29.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+        <!--30-->			
+			<Transform translation="-4.283065071710005 -0.7 5.998857017589995" rotation = "0 1 0 -0.7">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\30.png'> </ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--31-->
+			<Transform translation="4.283065071710005 -0.7 -5.998857017589995" rotation = "0 1 0 2.44">
+					<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\31.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--32-->
+			<Transform translation="5.18020761569 -0.7 5.18020761569" rotation = "0 1 0 0.87">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\32.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--33-->
+			<Transform translation="-5.18020761569 -0.7 -5.18020761569" rotation = "0 1 0 -2.27">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\33.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+        <!--34-->			
+			<Transform translation="-5.18020761569 -0.7 5.18020761569" rotation = "0 1 0 -0.87">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\34.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--35-->
+			<Transform translation="5.18020761569 -0.7 -5.18020761569" rotation = "0 1 0 2.27">
+				<Shape>
+						<Box USE="Box"></Box>
+						<Appearance>
+							<ImageTexture url='numbers\35.png'>
+							</ImageTexture>							
+						</Appearance>
+				</Shape>
+			</Transform>
+		<!--Body of rotations-->
+		<Transform translation="5.18020761569 -0.7 -5.18020761569" rotation = "0 1 0 93.5">
+			<Transform translation="-0.35 -3.25 7.25" rotation = "0 0 1 1.57">
+				<Shape>
+					<Appearance>
+					<Material transparency="0"></Material>
+						<ImageTexture url='other\white.png'>
+						</ImageTexture>
+					</Appearance>
+					<SolidOfRevolution angle='6.29' crossSection='[-1 4.75 0.75 3 3 8 1.75 8.75]' solid='false'></SolidOfRevolution> 
+				</Shape>
+			</Transform>
+		<!--Carpet-->
+			<Transform translation="-12 -4.6 -2" rotation = "0 0 0 0" scale = "2 1 2">
+				<Shape>
+					<ElevationGrid xDimension="7" zDimension="6" xSpacing="2.0" zSpacing="2.0" solid="false"
+                          height=
+                                  "1.5, 1, 0.5, 0.5, 1, 1.5,0,
+                                  1, 0.5, 0.25, 0.25, 0.5, 1,0,
+                                  0.5, 0.25, 0, 0, 0.25, 0.5,0,
+                                  0.5, 0.25, 0, 0, 0.25, 0.5,0,
+                                  1, 0.5, 0.25, 0.25, 0.5, 1,0,
+                                  1.5, 1, 0.5, 0.5, 1, 1.5,0">
+					  </ElevationGrid>
+					  <Appearance>
+						<ImageTexture url='other\carpet.jpg'>
+						</ImageTexture>
+					  </Appearance>
+				</Shape>
+			</Transform>			
+		<!--Cube-->
+			<Transform translation="8.25 -3.0 -0.25" scale = "0.25 0.25 0.25" rotation = "0 0 0 0.79">
+				<Shape>
+					<IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" normalPerVertex="true" solid="false" 
+                            coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 6 7 3 2 -1 3 2 1 0 -1 0 1 5 4" 
+                            colorIndex="0 1 2 3 -1 4 5 6 0 -1 1 2 3 4 -1 5 6 0 1 -1 5 6 0 1 -1 5 6 0 1">
+					<Coordinate DEF='Coord' point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2"></Coordinate>
+					<Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1, 1 1 0, 1 1 1"></Color>
+					</IndexedFaceSet>
+				</Shape>
+			</Transform>	
+		<!--Button-->
+		<Anchor url="https://i.imgur.com/dildTqH.jpg" parameter="target='_self'">
+			<Transform translation="-0.25 4.5 7.35" rotation = "0 1 0 0.35" scale = "0.15 0.25 0.15">
+				<Shape>
+					<Extrusion crossSection="-3.5 -1 -2.1 2.9 2.2 2.9 3.6 -1 0 -3.5 -3.5 -1" scale="1 1 1 1 0.2 0.2" spine="0 0 0 0 1 0 0 1.6 0"> </Extrusion>
+					<Appearance>
+							<ImageTexture url='other\button.png'>
+							</ImageTexture>
+					</Appearance>
+				</Shape>
+			</Transform>
+		</Anchor>	
+		</Transform>
+		<!--Face-->
+			<Transform DEF="face" translation="0 -1 0" scale = "0.03 0.03 0.03" rotation = "0 1 0 -1.57">
+					<Inline url="model\face.x3d"></Inline>
+			</Transform>	
+		<!--ROTATION FACE-->
+				<TimeSensor DEF='TS_erde' cycleInterval='6' loop='true'></TimeSensor>
+				<OrientationInterpolator DEF='OI_erde' key='0, 0.5, 1' keyValue='0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28'></OrientationInterpolator>
+				<ROUTE fromNode='TS_erde' fromField='fraction_changed' 
+					   toNode='OI_erde' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='OI_erde' fromField='value_changed' 
+					   toNode='face' toField='set_rotation'>
+				</ROUTE> 
+		<!--CoordInterpolator Cube-->		
+        <TimeSensor DEF='Time' cycleInterval='5' loop='true'></TimeSensor>
+        <CoordinateInterpolator DEF='CoordInt' key='0 0.125 0.250 0.375 0.500 0.625 0.750 0.875 0.900 1'
+                                keyValue=
+                                          '-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2,
+										  -3 -1 1, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2,
+										  -2 0 2, 1 -1 1, 3 1 -1, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2,
+										  -2 0 2, 2 0 2, 2 0 -2, -3 -1 -3, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2,
+										  -2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -3 3 1, 2 4 2, 2 4 -2, -2 4 -2,
+										  -2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 3 5 3, 2 4 -2, -2 4 -2,
+										  -2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 3 5 -1, -2 4 -2,
+										  -2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -1 6 -1,
+										  -2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2,
+										  -2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2'>
+        </CoordinateInterpolator>
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+               toNode='CoordInt' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='CoordInt' fromField='value_changed'
+               toNode='Coord' toField='set_point'>
+        </ROUTE>		
+		<!-- SpotLight 1 -->
+				<Transform DEF="Light1" translation="0 0 0">
+					<SpotLight location="0 5 0" color="1 1 1" intensity="0.9" direction="0 0 30" beamWidth="0.9" cutOffAngle="0.90" radius="10" ></SpotLight>
+				</Transform>
+			<TimeSensor DEF='Timel' cycleInterval='0.5' loop='true'></TimeSensor>
+				<OrientationInterpolator DEF='OrientIntl' key='0 0.5 1' keyValue='0 0 1 0 0 1 0 -3.14 0 1 0 -6.28'></OrientationInterpolator>
+				<ROUTE fromNode='Timel' fromField='fraction_changed' 
+					   toNode='OrientIntl' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='OrientIntl' fromField='value_changed' 
+					   toNode='Light1' toField='set_rotation'>
+				</ROUTE>	
+		<!--PointLight-->
+			<PointLight location="10 1 10" color="1 1 1" intensity="0.1" shadowIntensity="0.8" shadowMapSize="512"></PointLight>
+	  </Scene>
+    </X3D>
   </body> 
 </html>
