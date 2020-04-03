@@ -1,13 +1,465 @@
-<!DOCTYPE html>
+
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/custom.js"></script>
   </head>
+  <!-- Масштаб = 1/2 --> 
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <h1>
+    Лабораторная 4. Ермолин Павел гр. 4741.
+    </h1>
+    <X3D>
+      <Scene>
+        <!-- Освещение -->
+        <PointLight location="-2 2 3" color="#FFFACD" intensity="0.3" shadowIntensity="0.6" shadowMapSize="1024"></PointLight>
+        <!-- Конец освещения -->
+        <!-- Фон -->
+        <Background groundAngle='1 1 1.57' groundColor='.2 .2 .2 .4 .4 .4 .6 .6 .6 .6 .6 .6 .6 .6 .6' skyAngle='1 1 1.57' skyColor='.2 .2 .2'>
+        </Background>
+        <!-- Конец фона-->
+        <!-- Ствол -->      
+        <Transform  translation="0 2 0">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="#575757"></Material>
+            </Appearance>
+            <Box size = "11 1 1.5"></Box>
+          </Shape>
+          <Transform rotation="0 0 1 1.5708" translation="0 0.5 0">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor="#575757"></Material>
+                </Appearance>
+                <Cylinder radius="0.75" height="11"></Cylinder>
+              </Shape>
+              <!-- Затвор -->
+              <Transform translation=".1 -1 -0.1">
+                <Shape>
+                  <Appearance>
+                    <Material diffuseColor="#999999"></Material>
+                  </Appearance>
+                  <Cylinder radius="0.65" height="1.5"></Cylinder>
+                </Shape>
+              </Transform>
+          </Transform>
+          <!-- Дуло -->
+          <Transform rotation="0 1 0 1.5708" translation ="-5.5 .3 0">
+            <Transform scale="1 1 2">
+             <Shape>
+                <Appearance>
+                 <Material diffuseColor="#575757"></Material>
+                </Appearance>
+                <Torus innerRadius="0.1" outerRadius="0.4"></Torus>
+             </Shape>
+            </Transform>
+            <Transform rotation="1 0 0 1.5708">
+              <Shape>
+                    <Appearance>
+                     <Material diffuseColor="#000000"></Material>
+                    </Appearance>
+                    <Cylinder radius="0.4" height="0.3"></Cylinder>
+              </Shape>
+              <Transform scale="1.2 1 1.8" translation ="0 .05 .2" >
+                <Shape>
+                    <Appearance>
+                     <Material diffuseColor="#575757"></Material>
+                    </Appearance>
+                    <Cylinder radius="0.5" height="0.3"></Cylinder>
+                 </Shape>
+               </Transform>
+               <Transform translation="0 0 1.2">
+                   <Shape>
+                      <Appearance>
+                       <Material diffuseColor="#333333"></Material>
+                      </Appearance>
+                      <Cylinder radius="0.4" height="0.3"></Cylinder>
+                   </Shape>
+                </Transform>
+            </Transform>
+          </Transform>
+          <!-- Конец дула-->
+          <!-- Нижняя часть-->
+          <Transform translation ="0 -.75 0">
+            <Transform translation ="0.75 0 0">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor="#575757"></Material>
+                </Appearance>
+                <Box size = "9.5 0.5 1.45"></Box>
+              </Shape>
+            </Transform> 
+            <Transform rotation="0 0 1 1.5708" translation="-4 .25 0">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor="#575757"></Material>
+                </Appearance>
+                <Cylinder radius="0.75" height="3"></Cylinder>
+              </Shape>
+            </Transform>
+            <Transform rotation="0 0 1 1.5708" translation=".25 -0.25 0">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor="#575757"></Material>
+                </Appearance>
+                <Cylinder radius="0.725" height="8"></Cylinder>
+              </Shape>
+              <Transform translation=".15 3.75 0">
+                <Shape>
+                  <Appearance>
+                    <Material diffuseColor="#575757"></Material>
+                  </Appearance>
+                  <Cylinder radius="0.65" height="4"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+          <!-- Конец нижней части-->
+          <!-- Надписи -->
+          <Transform translation="-2.5 0.25 0.751">
+            <Shape>
+              <Text string='"PATENTED APR.20.1897.SEPT.9.1902   COLTS PT.F.A.MFG.CO." "DEC.19.1905.FEB.14.1911.AUG.19.1913   HARTFORD.CT.U.S.A"' solid='false' maxExtent="5">
+                <FontStyle family="TYPEWRITER" size='.2' spacing='2' language='en'></FontStyle>
+              </Text>
+              <Appearance>
+               <Material diffuseColor='black'></Material>
+              </Appearance>
+            </Shape>
+          </Transform>
+          <Transform rotation="0 1 0 3.14159" translation="0 0 -0.751">
+            <Anchor url="https://en.wikipedia.org/wiki/M1911_pistol" parameter="target='_self'">
+              <Shape>
+                <Text string='"COLT AUTOMATIC" "CALIBRE 45"' solid='false' maxExtent="5">
+                  <FontStyle family="TYPEWRITER" size='.2' spacing='1' language='en'></FontStyle>
+                </Text>
+                <Appearance>
+                 <Material diffuseColor='black'></Material>
+                </Appearance>
+              </Shape>
+            </Anchor>
+          </Transform>
+          <!-- Конец надписи -->
+        </Transform>
+        <!-- Конец ствола -->
+        <!-- Прибамбасы -->
+        <!-- Болты -->
+        <Transform translation="3.85 0 .95">
+          <Group DEF="GripBolts">
+            <Transform rotation="0 0 1 0.2">
+             <Group DEF="Bolt">
+                <Transform scale="1 1 0.5">
+                  <Shape>
+                    <Appearance>
+                      <Material diffuseColor='#222222'></Material>
+                    </Appearance>
+                    <Sphere radius="0.15"></Sphere>
+                   </Shape>
+                 </Transform>
+              </Group>
+              <Transform translation="0 -2.5 0">
+                <Group  USE="Bolt">
+                </Group>
+              </Transform>
+            </Transform>
+          </Group>
+         </Transform>
+         <Transform translation="3.85 0 -.95">
+          <Group USE="GripBolts">
+          </Group>
+         </Transform>
+         <Transform translation="2.3 -1.05 0.4">
+          <Group USE="Bolt">
+          </Group>
+         </Transform>
+         <Transform translation="0 1.3 -0.7" scale=".7 .7 .7">
+            <Transform translation="1.5 0 0">
+              <Group USE="Bolt">
+              </Group>
+            </Transform>
+            <Transform translation="8.5 -.3 .25">
+              <Group USE="Bolt">
+              </Group>
+            </Transform>
+            <Transform translation="7.5 0 0">
+              <Group USE="Bolt">
+              </Group>
+            </Transform>
+         </Transform>
+        <!-- Конец болтов -->
+        <!-- Предохранитель -->
+        <Transform scale="4 1 1" translation="2.2 1.2 0.75" rotation="1 0 0 1.5708">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="#888888"></Material>
+            </Appearance>
+            <Cylinder radius="0.2" height="0.1"></Cylinder>
+          </Shape>
+        </Transform>
+        <Transform scale="1 1 1" translation="2.8 1.2 0.75" rotation="0 0 1 1.5708">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="#575757"></Material>
+            </Appearance>
+            <Cylinder radius="0.15" height=".7"></Cylinder>
+          </Shape>
+        </Transform>
+        <Transform scale="1 1 1" translation="4 1.2 0.75" rotation="0 0 1 1.5708">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="#575757"></Material>
+            </Appearance>
+            <Cylinder radius="0.1" height="1.7"></Cylinder>
+          </Shape>
+          <Transform translation="0 -.9 0">
+            <Shape>
+              <Appearance>
+               <Material diffuseColor='#575757'></Material>
+              </Appearance>
+              <Sphere radius=".15"></Sphere>
+            </Shape>
+          </Transform>
+        </Transform>
+        <!-- Конец предохранителя -->
+        <Transform translation="0 3.25 0">
+          <!-- Мушка -->
+          <Transform translation="-4.75 0 0" rotation="0 0 1 0.2">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor="#555555"></Material>
+              </Appearance>
+              <Box size = ".5 .3 .2"></Box>
+            </Shape>
+          </Transform>
+          <!-- Конец мушки -->
+          <!-- Прицел -->
+          <Transform translation="4.75 0 0" rotation="0 0 1 0.2">
+            <Transform translation="0 0 .25">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor="#555555"></Material>
+                </Appearance>
+                <Box size = ".8 .4 .3"></Box>
+              </Shape>
+            </Transform>
+            <Transform translation="0 0 -.25">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor="#555555"></Material>
+                </Appearance>
+                <Box size = ".8 .4 .3"></Box>
+              </Shape>
+            </Transform>
+          </Transform>
+          <!-- Конец прицела -->
+          <!-- Гребень -->
+          <Group def="Greb">
+            <Transform translation="2.75 -1 0.65">
+              <Transform rotation="0 1 0 0.4">
+                <Shape def="Greben">
+                    <Appearance>
+                      <Material diffuseColor="#555555"></Material>
+                    </Appearance>
+                    <Box size = ".2 1.35 .3"></Box>
+                </Shape>
+              </Transform>
+              <Transform translation=".2 0 0">
+                <Transform rotation="0 1 0 0.4">
+                  <Shape use="Greben"></Shape>
+                </Transform>
+                <Transform translation=".2 0 0">
+                  <Transform rotation="0 1 0 0.4">
+                    <Shape use="Greben"></Shape>
+                  </Transform>
+                  <Transform translation=".2 0 0">
+                     <Transform rotation="0 1 0 0.4">
+                      <Shape use="Greben"></Shape>
+                     </Transform>
+                     <Transform translation=".2 0 0">
+                       <Transform rotation="0 1 0 0.4">
+                        <Shape use="Greben"></Shape>
+                       </Transform>
+                       <Transform translation=".2 0 0">
+                         <Transform rotation="0 1 0 0.4">
+                          <Shape use="Greben"></Shape>
+                         </Transform>
+                         <Transform translation=".2 0 0">
+                           <Transform rotation="0 1 0 0.4">
+                            <Shape use="Greben"></Shape>
+                           </Transform>
+                           <Transform translation=".2 0 0">
+                             <Transform rotation="0 1 0 0.4">
+                              <Shape use="Greben"></Shape>
+                             </Transform>
+                             <Transform translation=".2 0 0">
+                               <Transform rotation="0 1 0 0.4">
+                                <Shape use="Greben"></Shape>
+                               </Transform>
+                               <Transform translation=".2 0 0">
+                                 <Transform rotation="0 1 0 0.4">
+                                  <Shape use="Greben"></Shape>
+                                 </Transform>
+                               </Transform>
+                             </Transform>
+                           </Transform>
+                          </Transform>
+                        </Transform>
+                     </Transform>
+                  </Transform>
+                </Transform>
+              </Transform>
+            </Transform>
+          </Group>
+          <!-- Конец гребня -->
+          <Transform rotation="1 0 0 3.14159" translation="0 -2 0">
+            <Shape use="Greb">
+            </Shape>
+          </Transform>
+        </Transform>
+        <!-- Конец прибамбасов -->
+        <!-- Спусковой крючок -->
+        <Transform translation="1 -.25 0">
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="#555555"></Material>
+            </Appearance>
+            <Box size = ".2 1.5 .8"></Box>
+          </Shape>
+        </Transform>
+        <Transform translation="2 -1 0" rotation = "0 0 1 -0.2">
+          <Shape>
+              <Appearance>
+                <Material diffuseColor="#555555"></Material>
+              </Appearance>
+              <Box size = "2.2 .5 .8"></Box>
+          </Shape>
+        </Transform>
+        <Transform translation ="2.7 .2 0" rotation="1 0 0 1.5708" >
+          <Shape>
+            <Appearance>
+              <Material diffuseColor="#999999"></Material>
+            </Appearance>
+            <Cylinder radius="0.7" height="0.2"></Cylinder>
+          </Shape>
+          <Transform translation ="0 0 0.7">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor="#999999"></Material>
+              </Appearance>
+              <Cylinder radius="0.7" height="0.2"></Cylinder>
+            </Shape>
+          </Transform>
+        </Transform>
+        <!-- Конец спускового крючка-->
+        <!-- Рукоять -->
+        <Transform rotation = "0 0 1 0.20" translation="4 -1 0">
+          <Shape>
+            <IndexedFaceSet coordIndex="0 1 2 3 -1 0 3 7 4 -1 6 5 4 7 -1 1 5 6 2 -1 1 0 4 5 -1 
+            3 9 11 7 -1 7 11 10 6 -1 10 8 2 6 -1 3 2 8 9 -1 11 15 14 10 -1 13 15 11 9 -1 8 12 13 9 -1 10 14 12 8 -1 13 12 14 15 -1 ">
+              <Coordinate 
+              point="1 2.5 -0.675, 1 2.5 0.675, 1 -2.5 0.675, 1 -2.5 -0.675,
+               -1 2.5 -0.675, -1 2.5 0.675, -1 -2.5 0.675, -1 -2.5 -0.675,
+               0.9 -2.5 0.6, 0.9 -2.5 -0.6, -0.9 -2.5 0.6, -0.9 -2.5 -0.6,
+               0.9 0 0.6, 0.9 0 -0.6, -0.9 0 0.6, -0.9 0 -0.6">
+                                </Coordinate>
+            </IndexedFaceSet>
+            <Appearance>
+              <Material diffuseColor="#555555"></Material>
+            </Appearance>
+          </Shape>
+          <Transform scale = "1 .5 1" translation="0.999 -2.5 0" rotation="0 0 1 1.5708">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor="#555555"></Material>
+              </Appearance>
+              <SolidOfRevolution angle='3.1415' crossSection='[0 0.675 5 0.675]' solid='false'></SolidOfRevolution> 
+            </Shape>
+          </Transform>
+           <Transform scale = "1 .5 1" translation="-0.999 2.5 0" rotation="0 0 -1 1.5708">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor="#555555"></Material>
+              </Appearance>
+              <SolidOfRevolution angle='3.1415' crossSection='[0 0.675 5 0.675]' solid='false'></SolidOfRevolution> 
+            </Shape>
+          </Transform>
+          <Transform scale = "0.5 1 1.5" translation="0 -2.25 -0.625"  rotation="0 1 0 1.5708">
+            <Transform  rotation="0 0 1 1.5708">
+              <Shape>
+              <Appearance>
+                <Material diffuseColor="#251003"></Material>
+              </Appearance>
+              <SolidOfRevolution angle='3.1415' crossSection='[0 0.675 4.25 0.675]' solid='false'></SolidOfRevolution> 
+              </Shape>
+            </Transform>
+          </Transform>
+          <Transform scale = "0.5 1 1.5" translation="0 -2.25 0.625"  rotation="0 -1 0 1.5708">
+            <Transform  rotation="0 0 1 1.5708">
+              <Shape>
+              <Appearance>
+                <Material diffuseColor="#251003"></Material>
+              </Appearance>
+              <SolidOfRevolution angle='3.1415' crossSection='[0 0.675 4.25 0.675]' solid='false'></SolidOfRevolution> 
+              </Shape>
+            </Transform>
+          </Transform>
+            <!-- Магазин -->
+            <Transform translation="0 -0.1 0">
+              <Shape>
+              <IndexedFaceSet coordIndex="2 6 7 3 -1 1 3 7 5 -1 1 5 4 0 -1 0 4 6 2 -1 7 6 4 5 -1 2 3 9 8 -1 8 9 15 14 -1 9 3 13 15 -1 2 8 14 12 -1 0 2 12 10 -1 1 0 10 11 -1 3 1 11 13 -1 11 10 12 13 -1 13 12 14 15 -1">
+                <Coordinate 
+                point="
+               0.9 -2.4 0.6, 0.9 -2.4 -0.6, -0.9 -2.4 0.6, -0.9 -2.4 -0.6,
+               0.9 2.2 0.6, 0.9 2.2 -0.6, -0.9 2.2 0.6, -0.9 2.2 -0.6,
+               -1.5 -2.4 0.5, -1.5 -2.4 -0.5,
+               0.9 -2.6 0.6, 0.9 -2.6 -0.6, -0.9 -2.6 0.6, -0.9 -2.6 -0.6, -1.5 -2.6 0.5, -1.5 -2.6 -0.5">
+                                  </Coordinate>
+              </IndexedFaceSet>
+              <Appearance>
+                <Material diffuseColor="#222222"></Material>
+              </Appearance>
+            </Shape>
+            </Transform>
+            <!-- Конец магазина -->
+         </Transform> 
+         <!-- Конец рукояти -->
+         <!-- Спусковой механизм-->
+         <Transform translation="5.25 2.5 0" rotation="1 0 0 1.5708" scale="1.5 1 1">
+          <Shape>
+                <Appearance>
+                  <Material diffuseColor="#575757"></Material>
+                </Appearance>
+                <Cylinder radius=".675" height="0.5"></Cylinder>
+          </Shape>
+         </Transform>
+         <Transform translation="4.5 -0.25 0" rotation="0 0 1 0.4">
+           <Shape>
+            <Appearance>
+              <Material diffuseColor="#555555"></Material>
+            </Appearance>
+            <Box size = "1 3 1.2"></Box>
+           </Shape>
+           <Transform translation="1 .75 0" rotation="0 0 1 0.3">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor="#555555"></Material>
+                </Appearance>
+                <Box size = "2 1.25 1.1"></Box>
+              </Shape>
+           </Transform>
+           <Transform translation=".5 0 0" scale="0.5 1 1"> 
+            <Shape>
+                <Appearance>
+                  <Material diffuseColor="#575757"></Material>
+                </Appearance>
+                <Cylinder radius=".6" height="3"></Cylinder>
+            </Shape>
+           </Transform>
+         </Transform>
+      </Scene>
+    </X3D>
   </body> 
 </html>
