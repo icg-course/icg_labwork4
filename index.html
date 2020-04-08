@@ -1,13 +1,345 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+	<head>
+		<meta charset="utf-8" />
+		<title>Пример 1</title>
+		<link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+		<script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+		<link rel="stylesheet" href="../css/custom.css" />
+		<script src="../js/custom.js"></script>
+	</head>
+	<body>
+		<h1 align = "center"> Лабораторная работа №4</h1>
+		<X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">
+			<Scene>
+			<DirectionalLight id="directional" direction='1 0 -1' on ="TRUE" intensity='0.4' shadowIntensity='0.2'> </DirectionalLight> 
+			<Background groundAngle='0.9 1.5 1.57' groundColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82' skyAngle='0.9 1.5 1.57' 
+			skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'> </Background>
+			<!-- <background  backUrl = "https://img4.goodfon.ru/original/1920x1080/0/87/more-shtorm-volna-pena-bryzgi.jpg" ></background> -->
+			<!-- главная часть -->
+				<Transform translation = "0 0.8 0">
+				<Transform rotation = "0 0 1 1.5708"> 
+				<Shape>
+				  <Appearance>
+					<ImageTexture  DEF = "Lodka" url = "https://avatars.mds.yandex.net/get-pdb/1778557/4b4d9f56-9792-4b57-a8b6-3bd85829eb4e/s1200"></ImageTexture>
+				  </Appearance>
+				  <Cylinder radius="1.3" height="6.8"></Cylinder>
+				</Shape>
+				</Transform>
+				<transform translation = "-3.4 0 0 " rotation = "0 0 1 1.5708">
+				<Shape>
+				  <Appearance>
+					<ImageTexture USE = "Lodka"></ImageTexture>
+				  </Appearance>
+				  <Dish radius="5.5" diameter="4.56" ></Dish> 
+				</Shape>
+				</transform>
+				<transform translation = "3.4 0 0 " rotation = "0 0 1 -1.57">
+				<Shape>
+				  <Appearance>
+					<ImageTexture USE = "Lodka"></ImageTexture>
+				  </Appearance>
+				  <Dish radius="5.5" diameter="3.4" height = "2"></Dish> 
+				</Shape>
+				</transform>
+			<!-- окна -->
+				<transform translation = "0 0 1.29" rotation = "1 0 0 1.57">
+				<!-- 1 -->
+				<Shape DEF = "Okno">
+				<Appearance>
+					<Material  DEF = "Window" transparency = "0.3"></Material>
+				</Appearance>
+					<Cylinder  height="0.03" radius="0.4"></Cylinder>
+					</Shape>
+				</transform>
+				<!-- 2 -->
+				<transform translation = "2.2 0 1.289" rotation = "1 0 0 1.57">
+				<Shape USE = "Okno"></Shape>
+				</transform>
+				 <!-- 3 -->
+				<transform translation = "-2.2 0 1.289" rotation = "1 0 0 1.57">
+				<Shape USE = "Okno"></Shape>
+				</transform>
+				<!-- 4 -->
+				<transform translation = "0 0 -1.29" rotation = "1 0 0 1.57">
+				<Shape USE = "Okno"></Shape>
+				</transform>
+				<!-- 5 -->
+				<transform translation = "2.2 0 -1.289" rotation = "1 0 0 1.57">
+				<Shape USE = "Okno"></Shape>
+				</transform>
+				<!-- 6 -->
+				<transform translation = "-2.2 0 -1.289" rotation = "1 0 0 1.57">
+				<Shape USE = "Okno"></Shape>
+				</transform>
+				<!-- трубка -->
+				<transform translation = "-2.2 1.8 0">
+				<Shape>
+				  <Appearance>
+					<ImageTexture USE = "Lodka"></ImageTexture>
+				  </Appearance>
+				  <Cylinder radius="0.1" height="1"></Cylinder>
+				</Shape>
+				</transform>
+				<!-- выход из лодки -->
+				<transform translation = "2 1.7 0" scale = "1 1 2" rotation = "0 1 0 1.57">
+				<Shape>
+					<Appearance>
+						<ImageTexture USE = "Lodka"></ImageTexture>
+					 </Appearance>
+					 <Snout dbottom="1" dtop="1" height="1" xoff="0" yoff="0"></Snout> 
+				</Shape>
+				</transform>
+				<transform translation = "2.2 2.4 0" scale = "1 1 2" rotation = "0 1 0 1.57">
+				<Shape>
+					<Appearance>
+						<ImageTexture USE = "Lodka"></ImageTexture>
+					 </Appearance>
+					 <Snout dbottom="0.5" dtop="0.5" height="0.5" xoff="0" yoff="0"></Snout> 
+				</Shape>
+				</transform>
+				<!-- крылья -->
+				<transform translation = "-1.2 -0.5 1.6" scale = "2 1 1" rotation = "1 0 0  1.57">
+					<Shape DEF = "Wing">
+					<Appearance>
+						<ImageTexture USE = "Lodka"></ImageTexture>
+					 </Appearance>
+					 <Snout dbottom="0.4" dtop="0.2" height="1" xoff="0" yoff="0"></Snout> 
+				</Shape>
+				</transform>
+				<transform translation = "-1.2 -0.5 -1.6" scale = "2 1 1" rotation = "1 0 0  -1.57">
+					<Shape USE = "Wing"></Shape>
+				</transform>
+				<!-- Лопасти -->
+				<transform translation = "5.4 0 0" rotation = "0 0 1 1.57">
+				<Shape>
+				  <Appearance>
+					<ImageTexture USE = "Lodka"></ImageTexture>
+				  </Appearance>
+				  <Cylinder radius="0.1" height="0.2"></Cylinder>
+				</Shape>
+				</transform>
+				<transform translation = "5.77 0 0">
+					<Shape>
+				  <Appearance>
+					<ImageTexture USE = "Lodka"></ImageTexture>
+				  </Appearance>
+				  <Sphere radius="0.3"></Sphere>
+				</Shape>
+				</transform>
+				
+				<transform DEF = "propeller">
+				<transform translation = "5.8 0.9 0" scale = "1 2 5" rotation = "1 0 0 1.57">
+					<Shape DEF = "Blade">
+				  <Appearance>
+					<ImageTexture USE = "Lodka"></ImageTexture>
+				  </Appearance>
+				  <Sphere radius="0.15"></Sphere>
+				</Shape>
+				</transform>
+				</transform>
+				
+				<transform DEF = "propeller_2" >
+				<transform translation = "5.8 -0.9 0" scale = "1 2 5" rotation = "1 0 0 1.57">
+					<Shape USE = "Blade"></Shape>
+				</transform>
+				</transform>
+				
+				<transform DEF = "propeller_3">
+				<transform  translation = "5.8 0 0.9" scale = "1 2 5">
+					<Shape USE = "Blade"></Shape>
+				</transform>
+				</transform>
+				
+				<transform DEF = "propeller_4">
+				<transform  translation = "5.8 0 -0.9" scale = "1 2 5">
+					<Shape USE = "Blade"></Shape>
+				</transform>
+				</Transform>
+				</Transform>
+				
+				<!-- Вращение лопастей -->
+				 <TimeSensor DEF='time_propeller' cycleInterval="3" loop='true' enabled='true'></TimeSensor>
+				 <OrientationInterpolator DEF='OriInt_propeller' key='0 0.25 0.5 0.75 1' keyValue='1 0 0 0.8, 1 0 0 2.3708, 1 0 0 3.9416, 1 0 0 5.5124, 1 0 0 0.8'></OrientationInterpolator>
+				<ROUTE fromNode='time_propeller' fromField='fraction_changed' 
+					   toNode='OriInt_propeller' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='OriInt_propeller' fromField='value_changed' 
+					   toNode='propeller' toField='set_rotation'>
+				</ROUTE>
+				<ROUTE fromNode='OriInt_propeller' fromField='value_changed' 
+					   toNode='propeller_2' toField='set_rotation'>
+				</ROUTE>
+				<ROUTE fromNode='OriInt_propeller' fromField='value_changed' 
+					   toNode='propeller_3' toField='set_rotation'>
+				</ROUTE>
+				<ROUTE fromNode='OriInt_propeller' fromField='value_changed' 
+					   toNode='propeller_4' toField='set_rotation'>
+				</ROUTE>
+				
+			
+				<!-- море -->
+				<transform translation = "0 0 0">
+					<Shape>
+					  <Appearance>
+						<ImageTexture url = "https://st2.depositphotos.com/1875497/7180/i/950/depositphotos_71808617-stock-photo-beautiful-blue-sea.jpg"></ImageTexture>
+					  </Appearance>
+					  <Box size="50 1.5 50"></Box>
+					</Shape>
+				</transform>
+				<!-- название с гиперссылкой -->
+                 <transform translation="3 5 -2">
+				 <Anchor url = "https://ru.wikipedia.org/wiki/%D0%9A-141_%C2%AB%D0%9A%D1%83%D1%80%D1%81%D0%BA%C2%BB" parameter="target='_self'">
+					<shape>
+						<appearance>
+							<material diffusecolor="green"></material>
+						</appearance>
+						<text string="Подлодка «К-141 Курск»"></text>
+					</shape>
+					</Anchor>
+				</transform>
+				<!-- Сложные фигуры, буйки -->
+				<!-- основа -->
+				<Group DEF = "Buy1">
+				<transform translation = "-14 0.3 -10">
+				<shape>
+					<Appearance>
+						<material diffusecolor = "red"> </material>
+					</Appearance>
+					<Extrusion crossSection="-3.5 -1 -2.1 2.9 2.2 2.9 3.6 -1 0 -3.5 -3.5 -1"
+							   scale="0.8 0.8 0.8 0.8 0.6 0.6" spine="0 0 0 0 1 0 0 1.6 0">
+					</Extrusion>
+				</shape>
+				</transform>
+				<transform translation = "-15 1 -10.8">
+				<shape>
+				<IndexedLineSet coordIndex="0 1 -1" 
+						colorIndex="0 1 -1"
+						colorPerVertex='true'> 
+						<Coordinate point="0 0 0, .7 7 0.6"></Coordinate>
+					<Color color="0 0 0,0 1 1, 1 1 1"></Color>
+				</IndexedLineSet>
+				</shape>
+				</transform>
+				<transform translation = "-15 1 -9">
+				<shape>
+				<IndexedLineSet coordIndex="0 1 -1" 
+						colorIndex="0 1 -1"
+						colorPerVertex='true'> 
+						<Coordinate point="0 0 0, .7 7 -0.6"></Coordinate>
+					<Color color="0 0 0,0 1 1, 1 1 1"></Color>
+				</IndexedLineSet>
+				</shape>
+				</transform>
+				<transform translation = "-13 1 -9">
+				<shape>
+				<IndexedLineSet coordIndex="0 1 -1" 
+						colorIndex="0 1 -1"
+						colorPerVertex='true'> 
+						<Coordinate point="0 0 0, -.5 7 -0.6"></Coordinate>
+					<Color color="0 0 0,0 1 1, 1 1 1"></Color>
+				</IndexedLineSet>
+				</shape>
+				</transform>
+				<transform translation = "-13 1 -10.8">
+				<shape>
+				<IndexedLineSet coordIndex="0 1 -1" 
+						colorIndex="0 1 -1"
+						colorPerVertex='true'> 
+						<Coordinate point="0 0 0, -.5 7 0.6"></Coordinate>
+					<Color color="0 0 0,0 1 1, 1 1 1"></Color>
+				</IndexedLineSet>
+				</shape>
+				</transform>
+				<!-- Трапеция -->
+				<transform translation = "-14.9 4 -9.26" rotation = "1 0 0 -0.11">
+				<Shape>
+          		   <IndexedFaceSet ccw="true" solid="false"
+						coordIndex = "0 2 3 1 -1">
+						<Coordinate point = "0.2 0 0, 1.7 0 0, 0.3 1 0, 1.6 1 0">
+						</Coordinate>
+				   </IndexedFaceSet>
+					<Appearance>
+						<material diffusecolor = "red" ></material>
+					</Appearance>
+				</Shape>
+				</transform>
+				<transform translation = "-14.9 4 -10.55" rotation = "1 0 0 0.11">
+				<Shape>
+          		   <IndexedFaceSet ccw="true" solid="false"
+						coordIndex = "0 2 3 1 -1">
+						<Coordinate point = "0.2 0 0, 1.7 0 0, 0.3 1 0, 1.6 1 0">
+						</Coordinate>
+				   </IndexedFaceSet>
+					<Appearance>
+						<material diffusecolor = "red" ></material>
+					</Appearance>
+				</Shape>
+				</transform>
+				<transform translation = "-13.8 8 -9.8">
+				<Shape>
+				<Appearance>
+					<Material diffuseColor='red'></Material>
+				</Appearance>
+				<Cylinder radius="0.8" height="0.1"></Cylinder>
+				</Shape>
+				</transform>
+				<transform translation = "-13.8 8.2 -9.8">
+				<Shape>
+					<Appearance>
+						<Material diffuseColor='black'></Material>
+					</Appearance>
+					<Box size="0.18 .3 0.2"></Box>
+				</Shape>
+				</transform>
+				<!-- Мигание ламп -->
+				<TimeSensor DEF='Time' cycleInterval='2' loop='true'></TimeSensor>
+				<ScalarInterpolator DEF='ScInt' key='0 0.5 1' keyValue='0.1 0.9 0.1'></ScalarInterpolator>
+				<transform translation = "-13.8 8.6 -9.8">
+				 <Shape>
+					<Appearance>
+						<Material  DEF = "Mat" diffuseColor='yellow' transparency = "0"></Material>
+					</Appearance>
+					<Sphere radius="0.3"></Sphere>
+				</Shape>
+				</transform>
+				<ROUTE fromNode='Time' fromField='fraction_changed' 
+						toNode='ScInt' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='ScInt' fromField='value_changed' 
+						toNode='Mat' toField='set_transparency'>
+				</ROUTE>
+				</Group>
+				
+				<!-- Второй буёк -->
+				<transform translation = "0 0.3 20">
+				<Shape USE = "Buy1">
+					<Appearance>
+					</Appearance>
+				</Shape>
+				</transform>
+				
+				<!-- Третий буёк -->
+				<transform translation = "30 0.3 20">
+				<Shape USE = "Buy1">
+					<Appearance>
+					</Appearance>
+				</Shape>
+				</transform>
+				
+				<!-- Четвертый буёк -->
+				<transform translation = "30 0.3 -0">
+				<Shape USE = "Buy1">
+					<Appearance>
+					</Appearance>
+				</Shape>
+				</transform>
+				
+				<Viewpoint id="front" position="0 8 -20" orientation="0 1 0 3.15833" description="camera" fieldOfView = "1.40"></Viewpoint> 
+				<Viewpoint id="right" position="-2 5 30" orientation="0 0.5 0 6" description="camera" fieldOfView = "1.40"></Viewpoint>
+				<Viewpoint id="right" position="20 5 10" orientation="0 -0.5 0 -6.6" description="camera" fieldOfView = "1.40"></Viewpoint>
+				<Viewpoint id="near" position="0 50 0" orientation="0 1 1 3.15833" description="camera"></Viewpoint> 
+			</Scene>
+		</X3D>
+	</body>
 </html>
