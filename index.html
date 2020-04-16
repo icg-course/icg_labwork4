@@ -1,13 +1,185 @@
 <!DOCTYPE html>
+
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+	<head>
+		<meta charset="utf-8"></meta>
+		<title>R2D2</title>
+		<link rel="stylesheet" href="https://x3dom.org/release/x3dom.css"></link>
+		<script src="https://x3dom.org/release/x3dom-full.js"></script>
+	</head>
+	<body>
+		<x3d>
+			<scene>
+				<transform translation="3 3 2">
+					<DirectionalLight direction="-1 -1 -1" color="blue"></DirectionalLight>
+				</transform>
+				
+				<transform translation="3 3 -2">
+					<shape DEF="R2D2">
+						<appearance>
+							<material diffusecolor="gray"></material>
+						</appearance>
+						<text string="R2D2"></text>
+					</shape>
+				</transform>
+				
+				<transform DEF="bodyaxis" translation="0 0 0" rotation="1 0 0 -0.3">
+					<shape DEF="body">
+						<appearance>
+							<ImageTexture url="texture/body.png"></ImageTexture>
+						</appearance>
+						<cylinder height="2.4"></cylinder>
+					</shape>
+					
+					<transform DEF="head_transform" translation="0 1.2 0">
+						<shape DEF="head">
+							<appearance>
+								<ImageTexture url="texture/head.png"></ImageTexture>
+							</appearance>
+							<sphere radius="0.99"></sphere>
+						</shape>
+					</transform>
+					
+					<transform translation="0 -1.2 0" rotation="1 0 0 3.1415">
+						<shape DEF="bodybottom">
+							<appearance>
+								<material diffusecolor="gray"></material>
+							</appearance>
+							<cone height="0.5" bottomradius="0.95" topradius="0.75" radius="0.9"></cone>
+						</shape>
+					</transform>
+					
+					<transform DEF="shoulder_axis" translation="0 0.7 0">
+						<transform rotation="0 0 1 1.57">
+							<shape>
+								<appearance>
+									<material diffusecolor="#181818"></material>
+								</appearance>
+								<cylinder height="2.5" radius="0.3"></cylinder>
+							</shape>
+							
+							<shape>
+								<appearance>
+									<material diffusecolor="gray"></material>
+								</appearance>
+								<cylinder height="2.8" radius="0.07"></cylinder>
+							</shape>
+						</transform>
+						
+						<transform DEF="arm_rotation" rotation="1 0 0 0.7">
+							<transform DEF="left_arm" translation="1.2 0 0">
+								<group DEF="full_arm">
+									<transform translation="0.2 0 0" rotation="0 1 0 -1.57">
+										<transform rotation="1 0 0 -1.57">
+											<shape DEF="shoulder">
+												<appearance>
+													<material diffusecolor="gray"></material>
+												</appearance>
+												<Extrusion 	crossSection="0.35 0 0.338 0.09 0.303 0.175 0.24745 0.24745 0.175 0.303 0.09 0.338 0 0.35 
+																		  -0.09 0.338 -0.175 0.303 -0.24745 0.24745 -0.303 0.175 -0.338 0.09 -0.35 0 
+																		  -0.35 -0.4 -0.25 -0.5 -0.25 -0.2 -0.1 -0.1 -0.1 0 -0.07 0.07 0 0.1 
+																		  0.07 0.07 0.1 0 0.1 -0.1 0.25 -0.2 0.25 -0.5 0.35 -0.4 0.35 0"
+															spine="0 0 0 0 -0.35 0"> 
+												</Extrusion> 
+											</shape>
+										</transform>
+									</transform>
+							
+									<transform translation="0 -1 0">
+										<group DEF="arm">
+											<shape>
+												<appearance>
+													<material diffusecolor="#404040"></material>
+												</appearance>
+												<box size="0.3 2.3 0.5"></box>
+											</shape>
+											
+											<transform translation="0.1 0 0">
+												<shape>
+													<appearance>
+														<material diffusecolor="#000010"></material>
+													</appearance>
+													<box size="0.2 1.6 0.3"></box>
+												</shape>
+											</transform>
+										</group>
+									</transform>
+								</group>
+							
+								<transform translation="0 -2.15 0" rotation="1 0 0 -0.4">
+									<group DEF="full_foot">
+										<transform rotation="0 0 1 1.57">
+											<shape DEF="roller">
+												<appearance>
+													<material diffusecolor="gray"></material>
+												</appearance>
+												<cylinder height="0.32" radius="0.25"></cylinder>
+											</shape>
+										</transform>
+										
+										<transform translation="0 -0.3 0">
+											<shape DEF="foot_holder">
+												<appearance>
+													<material diffusecolor="#000010"></material>
+												</appearance>
+												<box size="0.3 0.3 0.3"></box>
+											</shape>
+										</transform>
+										
+										<transform translation="0 -0.5 0">
+											<shape DEF="foot">
+												<appearance>
+													<material diffusecolor="#181818"></material>
+												</appearance>
+												<pyramid height="0.4" xbottom="0.8" ybottom="1" xtop="0.4" ytop="0.5" xoff="0" yoff="0"></pyramid>
+											</shape>
+										</transform>
+									</group>
+								</transform>
+							</transform>
+							
+							<transform DEF="right_arm" translation="-1.2 0 0" rotation="0 1 0 3.1415">
+								<group USE="full_arm"></group>
+								
+								<transform translation="0 -2.15 0" rotation="1 0 0 0.4">
+									<group USE="full_foot"></group>
+								</transform>
+							</transform>
+						</transform>
+					</transform>
+					
+					<transform DEF="center_foot" translation="0 -1.4 0" rotation="1 0 0 0.3">
+						<group USE="full_foot"></group>
+					</transform>
+				</transform>
+				
+				<TimeSensor 
+					onoutputchange="beep(event)"
+					DEF="ts" cycleInterval="10" loop="true">
+				</TimeSensor>
+				
+				<OrientationInterpolator 
+					DEF="oi" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
+					keyValue="0 1 0 0,
+							  0 1 0 0,
+							  0 1 0 -1,
+							  0 1 0 -1,
+							  0 1 0 1,
+							  0 1 0 1,
+							  0 1 0 0,
+							  0 1 0 0">
+				</OrientationInterpolator>
+				
+				<ROUTE
+					fromNode="ts" fromField="fraction_changed" 
+					toNode="oi" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="oi" fromField="value_changed" 
+					toNode="head_transform" toField="set_rotation">
+				</ROUTE>
+			</scene>
+		</x3d>
+	</body>
 </html>
