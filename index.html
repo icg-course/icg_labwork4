@@ -1,13 +1,485 @@
 <!DOCTYPE html>
+
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+	<head>
+        <meta charset="utf-8"></meta>
+		<title>lab2</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css"></link>
+		<script src="https://www.x3dom.org/download/dev/x3dom.js"></script>
+	</head>
+	<body>
+		<x3d>
+			<scene>
+				<Viewpoint position="10.42087 19.19802 7.00361" orientation="-0.48574 0.87368 0.02715 0.79526" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+				<Viewpoint position="-21.27027 2.27914 -5.39412" orientation="0.17767 -0.95637 0.23192 2.07960" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+					<transform center="0 -14.20 0" translation="3 14.20 3" rotation="0 1 0 1.570796326794897">
+					
+						<transform translation="0 2.97 0">
+							<shape>
+								<appearance><material diffusecolor="white"></material></appearance>
+								<text string="My"></text>	
+							</shape>
+						</transform> <!-- My -->
+
+						<transform translation="0 2.2 0">
+							<shape>
+								<appearance><material diffusecolor="blue"></material></appearance>
+								<text string="Lovely"></text> 
+							</shape>
+						</transform> <!-- Lovely -->
+					
+						<transform translation="0 1.45 0">
+							<shape>
+								<appearance><material diffusecolor="red"></material></appearance>
+								<text string="Russia"></text> 
+							</shape>
+						</transform> <!-- Russia -->
+						
+						<transform>
+							<transform>
+								<shape>
+									<appearance><ImageTexture url="rashka.png"></ImageTexture></appearance>
+									<box size="3.78 .62 0.02"></box>
+								</shape>
+							</transform>
+							
+							<transform translation="0 0 -0.01">
+								<shape>
+									<appearance><ImageTexture url="rashkaon.png"></ImageTexture></appearance>
+									<box size="3.78 .62 0.02"></box>
+								</shape> 
+							</transform>
+							
+							<transform translation="0 -1.337 0">
+								<shape>
+									<appearance><ImageTexture url="wood.png"></ImageTexture></appearance>
+									<box size=".222 2.22 0.222"></box>
+								</shape>
+							</transform>	
+						</transform>	
+					</transform>
+					
+				<transform DEF="popup" center="0 -14.20 0" translation="0 14.20 0"> 
+					<transform rotation="0 1 0 3.14159265358979">
+						<transform translation="1.5 -0.37 0.5" rotation="0 1 0 3.14159265358979">
+							<Shape>
+								<IndexedFaceSet coordIndex= "0 1 2 -1
+															0 2 3 -1
+
+															3 4 5 -1 
+															5 3 0 -1
+
+															0 1 5 -1 
+															1 5 8 -1
+
+															4 3 2 -1 
+															2 7 4 -1
+
+															7 8 1 -1
+															1 2 7 -1 
+
+															4 5 12 -1 
+															5 12 11 -1
+
+															10 12 13 -1 
+															10 11 12 -1
+
+															10 13 6 -1 
+															6 9 10 -1"
+													solid="false">
+										<Coordinate point="0 0 0, 3 0 0, 3 0 1, 0 0 1, 0 1.2 1, 0 1.2 0, 3 0.6 1, 3 1.2 1, 
+										3 1.2 0, 3 0.6 0, 1.5 0.6 0, 1.5 1.2 0, 1.5 1.2 1, 1.5 0.6 1"></Coordinate>						
+									</IndexedFaceSet>
+								<Appearance><Material diffuseColor="red"></Material></Appearance>
+							</Shape>
+						</transform>
+						
+						<transform translation="-1 -.25 0">
+							<group DEF="rear_wheel">
+								<transform translation="0 0 0.85">
+									<shape>
+										<appearance>
+											<material diffusecolor="#181818">
+											</material>
+										</appearance>
+										<torus outerRadius=".5" innerRadius=".3">
+										</torus>
+									</shape>
+								</transform> <!-- Шина заднего колеса -->
+								
+								<transform translation="0 0 .99" rotation="1 0 0 1.570796326794897"> 			
+									<shape>
+										<appearance>
+											<material diffusecolor="gray">
+											</material>
+										</appearance>
+										<cylinder radius=".5" height=".3">
+										</cylinder>
+									</shape>
+								</transform> <!-- Диск заднего колеса -->
+								
+								<transform translation="0 0 .8" rotation="1 0 0 1.570796326794897">			
+									<shape>
+										<appearance>
+											<material diffusecolor="black">
+											</material>
+										</appearance>
+										<cylinder radius=".3" height=".3">
+										</cylinder>
+									</shape>
+								</transform> <!-- Ступица -->
+								
+								<transform translation="0 -.05 -0.027">
+									<group DEF="bolts">
+										<transform translation="0 .35 1.145" rotation="1 0 0 1.570796326794897">			
+											<shape DEF="bolt">
+												<appearance>
+													<material diffusecolor="white">
+													</material>
+												</appearance>
+												<cylinder radius=".07" height=".05">
+												</cylinder>
+											</shape>
+										</transform> <!-- Болт 1 -->
+											
+										<transform translation="-.315 .1225 1.145" rotation="1 0 0 1.570796326794897">			
+											<shape USE="bolt"></shape>
+										</transform> <!-- Болт 2 -->
+										
+										<transform translation=".315 .1225 1.145" rotation="1 0 0 1.570796326794897">			
+											<shape USE="bolt"></shape>
+										</transform> <!-- Болт 3 -->			
+
+										<transform translation="-.1575 -.245 1.145" rotation="1 0 0 1.570796326794897">			
+											<shape USE="bolt"></shape>
+										</transform> <!-- Болт 4 -->
+								
+										<transform translation=".1575 -.245 1.145" rotation="1 0 0 1.570796326794897">			
+											<shape USE="bolt"></shape>
+										</transform> <!-- Болт 5 -->
+									</group>
+								</transform> <!-- Болты -->
+							</group>
+							
+							<transform rotation="1 0 0 3.1415926535">
+								<group USE="rear_wheel"></group>
+							</transform>
+							
+							<transform rotation="1 0 0 1.570796326794897"> 			
+								<shape>
+									<appearance>
+										<material diffusecolor="black">
+										</material>
+									</appearance>
+									<cylinder radius=".13" height="2.29">
+									</cylinder>
+								</shape>
+							</transform> <!-- Задний мост -->
+							
+						</transform> <!-- Задняя подвеска -->
+						
+						<transform translation="2.28 -.1 0">
+						
+							<transform translation="-1 -.25 0" rotation="1 0 0 1.570796326794897">			
+								<shape>
+									<appearance>
+										<material diffusecolor="black">
+										</material>
+									</appearance>
+									<cylinder radius=".13" height="1.7">
+									</cylinder>
+								</shape>
+							</transform> <!-- Передняя ось -->
+						
+							<transform translation="-1 -.32 -.8" rotation="1 0 0 1.570796326794897">		
+								<shape DEF="reductor">
+									<appearance>
+										<material diffusecolor="black">
+										</material>
+									</appearance>
+									<cylinder radius=".2" height=".3">
+									</cylinder>
+								</shape>
+							</transform> <!-- Редуктор 1 -->	
+						
+							<transform translation="-1 -.32 .8" rotation="1 0 0 1.570796326794897">			
+								<shape USE="reductor"></shape>
+							</transform>  <!-- Редуктор 2 -->
+						
+						</transform> <!-- Передний мост -->	
+						
+						<transform translation="1.28 -.41 0">
+							<group DEF="front_wheel">
+								<transform translation="0 0 .99" rotation="1 0 0 1.570796326794897">			
+									<shape>
+										<appearance>
+											<material diffusecolor="gray">
+											</material>
+										</appearance>
+										<cylinder radius=".4" height=".25">
+										</cylinder>
+									</shape>
+								</transform> <!-- Диск -->	
+								
+								<transform translation="0 0 .99" rotation="1 0 0 1.570796326794897">			
+									<shape>
+										<appearance>
+											<material diffusecolor="black">
+											</material>
+										</appearance>
+										<cylinder radius=".13" height=".26">
+										</cylinder>
+									</shape>
+								</transform> <!-- Центральный колпак -->
+							
+								<transform translation="0 0 .94">
+									<shape>
+										<appearance>
+											<material diffusecolor="#181818">
+											</material>
+										</appearance>
+										<torus outerRadius=".33" innerRadius=".2">
+										</torus>
+									</shape>
+								</transform>  <!-- Шина переднего колеса -->	
+							</group>
+							
+							<transform rotation="1 0 0 3.1415926535">
+								<group USE="front_wheel"></group>
+							</transform>
+						</transform> <!-- Передняя подвеска -->	
+						
+						<transform translation="1.1 1.1 0" rotation="1 0 0 0">			
+							<shape>
+								<appearance>
+									<material diffusecolor="red">
+									</material>
+								</appearance>
+								<cylinder radius=".1322" height="1">
+								</cylinder>
+							</shape>
+						</transform> <!-- Тело трубы -->
+							
+						<transform translation="1.1 1.7 0" rotation="1 0 0 0">			
+							<shape>
+								<appearance>
+									<material diffusecolor="red">
+									</material>
+								</appearance>
+								<cylinder radius=".199" height="0.3">
+								</cylinder>
+							</shape>
+						</transform> <!-- Наконечник трубы -->
+							
+						<transform translation="-0.2 1 0" rotation="0 0 1 0.7853981633974485">
+							<transform translation="0 0 0" rotation="1 0 0 1.570796326794897">
+								<shape>
+									<appearance>
+										<material diffusecolor="#181818">
+										</material>
+									</appearance>
+									<torus outerRadius=".337" innerRadius=".07">
+									</torus>
+								</shape>
+							</transform> <!-- Руль -->
+							
+							<transform translation="0 -0.5 0" rotation="1 0 0 0">			
+								<shape>
+									<appearance>
+										<material diffusecolor="black">
+										</material>
+									</appearance>
+									<cylinder radius=".1" height="0.95">
+									</cylinder>
+								</shape>
+							</transform> <!-- Рулевая колонка -->
+						
+							<transform translation="0 0 0" rotation="1 0 0 0">			
+								<shape>
+									<appearance>
+										<material diffusecolor="black">
+										</material>
+									</appearance>
+									<cylinder radius=".179" height="0.17">
+									</cylinder>							
+								</shape>
+								<transform translation="0 0 0" rotation="1 0 0 1.570796326794897">	
+									<shape>
+										<appearance>
+											<material diffusecolor="black">
+											</material>
+										</appearance>
+										<cylinder radius=".05" height=".674">
+										</cylinder>							
+									</shape>
+								</transform> <!-- Перегородка руля -->	
+							</transform> <!-- Подушка безопасности -->
+						</transform> <!-- Рулевой механизм -->
+						
+						<transform translation="-1.4 .75 0" rotation="0 0 -1 -0.39269908169"> 
+							<shape>
+								<appearance>
+									<material diffusecolor="#181818">
+									</material>
+								</appearance>
+								<box size=".02 1.2 .97">
+								</box>
+							</shape>
+						</transform> <!-- Спиbнка -->
+						
+						<transform translation="-1.14 .5 0" rotation="0 0 -1 -1.570796326794897"> <!-- Сидалище -->
+							<shape>
+								<appearance>
+									<material diffusecolor="#181818">
+									</material>
+								</appearance>
+								<box size=".02 0.7 .97">
+								</box>
+							</shape>
+						</transform> <!-- Сидалище -->
+						
+						<transform rotation="0 1 0 1.570796326794897" translation="-.72 1.18 0" scale =".444 .444 .444">
+							<transform rotation="1 0 0 1.570796326794897">
+							
+								<transform translation="0 0 0">
+									<shape>
+										<appearance>
+											<material diffusecolor="#FFC0CB"></material>
+										</appearance>
+										<cone height="0.68" bottomRadius=".73" topRadius=".2"></cone>
+									</shape>
+								</transform>
+								
+								<transform translation="0 -.74 0">
+									<shape>
+										<appearance>
+											<ImageTexture url="https://sun9-47.userapi.com/c855724/v855724881/20c6d0/ZlAWXT7ii3Q.jpg"></ImageTexture>
+										</appearance>
+										<sphere radius="1"></sphere>
+									</shape>
+								</transform>
+								
+								<transform translation="0 .377 0"> 
+									<transform translation="0 .05 0" rotation="0 0 0 1.570796326794897"> 			
+										<shape>
+											<appearance>
+												<material diffusecolor="#FFC0CB">
+												</material>
+											</appearance>
+											<cylinder radius=".1" height=".1">
+											</cylinder>
+										</shape>
+									</transform>
+									
+									<transform translation="0 0 0" rotation="1 0 0 1.570796326794897">
+										<shape>
+											<appearance>
+												<material diffusecolor="#FFC0CB">
+												</material>
+											</appearance>
+											<torus outerRadius=".1" innerRadius=".1">
+											</torus>
+										</shape>
+									</transform>
+									
+								</transform>
+								
+								<transform translation="-.8 -.7 0" rotation="1 0 0 -1.570796326794897" scale =".5 .5 .5">
+									<transform rotation="0 0 1 .3">
+										<shape DEF="uho">
+											<appearance><material diffusecolor="#FFC0CB"></material></appearance>
+											<IndexedTriangleSet Index = "0 1 9  9 1 8  8 1 2  2 8 7  7 2 3  3 4 5  5 3 7  7 5 6" solid = "false" colorpervertex = "true" normalpervertex = "true">
+												<coordinate point = "0 0 0, -.5 .75 0, -.25 1.5 0, .25 2 0, .25 2.5 0, .75 2 0, 1.5 1.75 0, 1.75 1 0, 1.5 .25 0, 1.25 0 0"></coordinate> 
+											</IndexedTriangleSet>
+										</shape>	
+									</transform>
+								</transform>
+								
+								<transform translation="-.8 -.6999 0" rotation="1 0 0 -1.570796326794897" scale =".5 .5 .5">
+									<transform rotation="0 0 1 .3">
+										<shape DEF="pereponka">
+											<appearance><material diffusecolor="#aaaaaa"></material></appearance>
+											<IndexedTriangleSet Index = "0 1 7  7 1 2  2 7 6  6 2 3  3 4 6  6 4 5" solid = "false" colorpervertex = "true" normalpervertex = "true">
+												<coordinate point = "0.5 0 0, 0 .75 0, .25 1.5 0, .75 1.75 0, 1 1.75 0, 1.25 1 0, 1 .25 0, .75 0 0"></coordinate>
+											</IndexedTriangleSet>	
+										</shape>
+									</transform>
+								</transform>
+								
+								<transform rotation="0 0 0 -3.14">
+									<transform rotation="0 1 0 -1.570796326794897">
+										<transform>
+											<transform translation="-.8 -.7 0" rotation="1 0 0 -1.570796326794897" scale =".5 .5 .5">
+												<transform rotation="0 0 1 .3">
+													<shape USE="uho"></shape>
+												</transform>							
+											</transform>
+											
+											<transform translation="-.8 -.69999 0" rotation="1 0 0 -1.570796326794897" scale =".5 .5 .5">
+												<transform rotation="0 0 1 .3">
+													<shape USE="pereponka"></shape>
+												</transform>
+											</transform>
+										</transform>	
+									</transform>
+								</transform>
+								
+								<transform translation="-.4 0 -.5" rotation="1 0 0 1.570796326794897">
+									<shape>
+										<appearance>
+											<material diffusecolor="#FFFFFF"></material>
+										</appearance>
+										<sphere radius=".222"></sphere>
+									</shape>
+								</transform>
+								
+								<transform translation="-.4 .134 -.5" rotation="1 0 0 1.570796326794897">
+									<shape>
+										<appearance>
+											<material diffusecolor="#0000000"></material>
+										</appearance>
+										<sphere radius=".1"></sphere>
+									</shape>
+								</transform>
+								
+								<transform translation=".4 0 -.5" rotation="1 0 0 1.570796326794897">
+									<shape>
+										<appearance>
+											<material diffusecolor="#FFFFFF"></material>
+										</appearance>
+										<sphere radius=".222"></sphere>
+									</shape>
+								</transform>
+								
+								<transform translation=".4 .134 -.5" rotation="1 0 0 1.570796326794897">
+									<shape>
+										<appearance>
+											<material diffusecolor="#0000000"></material>
+										</appearance>
+										<sphere radius=".1"></sphere>
+									</shape>
+								</transform>
+							</transform>
+						</transform>
+					</transform>	
+				</transform>
+				
+				<transform translation="0 0 0">
+					<shape>
+						<appearance>
+							<ImageTexture url="earth.jpg"></ImageTexture>
+						</appearance>
+						<sphere radius="13.37"></sphere>
+					</shape>
+				</transform>
+				
+				<background  backUrl = "back.jpg" ></background>
+				<DirectionalLight direction="0 14 0" intensity="0.3"></DirectionalLight>
+				<TimeSensor DEF="TS_m1" cycleInterval="27" loop="true"></TimeSensor>
+                <OrientationInterpolator DEF="OI_m1" key="0, 0.5, 1" keyValue="0 0 1 0, 0 0 1 3.14, 0 0 1 6.28"></OrientationInterpolator>
+                <ROUTE fromNode="TS_m1" fromField="fraction_changed" toNode="OI_m1" toField="set_fraction"></ROUTE>
+				<ROUTE fromNode="OI_m1" fromField="value_changed" toNode="popup" toField="set_rotation"></ROUTE>		
+			</scene>
+		</x3d>
+	</body>
 </html>
