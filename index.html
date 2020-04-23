@@ -108,7 +108,7 @@
 									</transform>
 								</group>
 							
-								<transform translation="0 -2.15 0" rotation="1 0 0 -0.4">
+								<transform DEF="left_foot_rotation" translation="0 -2.15 0" rotation="1 0 0 -0.4">
 									<group DEF="full_foot">
 										<transform rotation="0 0 1 1.57">
 											<shape DEF="joint">
@@ -158,14 +158,14 @@
 							<transform DEF="right_arm" translation="-1.2 0 0" rotation="0 1 0 3.1415">
 								<group USE="full_arm"></group>
 								
-								<transform translation="0 -2.15 0" rotation="1 0 0 0.4">
+								<transform DEF="right_foot_rotation" translation="0 -2.15 0" rotation="1 0 0 0.4">
 									<group USE="full_foot"></group>
 								</transform>
 							</transform>
 						</transform>
 					</transform>
 					
-					<transform DEF="center_foot" translation="0 -1.4 0" rotation="1 0 0 0.3">
+					<transform DEF="central_foot" translation="0 -1.4 0" rotation="1 0 0 0.3">
 						<group USE="full_foot"></group>
 					</transform>
 				</transform>
@@ -175,7 +175,7 @@
 				</TimeSensor>
 				
 				<OrientationInterpolator 
-					DEF="oi" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
+					DEF="oi_head" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
 					keyValue="0 1 0 0,
 							  0 1 0 0,
 							  0 1 0 -1,
@@ -186,14 +186,128 @@
 							  0 1 0 0">
 				</OrientationInterpolator>
 				
+				<OrientationInterpolator 
+					DEF="oi_body" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
+					keyValue="1 0 0 -0.3,
+							  1 0 0 -0.3,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 -0.3,
+							  1 0 0 -0.3">
+				</OrientationInterpolator>
+				
+				<OrientationInterpolator 
+					DEF="oi_arms" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
+					keyValue="1 0 0 0.7,
+							  1 0 0 0.7,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0.7,
+							  1 0 0 0.7">
+				</OrientationInterpolator>
+				
+				<OrientationInterpolator 
+					DEF="oi_central_foot" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
+					keyValue="1 0 0 0.3,
+							  1 0 0 0.3,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0.3,
+							  1 0 0 0.3">
+				</OrientationInterpolator>
+				
+				<OrientationInterpolator 
+					DEF="oi_left_foot" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
+					keyValue="1 0 0 -0.4,
+							  1 0 0 -0.4,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 -0.4,
+							  1 0 0 -0.4">
+				</OrientationInterpolator>
+				
+				<OrientationInterpolator 
+					DEF="oi_right_foot" key="0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 1" 
+					keyValue="1 0 0 0.4,
+							  1 0 0 0.4,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0,
+							  1 0 0 0.4,
+							  1 0 0 0.4">
+				</OrientationInterpolator>
+				
+				<!-- head animations -->
 				<ROUTE
 					fromNode="ts" fromField="fraction_changed" 
-					toNode="oi" toField="set_fraction">
+					toNode="oi_head" toField="set_fraction">
 				</ROUTE>
 				
 				<ROUTE
-					fromNode="oi" fromField="value_changed" 
+					fromNode="oi_head" fromField="value_changed" 
 					toNode="head_transform" toField="set_rotation">
+				</ROUTE>
+				
+				<!-- body animations -->
+				<ROUTE
+					fromNode="ts" fromField="fraction_changed" 
+					toNode="oi_body" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="oi_body" fromField="value_changed" 
+					toNode="bodyaxis" toField="set_rotation">
+				</ROUTE>
+				
+				<!-- arms animations -->
+				<ROUTE
+					fromNode="ts" fromField="fraction_changed" 
+					toNode="oi_arms" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="oi_arms" fromField="value_changed" 
+					toNode="arm_rotation" toField="set_rotation">
+				</ROUTE>
+				
+				<!-- feet animations -->
+				<ROUTE
+					fromNode="ts" fromField="fraction_changed" 
+					toNode="oi_central_foot" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="oi_central_foot" fromField="value_changed" 
+					toNode="central_foot" toField="set_rotation">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="ts" fromField="fraction_changed" 
+					toNode="oi_left_foot" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="oi_left_foot" fromField="value_changed" 
+					toNode="left_foot_rotation" toField="set_rotation">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="ts" fromField="fraction_changed" 
+					toNode="oi_right_foot" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="oi_right_foot" fromField="value_changed" 
+					toNode="right_foot_rotation" toField="set_rotation">
 				</ROUTE>
 			</scene>
 		</x3d>
