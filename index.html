@@ -4,10 +4,378 @@
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/custom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <p align="center">Лабораторная работа №4 Брылев Евгений </p> 
+
+
+<X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">
+
+<scene>
+
+<Background groundAngle='0.9 1.5 1.57' groundColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82' skyAngle='0.9 1.5 1.57' skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'>
+        </Background>
+<transform>
+      
+<transform DEF="earth" translation="0 0 0"> 
+  <Shape> 
+    <Appearance> 
+  <!-- Земля -->
+      <ImageTexture url='https://lh5.googleusercontent.com/-Ochc8HOY8uE/URDsSk9NZ9I/AAAAAAAAA0E/eoV5-EU7Xuk/s1024/earthmap1k.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="10"></Sphere> 
+  </Shape> 
+</transform>
+
+
+
+<!---- label----->
+<transform translation="-30 -10 1" rotation=" 1 0 0 -1.7">
+  <Shape>
+        <Text string='space mood watch' solid='false'>
+          <FontStyle family="SERIF" size='2'  language='en'></FontStyle>
+        </Text>
+        <Appearance>
+          <Material diffuseColor='white'></Material>
+        </Appearance>
+      </Shape>
+  </transform>
+
+ <Group DEF='rocket'>
+<transform translation="5,13.75"> 
+  <shape> 
+    <Appearance> 
+   <!-- Ракета нос-->
+      <ImageTexture url='https://avatars.mds.yandex.net/get-pdb/1782154/bf2538f5-abb4-44b8-a1c6-752d2bc5832d/s375'> </ImageTexture>
+        <TextureProperties></TextureProperties> 
+    </Appearance> 
+          <Cone height="0.5" bottomRadius="0.1"></Cone> 
+  </shape>
+</transform> 
+
+<transform translation="5,13"> 
+  <shape> 
+    <Appearance> 
+   <!-- Ракета тело -->
+      <ImageTexture url='https://avatars.mds.yandex.net/get-pdb/1782154/bf2538f5-abb4-44b8-a1c6-752d2bc5832d/s375'> </ImageTexture>
+        <TextureProperties></TextureProperties> 
+    </Appearance> 
+          <Cylinder height="1" radius="0.1"></Cylinder> 
+  </shape>
+</transform> 
+
+<transform translation="5,12.8"> 
+  <shape> 
+    <Appearance> 
+   <!-- зад -->
+      <ImageTexture url='https://avatars.mds.yandex.net/get-pdb/1782154/bf2538f5-abb4-44b8-a1c6-752d2bc5832d/s375'> </ImageTexture>
+        <TextureProperties></TextureProperties> 
+    </Appearance> 
+          <Cone height="1"  bottomRadius="0.1"></Cone> 
+  </shape>
+</transform> 
+
+<transform rotation="1 0 0" translation="5,12.8"> 
+  <shape DEF="fire"> 
+    <Appearance> 
+   <!-- огонёк -->
+      <Material diffuseColor="orange"></Material> 
+    </Appearance> 
+          <Cone height="2"  bottomRadius="0.05"></Cone> 
+  </shape>
+</transform> 
+</Group>
+
+<!-- ---подставка для земли --->
+<Anchor url="https://www.povarenok.ru/recipes/show/132331/" parameter="target='_self'">
+<transform DEF="cone" rotation="1 0 0 3.14"translation="0, -19,0">
+    <Shape>
+          <Appearance>
+            <ImageTexture url='https://st2.depositphotos.com/1000938/5384/i/950/depositphotos_53840339-stock-photo-waffle-texture.jpg'> </ImageTexture>
+        <TextureProperties></TextureProperties> 
+          </Appearance>
+          <Cone height="20" bottomRadius="4"></Cone>
+        </Shape>
+</transform>
+</Anchor>
+
+<!-- torus-->
+<transform DEF="torus" rotation="1 0 0 -1.57" translation="0,-11,0">
+    <Shape>
+          <Torus innerRadius="2" outerRadius="4"></Torus>
+          <Appearance>
+           <ImageTexture url='https://st2.depositphotos.com/1000938/5384/i/950/depositphotos_53840339-stock-photo-waffle-texture.jpg'> </ImageTexture>
+        <TextureProperties></TextureProperties> 
+          </Appearance>
+        </Shape>
+</transform>   
+
+
+<!-- -----------navigation---->
+<NavigationInfo type='ANIMATE' speed="5"></NavigationInfo>
+
+<!-- -----------light---->
+<Spotlight color='yellow' location='20 15 0' direction='1 0 0' ></Spotlight>
+
+<Group DEF="moon_construction">
+<transform DEF="moon" translation="19,15"> 
+  <shape> 
+    <Appearance> 
+   <!-- Луна -->
+      <ImageTexture url='https://sun9-51.userapi.com/c857616/v857616200/1d9f0a/9z6b-gat4JY.jpg'> </ImageTexture>
+        <TextureProperties></TextureProperties> 
+    </Appearance> 
+          <Sphere radius="2"></Sphere> 
+  </shape>
+</transform> 
+
+<!-- ---подставка для луны.  низ --->
+ <Anchor url="https://lidersrf.ru/upload/photos/2019/11/cb1MXkLAeJKuUzkClDRb_18_940dcff57f0c5552d6bcd14b6d20516f_image.png" parameter="target='_self'">
+<transform DEF="bottomPedestalMoon"  translation="18, -5,-2">
+    <Shape DEF="PedestalMoon">
+          <ElevationGrid xDimension="4" zDimension="4" xSpacing="1.0" zSpacing="1.0" solid="true"
+                          height=
+                                 "-4,-4,-4,-4,
+                                 -4,13,-13,-4,
+                                 -4,13,-13,-4,
+                                  -4,-4,-4, -4">
+          </ElevationGrid>
+          <Appearance>
+            <Material DEF="mat_pedestal" emissivecolor="139,0,139"></Material>
+          </Appearance>
+        </Shape>
+</transform>
+</Anchor>
+</Group>
+
+
+<!-- fog-->
+<Fog fogType="EXPONENTIAL" color="#B0E0E6" visibilityRange='300'></Fog>
+
+ 
+        <!--встраивание-------------->
+        <Transform translation="-35 20 -35">
+          <Inline url='"sun.x3d","C:\Users\asus\Desktop\three"'></Inline>
+        </Transform>
+
+<transform DEF="sadness"  translation="-20 -5 0"  center="20 0 0"> 
+   <transform rotation="0 0 1 -1.4">
+  <Shape> 
+    <Appearance> 
+ <!--smile sadness -->
+        <material DEF="Mat" transparency="0"> 
+          <ImageTexture  url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/27acd884418177.5d5c4ad8d0177.jpg'> </ImageTexture>
+        </material>
+      
+    </Appearance> 
+          <Cylinder radius="0.25" height="16"></Cylinder>
+  </Shape> 
+</transform>
+</transform>
+
+
+<!-- ball watch-->
+<transform DEF="12"  translation="0, -10, -35" rotation="1 0 0 -1.7"  > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/64d37654642197.596400e9a6f0b.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="2"></Sphere> 
+  </Shape> 
+</transform>
+
+<transform DEF="11"  translation="-18, -10, -30"  rotation="1 0 0 -1.7"> 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/disp/fba36722433459.56312b2d6a55a.png'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+
+<transform DEF="10"  translation="-30, -10, -18" rotation="1 0 0 -1.7" > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b6709e54642197.596400e9a6c8a.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+
+<transform DEF="9"  translation="-35, -10, 0"  rotation="1 0 0 -1.7"> 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9f69e384418177.5d5c4ad8d0782.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="2"></Sphere> 
+  </Shape> 
+</transform>
+
+
+<transform DEF="8"  translation="-30, -10, 18" rotation="1 0 0 -1.7" > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/67fc6154642197.596400e9a75a7.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+
+<transform DEF="7"  translation="-18, -10, 30" rotation="1 0 0 -1.7" > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/3e27d454642197.596400e9a7812.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+
+
+<transform DEF="6"  translation="0, -10, 35" rotation="1 0 0 -1.7" > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/86c9a354642197.596400e9a5d0e.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="2"></Sphere> 
+  </Shape> 
+</transform>
+
+<transform DEF="5"  translation="18, -10, 30"  rotation="1 0 0 -1.7"> 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/460c8454642197.596400e9a67b7.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+
+<transform DEF="4"  translation="30, -10, 18"  rotation="1 0 0 -1.7"> 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://sun9-30.userapi.com/c858528/v858528486/169633/ItO0R4OxFCc.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+
+<Anchor url="https://youtu.be/gZ93V_igqPQ" parameter="target='_self'">
+<transform DEF="3"  translation="35, -10, 0" rotation="1 0 0 -1.7" > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/f0441289591359.5df99823f2555.png'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="2"></Sphere> 
+  </Shape> 
+</transform>
+</Anchor>
+<transform DEF="2"  translation="30, -10, -18" rotation="1 0 0 -1.7" > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://sun9-55.userapi.com/c858528/v858528486/169673/rOyO7Rukq5M.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+
+<transform DEF="1"  translation="18, -10, -30" rotation="1 0 0 -1.7" > 
+  <Shape> 
+    <Appearance> 
+        <ImageTexture url='https://sun9-65.userapi.com/c858528/v858528486/1695f0/w4f7_b4GjwM.jpg'> </ImageTexture>
+        <TextureProperties>
+        </TextureProperties> 
+    </Appearance> 
+          <Sphere radius="1"></Sphere> 
+  </Shape> 
+</transform>
+<!-- земной шар крутится вертится-->
+<TimeSensor DEF='TS_earth' cycleInterval='15' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='OI_earth' key='0, 0.5, 1' keyValue='0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28'></OrientationInterpolator>
+        <ROUTE fromNode='TS_earth' fromField='fraction_changed' 
+               toNode='OI_earth' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='OI_earth' fromField='value_changed' 
+               toNode='earth' toField='set_rotation'>
+        </ROUTE>  
+
+  <TimeSensor DEF='TS_sadness' cycleInterval='15' loop='true'></TimeSensor>
+  <OrientationInterpolator DEF='OI_sadness' key='0, 0.5, 1' keyValue='0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28'></OrientationInterpolator>
+
+  <ScalarInterpolator DEF='ScInt' key='0 0.2 0.42 0.56 0.7 1' keyValue='0 0 1 1 0 0'></ScalarInterpolator>
+<!--turn fly-->
+        <ROUTE fromNode='TS_sadness' fromField='fraction_changed' 
+               toNode='OI_sadness' toField='set_fraction'>
+           </ROUTE>
+         <ROUTE fromNode='OI_sadness' fromField='value_changed' 
+               toNode='sadness' toField='set_rotation'>
+        </ROUTE>
+<!--transparency-->
+    <ROUTE fromNode='TS_sadness' fromField='fraction_changed' 
+               toNode='ScInt' toField='set_fraction'>
+        </ROUTE>
+       <ROUTE fromNode='ScInt' fromField='value_changed' 
+               toNode='Mat' toField='set_transparency'>
+               </ROUTE>
+
+ <!--moon_construction-->
+<TimeSensor DEF='TS_moon_construction' cycleInterval='2.5' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='OI_moon_construction' key='0, 0.5, 1' keyValue='1 1 1 0, 1 1 1 -3.14, 1 1 1 -6.28'></OrientationInterpolator>
+        <ROUTE fromNode='TS_moon_construction' fromField='fraction_changed' 
+               toNode='OI_moon_construction' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='OI_moon_construction' fromField='value_changed' 
+               toNode='moon' toField='set_rotation'>
+        </ROUTE>   
+ 
+<!--mat_pedestal-->
+  <TimeSensor DEF='Time_color' cycleInterval='5' loop='true'></TimeSensor>
+        <ColorInterpolator DEF='ColInt_color' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+        
+        <ROUTE fromNode='Time_color' fromField='fraction_changed'
+               toNode='ColInt_color' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='ColInt_color' fromField='value_changed' 
+               toNode='mat_pedestal' toField='set_diffuseColor'>
+        </ROUTE>
+
+<!--TS_sadness-->
+<ColorInterpolator DEF='ColInt_color_sadness' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+
+<ROUTE fromNode='TS_sadness' fromField='fraction_changed'
+               toNode='ColInt_color_sadness' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='ColInt_color_sadness' fromField='value_changed' 
+               toNode='Mat' toField='set_diffuseColor'>
+        </ROUTE>
+
+</scene>
+</X3D>  
+</body> 
 </html>
