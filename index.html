@@ -34,7 +34,7 @@
 
 
 
-<!---- label----->
+<!-- label-->
 <transform translation="-30 -10 1" rotation=" 1 0 0 -1.7">
   <Shape>
         <Text string='space mood watch' solid='false'>
@@ -91,9 +91,9 @@
 </transform> 
 </Group>
 
-<!-- ---подставка для земли --->
+<!-- подставка для земли-->
 <Anchor url="https://www.povarenok.ru/recipes/show/132331/" parameter="target='_self'">
-<transform DEF="cone" rotation="1 0 0 3.14"translation="0, -19,0">
+<transform DEF="cone" rotation="1 0 0 3.14" translation="0, -19,0">
     <Shape>
           <Appearance>
             <ImageTexture url='https://st2.depositphotos.com/1000938/5384/i/950/depositphotos_53840339-stock-photo-waffle-texture.jpg'> </ImageTexture>
@@ -116,10 +116,10 @@
 </transform>   
 
 
-<!-- -----------navigation---->
+<!-- navigation-->
 <NavigationInfo type='ANIMATE' speed="5"></NavigationInfo>
 
-<!-- -----------light---->
+<!-- light-->
 <Spotlight color='yellow' location='20 15 0' direction='1 0 0' ></Spotlight>
 
 <Group DEF="moon_construction">
@@ -134,7 +134,7 @@
   </shape>
 </transform> 
 
-<!-- ---подставка для луны.  низ --->
+<!-- подставка-->
  <Anchor url="https://lidersrf.ru/upload/photos/2019/11/cb1MXkLAeJKuUzkClDRb_18_940dcff57f0c5552d6bcd14b6d20516f_image.png" parameter="target='_self'">
 <transform DEF="bottomPedestalMoon"  translation="18, -5,-2">
     <Shape DEF="PedestalMoon">
@@ -158,7 +158,7 @@
 <Fog fogType="EXPONENTIAL" color="#B0E0E6" visibilityRange='300'></Fog>
 
  
-        <!--встраивание-------------->
+        <!-- встраивание-->
         <Transform translation="-35 20 -35">
           <Inline url='"sun.x3d","C:\Users\asus\Desktop\three"'></Inline>
         </Transform>
@@ -167,7 +167,7 @@
    <transform rotation="0 0 1 -1.4">
   <Shape> 
     <Appearance> 
- <!--smile sadness -->
+ <!-- smile_sadness-->
         <material DEF="Mat" transparency="0"> 
           <ImageTexture  url='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/27acd884418177.5d5c4ad8d0177.jpg'> </ImageTexture>
         </material>
@@ -314,7 +314,7 @@
           <Sphere radius="1"></Sphere> 
   </Shape> 
 </transform>
-<!-- земной шар крутится вертится-->
+<!-- земной-->
 <TimeSensor DEF='TS_earth' cycleInterval='15' loop='true'></TimeSensor>
         <OrientationInterpolator DEF='OI_earth' key='0, 0.5, 1' keyValue='0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28'></OrientationInterpolator>
         <ROUTE fromNode='TS_earth' fromField='fraction_changed' 
