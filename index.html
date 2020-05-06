@@ -1,13 +1,377 @@
-<!DOCTYPE html>
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <h1>Бойков Олег Группа 4741. Лабораторная №4</h1>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">
+		<Scene>
+			<!--Background-->
+			<Background groundAngle='1 1.5 1.57' groundColor='.8 .8 .8 .7 .7 .7 .6 .6 .6 .6 .6 .6 .6 .5 .5' skyAngle='1 1.5 1.57' skyColor='.7 .7 .7 .85 .84 .85 .81 .81 .95 .77 .8 .82'></Background>
+        	<!--Viewpoint-->
+			<Viewpoint 	position="7 1 19" orientation="0 .2 0 .4"></Viewpoint>
+			<!--Light-->
+			<Spotlight color='white' location='-3 15 -2' direction='2 0 0'></Spotlight>
+			<!--Fog-->
+			<Fog fogType="EXPONENTIAL" color="#FFFFFF" visibilityRange='125'></Fog>
+			<!--Body-->
+			<Transform translation="0 0 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Cylinder height="2.5" radius="0.6" ></Cylinder> 
+				</Shape>
+			</Transform>
+			<!--Legs-->
+			<!--Leg1-->
+			<Group DEF='Leg'>
+			<Transform translation="0.35 -2.2 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Cylinder height="1.9" radius="0.25" ></Cylinder> 
+				</Shape>
+			</Transform>
+			<!--Knee-->
+			<Transform translation="0.35 -2 0" rotation ="30, 1, 1, 1.5">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Torus innerradius="0.25" outerradius="0.07" ></Torus> 
+				</Shape>
+			</Transform>
+			<!--Ankle-->
+			<Transform translation="0.35 -3.2 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Box size="0.5, 0.6, 0.6" ></Box> 
+				</Shape>
+			</Transform>
+			<!--Foot-->
+			<Transform translation="0.35 -3.3 0.6">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Box size="0.5, 0.4, 0.6" ></Box> 
+				</Shape>
+			</Transform>
+			<!--Leg2-->
+			</Group>
+			<Transform translation="-0.7 0 0">
+				<Group USE ="Leg"></Group>
+			</Transform>
+			<!--Arms-->
+			<Transform DEF = "Arm1" center="1 1.05 0">
+			<Group DEF = "Arm">
+			<!--Shoulder-->
+			<Transform translation="0.6 1.05 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Sphere radius = "0.25" ></Sphere> 
+				</Shape>
+			</Transform>
+			<!--Arm-->
+			<Transform translation="1 0.8 0" rotation = "0, 0, 1, 45">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Cylinder height="0.8" radius="0.2" ></Cylinder> 
+				</Shape>
+			</Transform>
+			<!--Elbow-->
+			<Transform translation="1.4 0.5 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Sphere radius = "0.25" ></Sphere> 
+				</Shape>
+			</Transform>
+			<!--Forearm-->
+			<Transform translation="1.5 0 0" rotation = "0, 0, 1, 41">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Cylinder height="0.8" radius="0.2" ></Cylinder> 
+				</Shape>
+			</Transform>
+			<!--Hand-->
+			<Transform translation="1.57 -0.5 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Sphere radius = "0.25" ></Sphere> 
+				</Shape>
+			</Transform>
+			</Group>
+			<!--AxeHandle-->
+			<Transform translation="1.57 -0.5 0.3" rotation = "30, 1, 1, 1.5">
+				<Shape>
+				  <Appearance>
+				  	<TextureTransform rotation='45' scale='0.1,0.1'></TextureTransform>
+					<ImageTexture url='https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg'> </ImageTexture>
+					<TextureProperties></TextureProperties> 
+				  </Appearance>
+				  <Cone height="1.5" bottomradius="0.1" topradius ="0.08" ></Cone> 
+				</Shape>
+			</Transform>
+			<!--AxeHead-->
+			<Transform translation="1.57 -0.6 0.8" >
+				<Shape>
+				  <Appearance>
+				  	<TextureTransform rotation='45' scale='0.2,0.2'></TextureTransform>
+					<ImageTexture url='https://st.depositphotos.com/1014680/2359/i/450/depositphotos_23597573-stock-photo-metal-texture.jpg'> </ImageTexture>
+					<TextureProperties></TextureProperties> 
+				  </Appearance>
+				  <Pyramid height="0.55" xbottom="0.08" xtop ="0.21" xoff="0" ybottom ="0.5" ytop="0.4" yoff="0" ></Pyramid> 
+				</Shape>
+			</Transform>
+			</Transform>
+			<!--Arm2-->
+			<Transform DEF = "Arm2" center="1 1.05 0">
+				<Transform  rotation = "0 1 0 3.14">
+					<Group USE ="Arm"></Group>
+				</Transform>
+			</Transform>
+			<!--Neck-->
+			<Transform translation="0 1.4 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Cylinder height="0.4" radius="0.25" ></Cylinder> 
+				</Shape>
+			</Transform>
+			<Transform DEF='Head'>
+			<!--Head-->
+			<Transform translation="0 1.9 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Cylinder height="0.8" radius="0.5" ></Cylinder> 
+				</Shape>
+			</Transform>
+			<!--Hat-->
+			<Transform translation="0 2.6 0">
+				<Shape>
+				  <Appearance>
+				  	<TextureTransform rotation='45' scale='0.3,0.3'></TextureTransform>
+					<ImageTexture url='https://static8.depositphotos.com/1000111/1002/i/450/depositphotos_10021934-stock-photo-luxury-golden-texture.jpg'> </ImageTexture>
+					<TextureProperties></TextureProperties> 
+				  </Appearance>
+				  <Cone height="0.6" bottomradius="0.55" topradius ="0.05" ></Cone> 
+				</Shape>
+			</Transform>
+			<!--HatTip-->
+			<Transform translation="0 3 0">
+				<Shape>
+				  <Appearance>
+					<ImageTexture url='https://static8.depositphotos.com/1000111/1002/i/450/depositphotos_10021934-stock-photo-luxury-golden-texture.jpg'> </ImageTexture>
+					<TextureProperties></TextureProperties> 
+				  </Appearance>
+				  <Cylinder height="0.3" radius="0.05" ></Cylinder> 
+				</Shape>
+			</Transform>
+			<!--Eye1-->
+			<Transform translation="0.22 2 0.43">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='black'></Material>
+				  </Appearance>
+				  <Sphere radius = "0.07" ></Sphere> 
+				</Shape>
+			</Transform>
+			<!--Eye2-->
+			<Transform translation="-0.22 2 0.43">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='black'></Material>
+				  </Appearance>
+				  <Sphere radius = "0.07" ></Sphere> 
+				</Shape>
+			</Transform>
+			<!--Nose-->
+			<Transform translation="0 1.85 0.5">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='gray'></Material>
+				  </Appearance>
+				  <Sphere radius ="0.07" ></Sphere> 
+				</Shape>
+			</Transform>
+			</Transform>
+			<!--Text-->
+			<Transform translation="-12 4.7 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='red'></Material>
+				  </Appearance>
+				  <Text string = "Хочу, чтобы у меня было" ></Text> 
+				</Shape>
+			</Transform>
+			<!--TextBubble-->
+			<Transform translation="-0.75 1.95 0">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='red'></Material>
+				  </Appearance>
+					<IndexedLineSet coordIndex='2 0 1 -1 2 3 4 5 6 7 8 9 10 1 -1'
+									colorIndex='0 0 0 -1 0 0 0 0 0 0 0 0 0  0-1'
+									colorPerVertex='true'> 
+						<Coordinate point='0 0 0, -0.5 1.8 0, -1.2 1.8 0, -11.5 1.8 0, -12 2.5 0, -12 3.5 0, -11.5 4 0, 1.5 4 0, 
+										   2 3.5 0, 2 2.5 0, 1 1.8 0'>
+						</Coordinate>
+						<Color color='1 1 1'></Color>
+					</IndexedLineSet>
+				</Shape>
+			</Transform>
+			<!--Buttons-->
+			<Transform translation="0 0 0">
+				<Shape>
+				  <Appearance></Appearance>
+					<PointSet>
+						<Color color="0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0"></Color>
+						<Coordinate point="0 -1 0.6, 0 -0.5 0.6, 0 0 0.6, 0 0.5 0.6, 0 1 0.6 "></Coordinate>
+					</PointSet>
+				</Shape>
+			</Transform>
+			<!--Collar-->
+			<Transform translation="-0.15 1.25 0.45">
+				<Shape>
+				  <Appearance>
+					<Material></Material>
+				  </Appearance>
+				 	<IndexedFaceSet 
+					 ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+					 coordIndex="0 1 2 3 -1 2 3 4 5 -1 4 5 6 7 -1 6 7 8 9 -1 8 9 10 11 -1 10 11 12 13 -1 12 13 14 15 -1 14 15 0 1 -1" 
+					 colorIndex="0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0   -1 0 0 0 0     -1 0 0 0 0     -1 0 0 0 0   -1">
+					 <Coordinate point="0 0 0, 0 0.2 0, -0.3 0.2 -0.3, -0.3 0 -0.3, -0.3 0 -0.6, -0.3 0.2 -0.6, 
+					 					0 0.2 -0.9, 0 0 -0.9, 0.3 0 -0.9, 0.3 0.2 -0.9, 0.6 0.2 -0.6, 0.6 0 -0.6,
+					 					0.6 0 -0.3, 0.6 0.2 -0.3, 0.3 0.2 0, 0.3 0 0 "></Coordinate>
+					 <Color color="0.6 0.6 0.6"></Color>
+				 	</IndexedFaceSet>
+				</Shape>
+			</Transform>
+			<!--Heart-->
+			<Anchor url="https://youtu.be/X3IA6pIVank" parameter="target='_self'">
+			<Transform DEF = 'Heart' translation="0 5 0">
+				<Shape>
+				  <Appearance>
+					<Material DEF = 'HeartMat' emissiveColor ='gold' ></Material>
+				  </Appearance>
+					<IndexedTriangleStripSet index='0 1 2 3 4 -1 
+													4 5 6 7 8 -1
+													0 1 9 3 4 -1
+													4 5 10 7 8 -1
+													0 2 13 6 8 -1
+													0 9 13 10 8 -1
+													0 2 6 9 10 8 -1' solid='false'>
+						<Coordinate point='0 0 0, 0.15 0.2 0, 0.2 0 0.2, 0.3 0.2 0, 0.4 0 0,
+										   0.5 0.2 0, 0.6 0 0.2, 0.65 0.2 0, 0.8 0 0, 0.2 0 -0.2, 0.6 0 -0.2
+										   0.4 0 0.2, 0.4 0 -0.2, 0.4 -0.3 0'>	
+						</Coordinate>
+					</IndexedTriangleStripSet>
+				</Shape>
+			</Transform>
+			</Anchor>
+			<!--Bowtie-->
+			<Transform translation="-0.25 1.05 0.6">
+				<Shape>
+				  <Appearance>
+					<Material diffuseColor='red'></Material>
+				  </Appearance>
+					<IndexedTriangleSet 
+						index="0 1 2 3 4 2" solid="false">
+						<Coordinate DEF='BowtieCoords' point="0 0 0, 0 0.25 0, 0.25 0.125 0, 0.5 0.25 0, 0.5 0 0"></Coordinate>
+						<ColorRGBA color="0.2 0.2 0.2 1, 0.2 0.2 0.2 1, 0.2 0.2 0.2 1, 0.2 0.2 0.2 1, 0.2 0.2 0.2 1"></ColorRGBA>
+					</IndexedTriangleSet>	
+				</Shape>
+			</Transform>
+			<!--Terrain-->
+			<Transform translation="-15 -3.7 -10">
+				<Shape>
+				  <Appearance>
+					<ImageTexture url='https://www.the3rdsequence.com/texturedb/download/1/texture/jpg/1024/green+grass-1024x1024.jpg'> </ImageTexture>
+				  </Appearance>
+					<ElevationGrid xDimension="6" zDimension="6"
+						height="1.5, 1, 0.5, 1, 3, 1.5,1, 
+								0.5, 0.25, 0.5, 1,0, 0.5, 
+								0.25, 0, 0.25, 0.5,1,0.5, 
+								0.25, 0, 0, 0.5, 0,1, 
+								0.5, 0.25, 0.25, 0.5, 0,
+								1.5, 0.5, 0.5, 1, 1.5,0"
+					xSpacing="7.0" zSpacing="7.0" solid="false">
+					</ElevationGrid>
+				</Shape>
+			</Transform>
+			
+			<TimeSensor DEF='TS_Arm' cycleInterval='1' loop='true'></TimeSensor>
+				<OrientationInterpolator DEF='OrInt1' key='0, 0.5, 1' keyValue='1 0 0 0, 1 0 0 3.14, 1 0 0 6.28'></OrientationInterpolator>
+				<ROUTE fromNode='TS_Arm' fromField='fraction_changed' 
+					   toNode='OrInt1' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='OrInt1' fromField='value_changed' 
+					   toNode='Arm1' toField='set_rotation'>
+				</ROUTE>
+				<OrientationInterpolator DEF='OrInt2' key='0, 0.5, 1' keyValue='1 0 0 0, 1 0 0 -3.14, 1 0 0 -6.28'></OrientationInterpolator>
+				<ROUTE fromNode='TS_Arm' fromField='fraction_changed' 
+					   toNode='OrInt2' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='OrInt2' fromField='value_changed' 
+					   toNode='Arm2' toField='set_rotation'>
+				</ROUTE>				
+				<PositionInterpolator DEF='PosInt' key='0, 0.5, 1' keyValue='0 4.7 0 , 0 5.3 0, 0 4.7 0'></PositionInterpolator>
+				<ROUTE fromNode='TS_Arm' fromField='fraction_changed' 
+					   toNode='PosInt' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='PosInt' fromField='value_changed' 
+					   toNode='Heart' toField='set_translation'>
+				</ROUTE>
+			<TimeSensor DEF='TS_Head' cycleInterval='2' loop='true'></TimeSensor>
+				<OrientationInterpolator DEF='OrInt3' key='0, 0.5, 1' keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'></OrientationInterpolator>
+				<ROUTE fromNode='TS_Head' fromField='fraction_changed' 
+					   toNode='OrInt3' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='OrInt3' fromField='value_changed' 
+					   toNode='Head' toField='set_rotation'>
+				</ROUTE>
+				<ColorInterpolator DEF="ColInt" key="0, 0.25, 0.5, 0.75, 1" keyValue="1 1 0, 1 0 0, 0 1 1, 1 0 0, 1 1 0"></ColorInterpolator>
+				<ROUTE fromNode='TS_Head' fromField='fraction_changed' 
+					   toNode='ColInt' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='ColInt' fromField='value_changed' 
+					   toNode='HeartMat' toField='set_emissiveColor'>
+				</ROUTE>
+				<CoordinateInterpolator DEF="CoordInt" key="0 0.2 0.4 0.6 0.8 1" 
+				keyValue="0 0 0, 0 0.25 0, 0.25 0.125 0, 0.5 0.25 0, 0.5 0 0,
+						  0 0 0, 0 0.25 0, 0.25 0.125 0, 0.5 0.25 0, 0.5 0 0,
+						  -0.25 0 0, -0.25 0.25 0, 0.25 0.125 0, 0.75 0.25 0, 0.75 0 0,
+						  -0.25 0 0, -0.25 0.25 0, 0.25 0.125 0, 0.75 0.25 0, 0.75 0 0,
+						  0.2 0 0, 0.2 0.25 0, 0.25 0.125 0, 0.3 0.25 0, 0.3 0 0
+						  0 0 0, 0 0.25 0, 0.25 0.125 0, 0.5 0.25 0, 0.5 0 0">  
+				</CoordinateInterpolator>
+				<ROUTE fromNode='TS_Head' fromField='fraction_changed' 
+					   toNode='CoordInt' toField='set_fraction'>
+				</ROUTE>
+				<ROUTE fromNode='CoordInt' fromField='value_changed' 
+					   toNode='BowtieCoords' toField='set_point'>
+				</ROUTE>
+		</Scene>
+    </X3D>    
   </body> 
 </html>
