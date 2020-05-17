@@ -181,7 +181,7 @@
                     </transform>
                     <transform rotation="1 0 0 1.5708">
                         <transform translation="0,-3.5,2" rotation="0 1 0 1.5708">
-                            <Shape >
+                            <Shape>
                                 <Appearance>
                                     <ImageTexture url='carf.png'></ImageTexture>
                                     <TextureProperties></TextureProperties>
@@ -196,7 +196,7 @@
                     </transform>
                     <transform rotation="0 1 0 1.5708">
                         <transform translation="-3.6,-2,-0" rotation="0 0 1 -1.5708">
-                            <Shape  >
+                            <Shape>
                                 <Appearance>
                                     <ImageTexture url='carf.png'></ImageTexture>
                                     <TextureProperties></TextureProperties>
@@ -241,7 +241,7 @@
                     </transform>
                 </transform>
             </transform>
-            
+
             <! -- плоскость -->
             <transform translation="1,-6,-2" rotation="0 1 0 1.5708" scale='0.7 1.0 0.7'>
                 <Shape>
@@ -258,14 +258,22 @@
             </transform>
 
             <TimeSensor DEF='TS' cycleInterval='10' loop='true'></TimeSensor>
+            <TimeSensor DEF='TS2' cycleInterval='0.7' loop='true'></TimeSensor>
             <OrientationInterpolator DEF='OI' key='0, 0.5, 1' keyValue='0 1 0 0, 0 1 0 3.14, 0 1 0 6.28'></OrientationInterpolator>
+            <PositionInterpolator DEF='PI' key='0, 0.5, 1' keyValue='23 0.15 0 , 23 -0.1 0 , 23 0.15 0 '></PositionInterpolator>
             <ROUTE fromNode='TS' fromField='fraction_changed'
                    toNode='OI' toField='set_fraction'>
             </ROUTE>
             <ROUTE fromNode='OI' fromField='value_changed'
                    toNode='ender' toField='set_rotation'>
             </ROUTE>
-           
+            <ROUTE fromNode='TS2' fromField='fraction_changed'
+                   toNode='PI' toField='set_fraction'>
+            </ROUTE>
+            <ROUTE fromNode='PI' fromField='value_changed'
+                   toNode='ender' toField='set_translation'>
+            </ROUTE>
+
 
         </Scene>
   </X3D>
