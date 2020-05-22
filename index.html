@@ -1,13 +1,509 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/custom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <h1>Твити в шапочке на траве (лаба 4)</h1>
+  
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">
+      <Scene>
+            <!--камера-->
+            <viewpoint id="one" position="0 0 18" fieldofview="0.75" description="camera"></viewpoint>
+            <viewpoint id="two" position=" 15 0 0" orientation="0 1 0 0.9" fieldofview="1.1" description="camera"></viewpoint>
+            <viewpoint id="three" position="-1 5 8 " orientation="1 0 0 -1" fieldofview="0.9" description="camera"></viewpoint>
+
+<NavigationInfo headlight='false'></NavigationInfo>
+
+ <Background groundAngle='0.9 1.5 1.57' groundColor='0.7 0.7 0.1 0.4 0.9 0.2 0.1 0.6 0.1 0 0.1 0.9' skyAngle='0.9 1.5 1.57' skyColor='0.21 0.18 0.66 0.2 0.44 0.85 0.51 0.81 0.95 0.77 0.8 0.82'>
+        </Background>
+
+
+         <Transform translation= "-15 -7 -15" scale="3.5 3.5 3.5"> <!--Плоскость с неровностями-->  
+        <Shape>
+          <ElevationGrid xDimension="7" zDimension="6" xSpacing="2.0" zSpacing="2.0" solid="false"
+                          height=
+                                  "0.5, 1, 0.5, 0.5, 1, 0.5,0,
+                                  1, 0.5, 0.25, 0.25, 0.5, 1,0,
+                                  0.5, 0.25, 0, 0, 0.25, 0.5,0,
+                                  0.5, 0.25, 0, 0, 0.25, 0.5,0,
+                                  1, 0.5, 0.25, 0.25, 0.5, 1,0,
+                                  0.5, 1, 0.5, 0.5, 1, 0.5,0">
+          </ElevationGrid>
+          <Appearance>
+            <ImageTexture url="https://avatanplus.com/files/resources/mid/57b3635dbed9715694bc2656.jpg"></ImageTexture>
+            <Material  diffuseColor='#008000'></Material>
+          </Appearance>
+        </Shape>
+  </Transform>
+
+<transform translation="10 0 -9" rotation= " 0 1 1 -0.75">
+
+ <Anchor url="https://www.google.com/url?sa=i&url=https%3A%2F%2Fok.ru%2Fogoniled%2Ftopic%2F67295185660835&psig=AOvVaw1DrdRQO-q2lFU--8Yzyw99&ust=1588880775902000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMji9rOAoOkCFQAAAAAdAAAAABAJ">
+
+<Group DEF='Umbrella'>
+         <transform translation="0.46 0.3 0"  scale= "0.7 0.7 0.7" rotation= " 0 1 1 -1.5">
+           
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://avatanplus.com/files/resources/mid/57ebe82698cb31577182d6e2.jpg"></ImageTexture>
+            <Material diffuseColor='#DC143C'></Material>
+          </Appearance>
+          <SolidOfRevolution angle='6.3' crossSection='[0 1 1 3 3 7 1 1]' solid='false'> </SolidOfRevolution> 
+        </Shape>
+         
+        </transform>
+
+<transform translation="-0.1 -3.9 2.4" rotation= " 1 1 0 -0.7">
+<Shape>
+          <Appearance>
+            <Material diffuseColor='#B22222'></Material>
+          </Appearance>
+          <Cylinder radius="0.2" height="9"></Cylinder>
+        </Shape>
+</transform>
+  </Group>
+  </Anchor>
+   </transform>
+  
+
+ <Anchor url="https://ru.wikipedia.org/wiki/%D0%A2%D0%B2%D0%B8%D1%82%D0%B8">
+
+<Group DEF='Twitty'>
+        <Transform translation="0 0 0" scale="1.25 1.5 1">     <!--Основная часть головы-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="1.5"></Sphere>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0 0.7 0" scale="1.7 1.3 1.5">     <!--Шапочка-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#800000'></Material>
+          </Appearance>
+          <Sphere radius="1.15"></Sphere>
+        </Shape>
+        </Transform>
+
+          <Transform translation="0 2 0" scale="1.7 1.3 1.5">     <!--Шапочка помпон-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFAFA'></Material>
+          </Appearance>
+          <Sphere radius="0.45"></Sphere>
+        </Shape>
+        </Transform>
+
+ <Transform translation="0 -1.5 1" scale="1.3 0.8 0.5">     <!--Верхний клювик-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Sphere radius="0.3"></Sphere>
+        </Shape>
+        </Transform>
+
+<Transform translation="0 -1.65 1" scale="1.3 0.6 0.5">     <!--Нижний клювик-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Sphere radius="0.3"></Sphere>
+        </Shape>
+        </Transform>
+
+
+<Transform translation="-0.7 -0.65 0.9" scale= "0.9 1.9 1" rotation= "0 0 1 0.1">     <!--Глаз левый -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#f4fff0'></Material>
+          </Appearance>
+          <Sphere radius="0.55"></Sphere>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.7 -0.65 0.9" scale= "0.9 1.9 1" rotation= "0 0 -1 0.09">     <!--Глаз правый -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#f4fff0'></Material>
+          </Appearance>
+          <Sphere radius="0.55"></Sphere>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.75 -0.9 1.2" scale= "1 1.5 1">     <!--Глаз левый голубой -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#1E90FF'></Material>
+          </Appearance>
+          <Sphere radius="0.3"></Sphere>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.75 -0.9 1.2" scale= "1 1.5 1">     <!--Глаз правый голубой-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#1E90FF'></Material>
+          </Appearance>
+          <Sphere radius="0.3"></Sphere>
+        </Shape>
+        </Transform>
+
+ <Transform translation="-0.75 -1 1.45" scale= "1.5 2 1">     <!--Зрачок левый черный -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Sphere radius="0.1"></Sphere>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.75 -1 1.45" scale= "1.5 2 1">     <!--Зрачок правый черный-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Sphere radius="0.1"></Sphere>
+        </Shape>
+        </Transform>
+
+          <Transform translation="1 0 1.3" scale="1 1 0.5" rotation="0 0 -1 0.7" >     <!--Ресничка 1 правый глаз-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Cylinder radius="0.01" height="0.5"></Cylinder>
+        </Shape>
+        </Transform>
+
+         <Transform translation="1.1 0 1.3" scale="1 1 0.5" rotation="0 0 -1 0.7" >     <!--Ресничка 2 правый глаз-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Cylinder radius="0.01" height="0.5"></Cylinder>
+        </Shape>
+        </Transform>
+
+         <Transform translation="-1 0 1.3" scale="1 1 0.5" rotation="0 0 1 0.7" >     <!--Ресничка 1 левый глаз-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Cylinder radius="0.01" height="0.5"></Cylinder>
+        </Shape>
+        </Transform>
+
+          <Transform translation="-1.1 0 1.3" scale="1 1 0.5" rotation="0 0 1 0.7" >     <!--Ресничка 2 левый глаз-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Cylinder radius="0.01" height="0.5"></Cylinder>
+        </Shape>
+        </Transform>
+
+<Transform translation="0.7 -1.4 0.5" scale="2.5 1.6 2.5" rotation="0 0 1 -0.6">     <!--Щечка 1 правый-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="0.33"></Sphere>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.7 -1.4 0.5" scale="2.5 1.6 2.5" rotation="0 0 1 0.6">     <!--Щечка 2 правый-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="0.33"></Sphere>
+        </Shape>
+        </Transform>
+
+ <Transform translation="0 -1.7 -0.2" >     <!--Шейка-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Cylinder radius="0.3" height="2"></Cylinder>
+        </Shape>
+        </Transform>
+
+ <Transform translation="0 -4 -0.25" scale="1.5 3 1.5">     <!--Туловище-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="0.5"></Sphere>
+        </Shape>
+        </Transform>
+
+         <Transform translation="0 -4.3 -0.25" scale="1.3 1.6 1.3">     <!--Животик-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="0.85"></Sphere>
+        </Shape>
+        </Transform>
+
+             <Transform translation="0 -5 -1" scale="1 1 1.5">     <!--Хвостик-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="0.35"></Sphere>
+        </Shape>
+        </Transform>
+
+ <Transform translation="-1 -3.25 -0.3" rotation="0 0 1 -0.9" scale="1.2 0.7 1.5">     <!--Левая ручка верхняя часть-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Cone Bottomradius="0.25" height="2.5"></Cone>
+        </Shape>
+        </Transform>
+
+  <Transform translation="-1.80 -3.9 -0.3" scale= "1.5 1.3 1.3">     <!--Левая ручка нижняя часть -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="0.25"></Sphere>
+        </Shape>
+        </Transform>
+
+         <Transform translation="1 -3.25 -0.3" rotation="0 0 1 0.9" scale="1.2 0.7 1.5">     <!--Правая ручка верхняя часть-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Cone Bottomradius="0.25" height="2.5"></Cone>
+        </Shape>
+        </Transform>
+
+<Transform translation="1.80 -3.9 -0.3" scale= "1.5 1.3 1.3">     <!--Правая ручка нижняя часть -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Sphere radius="0.25"></Sphere>
+        </Shape>
+        </Transform>
+
+         <Transform translation="0.4 -5.5 -0.2" >     <!--Ножка правая-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Cylinder radius="0.3" height="0.6"></Cylinder>
+        </Shape>
+        </Transform>
+
+          <Transform translation="0.4 -5.9 -0.2" >     <!--Ножка правая часть 2-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Cylinder radius="0.18" height="0.9"></Cylinder>
+        </Shape>
+        </Transform>
+
+  <Transform translation="-0.4 -5.5 -0.2" >     <!--Ножка левая-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFF00'></Material>
+          </Appearance>
+          <Cylinder radius="0.3" height="0.6"></Cylinder>
+        </Shape>
+        </Transform>
+
+  <Transform translation="-0.4 -5.9 -0.2" >     <!--Ножка правая часть 2-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Cylinder radius="0.18" height="0.9"></Cylinder>
+        </Shape>
+        </Transform>
+ 
+ <Transform translation="1.1 -6.3 0.2" scale="2.5 1 1.5" rotation="0 1 0 -0.707">     <!--Лапка 1 правый-->  
+        <Shape>
+
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Sphere radius="0.5"></Sphere>
+        </Shape>
+        </Transform>
+
+         <Transform translation="1.3 -6.3 0" scale="2.5 1 1.5" rotation="0 0 0 -0.707">     <!--Лапка 2 правый-->  
+        <Shape>
+
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Sphere radius="0.5"></Sphere>
+        </Shape>
+        </Transform>
+
+<Transform translation="-1.3 -6.3 0" scale="2.5 1 1.5" rotation="0 0 0 0">     <!--Лапка 1 левый-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Sphere radius="0.5"></Sphere>
+        </Shape>
+        </Transform>
+
+ <Transform translation="-1.1 -6.3 0.2" scale="2.5 1 1.5" rotation="0 1 0 0.707">     <!--Лапка 2 левый-->  
+        <Shape>
+
+          <Appearance>
+            <Material diffuseColor='#FF8C00'></Material>
+          </Appearance>
+          <Sphere radius="0.5"></Sphere>
+        </Shape>
+        </Transform>
+
+   </Group>
+   </Anchor>    
+
+
+<Group DEF='Flower'>
+            <Anchor url="https://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0">
+<transform translation="-4 -4 0" scale="0.25 1 1 " rotation="0.2 0 1 1.5">
+          
+                            <shape DEF="Romashka">
+                                <appearance>
+
+                                    <ImageTexture url="https://avatanplus.com/files/resources/mid/598460639469e15dad188518.png">
+                                     
+                                    </ImageTexture>
+
+                                     <TextureTransform DEF='Romashka' translation="1.05 1.1" scale="0.94 0.94" ></TextureTransform>
+
+            <Material  diffuseColor='#008000'></Material>
+                                    <!-- Specular color - цвет отражения. -->
+                                    <material diffusecolor='1 1 1' specularcolor="0.1 0 0.1" emissivecolor='0 0 0' />
+                                </appearance>
+                                <!--Грани икосаэдра -->
+                                <indexedfaceset solid="false" coordindex='
+                    0 2 1 -1  0 3 2 -1  0 4 3 -1  0 5 4 -1   0 1 5 -1
+                    1 2 6 -1  2 7 6 -1  2 3 7 -1  3 8 7 -1   3 4 8 -1
+                    4 9 8 -1  4 5 9 -1  5 10 9 -1 5 1 10 -1  1 6 10 -1
+                    7 11 6 -1 7 8 11 -1 9 11 8 -1 9 10 11 -1 10 6 11 -1
+                    '>
+
+                                    <coordinate point='0 1 0
+                              .9 .5 -.3
+                              .5 .5 .8
+                              -.5 .5 .8
+                              -.9 .5 -.3
+                              0 .5 -1
+                              .9 -.5 .3
+                              0 -.5 1
+                              -.9 -.5 .3
+                              -.5 -.5 -.8
+                              .5 -.5 -.8
+                              0 -1 0
+                            ' />
+
+                            </indexedfaceset>              
+                            </shape>
+                            
+
+</transform>
+
+<transform translation="-4 -5.4 0">
+<Shape>
+          <Appearance>
+            <Material diffuseColor='#006400'></Material>
+          </Appearance>
+          <Cylinder radius="0.05" height="2.6"></Cylinder>
+        </Shape>
+</transform>
+</Anchor>
+        </Group>
+
+  <transform DEF = 'pchelki' translation='-10 -6 -2' scale="1 1 1"> <!-- PointSet (Пчелки)  -->
+                            <shape def="four_box">
+                                <pointset>
+                                    <coordinate point=' 
+                                                 0 0 0
+                                                 2 2 2
+                                                 3 3 3
+                                                 5 5 5
+                                                 6 5 2
+                                                 2 3 5
+                                                 3 6 2
+                                                 6 2 5
+                                                 5 6 2
+                                                 6 3 5
+                                                 5 6 2
+                                                 6 3 5
+                                                 5 6 2
+                                                 6 5 5
+                                                 2 6 5
+                                                 2 3 6
+                                                 5 0 0' />
+                                    <color color='1 0 1 0 0 1 0 0 1 1 0 1 1 1 1 0 1 0' />
+                                </pointset>
+                            </shape>
+                        </transform>
+
+                <TimeSensor DEF="TS_e" cycleInterval="4" loop="true"></TimeSensor>   
+
+                <OrientationInterpolator DEF="OI_e" 
+                key="0, 0.5, 1"                             keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">   
+                </OrientationInterpolator>  
+
+                 <ROUTE fromNode="TS_e" fromField="fraction_changed"           toNode="OI_e" toField="set_fraction">   
+                 </ROUTE> 
+
+                  <ROUTE fromNode="OI_e" fromField="value_changed"           toNode="pchelki" toField="set_rotation">   
+
+                  </ROUTE>         
+
+         
+
+<Transform translation ='5 0 0 ' rotation="0 -0.5 0 0.9" >
+  <Shape USE ='Flower'>
+  </Shape>
+</Transform>
+
+<Transform translation ='-3.5 0 0 ' rotation="0 -0.5 0 0.9" >
+  <Shape USE ='Flower'>
+  </Shape>
+</Transform>
+
+
+<!--Освещение сцены-->
+                    <pointlight def='Lamp1' color='1 1 0' location='0 10 0' radius='20' global='true' />
+                     <DirectionalLight def='Lamp2' direction='0 0 -1' color='white' intensity='.5'></DirectionalLight>
+         <PointLight def='Lamp3' location="11 0 -12" color="white" intensity=".6" radius='40'></PointLight>
+                   
+          </Scene>
+
+           </X3D>
+
+    <div id="camera_buttons" style="display: block;">
+        <button onclick="document.getElementById('one').setAttribute('set_bind','true');" style="border: none; background: transparent; display: block">Camera №1 <br><img src='camera3.png'> </img> </br> </button>
+
+        <button onclick="document.getElementById('two').setAttribute('set_bind','true');" style="border: none; background: transparent; display: block">Camera №2<br><img src='camera3.png'> </img> </br> </button>
+
+        <button onclick="document.getElementById('three').setAttribute('set_bind','true');" style="border: none; background: transparent; display: block">Camera №3<br><img src='camera3.png'> </img> </br> </button>
+
+    </div>
+
+</body>
 </html>
