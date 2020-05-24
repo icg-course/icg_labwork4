@@ -41,6 +41,7 @@
         </Shape>
   </Transform>
 
+
 <transform translation="10 0 -9" rotation= " 0 1 1 -0.75">
 
  <Anchor url="https://www.google.com/url?sa=i&url=https%3A%2F%2Fok.ru%2Fogoniled%2Ftopic%2F67295185660835&psig=AOvVaw1DrdRQO-q2lFU--8Yzyw99&ust=1588880775902000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMji9rOAoOkCFQAAAAAdAAAAABAJ">
@@ -74,6 +75,7 @@
  <Anchor url="https://ru.wikipedia.org/wiki/%D0%A2%D0%B2%D0%B8%D1%82%D0%B8">
 
 <Group DEF='Twitty'>
+  <Transform DEF = 'Twittys'>
         <Transform translation="0 0 0" scale="1.25 1.5 1">     <!--Основная часть головы-->  
         <Shape>
           <Appearance>
@@ -374,12 +376,20 @@
           <Sphere radius="0.5"></Sphere>
         </Shape>
         </Transform>
+</Transform>
+
+<timeSensor DEF='clock' cycleInterval='7' loop='true'></timeSensor>
+    <orientationInterpolator DEF='spinThings' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0  0 1 0 1.57079  0 1 0 3.14159  0 1 0 4.71239  0 1 0 6.28317'></orientationInterpolator>
+ 
+    <ROUTE fromNode='clock' fromField='fraction_changed' toNode='spinThings' toField='set_fraction'></ROUTE>
+    <ROUTE fromNode='spinThings' fromField='value_changed' toNode='Twittys' toField='set_rotation'></ROUTE>
 
    </Group>
    </Anchor>    
 
 
 <Group DEF='Flower'>
+
             <Anchor url="https://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0">
 <transform translation="-4 -4 0" scale="0.25 1 1 " rotation="0.2 0 1 1.5">
           
@@ -433,6 +443,7 @@
         </Shape>
 </transform>
 </Anchor>
+
         </Group>
 
   <transform DEF = 'pchelki' translation='-10 -6 -2' scale="1 1 1"> <!-- PointSet (Пчелки)  -->
