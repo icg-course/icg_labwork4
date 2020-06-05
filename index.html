@@ -7,7 +7,153 @@
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+  <body style='width:100%; height:100%; border:0; margin:0; padding:0; background: linear-gradient(Grey 0%, White 100%);'>
+    <x3d id='x3dElement' showStat='false' showLog='false' style='width:100%; height:100%; border:0' >
+		<scene DEF='scene'>
+			<Viewpoint fieldOfView="0.78" position="0 0 10" orientation="0 0 0 0">
+			</Viewpoint>
+
+			<Viewpoint fieldOfView="0.78" position="-6 0.5 8" orientation="0 1 0 -0.6">
+			</Viewpoint>
+
+			<Viewpoint fieldOfView="0.78" position="6 0.5 8" orientation="0 1 0 0.6">
+			</Viewpoint>
+			
+			<TimeSensor DEF="TS_1" cycleInterval="8" loop="true" enabled="true">
+			</TimeSensor>
+
+			<TimeSensor DEF="TS_2" cycleInterval="6" loop="true" enabled="true">
+			</TimeSensor>
+			
+			<CoordinateInterpolator DEF='CoordInt' key='0 0.2 0.4 0.6 0.8 1' 
+                       keyValue='-3.5 -3 1, -4 -2.5 1, -3.5 -2 1, -3 -2.5 1,
+                                 -3.7 -3.2 1, -4 -2.5 1, -3.5 -2 1, -3 -2.5 1,
+								 -3.5 -3 1, -4.2 -2.3 1, -3.5 -2 1, -3 -2.5 1,
+								 -3.5 -3 1, -4 -2.5 1, -3.2 -1.8 1, -3 -2.5 1,
+								 -3.5 -3 1, -4 -2.5 1, -3.5 -2 1, -2.8 -2.6 1,
+								 -3.5 -3 1, -4 -2.5 1, -3.5 -2 1, -3 -2.5 1'>
+			</CoordinateInterpolator>
+			 
+			 <PositionInterpolator DEF='PosInt_Cyl' key='0 0.25 0.5 0.75 1' 
+                        keyValue='0 0 1, 1 1 1, 3 2 1, 1 1 1, 0 0 1'>
+			</PositionInterpolator>
+			<ScalarInterpolator DEF='ScInt_Cyl' key='0 0.2 0.4 0.5 0.8 1' 
+                      keyValue='2 0.5 2 2 0.5 2'>
+			</ScalarInterpolator>
+			<ColorInterpolator DEF='ColInt_Cyl' key='0 0.33 0.66 1' 
+                     keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'>
+			</ColorInterpolator>
+			<OrientationInterpolator DEF='OrInt_Tor' key='0, 0.5, 1' 
+                           keyValue='0 0 1 0, 0 1 1 -3.14, 1 0 1 -6.28'>
+			</OrientationInterpolator>
+			<ScalarInterpolator DEF='ScInt_Tor' key='0 0.5 1' 
+                      keyValue='0.1 0.6 0.1'>
+			</ScalarInterpolator>
+			
+			<Transform translation="2 3 0">
+			<Shape>
+				<IndexedFaceSet coordIndex='0 1 2 3 -1 2 0 1 -1 3 2 1 -1 3 1 0 -1'>
+					<Coordinate DEF='Coord' point='-3.5 -3 1, -4 -2.5 1, -3.5 -2 1, -3 -2.5 1'>
+					</Coordinate>
+					<ColorRGBA color='1 0.84 0 1, 1 0.2 0 1, 0.63 0.13 0.94 1, 0 0.7 0 1'>
+					</ColorRGBA>
+			</IndexedFaceSet>
+			</Shape>
+			</Transform>
+			<Transform DEF="Toruses">
+			<Transform translation="-3 0.8 0" rotation="0 1 0 1.571">
+				<Shape DEF="Torus_1">
+					<Appearance>
+						<Material DEF="Mat_Tor" diffuseColor="0 0.5 0.5" transparency="0.5">
+					</Appearance>
+					<Torus innerRadius="0.1" outerRadius="0.5">
+					</Torus>
+				</Shape>
+			</Transform>
+			<Transform DEF="Tor_2" translation="-3 0.8 0">
+				<Shape USE="Torus_1">
+				</Shape>
+				</Transform>
+			</Transform>
+			<Transform  translation="-0.5 2.5 1">
+				<Shape>
+					<Appearance>
+						<Material ambientIntensity="0.6" diffuseColor="0.5 0.5 1">
+						</Material>
+					</Appearance>
+				<Text string='Лабораторная №4' solid="false">
+					<FontStyle DEF="FontStyle_1" family="calibri" size="0.4">
+					</FontStyle>
+				</Text>
+				</Shape>
+			</Transform>
+			
+			<Transform DEF="Cyl" translation="-2 1 0" >
+				<Shape>
+					<Appearance>
+						<Material DEF="Mat_Cyl" diffuseColor="0.4 0 0.3" specularColor="0.3 0.3 0.3">
+						</Material>
+					</Appearance>
+					<Cylinder radius="0.3" height=".8">
+					</Cylinder>
+				</Shape>
+			</Transform>
+			<Transform translation="0 .5 0" rotation="1 0 -1 1.571">
+					<Shape>
+					<Appearance>
+						<Material diffuseColor=".8 0 0.3" specularColor="0.3 0.3 0.3">
+						</Material>
+					</Appearance>
+					<Cylinder DEF="Cyl2" radius="0.3" height="1">
+					</Cylinder>
+				</Shape>
+			</Transform>
+			<Transform translation='-.5 -.4 0' rotation='1 0 0 -1.57'>
+						<Shape>
+							<Appearance><Material diffuseColor='0.5 1 0'></Material></Appearance>                    
+							<Plane solid='false' size='7 7'></Plane>
+						</Shape>
+					</Transform>
+					
+			
+			<ROUTE fromNode='TS_1' fromField='fraction_changed' 
+					toNode='CoordInt' toField='set_fraction'>
+			</ROUTE>
+			<ROUTE fromNode='CoordInt' fromField='value_changed' 
+					toNode='Coord' toField='set_point'>
+			</ROUTE>
+			<ROUTE fromNode='TS_2' fromField='fraction_changed' 
+				toNode='PosInt_Cyl' toField='set_fraction'>
+			</ROUTE>
+			<ROUTE fromNode='PosInt_Cyl' fromField='value_changed' 
+				toNode='Cyl' toField='set_translation'>
+			</ROUTE>
+			<ROUTE fromNode='TS_2' fromField='fraction_changed' 
+				toNode='ScInt_Cyl' toField='set_fraction'>
+			</ROUTE>
+			<ROUTE fromNode='ScInt_Cyl' fromField='value_changed' 
+				toNode='Cyl2' toField='set_height'>
+			</ROUTE>
+			 <ROUTE fromNode='TS_2' fromField='fraction_changed' 
+				toNode='ColInt_Cyl' toField='set_fraction'>
+			</ROUTE>
+			<ROUTE fromNode='ColInt_Cyl' fromField='value_changed' 
+				toNode='Mat_Cyl' toField='set_diffuseColor'>
+			</ROUTE>
+			<ROUTE fromNode='TS_1' fromField='fraction_changed' 
+				toNode='OrInt_Tor' toField='set_fraction'>
+			</ROUTE>
+			<ROUTE fromNode='OrInt_Tor' fromField='value_changed' 
+				toNode='Toruses' toField='set_rotation'>
+			</ROUTE>
+			 <ROUTE fromNode='TS_2' fromField='fraction_changed' 
+				toNode='ScInt_Tor' toField='set_fraction'>
+			</ROUTE>
+			<ROUTE fromNode='ScInt_Tor' fromField='value_changed' 
+				toNode='Mat_Tor' toField='set_transparency'>
+			</ROUTE>
+				
+				</Scene>
+            </x3d>
   </body> 
 </html>
