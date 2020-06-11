@@ -1,13 +1,358 @@
 <!DOCTYPE html>
+
 <html lang="ru">
+  
   <head>  
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
+    <title>Лабораторная работа 3</title>
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+
+  <body bgcolor="2D2D2D">
+    <h2 style = "color: white" >Здесь здесь только моя лаба, но если бы ее здесь не было, здесь была бы не она!</h2>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">
+      <Scene> 
+        
+         <DirectionalLight id="directional" direction='1 0 -1' on ="TRUE" intensity='0.4' shadowIntensity='0.2'> </DirectionalLight> 
+
+        <Viewpoint id="front" position="0 0 12" orientation="0 0 0 0" description="camera"></Viewpoint>
+        <Viewpoint id="lookatme" position="0 0 2" orientation="0 0 0 0" description="camera"></Viewpoint>
+        <Viewpoint id="bottom" position="0 -15 0" orientation="1 0 0 1.57" description="camera"></Viewpoint>
+        <Viewpoint id="overview" position="6 5 12" orientation="-1.2 1 0 .5" description="camera"></Viewpoint>
+        <Viewpoint id="plane" position="-14 8 3" orientation=".5 1 0 -1.57" description="camera"></Viewpoint>
+
+      <Transform>
+<!--Platform-->
+          <Transform translation = "0 -1"> 
+            <Shape>
+              <Appearance>
+                <ImageTexture url="textures/marble.jpeg" repeatS="true" repeatT="true"></ImageTexture>
+              </Appearance>
+              <Box size="6 .5 4"></Box>
+            </Shape>
+          </Transform>
+
+          
+          <Anchor url="https://www.youtube.com/watch?v=Ed47sWpgvf0">
+            <Transform translation = "0 -1.251"> 
+              <Shape>
+                <Appearance>
+                  <ImageTexture url="textures/force.jpg"></ImageTexture>
+                </Appearance>
+                <Box size="6 0 4"></Box>
+              </Shape>
+            </Transform> 
+
+<!--Clickbait-->
+            <Transform translation = "-1.86 -1.252 1.85" rotation = "1 0 0 1.57">
+              <Shape>
+                <Text string = "ШОК!!!" solid = "true" >
+                  <FontStyle size = ".3" style="bold"></FontStyle>
+                </Text>
+                <Appearance>
+                  <Material diffusecolor = "red"></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+
+            <Transform translation = "-1.7 -1.252 .55" rotation = "1 0 0 1.57">
+              <Shape>
+                <Text string = "ЖМИ!!!" solid = "true" >
+                  <FontStyle size = ".35" style="bold"></FontStyle>
+                </Text>
+                <Appearance>
+                  <Material diffusecolor = "red"></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+
+            <Transform translation = "-.78 -1.252 1.63" rotation = "1 0 0 1.57">
+              <Shape>
+                <Text string = "Британский ученый нашел" solid = "true" >
+                  <FontStyle family="TYPEWRITER" size = ".25"></FontStyle>
+                </Text>
+                <Appearance>
+                  <Material diffusecolor = "black"></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+
+            <Transform translation = "-1 -1.252 1.4" rotation = "1 0 0 1.57">
+              <Shape>
+                <Text string = "ответ на легендарный" solid = "true" >
+                  <FontStyle family="TYPEWRITER" size = ".25"></FontStyle>
+                </Text>
+                <Appearance>
+                  <Material diffusecolor = "black"></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+
+            <Transform translation = "-1.975 -1.252 1.2" rotation = "1 0 0 1.57">
+              <Shape>
+                <Text string = "вопрос!" solid = "true" >
+                  <FontStyle family="TYPEWRITER" size = ".25"></FontStyle>
+                </Text>
+                <Appearance>
+                  <Material diffusecolor = "black"></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+
+            <Transform translation = "-1.53 -1.252 .95" rotation = "1 0 0 1.57">
+              <Shape>
+                <Text string = "Это скрывали!" solid = "true" >
+                  <FontStyle family="TYPEWRITER" size = ".25"></FontStyle>
+                </Text>
+                <Appearance>
+                  <Material diffusecolor = "black"></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+          </Anchor>
+<!--Explanation-->
+          <Anchor url = "https://vk.cc/av4TzP">
+            <Transform translation = "0 -1.05 2.01">
+              <Shape>
+                <Text string = "Если непонятно, что это и при чем тут сила, жми">
+                  <FontStyle size = ".2" style = "bold"></FontStyle>
+                </Text>
+                <Appearance>
+                  <Material diffusecolor = "black"></Material>
+                </Appearance>
+              </Shape>
+            </Transform>
+          </Anchor>
+
+          
+<!--Shell-->
+        <!--Shell_1-->
+          <Transform translation = "0 0 1.7">
+            <Group DEF = "SHELL">
+              <!--vertical_support1-->
+                <Transform translation = "2.7 .5">
+                  <Shape DEF = "VerticalSupport">
+                    <Appearance>
+                       <ImageTexture url="textures/metallic.jpg"></ImageTexture>
+                    </Appearance>
+                  <Cylinder radius=".2" height="3" side = "true" top = "true" bottom = "false"></Cylinder>
+                  </Shape>
+                </Transform>
+              <!--vertical_support2-->
+                <Transform translation = "-2.7 .5">
+                  <Shape USE = "VerticalSupport"></Shape>
+                </Transform>
+              <!--horizontal_support-->
+                <Transform translation = "0 2" rotation =  "0 0 1 1.57" >
+                  <Shape DEF = "HorizontalSupport">
+                    <Appearance>
+                      <ImageTexture url="textures/metallic.jpg"></ImageTexture>
+                    </Appearance>
+                    <Cylinder radius=".2" height="5.4" side = "true" top = "false" bottom = "false"></Cylinder>
+                  </Shape>
+                </Transform>
+              <!--node1-->
+                <Transform translation = "2.7 2">
+                  <Shape DEF = "Node">
+                    <Appearance>
+                      <ImageTexture url="textures/metallic.jpg"></ImageTexture>
+                    </Appearance>
+                    <Sphere radius=".2"></Sphere>
+                  </Shape>
+                </Transform>
+              <!--node2-->
+                <Transform translation = "-2.7 2">
+                  <Shape USE = "Node"></Shape>
+                </Transform>
+            </Group>
+          </Transform>
+         
+        <!--Shell_2-->
+          <Transform translation = "0 0 -1.7">
+            <Group USE = "SHELL"></Group>
+          </Transform>
+             
+<!--MyCube-->        
+           <Transform> 
+            <Shape>
+              <Appearance>
+                <ImageTexture url="textures/me.jpg" repeatS="true" repeatT="true"></ImageTexture>
+              </Appearance>
+              <Box size=".8 .8 .8"></Box>
+            </Shape>
+          </Transform>
+
+            <Transform translation = "0 1.2 -.8" rotation =  "1 0 0 -0.79">
+                <Shape DEF = "rope">
+                  <Appearance>
+                    <ImageTexture url="textures/metallic.jpg"></ImageTexture>
+                  </Appearance>
+                   <Cylinder radius=".015" height="2.4" side = "true" top = "true" bottom = "false"></Cylinder>
+                </Shape>
+              </Transform>
+
+              <Transform translation = "0 1.2 .8" rotation =  "1 0 0 0.79">
+                <Shape USE = "rope"></Shape>
+              </Transform>
+
+
+<!--Balls+Rope-->
+        <!--Ball_1-->
+          <Transform translation = ".8">
+            <Group DEF = "Ball+Ropes">
+              <Transform>
+                <Shape DEF = "ball">
+                  <Appearance>
+                    <ImageTexture url="textures/black.jpg"></ImageTexture>
+                  </Appearance>
+                  <Sphere radius = ".4"></Sphere>
+                </Shape>
+              </Transform>
+
+              
+              <Transform translation = "0 1.16 -.8" rotation =  "1 0 0 -0.79">
+                <Shape USE = "rope"></Shape>
+              </Transform>
+
+              <Transform translation = "0 1.16 .8" rotation =  "1 0 0 0.79">
+                <Shape USE = "rope"></Shape>
+              </Transform>
+          </Group>
+          </Transform>
+
+        <!--Ball_2-->
+          <Transform translation = "-.8">
+            <Group USE = "Ball+Ropes"></Group>
+          </Transform>
+
+        <!--Ball_3-->
+          <Transform DEF = "Ball_right">
+            <Transform translation = "1.6">
+              <Shape USE = "ball"></Shape>
+            </Transform>
+          </Transform>
+
+            <Transform DEF="Ropes_right" center = "1.6 1.95 0">
+                <Transform translation = "1.6 1.16 -.8" rotation =  "1 0 0 -0.79">
+                  <Shape USE = "rope"></Shape>
+                </Transform>
+                <Transform translation = "1.6 1.16 .8" rotation =  "1 0 0 0.79">
+                  <Shape USE = "rope"></Shape>
+                </Transform>
+            </Transform>
+
+        <!--Ball_4-->
+          <Transform DEF = "Ball_left">
+            <Transform translation = "-1.6">
+              <Shape USE = "ball"></Shape>
+            </Transform>
+          </Transform>
+
+           <Transform DEF = "Ropes_left" center = "-1.6 1.95 0">
+            <Transform translation = "-1.6 1.16 -.8" rotation =  "1 0 0 -0.79">
+                  <Shape USE = "rope"></Shape>
+                </Transform>
+                <Transform translation = "-1.6 1.16 .8" rotation =  "1 0 0 0.79">
+                  <Shape USE = "rope"></Shape>
+                </Transform>
+          </Transform>
+
+<!--Cube-->
+          <Transform translation="0 1 -0.25" scale = "0.125 0.125 0.125" rotation = "1 0 1 0.79">
+            <Shape>
+              <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" normalPerVertex="true" solid="false" 
+                                coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 6 7 3 2 -1 3 2 1 0 -1 0 1 5 4" 
+                                colorIndex="0 1 2 3 -1 2 1 5 0 -1 3 2 5 2 -1 1 3 0 1 -1 3 4 0 1 -1 5 6 0 1">
+              <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2"></Coordinate>
+              <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1, 1 1 0, 1 1 1"></Color>
+              </IndexedFaceSet>
+            </Shape>
+          </Transform>
+          
+          <Group DEF = "PlaneAndText">
+<!--Plane-->
+            <Transform translation = "-4 2 0"> 
+              <Shape>
+                <IndexedTriangleSet index=" 0 1 2  0 1 3  0 2 5  0 3 4 " solid = "false">
+                  <Coordinate point =" 0 0 0, -4 0 0, -4 1 -.25, -4 1 .25, -4 1 1.5, -4 1 -1.5 ">
+                  </Coordinate>
+                  <ColorRGBA
+                    color = "1 1 1 0.9, 1 1 1 0.9, 1 1 1 1, 1 1 1 1, 1 1 1 1, 1 1 1 1">
+                  </ColorRGBA>
+                </IndexedTriangleSet>
+              </Shape>
+            </Transform>
+<!--Text-->
+            <Transform translation = "-7 2.76 -.5" rotation = "1 0 0 -1.57" scale = ".25 .25 .25">
+              <Transform rotation = "0 1 0 .24">  
+                <Shape>
+                  <Text string = "Сила в правде!" solid = "true" >
+                    <FontStyle size = "1"></FontStyle>
+                  </Text>
+                  <Appearance>
+                    <Material diffusecolor = "black"></Material>
+                  </Appearance>
+                </Shape>
+              </Transform>
+            </Transform>
+
+           <Transform translation = "-6.8 2.76 .5" rotation = "1 0 0 -1.57" scale = ".25 .25 .25">
+            <Transform rotation = "0 1 0 .29">
+                <Shape>
+                    <Text string = "Ну и в ньютонах" solid = "true" >
+                      <FontStyle size = "1"></FontStyle>
+                    </Text>
+                    <Appearance>
+                      <Material diffusecolor = "black"></Material>
+                    </Appearance>
+                </Shape>
+            </Transform>
+          </Transform>
+         </Group>
+        </Transform>
+<!--Animation-->
+    <TimeSensor DEF="Time_right" cycleInterval='1.5' loop='true' enabled = 'true'></TimeSensor>
+    <TimeSensor DEF="Time_left" cycleInterval='1.5' loop='true' enabled = 'true' ></TimeSensor>
+  <!--Rotation-->
+    <OrientationInterpolator DEF='OrInt_right' key='0 .2 .4 .6 .8 .9 1' keyValue='0 0 1 0, 0 0 1 .23, 0 0 1 .46, 0 0 1 .72, 0 0 1 .46, 0 0 1 .23, 0 0 1 0'></OrientationInterpolator>
+    <OrientationInterpolator DEF='OrInt_left' key='0 .2 .4 .6 .8 .9 1' keyValue='0 0 1 0, 0 0 1 -.23, 0 0 1 -.46, 0 0 1 -.72, 0 0 1 -.46, 0 0 1 -.23, 0 0 1 0'></OrientationInterpolator>
+  <!--Rotation-->
+    <PositionInterpolator DEF='PosInt_Ball_right' key='0 .2 .4 .6 .8 .9 1' keyValue='0 0 0, .36 .05 0, .7 .187 0, 1 .41 0, .7 .187 0, .36 .05 0, 0 0 0'></PositionInterpolator>
+    <PositionInterpolator DEF='PosInt_Ball_left' key='0 .2 .4 .6 .8 .9 1' keyValue='0 0 0, -.36 .05 0, -.7 .187 0, -1 .41 0, -.7 .187 0, -.36 .05 0, 0 0 0'></PositionInterpolator>
+
+      <!--Balls-->
+        <ROUTE fromNode='Time_right' fromField='fraction_changed' 
+                 toNode='PosInt_Ball_right' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt_Ball_right' fromField='value_changed' 
+             toNode='Ball_right' toField='set_translation'>
+        </ROUTE>
+
+        <ROUTE fromNode='Time_left' fromField='fraction_changed' 
+                 toNode='PosInt_Ball_left' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt_Ball_left' fromField='value_changed' 
+             toNode='Ball_left' toField='set_translation'>
+        </ROUTE>
+      <!--Ropes-->
+        <ROUTE fromNode="Time_right" fromField="fraction_changed"
+                toNode="OrInt_right" toField="set_fraction">
+        </ROUTE>
+        <ROUTE fromNode="OrInt_right" fromField="value_changed"
+                toNode="Ropes_right" toField="set_rotation">
+        </ROUTE>
+        
+        <ROUTE fromNode="Time_right" fromField="fraction_changed"
+                toNode="OrInt_left" toField="set_fraction">
+        </ROUTE>
+        <ROUTE fromNode="OrInt_left" fromField="value_changed"
+                toNode="Ropes_left" toField="set_rotation">
+        </ROUTE>
+            
+             
+      </Scene>
+    </X3D>  
+  </body>
 </html>
