@@ -35,7 +35,7 @@
 						</Appearance>
 						<IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
 							creaseAngle="0" solid="false"
-							coordIndex="0 3 2 1 -1 0 4 5 1 -1 1 5 6 2 -1 2 6 7 3 -1 0 3 7 4 -1 4 5 6 7 -1"
+							coordIndex="0 3 2 1 -1 0 4 5 1 -1 1 5 6 2 -1 2 6 7 3 -1 0 3 7 4 -1 4 5 6 7 -1">
 							<Coordinate point="-2 0 -2, -2 0 2, 2 0 2, 2 0 -2, -2 4 -2, -2 4 2, 2 4 2, 2 4 -2"></Coordinate>
 						</IndexedFaceSet>
 					</shape>
@@ -46,8 +46,7 @@
 							</Appearance>
 							<IndexedFaceSet ccw="true" convex="true"
 								creaseAngle="0" solid="false"
-								coordIndex="0 1 2 3 4 5 6 7 -1 8 9 10 11 12 13 14 15 -1 0 8 9 1 -1 1 9 10 2 -1 2 10 11 3 -1 4 12 13 5 -1 3 11 12 4 -1 5 13 14 6 -1 6 14 15 7 -1 7 15 8 0 -1"
-								<!---->
+								coordIndex="0 1 2 3 4 5 6 7 -1 8 9 10 11 12 13 14 15 -1 0 8 9 1 -1 1 9 10 2 -1 2 10 11 3 -1 4 12 13 5 -1 3 11 12 4 -1 5 13 14 6 -1 6 14 15 7 -1 7 15 8 0 -1">
 								<Coordinate point="0 4.01 1.25, 1 4.01 1, 1.25 4.01 0, 1 4.01 -1, 
 									0 4.01 -1.25, -1 4.01 -1, -1.25 4.01 0, -1 4.01 1,  0 5 0.75, 
 									0.5 5 0.5, 0.75 5 0, 0.5 5 -0.5, 0 5 -0.75, -0.5 5 -0.5, 
@@ -69,7 +68,7 @@
 						<Shape DEF='Plane'>
 							<Appearance>
 								<Material diffuseColor="0.5 0.5 0.5"></Material>
-								<ImageTexture  url='https://img1.akspic.ru/image/110737-tekstura-nalozhenie_tekstury-rok-kamennaya_stena-bulyzhnik-1920x1080.jpg?attachment=1'></ImageTexture/>
+								<ImageTexture  url='https://img1.akspic.ru/image/110737-tekstura-nalozhenie_tekstury-rok-kamennaya_stena-bulyzhnik-1920x1080.jpg?attachment=1'></ImageTexture>
 							</Appearance>
 							<plane solid="false" size="20 20"></plane>
 						</Shape>
@@ -117,13 +116,13 @@
 				</scene>
 			</x3d>
 			<div id="tools" style="width: 1280px;">
-				<input type="checkbox" checked="true" onclick="Switch('point')">
+				<input type="checkbox" checked="true" onclick="Switch('point')"></input>
 				<label>point light</label>
-				<input type="checkbox" checked="true" onclick="Switch('spot')">
+				<input type="checkbox" checked="true" onclick="Switch('spot')"></input>
 				<label>spot light</label>
-				<input type="checkbox" checked="true" onclick="Switch('direct')">
+				<input type="checkbox" checked="true" onclick="Switch('direct')"></input>
 				<label>directional light</label>
-				<input type="checkbox" checked="true" onclick="headlight()">
+				<input type="checkbox" checked="true" onclick="headlight()"></input>
 				<label>headlight</label>
 			</div>
 		</div>
