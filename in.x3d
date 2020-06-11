@@ -1,0 +1,136 @@
+<scene>
+		<transform translation="-0.35 0.25 -0.35"> 
+			<shape>
+				<Appearance>
+					<Material diffuseColor = "0.19 0.87 0.1"></Material>
+				</Appearance>
+				<box size = "0.5 0.5 0.5"></box> 
+			</shape>
+		</transform>
+		
+		<transform translation="0.35 0.25 -0.35"> 
+			<shape>
+				<Appearance>
+					<Material diffuseColor = "0.19 0.87 0.1"></Material>
+				</Appearance>
+				<box size = "0.5 0.5 0.5"></box> 
+			</shape>
+		</transform>
+		
+		<transform translation="-0.35 0.25 0.35"> 
+			<shape>
+				<Appearance>
+					<Material diffuseColor = "0.19 0.87 0.1"></Material>
+				</Appearance>
+				<box size = "0.5 0.5 0.5"></box>
+			</shape>
+		</transform>
+		
+		<transform translation="0.35 0.25 0.35"> 
+			<shape>
+				<Appearance>
+					<Material diffuseColor = "0.19 0.87 0.1"></Material>
+				</Appearance>
+				<box size = "0.5 0.5 0.5"></box> 
+			</shape>
+		</transform>
+		
+		<transform translation="0 1.2 0"> 
+			<shape>
+				<Appearance>
+					<Material diffuseColor = "0.19 0.8 0.1"></Material>
+				</Appearance>
+				<box size = "0.6 1.4 0.6"></box> 
+			</shape>
+		</transform>
+		
+		<transform translation="0 2.3 0"> 
+			<shape>
+				<Appearance>
+					<Material diffuseColor = "0.19 0.8 0.1"></Material>
+				</Appearance>
+				<box size = "0.8 0.8 0.8"></box> 
+			</shape>
+		</transform>
+		
+		<transform translation="0 0 0">
+			<shape>
+				<Appearance>
+						<Material diffuseColor = "1 1 1"></Material>
+				</Appearance>
+				<IndexedFaceSet ccw="true" convex="true"
+					 creaseAngle="0" solid="false"
+						coordIndex="0 1 2 3">
+						<Coordinate point="-0.3 2.5 0.41, -0.1 2.5 0.41, -0.1 2.3 0.41, -0.3 2.3 0.41"></Coordinate>
+				</IndexedFaceSet>
+			</shape>
+			
+			<shape>
+				<Appearance>
+						<Material diffuseColor = "0 0 0"></Material>
+				</Appearance>
+				<IndexedFaceSet ccw="true" convex="true"
+					 creaseAngle="0" solid="false"
+						coordIndex="0 1 2 3">
+						<Coordinate point="-0.2 1.9 0.41, -0.2 2.2 0.41, -0.1 2.2 0.41, -0.1 1.9 0.41"></Coordinate>
+				</IndexedFaceSet>
+			</shape>
+			
+			<shape>
+				<Appearance>
+						<Material diffuseColor = "0 0 0"></Material>
+				</Appearance>
+				<IndexedFaceSet ccw="true" convex="true"
+					 creaseAngle="0" solid="false"
+						coordIndex="0 1 2 3">
+						<Coordinate point="-0.1 2.3 0.41, 0.1 2.3 0.41, 0.1 2 0.41, -0.1 2 0.41"></Coordinate>
+				</IndexedFaceSet>
+			</shape>
+			
+			<shape>
+				<Appearance>
+						<Material diffuseColor = "0 0 0"></Material>
+				</Appearance>
+				<IndexedFaceSet ccw="true" convex="true"
+					 creaseAngle="0" solid="false"
+						coordIndex="0 1 2 3">
+						<Coordinate point="0.1 2.2 0.41, 0.2 2.2 0.41, 0.2 1.9 0.41, 0.1 1.9 0.41"></Coordinate>
+				</IndexedFaceSet>
+			</shape>
+			
+			<shape>
+				<Appearance>
+						<Material diffuseColor = "1 1 1"></Material>
+				</Appearance>
+				<IndexedFaceSet ccw="true" convex="true"
+					 creaseAngle="0" solid="false"
+						coordIndex="0 1 2 3">
+						<Coordinate point="0.1 2.5 0.41, 0.3 2.5 0.41, 0.3 2.3 0.41, 0.1 2.3 0.41"></Coordinate>
+				</IndexedFaceSet>
+			</shape>
+			
+			<shape>
+				<Appearance>
+						<Material diffuseColor = "0 0 0"></Material>
+				</Appearance>
+				<IndexedFaceSet ccw="true" convex="true"
+					 creaseAngle="0" solid="false"
+						coordIndex="0 1 2 3">
+						<Coordinate point="-0.28 2.38 0.42, -0.23 2.38 0.42, -0.23 2.33 0.42, -0.28 2.33 0.42"></Coordinate>
+				</IndexedFaceSet>
+			</shape>
+			
+			<shape>
+				<Appearance>
+						<Material diffuseColor = "0 0 0"></Material>
+				</Appearance>
+				<IndexedFaceSet ccw="true" convex="true"
+					 creaseAngle="0" solid="false"
+						coordIndex="0 1 2 3">
+						<Coordinate point="0.12 2.38 0.42, 0.17 2.38 0.42, 0.17 2.33 0.42, 0.12 2.33 0.42"></Coordinate>
+				</IndexedFaceSet>
+			</shape>
+			
+		</transform>
+</scene>
+
