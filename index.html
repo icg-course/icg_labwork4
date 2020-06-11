@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
@@ -8,6 +8,133 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+   <h1> Лабораторная работа №4.</h1> 
+		<p> Линейная анимация </p> 
+		<x3d width='800px' height='600px'>
+			<Scene>
+				<Viewpoint fieldOfView=".78" position="0 2 15" orientation="1 0 0 -.15"> </Viewpoint>
+				<Viewpoint fieldOfView=".78" position="-8 .5 13" orientation="0 1 0 -.6"> </Viewpoint>
+				<Viewpoint fieldOfView=".78" position="8 .5 13" orientation="0 1 0 .6"> </Viewpoint>
+<!----------------------------------------------------------------------->
+				<TimeSensor DEF="Time_Text" cycleInterval="2" loop="true" enabled="true"> </TimeSensor>
+				<ScalarInterpolator DEF="ScInt_TxtSize" key="0, .5, 1" 
+												        keyValue=".5 .8 .5">
+				</ScalarInterpolator>
+				<ScalarInterpolator DEF="ScInt_TxtMat" key="0, .5, 1" 
+												       keyValue=".4 0 .4">
+				</ScalarInterpolator>
+<!----------------------------------------------------------------------->
+				<TimeSensor DEF="Time_Group" cycleInterval="2" loop="true" enabled="true"> </TimeSensor>
+				<PositionInterpolator DEF="PosInt_Gr" key="0, .17, .34, .5, .67, .84, 1"
+												      keyValue="0 0 0, 1 -1 0, 1 1 0, 0 0 0, -1 -1.5 0, -1 1 0, 0 0 0">
+				</PositionInterpolator> 
+				<TimeSensor DEF="Time_Torus" cycleInterval="2" loop="true" enabled="true"> </TimeSensor>
+				<ColorInterpolator DEF="ColorInt" key="0, .15, .3, .45, .6, .75, .9, 1"
+												  keyValue="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 0 1, 0 0 1">
+				</ColorInterpolator>
+				<OrientationInterpolator DEF="OrInt" key="0, .15, .3, .45, .6, .75, .9, 1"
+													 keyValue="-1 1 0 0, -1 1 0 1.5707, -1 1 0 3.1415, -1 1 0 4.72, 
+													           1 1 0 1.5707, 1 1 0 3.1415, 1 1 0 4.7123, 1 1 0 6.2832">
+				</OrientationInterpolator>	
+				<PositionInterpolator DEF="PosInt_SpreSc" key="0, .25, .5, .75, 1"
+												          keyValue="1 1 1, 0.7 0.7 0.7, 0.5 0.5 0.5, 0.7 0.7 0.7, 1 1 1">
+				</PositionInterpolator>
+<!----------------------------------------------------------------------->
+				<TimeSensor DEF="Time_Line" cycleInterval="3" loop="true" enabled="true"> </TimeSensor>
+				<CoordinateInterpolator DEF="CordInt" key="0, .44, .55, 1"
+													  keyValue="4 3 -3, -4 3 -3, -4 -3 -3, 4 -3 -3, 4 3 3, -4 3 3, -4 -3 3, 4 -3 3,
+													            2 2 -2, -2 2 -2, -2 -2 -2, 2 -2 -2, 2 2 2, -2 2 2, -2 -2 2, 2 -2 2,
+																2 2 -2, -2 2 -2, -2 -2 -2, 2 -2 -2, 2 2 2, -2 2 2, -2 -2 2, 2 -2 2,
+																4 3 -3, -4 3 -3, -4 -3 -3, 4 -3 -3, 4 3 3, -4 3 3, -4 -3 3, 4 -3 3">
+				</CoordinateInterpolator>
+<!----------------------------------------------------------------------->
+				<Transform translation="0 4 0">
+					<Shape>
+						<Appearance>
+							<Material DEF="Mat_text" diffuseColor="#08f" transparency=".4"
+									  shininess=".51" specularColor=".46 .46 .46">
+							</Material>
+						</Appearance>
+						<Text string="Результат выполнения работы" solid="false">
+							<FontStyle DEF="FS" family="TimesNewRoman" size="0.5"> </FontStyle>
+						</Text>
+					</Shape>
+				</Transform>
+<!----------------------------------------------------------------------->
+				<Transform DEF="Tf_Group">
+					<Transform DEF="Tf_Torus">
+						<Shape>
+							<Appearance>
+								<Material DEF="Mat_Torus" diffuseColor="0 0 1" transparency=".2"> </Material>
+							</Appearance>
+							<Torus innerradius=".1" outerradius=".6"> </Torus>
+						</Shape>
+					</Transform>
+					<Transform DEF="Tf_Sphere" >
+						<Shape>
+							<Appearance>
+								<ImageTexture url="mat.jpg"> </ImageTexture>
+								<TextureTransform scale="5 5"> </TextureTransform>
+							</Appearance>
+							<Sphere radius=".5"> </Sphere>
+						</Shape>
+				    </Transform>
+				</Transform>
+<!----------------------------------------------------------------------->
+				<Shape>
+					<IndexedLineSet coordIndex="0 1 2 3 0 -1 4 5 6 7 4 -1 0 4 -1 1 5 -1 2 6 -1 3 7 -1"
+									colorIndex="0 1 2 0 2 -1 2 1 0 2 0 -1 1 2 -1 1 0 -1 0 2 -1 0 1 -1"
+									colorPerVertex="true">
+						<Coordinate DEF="CubePoint" point="4 3 -3, -4 3 -3, -4 -3 -3, 4 -3 -3, 4 3 3, -4 3 3, -4 -3 3, 4 -3 3"> </Coordinate>
+						<Color color="1 0 0, 0 1 0, 0 0 1"> </Color>
+					</IndexedLineSet>
+				</Shape>
+<!----------------------------------------------------------------------->
+				<ROUTE fromNode="Time_Text" fromField="fraction_changed"
+					   toNode="ScInt_TxtSize" toField="set_fraction">
+				</ROUTE>
+				<ROUTE fromNode="ScInt_TxtSize" fromField="value_changed"
+					   toNode="FS" toField="set_size">
+				</ROUTE>
+				<ROUTE fromNode="Time_Text" fromField="fraction_changed"
+					   toNode="ScInt_TxtMat" toField="set_fraction">
+				</ROUTE>
+				<ROUTE fromNode="ScInt_TxtMat" fromField="value_changed"
+					   toNode="Mat_text" toField="set_transparency">
+				</ROUTE>
+<!----------------------------------------------------------------------->				
+				<ROUTE fromNode="Time_Group" fromField="fraction_changed"
+					   toNode="PosInt_Gr" toField="set_fraction">
+				</ROUTE>
+				<ROUTE fromNode="PosInt_Gr" fromField="value_changed"
+					   toNode="Tf_Group" toField="set_translation">
+				</ROUTE>
+				<ROUTE fromNode="Time_Torus" fromField="fraction_changed"
+					   toNode="ColorInt" toField="set_fraction">
+				</ROUTE>
+				<ROUTE fromNode="ColorInt" fromField="value_changed"
+					   toNode="Mat_Torus" toField="set_diffuseColor">
+				</ROUTE>
+				<ROUTE fromNode="Time_Torus" fromField="fraction_changed"
+					   toNode="OrInt" toField="set_fraction">
+				</ROUTE>
+				<ROUTE fromNode="OrInt" fromField="value_changed"
+					   toNode="Tf_Torus" toField="set_rotation">
+				</ROUTE>
+				<ROUTE fromNode="Time_Torus" fromField="fraction_changed"
+					   toNode="PosInt_SpreSc" toField="set_fraction">
+				</ROUTE>
+				<ROUTE fromNode="PosInt_SpreSc" fromField="value_changed"
+					   toNode="Tf_Sphere" toField="set_scale">
+				</ROUTE>
+<!----------------------------------------------------------------------->	
+				<ROUTE fromNode="Time_Line" fromField="fraction_changed"
+					   toNode="CordInt" toField="set_fraction">
+				</ROUTE>
+				<ROUTE fromNode="CordInt" fromField="value_changed"
+					   toNode="CubePoint" toField="set_point">
+				</ROUTE>
+			</Scene>
+		</x3d>
   </body> 
 </html>
