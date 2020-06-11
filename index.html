@@ -1,13 +1,494 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<head>
+  <meta charset="utf-8" />
+  <meta name='title' content='TextureTransformFull.x3d'/> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name='reference' content='LineSet.x3d'/> 
+  <meta name='title' content='IndexedLineSet.x3d'/> 
+  <title>Lesnoy 4th Lab</title>
+  <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'> </script>
+  <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'/>
+  <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script src="../js/custom.js"></script>
+</head>
+<body>
+  <h1>Oleg Lesnoy Group 4742</h1>
+  <x3d width='1280px' height='780px'>
+    <scene>
+     <Fog visibilityRange='100' fogType= "Linear"></Fog>
+     <PointLight location="10 10 10" color="1 1 1" intensity="1" shadowIntensity="0.7" shadowMapSize="512"></PointLight>
+     <Viewpoint position='5 3 40' orientation="10 1 10" centerOfRotation="10 1 1 0" ></Viewpoint> 
+     <Background 
+     frontUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
+     backUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
+     bottomUrl="https://pp.userapi.com/c855720/v855720137/efc2/N4M-3bK8GWQ.jpg" 
+     leftUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
+     rightUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
+     topUrl="https://pp.userapi.com/c855720/v855720137/effa/g3e2LDwlAco.jpg">
+   </Background>
+   <Transform translation="-10 -2.4 -10" rotation="0 0 0 0">  <!----basis---->
+    <Shape>
+      <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" normalPerVertex="true" solid="false" 
+      coordIndex='1 2 3 0 -1'
+      colorIndex='0 1 2 3 -1'>     
+      <Coordinate point='-1 0 30, 60 0 30, 60 0 -20, -1 0 -20'> </Coordinate>
+    </IndexedFaceSet>
+    <appearance>
+      <Material></Material>
+      <ImageTexture url="https://thumbs.dreamstime.com/b/снег-зимы-взгляд-сверху-текстуры-снега-текстура-для-дизайна-белизны-128315802.jpg" repeatS="true" repeatT="true">   
+      </ImageTexture>
+      <TextureTransform rotation='1.5708' scale="3 2" translation='0.33 0.5'>
+      </appearance>
+    </Shape>
+  </Transform>
+  <Collision enabled = "true">
+    <transform translation='0 0.2 0' rotation='0 0 0 0'>  <!---train body--->
+      <Group DEF = "CylinderAndBoxAndCabinAndConeAndSnoutAndSphereAndTyreAndWheelAndWindow1AndWindow2"  translation ='0 0 0' 
+      rotation = '0 0 0 0'>
+      <TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor> 
+      <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '>
+      </PositionInterpolator >
+      <transform translation='0 0 0' rotation='0 0 2 1.55'>
+        <Anchor url="https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%BE%D0%B2%D0%BE%D0%B7" parameter="target='_self'">
+         <Transform DEF='Trans'translation='0 0 0'>
+          <shape DEF="Cylinder">                                                 
+            <appearance>
+              <Material></Material>
+              <ImageTexture url="https://2.bp.blogspot.com/-wbMKGGOgO3Y/XAFWLtRdmLI/AAAAAAAALi8/3HD7Hr3PRXwu3yFnx8M4IdkvEembSDrJACLcBGAs/s640/metall_setka_treschiny_carapiny_chb_tekstura_1920x1200.jpg" repeatS="true" repeatT="true"></ImageTexture>
+              <TextureTransform rotation='1.5708' scale="1 1" translation='0.33 0.5'>
+              </appearance>
+              <cylinder radius = "1" height = "4.3" ></cylinder>
+            </shape> 
+          </Transform>
+          <ROUTE fromNode='Time2' fromField='fraction_changed' 
+          toNode='PosInt' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt' fromField='value_changed' 
+        toNode='Trans' toField='set_translation'>
+      </ROUTE>
+    </Anchor> 
+    <TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--train platform--->
+    <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '></PositionInterpolator>
+    <transform translation='-1.2 0.87  0' rotation='1 0 0 0'> 
+     <Transform DEF='Trans'translation='0 0 0' >
+       <shape DEF = "Box">
+         <appearance>
+           <material diffuseColor='#000000'></material>
+         </appearance>
+         <box size="0.5 6 2"></box>
+       </shape>
+       <ROUTE fromNode='Time2' fromField='fraction_changed' 
+       toNode='PosInt' toField='set_fraction'>
+     </ROUTE>
+     <ROUTE fromNode='PosInt' fromField='value_changed' 
+     toNode='Trans' toField='set_translation'>
+   </ROUTE>
+   <transform translation='1.5 2 0' rotation='1 0 0 0'>  <!--cabin--->
+    <shape DEF = "Cabin" >
+     <appearance>
+       <material diffuseColor='#800000'></material>
+     </appearance>
+     <box size="2.5 2 2"></box>
+   </shape>  <!--funnel--->             
+   <transform  translation = '0 0 0'>
+     <transform translation='1.1 -4 0' rotation='0 0 1 7.9'>                     
+      <shape DEF = "Cone">
+        <appearance>
+          <material diffuseColor='#600000'></material>
+        </appearance>
+        <cone bottomRadius='0.4' height='0.9' topRadius='0.1' ></cone>
+      </shape>
+      <transform translation='-0.50 3 0' rotation='0 0.75 0 -2.4'>  <!--track cleaner-->   
+        <shape DEF = "Snout">
+          <appearance>
+            <material diffuseColor='#008000'></material>
+          </appearance>
+          <snout dbottom='0.5' dtop='2.5' height='1.2' xoff='1' yoff='1'></snout> 
+        </shape>
+      </transform>
+    </transform>
+  </transform>
+</transform>
+</transform>
+</transform>
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--front part-->                       
+<PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '></PositionInterpolator>
+<Transform DEF='Trans' translation='0 0 0'>
+  <transform translation='0 -1.5 0' rotation='0 0.75 0 -2.4'>         
+    <TimeSensor DEF='Time1' cycleInterval='10' loop='true'></TimeSensor> 
+    <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='0 0 0, 0 0 1, 0 0 1, 1 0 1'></ColorInterpolator> 
+    <shape DEF = "Sphere">
+      <appearance>
+        <material DEF ='Mat1' diffuseColor='#708090'></material>
+      </appearance>
+      <sphere radius="1"></sphere> 
+    </shape>
+    <ROUTE fromNode='Time2' fromField='fraction_changed' 
+    toNode='PosInt' toField='set_fraction'>
+  </ROUTE>
+  <ROUTE fromNode='PosInt' fromField='value_changed' 
+  toNode='Trans' toField='set_translation'>
+</ROUTE> 
+<ROUTE fromNode='Time1' fromField='fraction_changed'
+toNode='ColInt' toField='set_fraction'>
+</ROUTE>
+<ROUTE fromNode='ColInt' fromField='value_changed' 
+toNode='Mat1' toField='set_diffuseColor'>         
+</ROUTE>
+</transform>
+</transform>  <!--right back wheel-->  
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>                                                         
+<PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '  ></PositionInterpolator >
+<Transform DEF='Trans' translation='0 0 0'>
+  <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+  <Transform DEF='Transs' center="-1.7 2.5 1" translation='0 0 0'>
+    <transform translation='-1.7 2.5 1' rotation='1.5 -2 2 4'>           
+      <shape DEF = "Wheel">
+        <appearance>
+          <material diffuseColor='#708090'></material>
+        </appearance>
+        <cylinder radius = "0.6" height ="0.2" ></cylinder>
+      </shape>
+      <transform translation='-0.01 -0.011 0' rotation='0.3 -3 3 3'> <!--tyre-->   
+        <shape DEF = "Tyre">
+          <appearance>
+            <material diffuseColor='#FFFF00'></material>
+          </appearance>
+          <torus innerRadius="0.1" outerRadius="0.63"></torus>
+        </shape>
+        <ROUTE fromNode='Time2' fromField='fraction_changed' 
+        toNode='PosInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='PosInt' fromField='value_changed' 
+      toNode='Trans' toField='set_translation'>
+    </ROUTE> 
+    <ROUTE fromNode='Time2' fromField='fraction_changed' 
+    toNode='OrientInt' toField='set_fraction'>
+  </ROUTE>
+  <ROUTE fromNode='OrientInt' fromField='value_changed' 
+  toNode='Transs' toField='set_rotation'>
+</ROUTE>
+</transform>
+</transform>
+</Transform>
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>
+<Transform DEF='Transs' center="-1.7 0.80 1" translation='0 0 0'>
+  <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+  <transform translation='-1.7 0.80 1' rotation='1.5 -2 2 4'> <!--right middle wheel-->   
+    <shape DEF = "Wheel">
+      <appearance>
+        <material diffuseColor='#708090'></material>
+      </appearance>
+      <cylinder radius = "0.6" height ="0.2" ></cylinder>
+    </shape>
+    <transform translation='-0.01 -0.011 0' rotation='0.3 -3 3 3'>  <!--tyre-->   
+      <shape DEF = "Tyre">
+        <appearance>
+          <material diffuseColor='#FFFF00'></material>
+        </appearance>
+        <torus innerRadius="0.1" outerRadius="0.63"></torus>
+      </shape>
+      <ROUTE fromNode='Time2' fromField='fraction_changed' 
+      toNode='OrientInt' toField='set_fraction'>
+    </ROUTE>
+    <ROUTE fromNode='OrientInt' fromField='value_changed' 
+    toNode='Transs' toField='set_rotation'>
+  </ROUTE>
+</transform>
+</transform>
+</Transform>
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor> <!--right front wheel-->   
+<Transform DEF='Transs' center="-1.7 -0.90 1" translation='0 0 0'>
+  <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+  <transform translation='-1.7 -0.90 1' rotation='1.5 -2 2 4'>           
+    <shape DEF = "Wheel">
+      <appearance>
+        <material diffuseColor='#708090'></material>
+      </appearance>
+      <cylinder radius = "0.6" height ="0.2" ></cylinder>
+    </shape>
+    <transform translation='-0.01 -0.011 0' rotation='0.3 -3 3 3'> <!--tyre-->   
+      <shape DEF = "Tyre">
+        <appearance>
+          <material diffuseColor='#FFFF00'></material>
+        </appearance>
+        <torus innerRadius="0.1" outerRadius="0.63"></torus>
+      </shape>
+      <ROUTE fromNode='Time2' fromField='fraction_changed' 
+      toNode='OrientInt' toField='set_fraction'>
+    </ROUTE>
+    <ROUTE fromNode='OrientInt' fromField='value_changed' 
+    toNode='Transs' toField='set_rotation'>
+  </ROUTE>
+</transform>
+</transform>
+</Transform>
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--left back wheel-->        
+<Transform DEF='Transs' center="-1.7 2.5 -1" translation='0 0 0'>
+  <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+  <transform translation='-1.7 2.5 -1' rotation='1.5 -2 2 4'>              
+    <shape DEF = "Wheel">
+      <appearance>
+        <material diffuseColor='#708090'></material>
+      </appearance>
+      <cylinder radius = "0.6" height ="0.2" ></cylinder>
+    </shape>
+    <transform translation='-0.01 -0.011 0' rotation='0.3 -3 3 3'> <!--tyre-->   
+      <shape DEF = "Tyre">
+        <appearance>
+          <material diffuseColor='#FFFF00'></material>
+        </appearance>
+        <torus innerRadius="0.1" outerRadius="0.63"></torus>
+      </shape>
+      <ROUTE fromNode='Time2' fromField='fraction_changed' 
+      toNode='OrientInt' toField='set_fraction'>
+    </ROUTE>
+    <ROUTE fromNode='OrientInt' fromField='value_changed' 
+    toNode='Transs' toField='set_rotation'>
+  </ROUTE>
+</transform>
+</transform>
+</Transform>  <!--left middle wheel-->  
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>                                         
+<Transform DEF='Transs' center="-1.7 0.80 -1" translation='0 0 0'>
+  <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+  <transform translation='-1.7 0.80 -1' rotation='1.5 -2 2 4'>            
+    <shape DEF = "Wheel" >
+      <appearance>
+        <material diffuseColor='#708090'></material>
+      </appearance>
+      <cylinder radius = "0.6" height ="0.2" ></cylinder>
+    </shape>
+    <transform translation='-0.01 -0.011 0' rotation='0.3 -3 3 3'>  <!--tyre-->   
+      <shape DEF = "Tyre">
+        <appearance>
+          <material diffuseColor='#FFFF00'></material>
+        </appearance>
+        <torus innerRadius="0.1" outerRadius="0.63"></torus>
+      </shape>
+      <ROUTE fromNode='Time2' fromField='fraction_changed' 
+      toNode='OrientInt' toField='set_fraction'>
+    </ROUTE>
+    <ROUTE fromNode='OrientInt' fromField='value_changed' 
+    toNode='Transs' toField='set_rotation'>
+  </ROUTE>
+</transform>
+</transform>
+</Transform>
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--right front wheel-->                    
+<Transform DEF='Transs' center="-1.7 -0.90 -1" translation='0 0 0'>
+  <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 -3.14 0 0 1 -6.28'></OrientationInterpolator>
+  <transform translation='-1.7 -0.90 -1' rotation='1.5 -2 2 4'>             
+    <shape DEF = "Wheel">
+      <appearance>
+        <material diffuseColor='#708090'></material>
+      </appearance>
+      <cylinder radius = "0.6" height ="0.2" ></cylinder>
+    </shape>
+    <transform translation='-0.01 -0.011 0' rotation='0.3 -3 3 3'>  <!--tyre-->   
+      <shape DEF = "Tyre">
+        <appearance>
+          <material diffuseColor='#FFFF00'></material>
+        </appearance>
+        <torus innerRadius="0.1" outerRadius="0.63"></torus>
+      </shape>
+      <ROUTE fromNode='Time2' fromField='fraction_changed' 
+      toNode='OrientInt' toField='set_fraction'>
+    </ROUTE>
+    <ROUTE fromNode='OrientInt' fromField='value_changed' 
+    toNode='Transs' toField='set_rotation'>
+  </ROUTE>
+</transform>
+</transform>
+</Transform>
+</Transform>
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor> <!--left window--->                         
+<PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '></PositionInterpolator>
+<Transform DEF='Trans' translation='0 0 0'>
+ <transform translation='0.45 2.9 -0.91' rotation='1 0 0 0'>                        
+   <TimeSensor DEF='Time' cycleInterval='3' loop='true'></TimeSensor>                       
+   <ScalarInterpolator DEF='ScInt' key='0 0.5 1' keyValue='0.45 2.9 -0.91'></ScalarInterpolator>
+   <shape DEF = "Window1">
+     <appearance>
+       <material  DEF='Mat'transparency ="0" diffusecolor='#66DDEB'></material>
+     </appearance>
+     <box size="1.7 1.5 0.2"></box>
+   </shape>
+   <ROUTE fromNode='Time' fromField='fraction_changed' 
+   toNode='ScInt' toField='set_fraction'>
+ </ROUTE>
+ <ROUTE fromNode='ScInt' fromField='value_changed' 
+ toNode='Mat' toField='set_transparency'>
+</ROUTE> 
+<ROUTE fromNode='Time2' fromField='fraction_changed' 
+toNode='PosInt' toField='set_fraction'>
+</ROUTE>
+<ROUTE fromNode='PosInt' fromField='value_changed' 
+toNode='Trans' toField='set_translation'>
+</ROUTE> 
+</transform>
+<transform translation='0.45 2.9 0.91' rotation='1 0 0 0'> <!--right window--->
+  <shape DEF = "Window2">
+   <appearance>
+     <material USE='Mat'></material>
+   </appearance>
+   <box size="1.7 1.5 0.2"></box>
+ </shape>
+</transform>
+</Transform>
+</Group>
+<transform translation="0 -0.3 0" rotation=" 0 0 0.01 1.57">
+  <Group DEF='RailAndCross-tieTogether' translation ='0 0 0' rotation = '0 0 0 0'>
+    <transform DEF="Rail"  translation='-2.1 -2 -1 ' rotation='0 0 0 0'>  <!---rail-->
+     <Shape DEF = "Rail">
+      <Appearance>
+        <Material></Material>
+        <ImageTexture url="https://st.depositphotos.com/1003592/2370/i/450/depositphotos_23705891-stock-photo-scratched-metal-surface.jpg" repeatS="true" repeatT="true"></ImageTexture>
+      </Appearance>
+      <Box size="0.2 25 0.1"></Box>
+    </Shape>
+  </transform>    
+  <Transform translation="-2.1 -2 1"  rotation= "0 0 0 0">
+    <Shape USE="Rail">
+    </Shape>
+  </Transform>
+  <Transform translation="-2.1 -27.013 1"  rotation= "0 0 0 0">
+    <Shape USE="Rail">
+    </Shape>
+  </Transform>
+  <Transform translation="-2.1 -27.013 -1"  rotation= "0 0 0 0">
+    <Shape USE="Rail">
+    </Shape>
+  </Transform>
+  <transform DEF="Cross-tie"  translation='-2.1 -2 0' rotation='0 0 0 0'> <!---cross-tie-->
+   <Shape DEF = "Cross-tie">
+    <Appearance>
+      <Material></Material>
+      <ImageTexture url="https://st.depositphotos.com/1003592/2370/i/450/depositphotos_23705891-stock-photo-scratched-metal-surface.jpg" repeatS="true" repeatT="true"></ImageTexture>
+    </Appearance>
+    <Box size="0.1 0.2 3"></Box>
+  </Shape>
+</transform>    
+<transform translation='-2.1 0 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>        
+<transform translation='-2.1 2 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>    
+<transform translation='-2.1 4 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>   
+<transform translation='-2.1 6 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>     
+<transform translation='-2.1 8 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform> 
+<transform translation='-2.1 -4 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>    
+<transform translation='-2.1 -6 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>    
+<transform translation='-2.1 -8 0' rotation='0 0 0 0'>  <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -10 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>      
+<transform translation='-2.1 -12 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>    
+<transform translation='-2.1 -14 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>   
+<transform translation='-2.1 -16 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>   
+<transform translation='-2.1 -18 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>   
+<transform translation='-2.1 -20 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -22 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -24 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -26 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -28 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -30 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -32 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -34 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+<transform translation='-2.1 -36 0' rotation='0 0 0 0'> <!---cross-tie-->
+ <Shape USE = "Cross-tie">
+ </Shape>
+</transform>  
+</Group>
+</Collision>
+<Transform translation= '2 -2.4 -9'> 
+  <TimeSensor DEF='Time3' cycleInterval='8' loop='true'></TimeSensor> <!-----mountain--->
+  <CoordinateInterpolator DEF='CoordInt' key='0 0.2 0.4 0.6 0.8 1'
+  keyValue= '11 0 -0.2, 9 0 1, 8 8 1,  9 0 1, 8 0 -1, 8 7 1,  4 0 -3, 8 0 -1, 8 8 1,  4 0 -3, 8 0 -3, 8 8 1,   12 0 -1, 8 0 -3, 8 8 1,  12 0 1, 12 0 -1, 8 8 1,  11 0 0, 12 0 1, 8 8 1
+  11 0 -0.2, 9 0 1, 8 8 1,  9 0 1, 8 0 -1, 8 7 1,  4 0 -3, 8 0 1, 8 8 1,  4 0 -3, 8 0 -3, 8 8 1,   12 0 -1, 8 0 -3, 8 8 1,  12 0 1, 12 0 -1, 8 8 1,  11 0 0, 12 0 1, 8 8 1
+  11 0 -0.2, 9 0 5, 8 8 1,  9 0 1, 8 0 -1, 8 10 1,  4 0 -3, 8 0 1, 8 8 1,  4 0 -3, 8 0 -3, 8 8 1,   12 0 -1, 8 0 -3, 8 8 1,  12 0 1, 12 0 -1, 8 8 1,  11 0 0, 12 0 1, 8 8 1
+  11 0 -0.2, 9 0 5, 8 8 1,  9 0 1, 8 0 -1, 8 10 1,  4 0 -3, 8 0 1, 8 8 1,  4 0 -3, 8 0 -3, 8 8 1,   12 0 -1, 8 0 -3, 8 8 1,  12 0 1, 12 0 -1, 8 8 1,  11 0 0, 12 0 1, 8 8 1
+  11 0 -0.2, 9 0 1, 8 8 1,  9 0 1, 8 0 -1, 8 10 1,  4 0 -3, 8 0 -1, 8 8 1,  4 0 -3, 8 0 -3, 8 8 1,   12 0 -1, 8 0 -3, 8 8 1,  12 0 1, 12 0 -1, 8 8 1,  11 0 0, 12 0 1, 8 8 1
+  11 0 -0.2, 9 0 1, 8 8 1,  9 0 1, 8 0 -1, 8 7 1,  4 0 -3, 8 0 -1, 8 8 1,  4 0 -3, 8 0 -3, 8 8 1,   12 0 -1, 8 0 -3, 8 8 1,  12 0 1, 12 0 -1, 8 8 1,  11 0 0, 12 0 1, 8 8 1'>
+</CoordinateInterpolator>
+<Shape>
+  <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20' solid='false'>              
+    <Coordinate DEF ='Coord' point='11 0 -0.2, 9 0 1, 8 8 1,  9 0 1, 8 0 -1, 8 7 1,  4 0 -3, 8 0 -1, 8 8 1,  4 0 -3, 8 0 -3, 8 8 1,   12 0 -1, 8 0 -3, 8 8 1,  12 0 1, 12 0 -1, 8 8 1,  11 0 0, 12 0 1, 8 8 1'></Coordinate>
+  </IndexedTriangleStripSet>
+  <Appearance>
+    <Material></Material>
+    <ImageTexture url="https://thumbs.dreamstime.com/b/предпосылка-текстуры-зимы-с-снегом-107272342.jpg" repeatS="false" repeatT="false">   
+    </ImageTexture>
+  </Appearance>  
+</Shape>
+<ROUTE fromNode='Time3' fromField='fraction_changed'
+toNode='CoordInt' toField='set_fraction'>
+</ROUTE>
+<ROUTE fromNode='CoordInt' fromField='value_changed'
+toNode='Coord' toField='set_point'>
+</ROUTE>
+</Transform>
+</Scene>
+</x3d>
+</body>
 </html>
