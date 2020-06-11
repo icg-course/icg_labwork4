@@ -2,12 +2,238 @@
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>Lab4Kulikov</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/custom.js"></script>
   </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+  <body>   
+    <X3D style="left:0px; top:0px; width:100%; height:100%; border:none;">
+      <scene>
+        <!-- Platform -->
+          <transform  translation="0 -0.5 0">
+            <shape> 
+              <appearance>
+                <Material diffuseColor="1 0 0 "></Material>
+              </appearance> 
+              <box size="4 1.2 3" ></box> 
+            </shape> 
+          </transform>
+        <!-- Body -->
+          <transform>
+            <shape> 
+              <appearance>
+                <ImageTexture  url="https://avatars.mds.yandex.net/get-pdb/2799940/89e9cd59-9255-4fee-b00c-1afc1e0d9fa4/s1200"></ImageTexture>
+              </appearance> 
+              <Dish radius="4" height="2.9"></Dish> 
+            </shape> 
+          </transform>
+        <!-- Head --> 
+          <!-- Moustache R1-3 -->
+            <!-- Moustache R 2 -->
+            <Group DEF="Moustache">
+              <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+              <OrientationInterpolator DEF="OrientInt" key="0 0.25 0.5 0.75 1"
+                                   keyValue="0 0 1 0, 0 0 1 0.35, 0 0 1 0, 0 0 1 -0.35,0 0 1 0">
+              </OrientationInterpolator>
+              <transform DEF="MoustTrans2" translation="0.5 2.5 0.8">
+                <shape> 
+                  <appearance>
+                    <Material diffuseColor="0 0 0 "></Material>
+                  </appearance> 
+                  <box size="0.3 0.01 0.01"> </box> 
+                </shape> 
+              </transform>
+              <ROUTE fromNode="Time" fromField="fraction_changed"
+              toNode="OrientInt" toField="set_fraction"></ROUTE>
+              <ROUTE fromNode="OrientInt" fromField="value_changed"
+              toNode="MoustTrans2" toField="set_rotation"></ROUTE>
+            <!-- Moustache R 1 -->
+              <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+              <OrientationInterpolator DEF="OrientInt" key="0 0.25 0.5 0.75 1"
+                                   keyValue="0 0 1 0.35, 0 0 1 0.70, 0 0 1 0.35, 0 0 1 0,0 0 1 0.35">
+              </OrientationInterpolator>
+              <transform DEF="MoustTrans1" translation="0.5 2.55 0.8" rotation= "0 0 1 0.35">
+                <shape> 
+                  <appearance>
+                    <Material diffuseColor="0 0 0 "></Material>
+                  </appearance> 
+                  <box size="0.3 0.01 0.01"> </box> 
+                </shape> 
+              </transform>
+              <ROUTE fromNode="Time" fromField="fraction_changed"
+              toNode="OrientInt" toField="set_fraction"></ROUTE>
+              <ROUTE fromNode="OrientInt" fromField="value_changed"
+              toNode="MoustTrans1" toField="set_rotation"></ROUTE>  
+            <!-- Moustache R 3 -->
+                <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+                <OrientationInterpolator DEF="OrientInt" key="0 0.25 0.5 0.75 1"
+                                   keyValue="0 0 1 -0.35, 0 0 1 0, 0 0 1 -0.35, 0 0 1 -0.70,0 0 1 -0.35">
+                </OrientationInterpolator>
+                <transform DEF="MoustTrans3" translation="0.5 2.45 0.8" rotation= "0 0 1 -0.35">          
+                    <shape> 
+                      <appearance>
+                        <Material diffuseColor="0 0 0 "></Material>
+                      </appearance> 
+                      <box size="0.3 0.01 0.01"> </box> 
+                    </shape>     
+                </transform>
+                <ROUTE fromNode="Time" fromField="fraction_changed"
+                toNode="OrientInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed"
+                toNode="MoustTrans3" toField="set_rotation"></ROUTE>
+            </Group> 
+          <!-- Moustache L1-3 -->
+            <transform translation="0 0 1.6" rotation= "0 1 0 3.14"> 
+              <Group USE="Moustache">
+              </Group>
+            </transform>
+          <!-- Nose -->
+            <Transform translation="0.01 0 -0.11">
+              <Shape>
+                <appearance>
+                  <Material diffuseColor="1 0.9 0.4"></Material>
+                </appearance>
+                <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+                  creaseAngle="0" solid="false"
+                  coordIndex="0 1 2 3 4 -1 5 6 7 8 9 -1 0 1 6 5 -1 1 6 7 2 -1 3 8 7 2 -1 3 8 9 4 -1 4 9 5 0 -1 " 
+                  colorIndex="0 0 0 0 0 -1 0 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1">               
+                  <Coordinate point="-0.06 2.6 1, 0.06 2.6 1,0.09 2.55 1, 0 2.47 1,-0.09 2.55 1
+                                     -0.03 2.58 1.05, 0.03 2.58 1.05,0.045 2.55 1.05, 0 2.51 1.05,-0.045 2.55 1.05"></Coordinate>
+                  <Color color="1 0.3 0.3"></Color>
+                </IndexedFaceSet>
+              </Shape>
+            </Transform>
+          <!-- Head 1 -->
+            <transform translation="0 2.5 0">
+              <shape> 
+                <appearance>
+                  <ImageTexture  url="https://avatars.mds.yandex.net/get-pdb/2979196/db3a50ef-2b0b-4010-ab12-969375e9d9a4/s1200"></ImageTexture>
+                </appearance> 
+                <Sphere radius="0.9"> </Sphere> 
+              </shape> 
+            </transform>
+          <!-- Ear R -->
+          <Group DEF="Ear">
+            <Transform>
+              <Shape>
+                <appearance>
+                  <Material diffuseColor="1 0.9 0.4"></Material>
+                </appearance>
+                <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+                  creaseAngle="0" solid="false"
+                  coordIndex="0 3 1 -1 3 1 4 -1 4 1 5 -1 5 1 2 -1" 
+                  colorIndex="0 0 0 -1 0 0 0 -1 0 0 0 -1 0 0 0 -1">               
+                  <Coordinate point="0.10 3.35 0.1, 0.8 3.8 0.1, 0.8 2.9 0.1,0.15 3.2 -0.2 ,0.5 3.2 -0.2, 0.65 3.0 -0.15,"></Coordinate>
+                  <Color color="1 0.9 0.4"></Color>
+                </IndexedFaceSet>
+              </Shape>
+            </Transform>
+          <!-- Ear R 1 -->
+            <Transform>
+              <Shape>
+                <appearance>
+                  <ImageTexture  url="https://avatars.mds.yandex.net/get-pdb/2822357/fc6ca62b-56c2-44de-9ebc-e2a960257ca2/s1200"></ImageTexture>
+                </appearance>    
+                <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+                  creaseAngle="0" solid="false"
+                  coordIndex="0 1 2 -1" 
+                  colorIndex="0 0 0 -1 0 0 0 -1 0 0 0 -1 0 0 0 -1 0 0 0 -1">               
+                  <Coordinate point="0.11 3.35 0.09, 0.79 3.78 0.09, 0.79 2.9 0.09,0.15 3.2 -0.2 ,0.5 3.2 -0.2, 0.65 3.0 -0.15,"></Coordinate>
+                  <Color color="1 0.9 0.4"></Color>
+                </IndexedFaceSet>
+              </Shape>
+            </Transform>
+          </Group>
+            
+          <!-- Ear L -->
+            <Transform translation="2.03 1.1 0" rotation= "0 0 1 1">
+              <Group USE="Ear">
+              </Group>
+            </Transform>      
+        <!-- Hand R -->
+          <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+          <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+          keyValue="1 0 0 0, 1 0 0 1.57, 1 0 0 0"></OrientationInterpolator>
+          <Transform DEF="Trans" translation="0 1.4 0">
+            <Group DEF="Hand">
+            <!-- Hand R 1 -->
+              <transform translation="0.6 0 0" rotation="0 0 1 -1.57">
+                <shape> 
+                  <appearance>
+                    <Material diffuseColor="1 0.9 0.4 "></Material>
+                  </appearance> 
+                  <Dish radius="12" height="1"></Dish> 
+                </shape> 
+              </transform>
+            <!-- Hand R 2 -->
+              <transform translation="1.5 0.4 0" rotation="0 0 1 -3.14" >
+                <shape> 
+                  <appearance>
+                    <ImageTexture  url="https://avatars.mds.yandex.net/get-pdb/2799940/89e9cd59-9255-4fee-b00c-1afc1e0d9fa4/s1200"></ImageTexture>
+                  </appearance> 
+                  <Dish radius="20" height="0.5"></Dish> 
+                </shape> 
+              </transform>
+            <!-- Hand R 3 -->
+              <transform translation="1.5 0.699 0" >
+                <shape> 
+                  <appearance>
+                    <ImageTexture  url="https://avatars.mds.yandex.net/get-pdb/2799940/89e9cd59-9255-4fee-b00c-1afc1e0d9fa4/s1200"></ImageTexture>
+                  </appearance> 
+                  <cylinder radius="0.221" height="0.6"></cylinder> 
+                </shape> 
+              </transform>
+            <!-- Hand R 4 -->
+              <transform translation="1.5 1.1 0" >
+                <shape> 
+                  <appearance>
+                    <ImageTexture  url="https://avatars.mds.yandex.net/get-pdb/2822357/fc6ca62b-56c2-44de-9ebc-e2a960257ca2/s1200"></ImageTexture>
+                  </appearance> 
+                  <sphere radius="0.3"></sphere> 
+                </shape> 
+              </transform>
+            </Group>
+          </Transform>
+          <ROUTE fromNode="Time" fromField="fraction_changed"
+          toNode="OrientInt" toField="set_fraction"></ROUTE>
+          <ROUTE fromNode="OrientInt" fromField="value_changed"
+          toNode="Trans" toField="set_rotation"></ROUTE>       
+        <!-- Hand L -->
+          <transform translation="0 1.4 0" rotation="0 1 1 3.14" >
+            <Group USE="Hand">
+            </Group>
+          </transform>
+        <!-- Leg R -->
+          <!-- Leg1 -->
+            <transform translation="0.6 0 0.3">
+              <shape DEF="Leg1"> 
+                <appearance>
+                  <Material diffuseColor="1 0.9 0.4"></Material>
+                </appearance> 
+                <Dish radius="3" height="1.1"></Dish> 
+              </shape> 
+            </transform>
+          <!-- Leg2 -->
+            <transform translation="0.8 -0.1 1">
+              <shape DEF="Leg2"> 
+                <appearance>
+                  <ImageTexture  url="https://avatars.mds.yandex.net/get-pdb/2822357/fc6ca62b-56c2-44de-9ebc-e2a960257ca2/s1200"></ImageTexture>
+                </appearance> 
+                <sphere radius="0.5"></sphere> 
+              </shape> 
+            </transform>  
+        <!-- Leg L -->
+          <!-- Leg1 -->
+            <transform translation="-0.6 0 0.3">
+              <shape USE="Leg1"></shape> 
+            </transform>
+          <!-- Leg2 -->
+            <transform translation="-0.8 -0.1 1">
+              <shape USE="Leg2"></shape>
+            </transform>  
+      </scene> 
+    </X3D>
+  </body>
 </html>
