@@ -5,13 +5,7 @@
      <title>My fourth X3DOM page</title> 
      <script type='text/javascript' src='http://x3dom.org/release/x3dom-full.js'> </script> 
      <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link> 
-   </head> 
-   <body> 
-     <h1>4labakolevatov</h1> 
-     <p> 
-       <i>This is my fourth html page with some 3d objects(zdes' pravda).</i> 
-     </p>
-<script>
+	 <script>
  function lightSwitch(id){
      var light = document.getElementById(id);
      if(light.getAttribute('on')!='TRUE')
@@ -30,9 +24,15 @@
   }
 
 </script>
-<div id="content">
+   </head> 
+   <body> 
+     <h1 align="center">4labakolevatov</h1> 
+     <p align="center"> 
+       <i>This is my fourth html page with some 3d objects(zdes' pravda).</i> 
+     </p>
+<div id="content" align="center">
      <x3d width='1024px' height='768px'> 
-	   <scene>
+	   <scene align="center">
 	    <navigationInfo id="head" headlight='false' type='"EXAMINE"'></navigationInfo>
         <background  skyColor="0.1 0.1 0.1"></background>
         <directionalLight id="directional" direction='0 1 0' on ="TRUE" intensity='2.0' shadowIntensity='0.5'>
@@ -86,7 +86,7 @@
 <transform translation='0 -0.2 0' rotation='1 0 0 -1.57'>
 	    <shape> 
 	     <appearance> 
-	      <imagetexture url='stol.jpg'></imagetexture>
+	      <imagetexture url="stol.jpg"></imagetexture>
 		</appearance> 
 		   <plane size='6 4' solid="false"></plane> 
 		  </shape> 
@@ -179,26 +179,17 @@
         <Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"></Route>
         <Route fromNode="move" fromField ="value_changed" toNode="mouse" toField="translation"></Route>
 		<TimeSensor DEF="TS_e" cycleInterval="3" loop="true"></TimeSensor>
- <OrientationInterpolator DEF="OI_e" key="0, 0.5, 1"
- keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
- </OrientationInterpolator>
- <ROUTE fromNode="TS_e" fromField="fraction_changed"
- toNode="OI_e" toField="set_fraction">
- </ROUTE>
- <ROUTE fromNode="OI_e" fromField="value_changed"
- toNode="tablichka" toField="set_rotation">
- </ROUTE>
- 
-  <TimeSensor DEF="Timer" cycleInterval="5" loop="true"> </TimeSensor>
- <ColorInterpolator DEF="ColInt" key="0 0.33 0.66 1"
- keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0">
+ <OrientationInterpolator DEF="OI_e" key="0, 0.5, 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28"> </OrientationInterpolator>
+ <ROUTE fromNode="TS_e" fromField="fraction_changed" toNode="OI_e" toField="set_fraction"></ROUTE>
+ <ROUTE fromNode="OI_e" fromField="value_changed" toNode="tablichka" toField="set_rotation"></ROUTE>
+   <TimeSensor DEF="Timer" cycleInterval="5" loop="true"> </TimeSensor>
+ <ColorInterpolator DEF="ColInt" key="0 0.33 0.66 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0">
  </ColorInterpolator>
   <ROUTE fromNode="Timer" fromField="fraction_changed"
  toNode="ColInt" toField="set_fraction"></ROUTE>
  <ROUTE fromNode="ColInt" fromField="value_changed"
  toNode="Mat" toField="set_diffuseColor"></ROUTE>
-
-					 </scene> 
+		 </scene> 
 	</x3d> 
 </div>
 	<div id="tools" style="width: 500px;">
