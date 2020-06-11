@@ -76,19 +76,19 @@
 <transform translation='0 2 0.21'>
 	    <shape> 
 	     <appearance> 
-	      <imagetexture url=https://avatars.mds.yandex.net/get-pdb/34158/b286d27a-8193-4e83-a32c-e5bf9321bd53/s1200></imagetexture>
+	      <imagetexture url="https://avatars.mds.yandex.net/get-pdb/34158/b286d27a-8193-4e83-a32c-e5bf9321bd53/s1200"></imagetexture>
 		</appearance> 
 		   <plane size='3.85 1.85'></plane> 
 		  </shape> 
  </transform>
- </anchor>
+ </Anchor>
 <!--stoleshnica-->
 <transform translation='0 -0.2 0' rotation='1 0 0 -1.57'>
 	    <shape> 
 	     <appearance> 
 	      <imagetexture url='stol.jpg'></imagetexture>
 		</appearance> 
-		   <plane size='6 4' solid=false></plane> 
+		   <plane size='6 4' solid="false"></plane> 
 		  </shape> 
  </transform>
 <!--tumba-->
@@ -125,7 +125,7 @@
 <transform translation='-3 -0.2 0' scale= '0.5 0.5 0.5'>
 <shape>
  <Appearance>
-    <Material def='Mat'	diffuseColor= '0.5 0 0'></Material>
+    <Material DEF='Mat'	diffuseColor= '0.5 0 0'></Material>
 	</Appearance>
    <ElevationGrid xDimension="7" zDimension="6"
  height="1.25, 1, 1, 1, 1, 1, 1.25,
@@ -142,7 +142,7 @@
 <transform DEF='mouse' translation='1.4 0.1 1' scale= '0.2 0.2 0.2' rotation = '1 0 0 3.14'>
 <shape>
  <Appearance>
-    <imagetexture url=https://avatars.mds.yandex.net/get-pdb/2990222/d7b39e7b-7b51-412e-92e7-d31ed96bbd46/s1200></imagetexture>
+    <imagetexture url="https://avatars.mds.yandex.net/get-pdb/2990222/d7b39e7b-7b51-412e-92e7-d31ed96bbd46/s1200"></imagetexture>
 	</Appearance>
    <ElevationGrid xDimension="6" zDimension="6"
  height="1.5, 1.5, 1.5, 1.5, 1.5, 1.5,
@@ -160,7 +160,7 @@
                      url="Deer.x3d" />
 					 </transform>
 					 <!--text-->
-<transform DEF=tablichka translation='2 4 0'>
+<transform DEF="tablichka" translation='2 4 0'>
 	    <shape> 
 	     <appearance>
 		<material diffuseColor='0 0 1'></material> 
@@ -200,16 +200,16 @@
 
 					 </scene> 
 	</x3d> 
-	<div id="tools" style="width: 500px;">
-<input type="checkbox" checked="true" onclick="lightSwitch('point')">
-    <label>point light</label>
-<input type="checkbox" checked="true" onclick="lightSwitch('spot')">
-    <label>spot light</label>
-<input type="checkbox" checked="true" onclick="lightSwitch('directional')">
-    <label>directional light</label>
-<input type="checkbox" checked="true" onclick="headlight()">
-    <label>headlight</label>
 </div>
+	<div id="tools" style="width: 500px;">
+<input type="checkbox" checked="true" onclick="lightSwitch('point')"/>
+    <label>point light</label>
+<input type="checkbox" checked="true" onclick="lightSwitch('spot')"/>
+    <label>spot light</label>
+<input type="checkbox" checked="true" onclick="lightSwitch('directional')"/>
+    <label>directional light</label>
+<input type="checkbox" checked="true" onclick="headlight()"/>
+    <label>headlight</label>
 </div>
    </body> 
 </html> 
