@@ -1,13 +1,552 @@
-<!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title> Laba4 </title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <script src="../js/custom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
-</html>
+    <h1>Чики Бамбони анимация</h1>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">      
+      <Scene> 
+
+        <TimeSensor DEF='Time' cycleInterval='5' loop='true'></TimeSensor>
+        <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='(0 -0.5 0) (0 0 -0.5) (0 3.14 0) (-0.5 0 6.28)'></OrientationInterpolator>        
+
+        <NavigationInfo type='ANY' speed="5"></NavigationInfo>
+            <viewpoint id="one" position=" 0 3 40" fieldofview="0.8" description="camera"></viewpoint>
+            <viewpoint id="two" position="0 0 10" fieldofview="1" description="camera"></viewpoint>
+            <viewpoint id="three" position="0 60 6 " orientation="0 1 1 -3.14" fieldofview="0.5" description="camera"></viewpoint>
+
+        <Background
+          groundAngle='0.9 1.5 1.57'
+          groundColor='0.1 0.2 0.3 0.5 0.3 0.2 0.2 0.3 0.4 0.1 0.2 0.2'
+          skyAngle='0.3 1.5 1.57'
+          skyColor='0.5 0.5 0.5 0.5 0.2 0.3 0.2 0.3 0.95 0.77 0.8 0.82'></Background>
+
+         <Fog visibilityRange='200' color="#000000"></Fog>
+ 
+        <PointLight location="0 10 20" color="1 1 1" intensity="0.1" shadowIntensity="0.2" shadowMapSize="512"></PointLight>  <!--Свет передний белый -->
+        <SpotLight beamWidth='0.9' color='0.6 0.4 0' cutOffAngle='0.78' location='0 18 20' radius='30'></SpotLight> <!--Свет контровой желтый -->
+
+        <Transform translation="-27 -14.26 -26" scale="10 10 10" >  <!--Плато --> 
+          <Shape>
+              <ElevationGrid xDimension="7" zDimension="6" xSpacing="1" zSpacing="1" solid="false"
+                          height=
+                                  "1, 1, 1, 1, 1, 1, 1,
+                                   1, 1, 1, 1, 1, 1, 1,
+                                   1, 1, 1, 1, 1, 1, 1,
+                                   1, 1, 1, 1, 1, 1, 1,
+                                   1, 1, 1, 1, 1, 1, 1,
+                                   1, 1, 1, 1, 1, 1, 1
+                                   ">
+              </ElevationGrid>
+            <Appearance>
+              <ImageTexture url="https://yt3.ggpht.com/a/AGF-l78Et6-R8crWtJgnnMBxnIlxnHrnxdY96XNsog=s900-c-k-c0xffffffff-no-rj-mo"> 
+              </ImageTexture>
+              <Material></Material>
+          </Appearance>
+          </Shape>
+        </Transform>
+
+        <Transform DEF='Trans'>
+          <Transform translation="-6 2 0"  >     <!--Голова ифрита -->  
+            <Shape>
+              <Appearance>
+                  <ImageTexture url="https://t1.rbxcdn.com/ff7829967b9d00927126e5a73957d6a9"></ImageTexture>
+                  <Material></Material>
+                </Appearance>
+                <Box size="1.5 1.5 1.5"></Box>
+            </Shape>
+          </Transform>
+
+          <Group DEF='Ifrit1'>  <!--Части ифрита1 --> 
+            <Transform translation=" -7.5 2 1.5" > 
+              <Shape>
+                <Appearance>
+                  <ImageTexture url="https://t1.rbxcdn.com/ff7829967b9d00927126e5a73957d6a9"></ImageTexture>
+                  <Material></Material>
+                </Appearance>
+                <Box size="0.5 2 0.5"></Box>
+              </Shape>
+            </Transform>
+          </Group>
+
+          <Transform translation="3 0.2 0 ">
+            <Shape USE="Ifrit1">
+            </Shape>
+          </Transform>
+
+          <Transform translation="3 -0.2 -3 ">
+            <Shape USE="Ifrit1">
+            </Shape>
+          </Transform>
+
+          <Transform translation="0 0.4 -3 ">
+            <Shape USE="Ifrit1">
+            </Shape>
+          </Transform>
+
+          <Group DEF='Ifrit2'>  <!--Части ифрита2 --> 
+            <Transform translation=" -5 0 -0.3" > 
+              <Shape>
+                <Appearance>
+                  <ImageTexture url="https://t1.rbxcdn.com/ff7829967b9d00927126e5a73957d6a9"></ImageTexture>
+                  <Material></Material>
+                </Appearance>
+                <Box size="0.3 1.5 0.3"></Box>
+              </Shape>
+            </Transform>
+          </Group>
+
+          <Transform translation="-2 0.2 0 ">
+            <Shape USE="Ifrit2">
+            </Shape>
+          </Transform>
+
+          <Transform translation="-1 -0.2 -1.5 ">
+            <Shape USE="Ifrit2">
+            </Shape>
+          </Transform>
+
+          <Transform translation="-1 0.4 1.5 ">
+            <Shape USE="Ifrit2">
+          </Shape>
+          </Transform>
+
+        </Transform>
+
+    <Group DEF='Zabor1'>  <!--Забор передняя часть --> 
+        <Transform translation=" -6 -0.73 9" scale="0.7 0.4 0.7" rotation="1 0 0 1.57" > 
+        <Shape>
+        <Extrusion crossSection="(0 0) (0 5) (1 5) (1 4) (5 4) (5 3) (1 3) (1 2) (5 2) (5 1) (1 1) (1 0) (0 0)"
+           convex="true" endCap="true" spine="(0 0) (0 0) (2 0)">
+        </Extrusion>
+        <Appearance>
+            <ImageTexture url="https://i1.sndcdn.com/avatars-000287437466-6pyk69-t500x500.jpg"></ImageTexture>
+            <Material></Material>
+        </Appearance>
+      </Shape>
+    </Transform>
+    </Group>
+
+        <Transform translation="-3.5 0 0">
+          <Shape USE="Zabor1">
+        </Shape>
+      </Transform>
+
+      <Transform translation="-7 0 0">
+          <Shape USE="Zabor1">
+        </Shape>
+      </Transform>
+
+      <Transform translation="-0.2 0 18.8" rotation="0 1 0 3.15">
+          <Shape USE="Zabor1">
+        </Shape>
+      </Transform>
+
+      <Transform translation="3.3 0 18.8" rotation="0 1 0 3.15">
+          <Shape USE="Zabor1">
+        </Shape>
+      </Transform>
+
+      <Transform translation="6.8 0 18.8" rotation="0 1 0 3.15">
+          <Shape USE="Zabor1">
+        </Shape>
+      </Transform>
+
+      <Transform translation="6.8 0 1.4" rotation="0 1 0 3.15">
+          <Shape USE="Zabor1">
+        </Shape>
+      </Transform>
+
+    <Group DEF='Zabor2'> <!--Забор задняя часть --> 
+        <Transform translation=" -13 -0.73 -8.4" scale="0.7 0.4 0.7" rotation="1 0 0 1.57" > 
+        <Shape>
+        <Extrusion crossSection="(0 0) (0 5) (1 5) (1 4) (5 4) (5 3) (1 3) (1 2) (5 2) (5 1) (1 1) (1 0) (0 0)"
+            convex="true" endCap="true" spine="(0 0) (0 0) (2 0)">
+        </Extrusion>
+        <Appearance>
+            <ImageTexture url="https://i1.sndcdn.com/avatars-000287437466-6pyk69-t500x500.jpg"></ImageTexture>
+            <Material></Material>
+        </Appearance>
+        </Shape>
+    </Transform>
+    </Group>
+
+      <Transform translation="3.5 0 0">
+          <Shape USE="Zabor2">
+        </Shape>
+      </Transform>
+
+      <Transform translation="7 0 0">
+          <Shape USE="Zabor2">
+        </Shape>
+      </Transform>
+
+      <Transform translation="10.5 0 0">
+          <Shape USE="Zabor2">
+        </Shape>
+      </Transform>
+
+      <Transform translation="14 0 0">
+          <Shape USE="Zabor2">
+        </Shape>
+      </Transform>
+
+      <Transform translation="17.5 0 0">
+          <Shape USE="Zabor2">
+        </Shape>
+      </Transform>
+
+      <Transform translation="21 0 0">
+          <Shape USE="Zabor2">
+        </Shape>
+      </Transform>
+
+    <Group DEF='Zabor3'>  <!--Забор левая часть --> 
+        <Transform translation=" -6 -0.73 9" scale="0.7 0.4 0.7" rotation="1 0 0 1.57" rotation="0 1 0 -1.57" > 
+        <Shape>
+        <Extrusion crossSection="(0 0) (0 5) (1 5) (1 4) (5 4) (5 3) (1 3) (1 2) (5 2) (5 1) (1 1) (1 0) (0 0)"
+            convex="true" endCap="true" spine="(0 0) (0 0) (2 0)">
+        </Extrusion>
+        <Appearance>
+            <ImageTexture url="https://i1.sndcdn.com/avatars-000287437466-6pyk69-t500x500.jpg"></ImageTexture>
+            <Material></Material>
+        </Appearance>
+        </Shape>
+    </Transform>
+    </Group>
+
+      <Transform translation="-3.2 0 11.5" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor3">
+        </Shape>
+      </Transform>
+
+      <Transform translation="-3.2 0 8" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor3">
+        </Shape>
+      </Transform>
+
+      <Transform translation="-3.2 0 4.5" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor3">
+        </Shape>
+      </Transform>
+
+      <Transform translation="-3.2 0 1" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor3">
+        </Shape>
+      </Transform>
+
+      <Transform translation="-3.2 0 -2.5" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor3">
+        </Shape>
+      </Transform>
+
+    <Group DEF='Zabor4'>  <!--Забор правая часть --> 
+        <Transform translation=" -6 -0.73 9" scale="0.7 0.4 0.7" rotation="1 0 0 1.57"  > 
+        <Shape>
+        <Extrusion crossSection="(0 0) (0 5) (1 5) (1 4) (5 4) (5 3) (1 3) (1 2) (5 2) (5 1) (1 1) (1 0) (0 0)"
+            convex="true" endCap="true" spine="(0 0) (0 0) (2 0)">
+        </Extrusion>
+        <Appearance>
+            <ImageTexture url="https://i1.sndcdn.com/avatars-000287437466-6pyk69-t500x500.jpg"></ImageTexture>
+            <Material></Material>
+        </Appearance>
+        </Shape>
+    </Transform>
+    </Group>
+
+      <Transform translation="21.8 0 -2.5" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor4">
+        </Shape>
+      </Transform>
+
+      <Transform translation="21.8 0 1" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor4">
+        </Shape>
+      </Transform>
+
+      <Transform translation="21.8 0 4.5" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor4">
+        </Shape>
+      </Transform>
+
+      <Transform translation="21.8 0 8" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor4">
+        </Shape>
+      </Transform>
+
+      <Transform translation="21.8 0 11.5" rotation="0 1 0 -1.57">
+          <Shape USE="Zabor4">
+        </Shape>
+      </Transform>
+
+    <Group DEF='Kalitka'>  <!--Калитка --> 
+        <Anchor url="http://guap.ru" parameter="target='_self'">
+        <Transform translation=" -2.5 -0.73 9" scale="0.4 0.4 0.7" rotation="1 0 0 1.57"  > 
+        <Shape>
+        <Extrusion crossSection="(0 0) (0 5) (1 5) (1 4) (3 4) (3 4.5) (4 4.5) (4 4) (8 4) (8 4.5) (9 4.5) (9 4) 
+              (11 4) (11 5) (12 5) (12 0) (11 0) (11 1.5) (9 1.5) (9 1) (8 1) (8 1.5) (4 1.5) (4 1) (3 1) 
+              (3 1.5) (1 1.5) (1 0) (0 0) "
+            convex="false"  spine="(0 0) (0 0) (2 0)"
+            convex="true" endCap="true" spine="(0 0) (0 0) (2 0)">
+        </Extrusion>
+        <Appearance>
+            <ImageTexture url="http://4.bp.blogspot.com/-NZuvsr-bjqQ/UA2Vpfk5wRI/AAAAAAAAATo/XIWUEKkoYnM/s1600/Mossy-Cobblestone.png"></ImageTexture>
+            <Material></Material>
+        </Appearance>
+        </Shape>
+    </Transform>
+    </Group>
+
+        <Transform translation="0 0 0" rotation="0 1 0 1.57" >     <!--Тело -->  
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://lh3.googleusercontent.com/HUlj1PBI0tiE9_XQyhpLuQmJ67NKrRLR6R4vEbSjxVuQJIo4_eFPwHZ-b-OPZSgdAeq0HzfsQ_6vVayappEB7g=s400"></ImageTexture>
+            <Material diffuseColor='#FFFFFF'></Material>
+          </Appearance>
+          <Box size="5 3 3"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0 1.5 2.5" >    <!--Голова -->  
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://lh3.googleusercontent.com/HUlj1PBI0tiE9_XQyhpLuQmJ67NKrRLR6R4vEbSjxVuQJIo4_eFPwHZ-b-OPZSgdAeq0HzfsQ_6vVayappEB7g=s400"></ImageTexture>
+            <Material diffuseColor='#FFFFFF'></Material>
+          </Appearance>
+          <Box size="2 2 2"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0 1.5 2.8" >    <!--Лицо -->  
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://lh3.googleusercontent.com/HUlj1PBI0tiE9_XQyhpLuQmJ67NKrRLR6R4vEbSjxVuQJIo4_eFPwHZ-b-OPZSgdAeq0HzfsQ_6vVayappEB7g=s400"></ImageTexture>
+            <Material diffuseColor='#FFFFFF'></Material>
+          </Appearance>
+          <Box size="1.8 1.8 1.8"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0 1.5 2.81"  >  <!--Верхнее пятно на лице-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+           <Box size="1.79 1 1.79"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0 1.15 2.81" rotation="0 1 0 1.57" >  <!--Нижнее пятно-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+           <Box size="1.79 1 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.745 1.5 3.56"  >  <!--Глаз левый черный-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+           <Box size="0.3 0.3 0.3"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.445 1.5 3.56"  >  <!--Глаз левый белый-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFFFF'></Material>
+          </Appearance>
+           <Box size="0.3 0.3 0.3"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.745 1.5 3.56">  <!--Глаз правый черный-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+           <Box size="0.3 0.3 0.3"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.445 1.5 3.56"  >  <!--Глаз правый белый-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFFFFF'></Material>
+          </Appearance>
+           <Box size="0.3 0.3 0.3"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0 1.051 3.56" rotation="0 1 0 1.57" >  <!--Рот верх-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#DB7093'></Material>
+          </Appearance>
+           <Box size="0.3 0.3 0.6"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0 0.751 3.56" rotation="0 1 0 1.57" >  <!--Рот низ-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#FFB6C1'></Material>
+          </Appearance>
+           <Box size="0.3 0.3 0.6"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.9 1.7 3.56"  >  <!--Левое ухо-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+           <Box size="0.1 0.6 0.1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.9 1.7 3.56"  >  <!--Правое ухо-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+           <Box size="0.1 0.6 0.1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.8 -2.1 1.5" >     <!--Нога передняя левая ч1 -->  
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://lh3.googleusercontent.com/HUlj1PBI0tiE9_XQyhpLuQmJ67NKrRLR6R4vEbSjxVuQJIo4_eFPwHZ-b-OPZSgdAeq0HzfsQ_6vVayappEB7g=s400"></ImageTexture>
+            <Material diffuseColor='#bddefc'></Material>
+          </Appearance>
+          <Box size="1.2 1.2 1.2"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.8 -3.3 1.5" >     <!--Нога передняя левая ч2 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Box size="1 1.3 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.8 -4.1 1.5" >     <!--Нога передняя левая ч3 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Box size="1 0.3 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.8 -2.1 1.5" >     <!--Нога передняя правая ч1 -->  
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://lh3.googleusercontent.com/HUlj1PBI0tiE9_XQyhpLuQmJ67NKrRLR6R4vEbSjxVuQJIo4_eFPwHZ-b-OPZSgdAeq0HzfsQ_6vVayappEB7g=s400"></ImageTexture>
+            <Material diffuseColor='#bddefc'></Material>
+          </Appearance>
+          <Box size="1.2 1.2 1.2"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.8 -3.3 1.5" >     <!--Нога передняя правая ч2 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Box size="1 1.3 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.8 -4.1 1.5" >     <!--Нога передняя правая ч3 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Box size="1 0.3 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.8 -2.1 -1.5" >     <!--Нога задняя левая ч1 -->  
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://lh3.googleusercontent.com/HUlj1PBI0tiE9_XQyhpLuQmJ67NKrRLR6R4vEbSjxVuQJIo4_eFPwHZ-b-OPZSgdAeq0HzfsQ_6vVayappEB7g=s400"></ImageTexture>
+            <Material diffuseColor='#bddefc'></Material>
+          </Appearance>
+          <Box size="1.2 1.2 1.2"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.8 -3.3 -1.5" >     <!--Нога задняя левая ч2 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Box size="1 1.3 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="-0.8 -4.1 -1.5" >     <!--Нога задняя левая ч3 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Box size="1 0.3 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.8 -2.1 -1.5" >     <!--Нога задняя левая ч1 -->  
+        <Shape>
+          <Appearance>
+            <ImageTexture url="https://lh3.googleusercontent.com/HUlj1PBI0tiE9_XQyhpLuQmJ67NKrRLR6R4vEbSjxVuQJIo4_eFPwHZ-b-OPZSgdAeq0HzfsQ_6vVayappEB7g=s400"></ImageTexture>
+            <Material diffuseColor='#bddefc'></Material>
+          </Appearance>
+          <Box size="1.2 1.2 1.2"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.8 -3.3 -1.5" >     <!--Нога задняя левая ч2 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Box size="1 1.3 1"></Box>
+        </Shape>
+        </Transform>
+
+        <Transform translation="0.8 -4.1 -1.5" >     <!--Нога задняя левая ч3 -->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Box size="1 0.3 1"></Box>
+        </Shape>
+        </Transform>
+
+          <ROUTE fromNode='Time' fromField='fraction_changed' 
+                toNode='OrientInt' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='OrientInt' fromField='value_changed' 
+                 toNode='Trans' toField='set_rotation'>
+          </ROUTE>
+        </Scene>
+    </X3D>
+    <div id="camera_buttons" style="display: block;">
+        <button onclick="document.getElementById('one').setAttribute('set_bind','true');" style="border: none; background: transparent; display: block">Camera №1 <br><img src='camera-lens-icon.jpg'></button>
+        <button onclick="document.getElementById('two').setAttribute('set_bind','true');" style="border: none; background: transparent; display: block">Camera №2<br><img src='camera-lens-icon.jpg'></button>
+        <button onclick="document.getElementById('three').setAttribute('set_bind','true');" style="border: none; background: transparent; display: block">Camera №3<br><img src='camera-lens-icon.jpg'></button>
+
+    </div>
+  </body>
+  </html>
