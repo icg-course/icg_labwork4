@@ -1,13 +1,541 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+  <head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <title>Лаба 4</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
+    <script src="https://www.x3dom.org/download/dev/x3dom.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <h1>Джерри (лаба №4)</h1>
+    <h2>Пытаемся поймать мышей</h2>
+    <X3D id="x3d" xmlns="https://www.x3dom.org/x3dom">      
+      <Scene>  
+
+            <NavigationInfo headLight='false' type='turntable' typeParams='0.0 0.0 0.2 1.4'></NavigationInfo>
+             <pointLight def ='lampa1' location='0 0 0' radius='30' intensity='0.9'></pointLight>
+              <DirectionalLight def='lampa2' direction='0 0 -1' color='white' intensity='.8'></DirectionalLight>
+         <background backURL='https://avatanplus.com/files/resources/mid/5ab617d44c085162574d1557.png'></background>
+             <Viewpoint position='0 0 60'></Viewpoint>
+
+ 
+      
+
+  <Transform  translation="1.4 -12 0.2" scale="0.6 0.6 0.6">
+                <Shape>
+                    <Appearance>
+                        <Material diffuseColor='1 1 1' ></Material>
+                    </Appearance>
+                    <IndexedFaceSet coordIndex='0 1 2 -1   3 4 5 -1   6 7 8 -1   9 10 11 -1   12 13 14 -1   15 16 17 -1   18 19 20 -1   21 22 23 -1   24 25 26 -1   27 28 29 -1   30 31 32 -1   33 34 35 -1   36 37 38 -1   39 40 41 -1   42 43 44 -1   45 46 47 -1   48 49 50 -1   51 52 53 -1   54 55 56 -1   57 58 59 -1   60 61 62 -1   63 64 65 -1   66 67 68 -1   69 70 71 -1   72 73 74 -1   75 76 77 -1   78 79 80 -1   81 82 83 -1   84 85 86 -1   87 88 89 -1   90 91 92 -1   93 94 95 -1   ' >
+                        <Coordinate point='-70.000000 0.000000 35.000000, -70.000000 0.000000 70.000000, -35.000000 0.000000 35.000000, -35.000000 0.000000 70.000000, -35.000000 0.000000 35.000000, -70.000000 0.000000 70.000000, -35.000000 0.000000 35.000000, -35.000000 0.000000 70.000000, 0.000000 0.000000 35.000000, 0.000000 0.000000 70.000000, 0.000000 0.000000 35.000000, -35.000000 0.000000 70.000000, 0.000000 0.000000 35.000000, 0.000000 0.000000 70.000000, 35.000000 0.000000 35.000000, 35.000000 0.000000 70.000000, 35.000000 0.000000 35.000000, 0.000000 0.000000 70.000000, 35.000000 0.000000 35.000000, 35.000000 0.000000 70.000000, 70.000000 0.000000 35.000000, 70.000000 0.000000 70.000000, 70.000000 0.000000 35.000000, 35.000000 0.000000 70.000000, -70.000000 0.000000 0.000000, -70.000000 0.000000 35.000000, -35.000000 0.000000 0.000000, -35.000000 0.000000 35.000000, -35.000000 0.000000 0.000000, -70.000000 0.000000 35.000000, -35.000000 0.000000 0.000000, -35.000000 0.000000 35.000000, 0.000000 0.000000 0.000000, 0.000000 0.000000 35.000000, 0.000000 0.000000 0.000000, -35.000000 0.000000 35.000000, 0.000000 0.000000 0.000000, 0.000000 0.000000 35.000000, 35.000000 0.000000 0.000000, 35.000000 0.000000 35.000000, 35.000000 0.000000 0.000000, 0.000000 0.000000 35.000000, 35.000000 0.000000 0.000000, 35.000000 0.000000 35.000000, 70.000000 0.000000 0.000000, 70.000000 0.000000 35.000000, 70.000000 0.000000 0.000000, 35.000000 0.000000 35.000000, -70.000000 0.000000 -35.000000, -70.000000 0.000000 0.000000, -35.000000 0.000000 -35.000000, -35.000000 0.000000 0.000000, -35.000000 0.000000 -35.000000, -70.000000 0.000000 0.000000, -35.000000 0.000000 -35.000000, -35.000000 0.000000 0.000000, 0.000000 0.000000 -35.000000, 0.000000 0.000000 0.000000, 0.000000 0.000000 -35.000000, -35.000000 0.000000 0.000000, 0.000000 0.000000 -35.000000, 0.000000 0.000000 0.000000, 35.000000 0.000000 -35.000000, 35.000000 0.000000 0.000000, 35.000000 0.000000 -35.000000, 0.000000 0.000000 0.000000, 35.000000 0.000000 -35.000000, 35.000000 0.000000 0.000000, 70.000000 0.000000 -35.000000, 70.000000 0.000000 0.000000, 70.000000 0.000000 -35.000000, 35.000000 0.000000 0.000000, -70.000000 0.000000 -70.000000, -70.000000 0.000000 -35.000000, -35.000000 0.000000 -70.000000, -35.000000 0.000000 -35.000000, -35.000000 0.000000 -70.000000, -70.000000 0.000000 -35.000000, -35.000000 0.000000 -70.000000, -35.000000 0.000000 -35.000000, 0.000000 0.000000 -70.000000, 0.000000 0.000000 -35.000000, 0.000000 0.000000 -70.000000, -35.000000 0.000000 -35.000000, 0.000000 0.000000 -70.000000, 0.000000 0.000000 -35.000000, 35.000000 0.000000 -70.000000, 35.000000 0.000000 -35.000000, 35.000000 0.000000 -70.000000, 0.000000 0.000000 -35.000000, 35.000000 0.000000 -70.000000, 35.000000 0.000000 -35.000000, 70.000000 0.000000 -70.000000, 70.000000 0.000000 -35.000000, 70.000000 0.000000 -70.000000, 35.000000 0.000000 -35.000000'></Coordinate>
+                        <Normal vector='0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000, 0.000000 1.000000 0.000000'></Normal>
+                    </IndexedFaceSet>
+                </Shape>
+            </Transform>
+ 
+ 
+   <Transform translation='0 0 -6'>
+ <! -- сыр-->
+<Shape>
+          <Appearance>
+             <ImageTexture url="https://avatanplus.com/files/resources/mid/5726276da566d1546d0a046d.png"></ImageTexture>
+             <Texturetransform scale="0.5 0.5"></Texturetransform>
+            <Material></Material>
+          </Appearance>
+          <IndexedTriangleSet index='0 1 2 3 4 5 6 7 8' solid='false'>
+            <Coordinate point='-8 1 3, -2 2 1.5, -3 4 0.5, 
+                               -2 3 1.5, 0 6 0, 2 3 1.5, 
+                               5 5 -2.5, 4 3 1.5, 6 4 2'></Coordinate>
+            
+
+          </IndexedTriangleSet>
+        </Shape>
+      </Transform>
+
+        <Transform translation='0 -10 4'>
+          <Shape>
+            <Appearance>
+               <ImageTexture url="https://avatanplus.com/files/resources/mid/5726276da566d1546d0a046d.png"></ImageTexture>
+             <Texturetransform scale="0.5 0.5"></Texturetransform>
+              <Material></Material>
+            </Appearance>
+            <IndexedTriangleSet index='0 1 2 3 4 5 6 7 8' solid='false' colorPerVertex='false'>
+              <Coordinate point='-4 1 3, -2 2 1.5, -3 4 0.5, 
+                                 -2 3 1.5, 0 4 0, 2 3 1.5, 
+                                 5 5 -2.5, 4 3 1.5, 3 1 0'></Coordinate>
+             
+            </IndexedTriangleSet>
+          </Shape>
+        </Transform>
+
+<Anchor url="https://ru.wikipedia.org/wiki/%D0%94%D0%B6%D0%B5%D1%80%D1%80%D0%B8_(%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6)">
+<Group DEF="Jerry">
+  <Transform DEF="Jerryy">
+      <shape> 
+        <! -- голова-->
+           <Appearance>
+           <Material diffuseColor="#8B4513"></Material>  
+          </Appearance>
+          <Sphere radius="3"></Sphere>
+        </shape>
+
+<transform translation="0 -1.9 0" scale='1.6 1 1.5'>
+         <shape> 
+        <! -- голова низ-->
+           <Appearance>
+           <Material diffuseColor="#8B4513"></Material>  
+          </Appearance>
+          <Sphere radius="1.9"></Sphere>
+        </shape>
+      </transform>
+
+      <transform translation="-3 1 0.26" scale='1.7 1.7 0.3' rotation="0 1 1 -0.75 ">
+         <shape> 
+        <! -- ухо лево-->
+           <Appearance>
+           <Material diffuseColor="#8B4513"></Material>  
+          </Appearance>
+          <Sphere radius="1.75"></Sphere>
+        </shape>
+      </transform>
+
+       <transform translation="-3 1 0.49" scale='1.7 1.7 0.3' rotation="0 1 1 -0.75 ">
+         <shape> 
+        <! -- ухо лево внутреннее-->
+           <Appearance>
+           <Material diffuseColor="#FFB6C1"></Material>  
+          </Appearance>
+          <Sphere radius="1.6"></Sphere>
+        </shape>
+      </transform>
+
+       <transform translation="3 1 0.26" scale='1.7 1.7 0.3' rotation="0 1 1 0.75 ">
+         <shape> 
+        <! -- ухо право-->
+           <Appearance>
+           <Material diffuseColor="#8B4513"></Material>  
+          </Appearance>
+          <Sphere radius="1.75"></Sphere>
+        </shape>
+      </transform>
+
+      <transform translation="3 1 0.49" scale='1.7 1.7 0.3' rotation="0 1 1 0.75 ">
+         <shape> 
+        <! -- ухо право внутреннее-->
+           <Appearance>
+           <Material diffuseColor="#FFB6C1"></Material>  
+          </Appearance>
+          <Sphere radius="1.6"></Sphere>
+        </shape>
+      </transform>
+
+      <transform translation="0 -1.9 2.1" scale='1.2 1.2 1'>
+         <shape> 
+        <! -- мордочка-->
+           <Appearance>
+           <Material diffuseColor="white"></Material>  
+          </Appearance>
+          <Sphere radius="1"></Sphere>
+        </shape>
+      </transform>
+
+       <transform translation="-0.4 -1.8 2.6" scale='1.6 1 1'>
+         <shape> 
+        <! -- мордочка мини лево-->
+           <Appearance>
+           <Material diffuseColor="white"></Material>  
+          </Appearance>
+          <Sphere radius="0.6"></Sphere>
+        </shape>
+      </transform>
+
+       <transform translation="0.4 -1.8 2.6" scale='1.6 1 1'>
+         <shape> 
+        <! -- мордочка мини право-->
+           <Appearance>
+           <Material diffuseColor="white"></Material>  
+          </Appearance>
+          <Sphere radius="0.6"></Sphere>
+        </shape>
+      </transform>
+
+      <transform translation="-0.5 -1.4 3" scale='1.6 1 1' rotation="0 0 1 1.2">
+         <shape DEF='us'> 
+        <! -- ус 1 лево-->
+           <Appearance>
+           <Material diffuseColor="black"></Material>  
+          </Appearance>
+          <Cylinder radius="0.01" height='3'></Cylinder>
+        </shape>
+      </transform>
+
+       <transform translation="-0.65 -1.4 3" scale='1.6 1 1' rotation="0 0 1 1.5">
+         <shape USE='us'> 
+        <! -- ус 2 лево-->
+        </shape>
+      </transform>
+
+       <transform translation="0.65 -1.4 3" scale='1.6 1 1' rotation="0 0 1 -1.5">
+         <shape USE='us'> 
+        <! -- ус 1 право-->
+        </shape>
+      </transform>
+
+          <transform translation="0.65 -1.4 3" scale='1.6 1 1' rotation="0 0 1 -1.2">
+         <shape USE='us'> 
+        <! -- ус 2 право-->
+        </shape>
+      </transform>
+
+       <transform translation="0 -1.31 3" scale='1.4 1 1'>
+         <shape> 
+        <! -- нос-->
+           <Appearance>
+           <Material diffuseColor="black"></Material>  
+          </Appearance>
+          <Sphere radius="0.2"></Sphere>
+        </shape>
+      </transform>
+
+
+
+<transform translation="0 -6 0" scale='1 1.5 1'>
+         <shape> 
+        <! -- тело-->
+           <Appearance>
+           <Material diffuseColor="#8B4513"></Material>  
+          </Appearance>
+          <Sphere radius="2.2"></Sphere>
+        </shape>
+      </transform>
+
+<transform translation="0 -7 -0.4" scale='1 1 1'>
+         <shape> 
+        <! -- тело 2-->
+           <Appearance>
+           <Material diffuseColor="#8B4513"></Material>  
+          </Appearance>
+          <Sphere radius="2.2"></Sphere>
+        </shape>
+      </transform>
+
+      <transform translation="0 -5.8 -3.5" scale='1 1 1' rotation="1 1 0 -0.9">
+         <shape> 
+        <! -- хвост-->
+           <Appearance>
+           <Material diffuseColor="#8B4513"></Material>  
+          </Appearance>
+         <Cone height="6.5" bottomRadius="0.15"></Cone>
+        </shape>
+      </transform>
+
+<transform translation="0.6,0,1.7" scale= "0.9 1.2 1">
+          <shape>
+            <! -- глаз1-->
+          <Appearance>
+           <Material diffuseColor="white"></Material>  
+         </Appearance>
+            <Sphere radius="1.35" ></Sphere>
+            </shape>
+          </transform>
+
+            <Transform translation="-1.2 1 2.5" scale="1 1 1" rotation="0 0 1 0.7" >     <!--Ресница 1 левый глаз-->  
+        <Shape DEF='resnitsa'>
+          <Appearance>
+            <Material diffuseColor='#000000'></Material>
+          </Appearance>
+          <Cylinder radius="0.02" height="2"></Cylinder>
+        </Shape>
+        </Transform>
+
+ <Transform translation="-1 1 2.5" scale="1 1 1" rotation="0 0 1 0.5" >     <!--Ресница 2 левый глаз-->  
+        <Shape USE='resnitsa'>
+        </Shape>
+        </Transform>
+
+    <Transform translation="1 1 2.5" scale="1 1 1" rotation="0 0 1 -0.5" >     
+      <!--Ресница 1 правый глаз-->  
+        <Shape USE='resnitsa'>
+        </Shape>
+        </Transform>
+
+        <Transform translation="1.2 1 2.5" scale="1 1 1" rotation="0 0 1 -0.7" >     
+          <!--Ресница 2 правый глаз-->  
+        <Shape USE='resnitsa'>
+        </Shape>
+        </Transform>
+       
+        
+<transform translation="-0.6,0,1.7" scale= "0.9 1.2 1">
+            <shape> 
+            <! -- глаз2-->
+          <Appearance>
+           <Material diffuseColor="white"> </Material>  
+         </Appearance>
+          <Sphere radius="1.35" ></Sphere>
+        </shape>
+          </transform>
+
+
+
+<transform translation="0.8 -0.5 2.7"  scale= "1 1.9 1">          
+            <shape> 
+            <! -- зрачок1-->
+          <Appearance>
+            <Material diffuseColor="black"></Material>  
+         </Appearance>
+           <Sphere radius="0.3" ></Sphere>
+         </shape>
+          </transform>
+
+<transform translation="-0.8 -0.5 2.7"  scale= "1 1.9 1">          
+            <shape> 
+            <! -- зрачок2-->
+          <Appearance>
+           <Material diffuseColor="black"></Material>  
+         </Appearance>
+           <Sphere radius="0.3" ></Sphere>
+         </shape>
+          </transform>
+
+<transform translation="-1.1 1 2.3" rotation="1 0 1 0.3 ">
+  <shape> 
+            <! -- бровь1-->
+          <Appearance>
+           <Material diffuseColor="black"></Material>  
+         </Appearance>
+           <Torus innerRadius="0.05" outerRadius="0.4" ></Torus>
+</shape>
+</transform>
+
+<transform translation="1.1 1 2.3" rotation="1 0 1 0.3">
+  <shape> 
+            <! -- бровь2-->
+          <Appearance>
+           <Material diffuseColor="black"></Material>  
+         </Appearance>
+           <Torus innerRadius="0.05" outerRadius="0.4" ></Torus>
+</shape>
+</transform>
+
+<transform translation="0 -1.55 2.8" rotation="1,0,0 -0.52 ">
+  <shape> 
+            <! -- рот-->
+          <Appearance>
+           <Material diffuseColor="black"></Material>  
+         </Appearance>
+           <Torus innerRadius="0.05" outerRadius="0.7" ></Torus>
+</shape>
+</transform>
+
+           <Transform  translation="-4 -6.3 0.3" scale= "1.5 1.3 1.3">    
+            <!--Левая ручка нижняя часть -->  
+        <Shape DEF='ruka'>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Sphere radius="0.54"></Sphere>
+        </Shape>
+        </Transform>
+
+         <Transform translation="-4.8 -6.2 0.3" scale= "2.9 1 1" rotation="0 0 1 0.5">  
+            <!--палец 1 лево -->  
+        <Shape DEF='palets'>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Sphere radius="0.2"></Sphere>
+        </Shape>
+        </Transform>
+
+         <Transform translation="-4.7 -6.5 0.3" scale= "2.9 1 1" rotation="0 0 1 0.5">  
+            <!--палец 2 лево -->  
+        <Shape USE='palets'>
+        </Shape>
+        </Transform>
+
+           <Transform translation="-4.54 -6.8 0.3" scale= "2.9 1 1" rotation="0 0 1 0.5">
+            <!--палец 3 лево -->  
+        <Shape USE='palets'>
+        </Shape>
+        </Transform>
+
+         <Transform translation="-4.1 -6.9 0.3" scale= "2.9 1 1" rotation="0 0 1 0.8">
+            <!--палец 4 лево -->  
+        <Shape USE='palets'>
+        </Shape>
+        </Transform>
+
+
+         <Transform translation="4 -6.3 -0.3" scale= "1.5 1.3 1.3">
+            <!--рука нижняя право -->  
+        <Shape USE='ruka'>
+        </Shape>
+        </Transform>
+   
+       <Transform translation="4.1 -6.9 -0.3" scale= "2.9 1 1" rotation="0 0 1 -0.8">
+            <!--палец 1 право -->  
+        <Shape USE='palets'>
+        </Shape>
+        </Transform>
+        
+          <Transform translation="4.7 -6.5 -0.3" scale= "2.9 1 1" rotation="0 0 1 -0.5">
+            <!--палец 2 право -->  
+        <Shape USE='palets'>
+        </Shape>
+        </Transform>
+
+         <Transform translation="4.54 -6.8 -0.3" scale= "2.9 1 1" rotation="0 0 1 -0.5">
+            <!--палец 3 право -->  
+        <Shape USE='palets'>
+        </Shape>
+        </Transform>
+
+         <Transform translation="4.8 -6.2 -0.3" scale= "2.9 1 1" rotation="0 0 1 -0.5">
+            <!--палец 4 право -->  
+        <Shape USE='palets'>
+        </Shape>
+        </Transform>
+
+          <Transform translation="-1 -3.9 0.3" rotation="0 0 1 -0.9" scale="1.2 0.7 1.5">     <!--Левая рука верхняя часть-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Cone Bottomradius="0.55" height="10"></Cone>
+        </Shape>
+        </Transform>
+
+         <Transform translation="1 -3.9 -0.3" rotation="0 0 1 0.9" scale="1.2 0.7 1.5">     <!--Правая рука верхняя часть-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Cone Bottomradius="0.55" height="10"></Cone>
+        </Shape>
+        </Transform>
+
+
+
+         <Transform translation="0.7 -10 -0.2" >     <!--Ножка длинная правая-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Cylinder radius="0.6" height="2.7"></Cylinder>
+        </Shape>
+        </Transform>
+
+        
+
+  <Transform translation="-0.7 -10 -0.2" >     <!--Ножка длинная левая-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Cylinder radius="0.6" height="2.7"></Cylinder>
+        </Shape>
+        </Transform>
+
+  
+ 
+ <Transform translation="1.4 -11 0.2" scale="2.5 1 1.5" rotation="0 1 0 -0.707">     <!--Лапка стопа правый-->  
+        <Shape>
+
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Sphere radius="0.6"></Sphere>
+        </Shape>
+        </Transform>
+
+
+<Transform translation="-1.4 -11 0.2" scale="2.5 1 1.5" rotation="0 1 0 0.707">     <!--Лапка стопа левый-->  
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='#8B4513'></Material>
+          </Appearance>
+          <Sphere radius="0.6"></Sphere>
+        </Shape>
+        </Transform>
+
+      </Transform>
+</Group>
+</Anchor>
+
+<timeSensor DEF='clock4' cycleInterval='1' loop='true'></timeSensor>
+<PositionInterpolator DEF='PosInt3' key='0 0.25 0.5 0.7 1' keyValue='0 2 0, 0 0 0 , 0 2 0, 0 0 0, 0 2 0'></PositionInterpolator>
+<ROUTE fromNode='clock4' fromField='fraction_changed' 
+               toNode='PosInt3' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt3' fromField='value_changed' 
+               toNode='Jerryy' toField='set_translation'>
+             </ROUTE>
+
+
+
+<Transform DEF="LittleJerry" translation="-10 -7 0" scale="0.4 0.4 0.4" rotation="0 1 0 0.707">
+  <Shape USE='Jerry'> </Shape>
+</Transform>
+
+<timeSensor DEF='clock3' cycleInterval='5' loop='true'></timeSensor>
+<PositionInterpolator DEF='PosInt2' key='0 0.25 0.5 0.7 1' keyValue='-10 -7 0, -20 -7 0 , -20 -7 0, -20 -7 -6, -10 -7 0'></PositionInterpolator>
+<ROUTE fromNode='clock3' fromField='fraction_changed' 
+               toNode='PosInt2' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt2' fromField='value_changed' 
+               toNode='LittleJerry' toField='set_translation'>
+             </ROUTE>
+
+
+<Transform DEF="door" translation="0 -2 8.5" scale="4 4.6 4">
+       <Shape>
+          <Appearance>
+            <ImageTexture url="https://avatanplus.com/files/resources/mid/5b827f0f5e3f016575c0541a.jpg"></ImageTexture>
+            <Material diffuseColor='orange'></Material>
+          </Appearance>
+          <Box size="6 6 0.5"></Box>
+        </Shape>
+      </Transform>
+
+      <timeSensor DEF='clock2' cycleInterval='5' loop='true'></timeSensor>
+<PositionInterpolator DEF='PosInt1' key='0 0.25 0.5 1' keyValue='0 0 50, 0 -2 8.5 , 0 -2 8.5, 0 0 50'></PositionInterpolator>
+<ROUTE fromNode='clock2' fromField='fraction_changed' 
+               toNode='PosInt1' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt1' fromField='value_changed' 
+               toNode='door' toField='set_translation'>
+             </ROUTE>
+
+<Transform DEF="lovushka" translation="-3 -2 0" scale="6 6 6">
+          <Shape>
+            <Appearance>
+              <ImageTexture url="https://avatanplus.com/files/resources/mid/5b827f0f5e3f016575c0541a.jpg"></ImageTexture>
+              <Material></Material>
+            </Appearance>
+            <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" solid="false" 
+                            coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 6 7 3 2 -1" 
+                            colorIndex="0 1 2 3 -1 4 5 6 0 -1 1 2 3 4 -1 5 6 0 1 -1">
+              <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2"></Coordinate>
+              <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1"></Color>
+            </IndexedFaceSet>
+          </Shape>
+        </Transform>
+
+        <timeSensor DEF='clock1' cycleInterval='5' loop='true'></timeSensor>
+<PositionInterpolator DEF='PosInt' key='0 0.25 0.5 1' keyValue='0 0 0, 0 -12 0,0 -12 0, 0 0 0'></PositionInterpolator>
+<ROUTE fromNode='clock1' fromField='fraction_changed' 
+               toNode='PosInt' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt' fromField='value_changed' 
+               toNode='lovushka' toField='set_translation'>
+             </ROUTE>
+
+
+    </Scene>
+  </X3D>
+   
+</body>
+
 </html>
