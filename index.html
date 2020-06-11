@@ -8,6 +8,125 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <h1>Welcome</h1>
+		<script>
+			function Switch(id){
+			var light = document.getElementById(id);
+			if(light.getAttribute('on')!='TRUE')
+			light.setAttribute('on','TRUE');
+			else
+			light.setAttribute('on','FALSE');
+			}
+			function headlight()
+			{
+			var h = document.getElementById("head");
+			if(h.getAttribute('headlight')=='true')
+			h.setAttribute('headlight', 'false');
+			else
+			h.setAttribute('headlight', 'true');
+			}
+		</script>
+		<div id="content">
+			<x3d width='1280px' height='720px'>
+				<scene>
+					<shape DEF='MyBox'>
+						<Appearance>
+							<Material diffuseColor = '0.80 0.67 0.0'></Material>
+						</Appearance>
+						<IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+							creaseAngle="0" solid="false"
+							coordIndex="0 3 2 1 -1 0 4 5 1 -1 1 5 6 2 -1 2 6 7 3 -1 0 3 7 4 -1 4 5 6 7 -1"
+							<!---->
+							<Coordinate point="-2 0 -2, -2 0 2, 2 0 2, 2 0 -2, -2 4 -2, -2 4 2, 2 4 2, 2 4 -2"></Coordinate>
+						</IndexedFaceSet>
+					</shape>
+					<Anchor url='0.png'>
+						<shape DEF='Hat'>
+							<Appearance>
+								<Material diffuseColor = "0.55 0.4 0.55"></Material>
+							</Appearance>
+							<IndexedFaceSet ccw="true" convex="true"
+								creaseAngle="0" solid="false"
+								coordIndex="0 1 2 3 4 5 6 7 -1 8 9 10 11 12 13 14 15 -1 0 8 9 1 -1 1 9 10 2 -1 2 10 11 3 -1 4 12 13 5 -1 3 11 12 4 -1 5 13 14 6 -1 6 14 15 7 -1 7 15 8 0 -1"
+								<!---->
+								<Coordinate point="0 4.01 1.25, 1 4.01 1, 1.25 4.01 0, 1 4.01 -1, 
+									0 4.01 -1.25, -1 4.01 -1, -1.25 4.01 0, -1 4.01 1,  0 5 0.75, 
+									0.5 5 0.5, 0.75 5 0, 0.5 5 -0.5, 0 5 -0.75, -0.5 5 -0.5, 
+									-0.75 5 0, -0.5 5 0.5"></Coordinate>
+							</IndexedFaceSet>
+						</shape>
+					</Anchor>
+					<shape DEF='TRoad'> 
+						<IndexedTriangleStripSet index=' 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 -1' solid='false'>
+							<Coordinate point='-4 0 0, -5 0 -2, -3 0 -2, -4 2 -4, 
+												-2 0 -4, -2 2 -6, 0 .1 -5, 0 .1 -7, 
+												2 2 -6, 0 .1 -5, 2 0 -4, 2 2 -6, 
+												4 2 -4, 2 0 -4, 3 0 -2, 4 2 -4, 
+												5 0 -2, 3 0 -2, 4 0 0'></Coordinate>
+							<ColorRGBA color='0 1 0 1, 1 1 0 1, 0 0 1 1, .5 0 .5 1, 1 0 0 1, 1 0 1 1, 1 0 1 1, .5 0 0 1, 1 0 1 1, 1 1 0 1, 1 0 0 1, 1 0 1 1, .5 0 .5 1, 1 0 0 1, 1 1 0 1, .5 0 .5 1, 1 1 0 1, 0 0 1 1, 0 1 0 1'></ColorRGBA>
+						</IndexedTriangleStripSet>
+					</shape>
+					<Transform translation="0 0 0" rotation="1 0 0 -1.6">
+						<Shape DEF='Plane'>
+							<Appearance>
+								<Material diffuseColor="0.5 0.5 0.5"></Material>
+								<ImageTexture  url='https://img1.akspic.ru/image/110737-tekstura-nalozhenie_tekstury-rok-kamennaya_stena-bulyzhnik-1920x1080.jpg?attachment=1'></ImageTexture/>
+							</Appearance>
+							<plane solid="false" size="20 20"></plane>
+						</Shape>
+					</Transform>
+					<navigationInfo id="head" headlight='true' type="FLY" speed="10"></navigationInfo>
+					<background skyColor="0 0 0" ></background>
+					<Fog id="fog" color='1 1 1' fogType='"EXPONENTIAL"' visibilityRange='80'></Fog>
+					<Viewpoint position="0 8 10" orientation="-1 0 0 0.5"></Viewpoint>
+					<directionalLight id="direct" direction='0 5 0' on ="true" intensity='0.9' shadowIntensity='0' color='0 1 .5' ambientIntensity='0.5'></directionalLight>
+					<PointLight id='point' on='TRUE' intensity='1' ambientIntensity='0.5' color='1 1 0' location='0 7 0 ' attenuation='1 0 0' radius='7'> </PointLight>
+					<SpotLight id='spot' on ="TRUE" intensity ='1' beamWidth='0' color='1 0 0' cutOffAngle='0' location='5 3 4' radius='20' DEF='Slight' direction='5 -50 4'></SpotLight>	
+					<Collision DEF="MyCollisionNode" enabled="true">
+						<Group DEF="MyCollidableGroup">
+							<Transform translation="0 0 0" rotation="1 0 0 -1.6">
+								<Shape USE='Plane'></Shape>
+							</Transform>
+							<Shape USE='TRoad'></Shape>
+							<Shape USE='Hat'></Shape>
+							<Shape USE='MyBox'></Shape>
+						</Group>
+					</Collision>
+					<TimeSensor DEF="Time" cycleInterval="5" loop="true" enabled = "true"></TimeSensor>
+					<PositionInterpolator DEF="PosInt" key="0 0.125 0.25 0.375 0.5 0.625 0.75 0.875 1" 
+					keyValue="5 -50 4, 3 -50 6, 0 -50 7, -3 -50 6, -5 -50 4, -3 -50 6, 0 -50 7, 3 -50 6, 5 -50 4"></PositionInterpolator>
+					<PositionInterpolator DEF="PosInt1" key="0 0.125 0.25 0.375 0.5 0.625 0.75 0.875 1" 
+					keyValue="5 3 4, 3 3 6, 0 3 7, -3 3 6, -5 3 4, -3 3 6, 0 3 7, 3 3 6, 5 3 4"></PositionInterpolator>
+					<ScalarInterpolator DEF="ScInt" key="0 .25 .5 .75 1"
+					keyValue=".8 1.1 1 .75"></ScalarInterpolator>
+					<ROUTE fromNode="Time" fromField="fraction_changed" 
+						toNode="PosInt" toField="set_fraction"></ROUTE>
+					<ROUTE fromNode="PosInt" fromField="value_changed" 
+						toNode="Slight" toField="set_direction"></ROUTE>
+					<ROUTE fromNode="Time" fromField="fraction_changed" 
+						toNode="PosInt1" toField="set_fraction"></ROUTE>
+					<ROUTE fromNode="PosInt1" fromField="value_changed" 
+						toNode="Slight" toField="set_location"></ROUTE>
+					<ROUTE fromNode="Time" fromField="fraction_changed" 
+						toNode="ScInt" toField="set_fraction"></ROUTE>
+					<ROUTE fromNode="ScInt" fromField="value_changed" 
+						toNode="Slight" toField="set_beamWidth"></ROUTE>
+					<ROUTE fromNode="Time" fromField="fraction_changed" 
+						toNode="ScInt" toField="set_fraction"></ROUTE>
+					<ROUTE fromNode="ScInt" fromField="value_changed" 
+						toNode="Slight" toField="set_cutOffAngle"></ROUTE>
+				</scene>
+			</x3d>
+			<div id="tools" style="width: 1280px;">
+				<input type="checkbox" checked="true" onclick="Switch('point')">
+				<label>point light</label>
+				<input type="checkbox" checked="true" onclick="Switch('spot')">
+				<label>spot light</label>
+				<input type="checkbox" checked="true" onclick="Switch('direct')">
+				<label>directional light</label>
+				<input type="checkbox" checked="true" onclick="headlight()">
+				<label>headlight</label>
+			</div>
+		</div>
   </body> 
 </html>
