@@ -19,16 +19,16 @@
     <scene>
      <Fog visibilityRange='100' fogType= "Linear"></Fog>
      <PointLight location="10 10 10" color="1 1 1" intensity="1" shadowIntensity="0.7" shadowMapSize="512"></PointLight>
-     <Viewpoint position='5 3 40' orientation="10 1 10" centerOfRotation="10 1 1 0" ></Viewpoint> 
+     <Viewpoint position='5 3 40' orientation="10 1 10" centerOfRotation="10 1 1 0"></Viewpoint> 
      <Background 
-     frontUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
-     backUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
-     bottomUrl="https://pp.userapi.com/c855720/v855720137/efc2/N4M-3bK8GWQ.jpg" 
-     leftUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
-     rightUrl="https://lh3.googleusercontent.com/proxy/uAVIFQjTZSb0ccYL4t10Cxe3V_Rx3z-H_X4oMFciOgKCgAzo2ASMjzg0ga9qBzQPnYmnaMAq8F9cWqrw1lqga-mKS6GyNQ" 
+     frontUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
+     backUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
+     bottomUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
+     leftUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
+     rightUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
      topUrl="https://pp.userapi.com/c855720/v855720137/effa/g3e2LDwlAco.jpg">
    </Background>
-   <Transform translation="-10 -2.4 -10" rotation="0 0 0 0">  <!----basis---->
+   <Transform translation="-10 -2.4 -10" rotation="0 0 0 0">                                            <!----basis---->
     <Shape>
       <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" normalPerVertex="true" solid="false" 
       coordIndex='1 2 3 0 -1'
@@ -58,34 +58,34 @@
             <Material></Material>
             <ImageTexture url="https://2.bp.blogspot.com/-wbMKGGOgO3Y/XAFWLtRdmLI/AAAAAAAALi8/3HD7Hr3PRXwu3yFnx8M4IdkvEembSDrJACLcBGAs/s640/metall_setka_treschiny_carapiny_chb_tekstura_1920x1200.jpg" repeatS="true" repeatT="true"></ImageTexture>
             <TextureTransform rotation='1.5708' scale="1 1" translation='0.33 0.5'></TextureTransform>
-            </appearance>
-            <cylinder radius = "1" height = "4.3" ></cylinder>
-          </shape> 
-        </Transform>
-        <ROUTE fromNode='Time2' fromField='fraction_changed' 
-        toNode='PosInt' toField='set_fraction'>
-      </ROUTE>
-      <ROUTE fromNode='PosInt' fromField='value_changed' 
-      toNode='Trans' toField='set_translation'>
+          </appearance>
+          <cylinder radius = "1" height = "4.3" ></cylinder>
+        </shape> 
+      </Transform>
+      <ROUTE fromNode='Time2' fromField='fraction_changed' 
+      toNode='PosInt' toField='set_fraction'>
     </ROUTE>
-  </Anchor> 
-  <TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--train platform--->
-  <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '></PositionInterpolator>
-  <transform translation='-1.2 0.87  0' rotation='1 0 0 0'> 
-   <Transform DEF='Trans'>
-     <shape DEF = "Box">
-       <appearance>
-         <material diffuseColor='#000000'></material>
-       </appearance>
-       <box size="0.5 6 2"></box>
-     </shape>
-     <ROUTE fromNode='Time2' fromField='fraction_changed' 
-     toNode='PosInt' toField='set_fraction'>
-   </ROUTE>
-   <ROUTE fromNode='PosInt' fromField='value_changed' 
-   toNode='Trans' toField='set_translation'>
+    <ROUTE fromNode='PosInt' fromField='value_changed' 
+    toNode='Trans' toField='set_translation'>
+  </ROUTE>
+</Anchor> 
+<TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--train platform--->
+<PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '></PositionInterpolator>
+<transform translation='-1.2 0.87  0' rotation='1 0 0 0'> 
+ <Transform DEF='Trans'>
+   <shape DEF = "Box">
+     <appearance>
+       <material diffuseColor='#000000'></material>
+     </appearance>
+     <box size="0.5 6 2"></box>
+   </shape>
+   <ROUTE fromNode='Time2' fromField='fraction_changed' 
+   toNode='PosInt' toField='set_fraction'>
  </ROUTE>
- <transform translation='1.5 2 0' rotation='1 0 0 0'>  <!--cabin--->
+ <ROUTE fromNode='PosInt' fromField='value_changed' 
+ toNode='Trans' toField='set_translation'>
+</ROUTE>
+<transform translation='1.5 2 0' rotation='1 0 0 0'>  <!--cabin--->
   <shape DEF = "Cabin" >
    <appearance>
      <material diffuseColor='#800000'></material>
@@ -111,7 +111,6 @@
   </transform>
 </transform>
 </transform>
-</Transform>
 </transform>
 </transform>
 <TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--front part-->                       
@@ -338,6 +337,7 @@ toNode='Trans' toField='set_translation'>
    <box size="1.7 1.5 0.2"></box>
  </shape>
 </transform>
+</Transform>
 </Transform>
 </Group>
 <transform translation="0 -0.3 0" rotation=" 0 0 0.01 1.57">
