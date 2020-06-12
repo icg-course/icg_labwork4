@@ -21,11 +21,11 @@
      <PointLight location="10 10 10" color="1 1 1" intensity="1" shadowIntensity="0.7" shadowMapSize="512"></PointLight>
      <Viewpoint position='5 3 40' orientation="10 1 10" centerOfRotation="10 1 1 0"></Viewpoint> 
      <Background 
-     frontUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
-     backUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
-     bottomUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
-     leftUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
-     rightUrl="https://lh3.googleusercontent.com/proxy/l17y_tRzDnqpKCRYDBmBu_ypnVS0RKMAPpg5PtCad6u_wsrjOlWImaMDCeJkEUEtw3ZM1U2ayYAV8H5Zljs_bzdH0cZ06lu-StywQ-R7d6yM83KeRtI" 
+     frontUrl="https://lh3.googleusercontent.com/proxy/MxxZeMtyK8n7ss8BQlN7kncAgITExEO_aS0yNJcLl24bzlEemC54x5qziPFjjudxiTgMmgNq16spIdbM63PDd8rJoLa6HWMOvY4" 
+     backUrl="https://lh3.googleusercontent.com/proxy/MxxZeMtyK8n7ss8BQlN7kncAgITExEO_aS0yNJcLl24bzlEemC54x5qziPFjjudxiTgMmgNq16spIdbM63PDd8rJoLa6HWMOvY4" 
+     bottomUrl="https://lh3.googleusercontent.com/proxy/MxxZeMtyK8n7ss8BQlN7kncAgITExEO_aS0yNJcLl24bzlEemC54x5qziPFjjudxiTgMmgNq16spIdbM63PDd8rJoLa6HWMOvY4" 
+     leftUrl="https://lh3.googleusercontent.com/proxy/MxxZeMtyK8n7ss8BQlN7kncAgITExEO_aS0yNJcLl24bzlEemC54x5qziPFjjudxiTgMmgNq16spIdbM63PDd8rJoLa6HWMOvY4" 
+     rightUrl="https://lh3.googleusercontent.com/proxy/MxxZeMtyK8n7ss8BQlN7kncAgITExEO_aS0yNJcLl24bzlEemC54x5qziPFjjudxiTgMmgNq16spIdbM63PDd8rJoLa6HWMOvY4" 
      topUrl="https://pp.userapi.com/c855720/v855720137/effa/g3e2LDwlAco.jpg">
    </Background>
    <Transform translation="-10 -2.4 -10" rotation="0 0 0 0">                                            <!----basis---->
@@ -92,26 +92,24 @@
    </appearance>
    <box size="2.5 2 2"></box>
  </shape>  <!--funnel--->             
- <transform  translation = '0 0 0'>
-   <transform translation='1.1 -4 0' rotation='0 0 1 7.9'>                     
-    <shape DEF = "Cone">
+ <transform translation='1.1 -4 0' rotation='0 0 1 7.9'>                     
+  <shape DEF = "Cone">
+    <appearance>
+      <material diffuseColor='#600000'></material>
+    </appearance>
+    <cone bottomRadius='0.4' height='0.9' topRadius='0.1' ></cone>
+  </shape>
+  <transform translation='-0.50 3 0' rotation='0 0.75 0 -2.4'>  <!--track cleaner-->   
+    <shape DEF = "Snout">
       <appearance>
-        <material diffuseColor='#600000'></material>
+        <material diffuseColor='#008000'></material>
       </appearance>
-      <cone bottomRadius='0.4' height='0.9' topRadius='0.1' ></cone>
+      <snout dbottom='0.5' dtop='2.5' height='1.2' xoff='1' yoff='1'></snout> 
     </shape>
-    <transform translation='-0.50 3 0' rotation='0 0.75 0 -2.4'>  <!--track cleaner-->   
-      <shape DEF = "Snout">
-        <appearance>
-          <material diffuseColor='#008000'></material>
-        </appearance>
-        <snout dbottom='0.5' dtop='2.5' height='1.2' xoff='1' yoff='1'></snout> 
-      </shape>
-    </transform>
   </transform>
+</transform>
+</transform>
 </Transform>
-</transform>
-</transform>
 </transform>
 <TimeSensor DEF='Time2' cycleInterval='12' loop='true' enabled='true'></TimeSensor>  <!--front part-->                       
 <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1' keyValue='0 -20 0 , 0 6 0, 0 6 0, 0 6 0, 0 -20 0 '></PositionInterpolator>
