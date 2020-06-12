@@ -27,9 +27,6 @@
         <TimeSensor DEF="TimeColor" cycleInterval="5" loop="true"></TimeSensor>
         <ColorInterpolator DEF="ColInt" key="0 0.33 0.66 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0"></ColorInterpolator>
 
-
-
-
           <transform translation="0 3.5 0">
             <Shape>
               <!--Текст-->
@@ -38,14 +35,14 @@
               </Appearance>
               <text length="10" maxExtent="10" string="Лабораторная работа 4">
                 <FontStyle family="SANS" horizontal="true" justify="MIDDLE" language="ru"
-                leftToRight="true" size="0.5" spacing="1" style="ITALIC" topBottom="true">
+                leftToRight="true" size="0.5" spacing="1" style="ITALIC" topBottom="true"></FontStyle>
               </text>
             </Shape>
           </transform>
       <transform translation='-2 -2.5 -2.5' rotation='0 0 0 0'>
         <Shape>
         <Appearance>
-        <ImageTexture url=trava.jpg>
+        <ImageTexture url="trava.jpg"></ImageTexture>
         </Appearance>
         <ElevationGrid xDimension="5" zDimension="6"
         height="0, 0.15, 0, 0.15, 0,
@@ -62,7 +59,7 @@
         <transform translation="-2.2 -2.4 0" rotation="1 0 0 -1.57">
           <shape>
             <Appearance>
-              <ImageTexture url=raketa.jpg>
+              <ImageTexture url="raketa.jpg"></ImageTexture>
               </Appearance>
             <IndexedTriangleSet index="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20" solid="false">
               <Coordinate point="0.5 0 0.5, 1.5 0 0.5, 1.5 0 1.5, 2.5 0 0.5, 2.5 0 1.5, 3.5 0 0.5, 1.5 0 1, 2.5 0 1, 2.5 0 2, 1.5 0 1, 1.5 0 2, 2.5 0 2, 1.5 0 2, 1.5 0 3, 2.5 0 2, 1.5 0 3, 2.5 0 3, 2.5 0 2, 1 0 3, 2 0 4, 3 0 3"></Coordinate>
@@ -72,7 +69,7 @@
         <transform translation='-0.25 -2.4 0' rotation='0 0 0 0'>
           <Shape>
             <Appearance>
-              <ImageTexture url=fire.jpg>
+              <ImageTexture url="fire.jpg"></ImageTexture>
               </Appearance>
             <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
             creaseAngle="0" solid="false"
