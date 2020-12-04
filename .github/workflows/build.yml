@@ -1,0 +1,23 @@
+name: Labwork 4 check
+on:
+  push:
+    branches: [ gh-pages ]
+    paths: 
+      - '**.html'
+  pull_request:
+    branches: [ gh-pages ]
+    paths: 
+      - '**.html'
+  workflow_dispatch:
+jobs:  
+  build:
+    name: XML verification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+      - name: Install dependencies
+        run: npm install -g fast-xml-parser
+      - name: Validate X3D
+        run: xml2js -V *.html
