@@ -1,8 +1,8 @@
 ﻿<html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Lab4</title>
-    <link rel="stylesheet" href="My%20first%20X3DOM%20page_files/x3dom.css">
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <link rel="stylesheet" href="Lab4_files/x3dom.htm">
+    <script src="Lab4_files/x3dom.js"></script>
 </head>
       <body>
               <x3d width="1024px" height="1024px" id="abc" style="width: 1024px; height: 1024px;">
@@ -11,105 +11,105 @@
                       <timesensor id="Time" def="Time" cycleinterval="5" loop="true" enabled="true" first="true"></timesensor>
                       <positioninterpolator def="PosInt" key="0 0.25 0.5 0.75 1" keyvalue="-1.6 1.1 0, -1.6 2.4 0, -.3 2.4 0, -.3 1.1 0, -1.6 1.1 0 " interpolation="LINEAR"></positioninterpolator>
                       <orientationinterpolator def="OrientInt" key="0.04 0.2 0.24 0.5 0.54 0.75 0.79 0.96 1" keyvalue="0 0 1 1.67, 0 0 1 1.57 ,0 0 1 0, 0 0 1 0, 0 0 1 -1.57, 0 0 1 -1.57, 0 0 1 -3.14, 0 0 1 -3.14, 0 0 1 -4.81" interpolation="LINEAR"></orientationinterpolator>
-                      <colorInterpolator def="ColorInt" key="0 0.5 1" keyvalue="#6666BB #555599 #6666BB" interpolation="LINEAR" duration="1"></colorInterpolator>
+                      <colorinterpolator def="ColorInt" key="0 0.5 1" keyvalue="#6666BB #555599 #6666BB" interpolation="LINEAR" duration="1"></colorinterpolator>
 
 
 
-                      <Transform DEF="FISH" rotation="0 1 0 1.57">
-                          <transform rotation="0 1 0 1.57" DEF="F1">
-                              <transform scale="1 1 0.1" rotation="1 0 0 1.57" translation="0,0,0">
+                      <transform def="FISH" rotation="0 1 0 1.57" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" translation="0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                          <transform rotation="0 1 0 1.57" def="F1" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" translation="0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <transform scale="1 1 0.1" rotation="1 0 0 1.57" translation="0,0,0" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" scaleorientation="0,0,0,0">
                                   <!-- body -->
-                                  <shape>
-                                      <sphere radius=".1" subdivision="24,24"></sphere>
-                                      <appearance>
+                                  <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                      <sphere radius=".1" subdivision="24,24" solid="true" ccw="true" usegeocache="true" lit="true"></sphere>
+                                      <appearance sorttype="auto" alphaclipthreshold="0.1">
                                           <material diffusecolor="red" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                       </appearance>
                                   </shape>
 
                                   <!-- tail -->
-                                  <transform translation="0 -.1 0">
-                                      <shape>
-                                          <cone bottomradius=".1" height=".2" subdivision="32"></cone>
-                                          <appearance>
+                                  <transform translation="0 -.1 0" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                                      <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                          <cone bottomradius=".1" height=".2" subdivision="32" solid="true" ccw="true" usegeocache="true" lit="true" bottom="true" side="true" top="true"></cone>
+                                          <appearance sorttype="auto" alphaclipthreshold="0.1">
                                               <material diffusecolor="blue" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                           </appearance>
                                       </shape>
                                   </transform>
                               </transform>
                           </transform>
-                      </Transform>
+                      </transform>
 
 
-                      <transform translation="-1 2 0" SCALE="1.5 1.5 1.5">
-                          <transform translation="1 1 0">
-                              <shape>
-                                  <box size=".03 .03 2.2"></box>
-                                  <appearance>
+                      <transform translation="-1 2 0" scale="1.5 1.5 1.5" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scaleorientation="0,0,0,0">
+                          <transform translation="1 1 0" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size=".03 .03 2.2" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
-                          <transform :scale="s" translation="-1 1 0" render="true" visible="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scaleorientation="0,0,0,0">
-                              <shape>
-                                  <box size=".03 .03 2.2"></box>
-                                  <appearance>
+                          <transform :scale="s" translation="-1 1 0" render="true" visible="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scaleorientation="0,0,0,0" scale="1,1,1">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size=".03 .03 2.2" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
-                          <transform translation="1 -1 0">
-                              <shape>
-                                  <box size=".03 .03 2.2"></box>
-                                  <appearance>
+                          <transform translation="1 -1 0" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size=".03 .03 2.2" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
-                          <transform translation="-1 -1 0">
-                              <shape>
-                                  <box size=".03,.03,2.2"></box>
-                                  <appearance>
+                          <transform translation="-1 -1 0" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size=".03,.03,2.2" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
-                          <transform translation="0 -1 -1">
-                              <shape>
-                                  <box size="2 .03 .03"></box>
-                                  <appearance>
+                          <transform translation="0 -1 -1" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size="2 .03 .03" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
-                          <transform translation="0 1 -1">
-                              <shape>
-                                  <box size="2 .03 .03"></box>
-                                  <appearance>
+                          <transform translation="0 1 -1" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size="2 .03 .03" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
-                          <transform translation="1 0 -1">
-                              <shape>
-                                  <box size=".03,2,.03"></box>
-                                  <appearance>
+                          <transform translation="1 0 -1" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size=".03,2,.03" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
-                          <transform translation="-1 0 -1">
-                              <shape>
-                                  <box size=".03,2,.03"></box>
-                                  <appearance>
+                          <transform translation="-1 0 -1" render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
+                              <shape render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
+                                  <box size=".03,2,.03" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                                  <appearance sorttype="auto" alphaclipthreshold="0.1">
                                       <material diffusecolor="#000" ambientintensity="0.2" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                                   </appearance>
                               </shape>
                           </transform>
 
                           <shape render="true" visible="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" ispickable="true">
-                              <box size="2,2,2"></box>
-                              <appearance>
-                                  <material DEF="myMaterial" transparency="0.15" ></material>
+                              <box size="2,2,2" solid="true" ccw="true" usegeocache="true" lit="true"></box>
+                              <appearance sorttype="auto" alphaclipthreshold="0.1">
+                                  <material def="myMaterial" transparency="0.15" ambientintensity="0.2" diffusecolor="0.8,0.8,0.8" emissivecolor="0,0,0" shininess="0.2" specularcolor="0,0,0"></material>
                               </appearance>
                           </shape>
                           <transform translation=".9 -1.6 0" def="Trans" render="true" visible="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" center="0,0,0" rotation="0,0,0,0" scale="1,1,1" scaleorientation="0,0,0,0">
@@ -131,17 +131,29 @@
                       <route fromnode="OrientInt" fromfield="value_changed" tonode="FISH" tofield="set_rotation">
                       </route>
 
-                      <ColorInterpolator DEF='myColor' key='0.0 0.333 0.666 1.0' keyValue='.7 .9 1, .7 .98 .9 , .2 .85 .8, .7 .9 1' />
-                      <ScalarInterpolator DEF="myScalar" key="0 0.5 1" keyValue="0.15 0.75 0.15"></ScalarInterpolator>
+                      <colorinterpolator def="myColor" key="0.0 0.333 0.666 1.0" keyvalue=".7 .9 1, .7 .98 .9 , .2 .85 .8, .7 .9 1" interpolation="LINEAR">
+                      <scalarinterpolator def="myScalar" key="0 0.5 1" keyvalue="0.15 0.75 0.15" interpolation="LINEAR"></scalarinterpolator>
 
 
-                      <route fromNode='Time' fromField='fraction_changed' toNode='myColor' toField='set_fraction'></route>
-                      <ROUTE fromNode='myColor' fromField='value_changed' toNode='myMaterial' toField='set_diffuseColor' ></ROUTE>
+                      <route fromnode="Time" fromfield="fraction_changed" tonode="myColor" tofield="set_fraction"></route>
+                      <route fromnode="myColor" fromfield="value_changed" tonode="myMaterial" tofield="set_diffuseColor"></route>
 
 
-                      <route fromNode='Time' fromField='fraction_changed' toNode='myScalar' toField='set_fraction'></route>
-                      <route fromNode='myScalar' fromField='value_changed' toNode='myMaterial' toField='set_transparency'></route>
+                      <route fromnode="Time" fromfield="fraction_changed" tonode="myScalar" tofield="set_fraction"></route>
+                      <route fromnode="myScalar" fromfield="value_changed" tonode="myMaterial" tofield="set_transparency"></route>
 
-</x3d>
+</colorinterpolator><matrixtransform render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" matrix="1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1"><inline render="false" bboxcenter="0,0,0" bboxsize="-1,-1,-1" url="" load="true" namespacename=""></inline></matrixtransform><matrixtransform render="true" bboxcenter="0,0,0" bboxsize="-1,-1,-1" matrix="1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1"><inline render="false" bboxcenter="0,0,0" bboxsize="-1,-1,-1" url="" load="true" namespacename=""></inline></matrixtransform></scene>
+          </x3d>
+<canvas class="x3dom-canvas" id="x3dom-abc-canvas" style="width: 1024px; height: 1024px;" width="512" height="512" tabindex="0"></canvas><div class="x3dom-log" style="display: none;"><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Ray hit at position -0.23246420187449024 0.5151462872231747 -1.199999719013175</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Hit "shape/ null"</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Time for setup and init of GL element no. 0: 113 ms.</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: activate FogBindable null/defaultX3DFogNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: register FogBindable null/defaultX3DFogNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: create new Fog for X3DFogNode-stack</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: activate ViewpointBindable null/defaultX3DViewpointNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: register ViewpointBindable null/defaultX3DViewpointNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: create new Viewpoint for X3DViewpointNode-stack</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: activate BackgroundBindable null/defaultX3DBackgroundNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: register BackgroundBindable null/defaultX3DBackgroundNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: create new Background for X3DBackgroundNode-stack</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: System ready.</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: activate NavigationInfoBindable null/defaultX3DNavigationInfoNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: register NavigationInfoBindable null/defaultX3DNavigationInfoNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: NavType: undefined</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Switch to examine mode.</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: create new NavigationInfo for X3DNavigationInfoNode-stack</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: activate EnvironmentBindable null/defaultX3DEnvironmentNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: register EnvironmentBindable null/defaultX3DEnvironmentNode</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: create new Environment for X3DEnvironmentNode-stack</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: addEventListener for X3D.onDOMNodeInserted</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: addEventListener for X3D.onDOMNodeRemoved</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO:
+ webgl2 context found
+Vendor: Mozilla Google Inc., Renderer: Mozilla ANGLE (NVIDIA GeForce GTX
+ 1050 Direct3D11 vs_5_0 ps_5_0), Version: WebGL 2.0, ShadingLangV.: 
+WebGL GLSL ES 3.00, MSAA samples: 4
+Extensions: EXT_color_buffer_float, EXT_float_blend, 
+EXT_texture_compression_bptc, EXT_texture_filter_anisotropic, 
+OES_texture_float_linear, OVR_multiview2, WEBGL_compressed_texture_s3tc,
+ WEBGL_compressed_texture_s3tc_srgb, WEBGL_debug_renderer_info, 
+WEBGL_debug_shaders, WEBGL_lose_context</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Initializing X3DCanvas for [x3dom-abc-canvas]</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Inline X3D styles detected</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Creating canvas for (X)3D element...</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: Found 1 X3D and nodes...</p><p style="margin: 0px; color: rgb(0, 255, 0);">INFO: X3DOM version 1.8.1, Revison <a href="https://github.com/x3dom/x3dom/tree/0c742a1a981f8c0a9cbb7059f36c3a6c4cb9fec6">0c742a1a981f8c0a9cbb7059f36c3a6c4cb9fec6</a>, Date Fri Sep 27 18:22:15 2019 +0200</p></div><div id="x3dom-state-viewer" style="display: none;"><div class="x3dom-states-rendermode-hardware"></div><ul class="x3dom-states-list"><li class="x3dom-states-item"><div class="x3dom-states-item-title">FPS</div><div class="x3dom-states-item-value">59.94</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">ANIM</div><div class="x3dom-states-item-value">0.00</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">TRAVERSE</div><div class="x3dom-states-item-value">0.00</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">SORT</div><div class="x3dom-states-item-value">0.00</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">RENDER</div><div class="x3dom-states-item-value">1.00</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">DRAW</div><div class="x3dom-states-item-value">0.08</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">PICKING</div><div class="x3dom-states-item-value">3.00</div></li></ul><ul class="x3dom-states-list"><li class="x3dom-states-item"><div class="x3dom-states-item-title">#NODES:</div><div class="x3dom-states-item-value">34</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">#SHAPES:</div><div class="x3dom-states-item-value">13</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">#DRAWS:</div><div class="x3dom-states-item-value">13</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">#POINTS:</div><div class="x3dom-states-item-value">1,662</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">#TRIS:</div><div class="x3dom-states-item-value">2,600</div></li></ul><ul class="x3dom-states-list"><li class="x3dom-states-item"><div class="x3dom-states-item-title">#ACTIVE</div><div class="x3dom-states-item-value">0</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">#TOTAL</div><div class="x3dom-states-item-value">0</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">#LOADED</div><div class="x3dom-states-item-value">0</div></li><li class="x3dom-states-item"><div class="x3dom-states-item-title">#FAILED</div><div class="x3dom-states-item-value">0</div></li></ul></div><div class="x3dom-progress" style="display: flex; opacity: 0;"><div class="x3dom-progress-spinner"></div><div id="x3domProgessCount">0</div></div><div class="x3dom-vr"></div></x3d>
 
-      </body></html>
+      
+</body></html>
