@@ -1,0 +1,8 @@
+<scene>
+<shape>
+			<appearance>
+				<imagetexture url="v.png"></imagetexture>
+			</appearance>
+			<box size="35 1 20"></box>
+		</shape>
+</scene>

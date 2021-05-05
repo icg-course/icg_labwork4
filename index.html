@@ -3,11 +3,389 @@
   <head>  
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
+    <title>Лабораторная работа 3</title>
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <script src="https://x3dom.org/download/dev/x3dom-full.debug.js"></script>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <x3d width="100vw" height="100vh">   
+		<Scene>
+<!--Навигация кто-как-->
+			<NavigationInfo type="ANY" speed="3" transitionType="ANIMATE" transitionTime="5" avatarSize="0.1 0.1 0.1"></NavigationInfo>
+<!--Туман-->
+			<Fog color="0.8 0.8 0.8" isActive="true" visibilityRange="100"></Fog>
+<DirectionalLight direction='-1 -1 -1' on ="TRUE" intensity='0.2' shadowIntensity='0.5'> </DirectionalLight>
+<!--Начало сцены-->
+<transform translation='-3 0 0'>
+<!--Точки обзора-->
+	<Group DEF="Viewpoint">
+	<Transform rotation='0 1 0 1.25'>
+		<Viewpoint id='view2' position="3 -3 8.5" orientation='1,0,0,0.1' > </Viewpoint>
+	</Transform>
+	<Viewpoint id='view0' position="0.65 0.25 0" orientation='1,0,0,-0.15' > </Viewpoint>
+	<Transform rotation='0 1 0 1.25'>
+		<Viewpoint id='view1' position="3 -4 4" orientation='1,0,0,-0.15' > </Viewpoint>
+	</Transform>
+</Group>
+<!--Точечный свет главная колонна	
+		<PointLight location="0.4 0 -0.4" on='TRUE' intensity="1" shadowIntensity="0.5" radius='4.2'></PointLight>
+<!--Точка направленного спота на главную
+		<Shape>
+			<PointSet>
+			  <Color color="1 0 0"></Color>
+			  <Coordinate point="0.4 0 -5.6"></Coordinate>
+			  </PointSet>
+			</Shape>
+		<SpotLight location="0.4 0 -5.6" intensity="1" direction="0 0.5 1" beamWidth="0.9" cutOffAngle="0.90" radius="7" >
+		</SpotLight>-->
+
+<!--Основное начало сцены, объекты-->
+		<!--Водичка-->
+		<transform translation='0 -5.3 -6'>
+      <Inline url='w.x3d'></Inline>
+    	</transform>
+		<!--колонки-->
+		<Group DEF="Левая колонна">
+			<shape DEF="колонки">
+				<appearance>
+					<imagetexture url="m.png"></imagetexture>
+				</appearance>
+				<box size="0.2 1 0.2"></box>
+			</shape>
+				<transform translation='0.8 0 0'>
+					<shape USE="колонки">
+					</shape>
+				<transform translation='0 0 -0.8'>
+					<shape USE="колонки">
+					</shape>
+				<transform translation='-0.8 0 0'>
+					<shape USE="колонки">
+					</shape>
+				</transform>
+			</transform>
+		</transform>
+		<!--верхушка колонок-->
+				<transform translation='0.4 0.55 -0.4'>
+				<shape>
+					<appearance>
+						<imagetexture url="up.png"></imagetexture>
+					</appearance>
+					<box size="1.1 0.1 1.1"></box>
+				</shape>
+				<transform translation='0 0.125 0'>
+				<shape>
+					<appearance>
+						<imagetexture url="up.png"></imagetexture>
+					</appearance>
+					<cylinder height="0.15" radius='0.55'></cylinder>
+				</shape>
+				<transform translation='0 0.15 0'>
+<!--Анимешечка таблички-->
+                <TimeSensor DEF="Time" cycleInterval="10" loop="true"></TimeSensor>
+                <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+                keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28">
+                </OrientationInterpolator>
+        
+        
+                <Transform DEF="Trans">
+                    <Transform translation='0 0.425 0'>
+                  <Shape>
+                    <appearance>
+                        <imagetexture url="1.jpg"></imagetexture>
+                    </appearance>
+                    <Box size="1 1 1"></Box>
+                    </Shape>
+                    <Transform translation='0 0.5 0'>
+                        <Shape>
+                          <appearance>
+                            <material diffuseColor='#696969'></material>
+                          </appearance>
+                          <Box size="1 0.005 1"></Box>
+                          </Shape>
+                      <Transform translation='0 -1 0'>
+                        <Shape>
+                          <appearance>
+                            <material diffuseColor='#696969'></material>
+                          </appearance>
+                          <Box size="1 0.005 1"></Box>
+                          </Shape>
+                        </Transform>
+                      </Transform>
+                </Transform>
+                  </Transform>
+        
+                <ROUTE fromNode="Time" fromField="fraction_changed"
+                toNode="OrientInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed"
+                toNode="Trans" toField="set_rotation"></ROUTE>
+<!--END.-->
+				</transform>
+			</transform>
+		</transform>
+		<!--колонна с установкой верхушки и лампы-->
+				<transform translation='0.4 -2.5 -0.4'>
+					<shape>
+						<appearance>
+							<imagetexture url="r1.png"></imagetexture>
+						</appearance>
+						<box size="1.2 4 1.2"></box>
+					</shape>
+					<transform translation='0 2.1 0'>
+					<shape>
+						<appearance>
+							<material diffuseColor='#696969'></material>
+						</appearance>
+						<box size="0.4 0.2 0.4"></box>
+					</shape>
+<!--Добавил анимашечку света в лампах-->
+                    <TimeSensor DEF="Time" cycleInterval="3" loop="true">
+                    </TimeSensor>
+                    <ColorInterpolator DEF="ColInt" key="0 0.20 0.40 0.60 0.80 1"
+                    keyValue="1 1 0, 1 0.8 0.1, 1 0.8 0, 1 0.5 0, 1 0.8 0, 1 0.8 0.1">
+                    </ColorInterpolator>
+					<transform translation='0 0.3 0'>
+						<shape>
+							<appearance>
+								<material DEF="Mat" diffuseColor="1 1 0"></material>
+							</appearance>
+							<box size="0.2 0.4 0.2"></box>
+						</shape>
+			</transform>
+            <ROUTE fromNode="Time" fromField="fraction_changed"
+            toNode="ColInt" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="ColInt" fromField="value_changed"
+            toNode="Mat" toField="set_diffuseColor"></ROUTE>
+<!--вот тут закончилась-->
+		</transform>
+	</transform>
+	<!--дно колонны, боксы для тросов-->
+	<transform translation='0.4 -4.8 -0.4' scale='7 1 2'>
+		<shape>
+			<appearance>
+				<material diffuseColor="#de5918"></material>
+			</appearance>
+			<cone bottomRadius="1" height='2'></cone>
+		</shape>
+	</transform>
+	<transform translation='1.1 -0.8 -0.4'>
+		<shape>
+			<appearance>
+				<imagetexture url="m.png"></imagetexture>
+			</appearance>
+			<box size="0.2 0.5 0.2"></box>
+		</shape>
+		<transform translation='-1.4 0 0'>
+			<shape>
+				<appearance>
+					<imagetexture url="m.png"></imagetexture>
+				</appearance>
+				<box size="0.2 0.5 0.2"></box>
+			</shape>
+		</transform>
+	</transform>
+</Group>
+	<!--троса-->
+	<transform translation='2.2 -2.2 -0.8' rotation='0 1 1 0.95'>
+		<shape>
+			<appearance>
+				<imagetexture url="t.png"></imagetexture>
+			</appearance>
+			<cylinder height="3.5" radius='0.02'></cylinder>
+		</shape>
+		<ransform translation='0.48 -0.5 0.61' rotation='-1 0 1 0.3'>
+			<shape>
+				<appearance>
+					<imagetexture url="t.png"></imagetexture>
+				</appearance>
+				<cylinder height="4.9" radius='0.02'></cylinder>
+			</shape>
+		</ransform>
+	</transform>
+	<transform translation='-1.3 -2.2 -0.8' rotation='0 -1 -1 0.95'>
+		<shape>
+			<appearance>
+				<imagetexture url="t.png"></imagetexture>
+			</appearance>
+			<cylinder height="3.5" radius='0.02'></cylinder>
+		</shape>
+	</transform>
+
+	<!--дорога 1-->
+	<group DEF="Дорога">
+
+        <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+        <CoordinateInterpolator DEF="CoordInt" key="0 0.25 0.50 0.75 1" 
+        keyValue="0 0 0, 0 0.1 0, 0 0 -4, 0 0.1 -4, 7 0 0, 7 0.1 0, 7 0 -4, 7 0.1 -4,
+                  0 0 0, 0 0.1 0, 0 0 -4, 0 0.1 -4, 7 1 0, 7 1.1 0, 7 1 -4, 7 1.1 -4,
+                  0 0 0, 0 0.1 0, 0 0 -4, 0 0.1 -4, 7 0 0, 7 0.1 0, 7 0 -4, 7 0.1 -4,
+                  0 0 0, 0 0.1 0, 0 0 -4, 0 0.1 -4, 7 1 0, 7 1.1 0, 7 1 -4, 7 1.1 -4,
+                  0 0 0, 0 0.1 0, 0 0 -4, 0 0.1 -4, 7 0 0, 7 0.1 0, 7 0 -4, 7 0.1 -4">
+        </CoordinateInterpolator>
+
+		<transform translation='0.5 -3.2 -1' rotation='0 0 -1 0.10'>
+        <Shape>
+        <Appearance>
+			<imagetexture url="2.jpg"></imagetexture>
+        </Appearance>
+        <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+        creaseAngle="0" solid="false"
+        coordIndex="0 1 3 2 -1 0 1 5 4 -1 5 4 6 7 -1 6 7 3 2 -1 0 4 6 2 -1 1 3 7 5">
+        <Coordinate DEF="Coord" point="0 0 0, 0 0.1 0, 0 0 -4, 0 0.1 -4, 7 0 0, 7 0.1 0, 7 0 -4, 7 0.1 -4">
+        </Coordinate>
+        </IndexedFaceSet>
+        </Shape>
+
+        <ROUTE fromNode="Time" fromField="fraction_changed"
+        toNode="CoordInt" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="CoordInt" fromField="value_changed"
+        toNode="Coord" toField="set_point"></ROUTE>
+<!--поребрик-1-->
+		<TimeSensor DEF="Time1" cycleInterval="5" loop="true"></TimeSensor>
+		<CoordinateInterpolator DEF="CoordInt1" key="0 0.25 0.50 0.75 1" 
+		keyValue="0 -0.15 0.1, 0 0.15 0.1, 0 -0.15 -0.1, 0 0.15 -0.1, 7 -0.15 0.1, 7 0.15 0.1, 7 -0.15 -0.1, 7 0.15 -0.1,
+				  0 -0.15 0.1, 0 0.15 0.1, 0 -0.15 -0.1, 0 0.15 -0.1, 7 0.85 0.1, 7 1.15 0.1, 7 0.85 -0.1, 7 1.15 -0.1,
+				  0 -0.15 0.1, 0 0.15 0.1, 0 -0.15 -0.1, 0 0.15 -0.1, 7 -0.15 0.1, 7 0.15 0.1, 7 -0.15 -0.1, 7 0.15 -0.1,
+				  0 -0.15 0.1, 0 0.15 0.1, 0 -0.15 -0.1, 0 0.15 -0.1, 7 0.85 0.1, 7 1.15 0.1, 7 0.85 -0.1, 7 1.15 -0.1,
+				  0 -0.15 0.1, 0 0.15 0.1, 0 -0.15 -0.1, 0 0.15 -0.1, 7 -0.15 0.1, 7 0.15 0.1, 7 -0.15 -0.1, 7 0.15 -0.1">
+		</CoordinateInterpolator>
+
+		<Shape>
+		<Appearance>
+			<imagetexture url="b.png"></imagetexture>
+		</Appearance>
+		<IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+		creaseAngle="0" solid="false"
+		coordIndex="0 1 3 2 -1 0 1 5 4 -1 5 4 6 7 -1 6 7 3 2 -1 0 4 6 2 -1 1 3 7 5">
+		<Coordinate DEF="Coord1" point="0 -0.15 0.1, 0 0.15 0.1, 0 -0.15 -0.1, 0 0.15 -0.1, 7 -0.15 0.1, 7 0.15 0.1, 7 -0.15 -0.1, 7 0.15 -0.1">
+		</Coordinate>
+		</IndexedFaceSet>
+		</Shape>
+
+		<ROUTE fromNode="Time1" fromField="fraction_changed"
+		toNode="CoordInt1" toField="set_fraction"></ROUTE>
+		<ROUTE fromNode="CoordInt1" fromField="value_changed"
+		toNode="Coord1" toField="set_point"></ROUTE>
+<!--поребрик-2-->
+		<TimeSensor DEF="Time2" cycleInterval="5" loop="true"></TimeSensor>
+		<CoordinateInterpolator DEF="CoordInt2" key="0 0.25 0.50 0.75 1" 
+		keyValue="0 -0.15 -4.1, 0 0.15 -4.1, 0 -0.15 -3.9, 0 0.15 -3.9, 7 -0.15 -4.1, 7 0.15 -4.1, 7 -0.15 -3.9, 7 0.15 -3.9,
+				  0 -0.15 -4.1, 0 0.15 -4.1, 0 -0.15 -3.9, 0 0.15 -3.9, 7 0.85 -4.1, 7 1.15 -4.1, 7 0.85 -3.9, 7 1.15 -3.9,
+				  0 -0.15 -4.1, 0 0.15 -4.1, 0 -0.15 -3.9, 0 0.15 -3.9, 7 -0.15 -4.1, 7 0.15 -4.1, 7 -0.15 -3.9, 7 0.15 -3.9,
+				  0 -0.15 -4.1, 0 0.15 -4.1, 0 -0.15 -3.9, 0 0.15 -3.9, 7 0.85 -4.1, 7 1.15 -4.1, 7 0.85 -3.9, 7 1.15 -3.9,
+				  0 -0.15 -4.1, 0 0.15 -4.1, 0 -0.15 -3.9, 0 0.15 -3.9, 7 -0.15 -4.1, 7 0.15 -4.1, 7 -0.15 -3.9, 7 0.15 -3.9">
+		</CoordinateInterpolator>
+
+		<Shape>
+		<Appearance>
+			<imagetexture url="b.png"></imagetexture>
+		</Appearance>
+		<IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+		creaseAngle="0" solid="false"
+		coordIndex="0 1 3 2 -1 0 1 5 4 -1 5 4 6 7 -1 6 7 3 2 -1 0 4 6 2 -1 1 3 7 5">
+		<Coordinate DEF="Coord2" point="0 -0.15 -4.1, 0 0.15 -4.1, 0 -0.15 -3.9, 0 0.15 -3.9, 7 -0.15 -4.1, 7 0.15 -4.1, 7 -0.15 -3.9, 7 0.15 -3.9">
+		</Coordinate>
+		</IndexedFaceSet>
+		</Shape>
+		</transform>
+
+		<ROUTE fromNode="Time2" fromField="fraction_changed"
+		toNode="CoordInt2" toField="set_fraction"></ROUTE>
+		<ROUTE fromNode="CoordInt2" fromField="value_changed"
+		toNode="Coord2" toField="set_point"></ROUTE>
+
+		<!--дорога 2-->
+		<transform translation='-3.1 -3.5 -3' rotation='0 0 1 0.10'>
+			<shape>
+				<appearance>
+					<imagetexture url="2.jpg"></imagetexture>
+				</appearance>
+				<box size="7 0.1 4"></box>
+			</shape>
+			<transform translation='0 0 -1.95'>
+				<shape>
+					<appearance>
+						<imagetexture url="b.png"></imagetexture>
+					</appearance>
+					<box size="7 0.3 0.2"></box>
+				</shape>
+			</transform>
+			<transform translation='0 0 1.95'>
+				<shape>
+					<appearance>
+						<imagetexture url="b.png"></imagetexture>
+					</appearance>
+					<box size="7 0.3 0.2"></box>
+				</shape>
+			</transform>
+		</transform>
+				<!--соединение дорог-->
+				<transform translation='0.4 -3.18 -3' rotation='1 0 0 1.57'>
+					<shape>
+						<appearance>
+							<imagetexture url="2.jpg"></imagetexture>
+						</appearance>
+						<cylinder height="4" radius='0.1'></cylinder>
+					</shape>
+				</transform>
+	</group>
+	</transform>
+
+	<transform translation='-3 0 -5.2'>
+		<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!клонирование начинается здесь!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+		<Group USE="Левая колонна"></Group>
+<!--троса-->
+<transform translation='2.2 -2.2 0' rotation='0 -1 1 0.95'>
+<shape>
+	<appearance>
+		<imagetexture url="t.png"></imagetexture>
+	</appearance>
+	<cylinder height="3.5" radius='0.02'></cylinder>
+</shape>
+</transform>
+<transform translation='-1.3 -2.2 0' rotation='0 1 -1 0.95'>
+<shape>
+	<appearance>
+		<imagetexture url="t.png"></imagetexture>
+	</appearance>
+	<cylinder height="3.5" radius='0.02'></cylinder>
+</shape>
+</transform>
+	</transform>
+	<!--боковая башня-->
+	<transform translation='-2.6 -3.5 0.2'>
+        <Group DEF="пристройка">
+        <shape>
+			<appearance>
+				<imagetexture url="r1.png"></imagetexture>
+			</appearance>
+			<cylinder height="3" radius='0.4'></cylinder>
+		</shape>
+		<transform translation='0 1.85 0'>
+		<shape>
+			<appearance>
+				<imagetexture url="u.png"></imagetexture>
+			</appearance>
+			<cone bottomRadius='0.4' height="0.7" ></cone>
+		</shape>
+		</transform>
+    </Group>
+	</transform>
+	<transform translation='-2.6 -3.5 -6.2'>
+		<Group USE="пристройка"></Group>
+	</transform>
+	<!--текст-->
+	<Transform translation="-2.5 0 -0.7 " rotation="0 1 0 1.57">
+    <Anchor url="https://github.com/Vladimir-Legkii">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor="0 0 0.6"></Material>
+          </Appearance>
+          <Text string="Вова 4841" solid="false"></Text>
+		  <FontStyle size="1" style="ITALIC" family="Lucida Sans Typewriter"></FontStyle>
+        </Shape>
+      </Anchor>
+      </Transform>
+		</Scene>
+    </x3d>
+</body>
 </html>
