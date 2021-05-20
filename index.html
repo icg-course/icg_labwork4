@@ -1,13 +1,341 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<html>
+
+<head>
+  <title>Лабораторная №4</title>
+  <script type='text/javascript' src='https://www.x3dom.org/download/dev/x3dom-full.js'>
+  </script>
+  <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'>
+  </link>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <x3d width='100vw' height='100vh'>
+    <scene>
+      <!-- viewpoint -->
+      <Viewpoint position="0 5 9" orientation="-0.99913 0.03983 0.01267 0.24889" zNear="0"
+        zFar="0" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+        description="defaultX3DViewpointNode"></Viewpoint>
+
+      <navigationinfo headlight='false' visibilityLimit='0.0' avatarSize='[1 5 2]' speed='1.0' transitionTIme='1.0'
+        type='[ANY]'></navigationinfo>
+
+
+      <collision enabled='true'>
+
+        <TimeSensor DEF="Time_0" cycleInterval="3" loop="true" enabled="true"></TimeSensor>
+
+        <PositionInterpolator DEF="PosInt_0" key="0 0.32 0.64 1"
+                              keyValue="-5 3 -0.95, -4.5 3 -0.95, -4 3 -0.95, -5 3 -0.95">
+        </PositionInterpolator>
+
+        <!-- Играй -->
+        <transform DEF="Text1" translation="0 2 -0.9">
+          <shape>
+            <appearance>
+              <material DEF="Colr1" diffuseColor="#00ff00"></material>
+            </appearance>
+              <Text  string ="Играй"></Text>
+              <fontstyle family="Helvetica sansserif"></fontstyle>
+          </shape>     
+        </transform>  
+
+        <!-- Анимация "ИГРАЙ" -->
+        <ROUTE fromNode="Time_0" fromField="fraction_changed"
+            toNode="PosInt_0" toField="set_fraction"></ROUTE>
+
+        <ROUTE fromNode="PosInt_0" fromField="value_changed"
+            toNode="Text1" toField="set_translation"></ROUTE>
+
+        <PositionInterpolator DEF="PosInt_1" key="0 0.32 0.64 1"
+                              keyValue="2 3 -0.95, 1.5 3 -0.95, 1 3 -0.95, 2 3 -0.95">
+        </PositionInterpolator>
+
+            <!-- Гармонь-->
+        <transform DEF="Text2" translation="0 2 -0.9">
+          <shape>
+            <appearance>
+              <material DEF="Colr2" diffuseColor="#00ff00"></material>
+            </appearance>
+              <Text  string ="Гармонь"></Text>
+              <fontstyle family="Helvetica sansserif"></fontstyle>
+          </shape>     
+        </transform>  
+
+
+        <!-- Анимация "ИГРАЙ" -->
+        <ROUTE fromNode="Time_0" fromField="fraction_changed"
+            toNode="PosInt_1" toField="set_fraction"></ROUTE>
+
+        <ROUTE fromNode="PosInt_1" fromField="value_changed"
+            toNode="Text2" toField="set_translation"></ROUTE>
+
+        <!-- Анимация цвета -->
+        <ColorInterpolator DEF="ColInt" key="0 0.16 0.32 0.48 0.64 0.8 1"
+        keyValue="1 0 0, 0.3 1 0, 0 0 1, 1 0.1 0.4, 1 0 1, 0 1 0.3, 0 0.4 1">
+        </ColorInterpolator>
+
+        <ROUTE fromNode="Time_0" fromField="fraction_changed"
+        toNode="ColInt" toField="set_fraction"></ROUTE>
+
+        <ROUTE fromNode="ColInt" fromField="value_changed"
+        toNode="Colr1" toField="set_diffuseColor"></ROUTE>
+
+        <ROUTE fromNode="ColInt" fromField="value_changed"
+        toNode="Colr2" toField="set_diffuseColor"></ROUTE>
+
+
+        <group DEF="Main_scene">
+          
+          <!-- гитара -->
+          <transform DEF='guitar1' rotation='0 1 0 1.57' Translation = "0 0 1">
+            <transform DEF='guitar2' rotation='0 0 1 1.57'>
+              <Group DEF='guitar'>
+                <!-- фронтальная дека -->
+                <shape DEF='desk'>
+                  <appearance>
+                    <imagetexture url='wood.jpg'></imagetexture>
+                    <texturetransform></texturetransform>
+                  </appearance>
+                  <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                    coordIndex="0 1 2 3 4 5 11 10 9 8 7 6 -1" colorIndex="0 0 0 1 1 1 1 1 1 0 0 0 -1">
+                    <Coordinate point="0 0.25 0.5, 0.5 0.25 1, 1.5 0.25 1, 2 0.25 0.75, 2.5 0.25 0.9, 3 0.25 0.5,
+                                0 0.25 -0.5, 0.5 0.25 -1, 1.5 0.25 -1, 2 0.25 -0.75, 2.5 0.25 -0.9, 3 0.25 -0.5, ">
+                    </Coordinate>
+                    <Color color="0.39 0.26 0.13, 0.59 0.29 0, 0.59 0.46 0.33"></Color>
+                  </IndexedFaceSet>
+                </shape>
+                <!-- задняя дека -->
+                <transform>
+                  <shape DEF='backdesk'>
+                    <appearance>
+                      <imagetexture url='wood.jpg'></imagetexture>
+                      <texturetransform scale='1 1'></texturetransform>
+                    </appearance>
+                    <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                      coordIndex="0 1 2 3 4 5 11 10 9 8 7 6 -1" colorIndex="0 0 0 1 1 1 1 1 1 0 0 0 -1">
+                      <Coordinate point="0 -0.25 0.5, 0.5 -0.25 1, 1.5 -0.25 1, 2 -0.25 0.75, 2.5 -0.25 0.9, 3 -0.25 0.5,
+                             0 -0.25 -0.5, 0.5 -0.25 -1, 1.5 -0.25 -1, 2 -0.25 -0.75, 2.5 -0.25 -0.9, 3 -0.25 -0.5 ">
+                      </Coordinate>
+                      <Color color="0.39 0.26 0.13, 0.59 0.29 0, 0.59 0.46 0.33"></Color>
+                    </IndexedFaceSet>
+                  </shape>
+                </transform>
+                <!-- отверстие -->
+                <transform translation='1.25 0.22 0 '>
+                  <shape>
+                    <appearance>
+                      <material diffusecolor='0 0 0'></material>
+                    </appearance>
+                    <cylinder radius='0.3' height='0.1'></cylinder>
+                  </shape>
+                </transform>
+                <!-- торцы деки -->
+                <transform>
+                  <shape>
+                    <appearance>
+                      <imagetexture url='blackwood.jpg'></imagetexture>
+                      <texturetransform></texturetransform>
+                    </appearance>
+                    <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                      coordIndex="0 1 13 12 -1 1 2 14 13 -1 2 3 15 14 -1 3 4 16 15 -1 4 5 17 16 -1
+                                                   5 6 18 17 -1 6 7 19 18 -1 7 8 20 19 -1 8 9 21 20 -1 9 10 22 21 -1
+                                                   10 11 23 22 -1 11 0 12 23 -1" colorIndex="0 0 0 1 -1 0 0 0 1 -1 0 0 0 1 -1 0 0 0 1 -1 0 0 0 1 -1 0 0 0 1 -1 0 0 0 1
+                                                  -1 0 0 0 1 -1 0 0 0 1 -1 0 0 0 1 -1 0 0 0 1 -1 0 0 0 1 -1">
+                      <Coordinate point="0 0.25 0.5, 0.5 0.25 1, 1.5 0.25 1, 2 0.25 0.75, 2.5 0.25 0.9, 3 0.25 0.5,
+                          3 0.25 -0.5, 2.5 0.25 -0.9, 2 0.25 -0.75, 1.5 0.25 -1, 0.5 0.25 -1, 0 0.25 -0.5,
+                          0 -0.25 0.5, 0.5 -0.25 1, 1.5 -0.25 1, 2 -0.25 0.75, 2.5 -0.25 0.9, 3 -0.25 0.5,
+                          3 -0.25 -0.5, 2.5 -0.25 -0.9, 2 -0.25 -0.75, 1.5 -0.25 -1, 0.5 -0.25 -1, 0 -0.25 -0.5">
+                      </Coordinate>
+                      <Color color="0.39 0.26 0.13, 0.59 0.29 0, 0.59 0.46 0.33"></Color>
+                    </IndexedFaceSet>
+                  </shape>
+                </transform>
+                <!-- гриф -->
+                <transform translation='4 0.14 0'>
+                  <shape>
+                    <appearance>
+                      <imagetexture url='blackwood.jpg'></imagetexture>
+                      <texturetransform></texturetransform>
+                    </appearance>
+                    <box size='2 0.2 0.4'>
+                    </box>
+                  </shape>
+                </transform>
+                <!-- головка грифа -->
+                <transform translation='5.25 0.08 0'>
+                  <shape>
+                    <appearance>
+                      <imagetexture url='wood.jpg'></imagetexture>
+                      <texturetransform></texturetransform>
+                    </appearance>
+                    <box size='0.5 0.34 0.6'>
+                    </box>
+                  </shape>
+                </transform>
+                <!-- колки -->
+                <transform>
+                  <shape>
+                    <IndexedTriangleSet index="0 1 2 3 4 5 6 7 8" solid="false">
+                      <Coordinate point="5.05 0.1 0.4, 5.1 0.1 0.27, 5.15 0.1 0.4,
+                                5.2 0.1 0.4, 5.25 0.1 0.27, 5.3 0.1 0.4,
+                                5.35 0.1 0.4, 5.4 0.1 0.27, 5.45 0.1 0.4">
+                      </Coordinate>
+
+                      <ColorRGBA color=" 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1,
+                                        0.75 0.75 0.75 1 , 0.75 0.75 0.75 1, 0.75 0.75 0.75 1,
+                                        0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1">
+                      </ColorRGBA>
+                    </IndexedTriangleSet>
+                  </shape>
+                </transform>
+                <!-- колки 2 -->
+                <transform>
+                  <shape>
+                    <IndexedTriangleSet index="0 1 2 3 4 5 6 7 8" solid="false">
+                      <Coordinate point="5.05 0.1 -0.4, 5.1 0.1 -0.27, 5.15 0.1 -0.4,
+                                      5.2 0.1 -0.4, 5.25 0.1 -0.27, 5.3 0.1 -0.4,
+                                      5.35 0.1 -0.4, 5.4 0.1 -0.27, 5.45 0.1 -0.4">
+                      </Coordinate>
+
+                      <ColorRGBA color=" 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1,
+                                              0.75 0.75 0.75 1 , 0.75 0.75 0.75 1, 0.75 0.75 0.75 1,
+                                              0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1">
+                      </ColorRGBA>
+                    </IndexedTriangleSet>
+                  </shape>
+                </transform>
+
+
+                <transform>
+                  <shape>
+                    <IndexedTriangleStripSet index='0 1 2 3 4 -1' solid='false'>
+                      <Coordinate point='0.6 0.29 -0.25, 0.75 0.29 -0.10, 0.6 0.29 0, 0.75 0.29 0.10, 0.6 0.29 0.25'>
+                      </Coordinate>
+                      <ColorRGBA color='0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1,
+                                                    0.75 0.75 0.75 1 , 0.75 0.75 0.75 1'></ColorRGBA>
+                    </IndexedTriangleStripSet>
+                  </shape>
+                </transform>
+                <!-- струны -->
+                <transform>
+                  <shape>
+                    <indexedlineset coordindex='0 6 -1 1 7 -1 2 8 -1 3 9 -1 4 10 -1 5 11 -1'
+                      colorindex='0 0 -1 1 1 -1 2 2 -1 3 3 -1 4 4 -1 5 5 -1' colorpervertex='true'>
+                      <color color='1 0 0, 1 0.45 0, 1 1 0, 0 0.5 0, 0 0 1, 1 0 1'></color>
+                      <coordinate
+                        point='0.65 0.29 -0.14, 0.65 0.29 -0.08,    0.65 0.29 -0.02, 0.65 0.29 0.04,    0.65 0.29 0.10, 0.65 0.29 0.16,
+                       5.25 0.29 -0.14, 5.25 0.29 -0.08,    5.25 0.29 -0.02, 5.25 0.29 0.04,    5.25 0.29 0.10, 5.25 0.29 0.16 '>
+                      </coordinate>
+                    </indexedlineset>
+                  </shape>
+                </transform>
+              </Group>
+            </transform>
+          </transform>
+
+          <!-- Анимация гитары -->
+          <TimeSensor DEF="Time" cycleInterval="2" loop="true" enabled="true"></TimeSensor>
+             <PositionInterpolator DEF="PosInt" key="0 0.32 0.64 1"
+             keyValue="0 1 0, 0 0.45 0, 0 0 0, 0 1 0">
+             </PositionInterpolator>
+             
+          <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+          keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28">
+          </OrientationInterpolator>
+            
+          <ROUTE fromNode="Time" fromField="fraction_changed"
+          toNode="PosInt" toField="set_fraction"></ROUTE>
+          <ROUTE fromNode="PosInt" fromField="value_changed"
+          toNode="guitar1" toField="set_translation"></ROUTE>
+          <ROUTE fromNode="Time" fromField="fraction_changed"
+          toNode="OrientInt" toField="set_fraction"></ROUTE>
+          <ROUTE fromNode="OrientInt" fromField="value_changed"
+          toNode="guitar1" toField="set_rotation"></ROUTE>
+
+
+
+          <!-- комната -->
+
+          <group DEF='room'>
+            <transform DEF="wall_1" translation='0 3 -1'>
+              <shape DEF='wall'>
+                <appearance>
+                  <imagetexture url='wallpapers.jpg'></imagetexture>
+                </appearance>
+                <plane size='15,10' solid='false'></plane>
+              </shape>
+            </transform>
+
+            <transform DEF='wall_2' rotation='0 1 0 -1.57' translation='-7 3 6'>
+              <shape USE='wall'></shape>
+            </transform>
+
+            <transform DEF='wall_3' rotation='0 1 0 -1.57' translation='7 3 6'>
+              <shape USE='wall'></shape>
+            </transform>
+
+            <transform DEF='wall_4' translation='0 3 14'>
+              <shape USE='wall'></shape>
+            </transform>
+
+            <transform DEF='floor_0' translation='0 -1 7' rotation='1 0 0 1.5708'>
+              <shape DEF='floor'>
+                <appearance>
+                  <imagetexture url='floor.jpg'></imagetexture>
+                </appearance>
+                <plane size='16,16' solid='false'></plane>
+              </shape>
+            </transform>
+
+            <transform DEF='ceiling_0' translation='0 8 7' rotation='1 0 0 1.5708'>
+              <shape DEF='ceiling'>
+                <appearance>
+                  <imagetexture url='c.jpg'></imagetexture>
+                </appearance>
+                <plane size='16,16' solid='false'></plane>
+              </shape>
+            </transform>
+
+            <transform translation='0 -0.5 0'>
+              <inline url="zan.x3d"> </inline>
+            </transform>
+          </group>
+
+
+
+        </group>
+      </collision>
+
+      <Group DEF="Light">
+        <PointLight ambientIntensity='0' attenuation='1,1,0' color='1,0,0' global='false' intensity='1' location='0,3,3'
+          on='true' radius='100' shadowFilterSize='0' shadowIntensity='1' shadowMapSize='1024' shadowOffset='0'
+          zFar='-1' zNear='-1'></PointLight>
+
+        <DirectionalLight ambientIntensity='0' color='1,0.1,0' direction='0,-0.1,-2' global='false' intensity='.5'
+          on='true' shadowCascades='1' shadowFilterSize='6' shadowIntensity='1' shadowMapSize='2024' shadowOffset='0'
+          shadowSplitFactor='1' shadowSplitOffset='0.1'></DirectionalLight>
+
+        <SpotLight ambientIntensity='0' attenuation='1,1,0' beamWidth='1.5' color='0.5,0,0.4' cutOffAngle='1'
+          direction='0,-2,0' global='false' intensity='1' location='0,7,0' radius='5' shadowCascades='1'
+          shadowFilterSize='2' shadowIntensity='1' shadowMapSize='1024'></SpotLight>
+        <transform>
+          <Fog bind='true' color='(1,1,1)' fogType='EXPONENTIAL' isActive='true' visibilityRange='45'></Fog>
+        </transform>
+      </Group>
+
+
+      <background skyAngle='1.57' groundAngle='1.57' skyColor='0 0 0.5, 0 0 0.25' groundColor='0 0 1, 0 0 0.75'>
+      </background>
+
+    </scene>
+  </x3d>
+</body>
+
+
 </html>
