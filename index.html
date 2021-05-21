@@ -15,14 +15,14 @@
             <DirectionalLight direction="-0.5 -0.9 0.3" intensity="0.3" color="1 1 1"></DirectionalLight>
 
             <!--Точки наблюдения-->
-            <Viewpoint position='0 2 10'></Viewpoint>
             <Transform rotation="0 0 1 0.3">
                 <Viewpoint position='27 4 50' orientation='0 1 0 1.1'></Viewpoint>
             </Transform>
             <Transform rotation="0 1 0 0.35">
                 <Viewpoint position='0 2.5 -10' orientation='0 1 0 3.14'></Viewpoint>
             </Transform>
-            
+            <Viewpoint position='0 2 10'></Viewpoint>
+
 
             <!--Дорога-->
             <Transform DEF="ground" translation="0 -0.25 5">
@@ -1489,6 +1489,26 @@
                 </Transform>
                 <!--Авто(конец)-->
             </Transform>
+
+            <!--Анимация позиции-->
+            <TimeSensor DEF='Time_1' cycleInterval='20' loop='true' enabled='true'></TimeSensor>
+            <PositionInterpolator DEF='PosInt' key='0 0.2 0.4 0.6 0.8 1' keyValue='0 0 0, 0 0 10, 0 0 20, 0 0 30, 0 0 40, 0 0 50'></PositionInterpolator>
+
+            <ROUTE fromNode='Time_1' fromField='fraction_changed'
+                   toNode='PosInt' toField='set_fraction'>
+            </ROUTE>
+            <ROUTE fromNode='PosInt' fromField='value_changed'
+                   toNode='CAR' toField='set_translation'>
+            </ROUTE>
+
+            <!--Анимация ориентации-->
+            <TimeSensor DEF="Time_2" cycleInterval="4" loop="true"></TimeSensor>
+            <OrientationInterpolator DEF="OrientInt" key='0, 0.5, 1' keyValue='0 0 0 0, 0 1 0 -3.14, 0 1 0 -6.28'></OrientationInterpolator>
+
+            <ROUTE fromNode="Time_2" fromField="fraction_changed"
+                   toNode="OrientInt" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="OrientInt" fromField="value_changed"
+                   toNode="koleso" toField="set_rotation"></ROUTE>
 
 
         </Scene>
