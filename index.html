@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>  
     <meta charset="utf-8" />
@@ -1490,7 +1490,7 @@
         </Transform>
 
         <!--Анимация позиции-->
-        <TimeSensor DEF='Time_1' cycleInterval='2.5' loop='true' enabled='true'></TimeSensor>
+        <TimeSensor DEF='Time_1' cycleInterval='20' loop='true' enabled='true'></TimeSensor>
         <PositionInterpolator DEF='PosInt' key='0 0.2 0.4 0.6 0.8 1' keyValue='0 0 0, 0 0 10, 0 0 20, 0 0 30, 0 0 40, 0 0 50'></PositionInterpolator>
         
         <ROUTE fromNode='Time_1' fromField='fraction_changed' 
@@ -1501,7 +1501,7 @@
         </ROUTE>
 
         <!--Анимация ориентации-->
-        <TimeSensor DEF="Time_2" cycleInterval="0.5" loop="true"></TimeSensor>
+        <TimeSensor DEF="Time_2" cycleInterval="4" loop="true"></TimeSensor>
         <OrientationInterpolator DEF="OrientInt" key='0, 0.5, 1' keyValue='0 0 0 0, 0 1 0 -3.14, 0 1 0 -6.28'></OrientationInterpolator>
 
         <ROUTE fromNode="Time_2" fromField="fraction_changed"
