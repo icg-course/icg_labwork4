@@ -4,10 +4,236 @@
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <script src="https://www.x3dom.org/download/1.8.1/x3dom-full.js"></script>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/1.8.1/x3dom.css"/>
   </head>
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <X3D >
+      <Scene>
+        <!--  --allow-file-access-from-files -->
+        <NavigationInfo id="head" headlight='false' type='"WALK"' isAvtive='true' speed='10' avatar_size='50 160 70'> </NavigationInfo> 
+
+        <!-- камеры -->
+        <Viewpoint orientation='1 0 0 1.2' position='82 -123 120'></Viewpoint>
+        <Viewpoint orientation='1 0 0 0.77' position='101 -56 120'></Viewpoint>
+        <Viewpoint orientation='0.65 -0.31 -0.69 1.5' position='-89 -57 121'></Viewpoint>
+        <Viewpoint orientation='1 0 0 0.44' position='-4 -40 128'></Viewpoint>
+        <Viewpoint orientation='1 0 0 1.57' position='0 -100 100'></Viewpoint>
+
+        <!-- Освещение -->
+        <DirectionalLight id="directional" direction='0.3 0.5 -1' on ="TRUE" intensity='0.25' shadowIntensity='0.6'> </DirectionalLight> 
+        
+        <Fog bind='false' color='(1,1,1)'  fogType='"LINEAR"'  visibilityRange='1000' ></Fog>
+        <Background skyColor='(0,0,0)' transparency='0/1' ></Background> 
+
+        
+        <!-- Пол -->
+        <transform translation="0 0 -47.5">
+          <Shape>
+            <Appearance>
+              <material diffuseColor='0 0 0'></material>
+              <ImageTexture repeatS='true' repeatT='true' scale='true'  url='https://images.freecreatives.com/wp-content/uploads/2016/06/stone-floor-tile-gray-Texture.jpg' ></ImageTexture> 
+              <TextureTransform scale='10, 10'  >
+              </TextureTransform> 
+            </Appearance>
+            <Box size="1000 1000 5"></Box>
+          </Shape>
+        </transform>
+
+        <group DEF='STAND1'>
+          <SpotLight DEF="stand1_light" attenuation='0.2 0 0' beamWidth='0.4' color='1 1 1' cutOffAngle='1.02' direction='0 0 -1' global='false' intensity='1' location='0 0 90' radius='58.3'></SpotLight>
+
+          <!-- скипетр -->
+          <transform rotation="0 0 1 0.7">
+            <transform DEF="scepter_pos" rotation="1 0 0 0.07" translation="0 0 58">
+              <transform DEF="scepter_rot">
+                <inline contentType="model/x3d+xml" url="lab1.x3d"/>
+              </transform>
+            </transform>
+          </transform>
+
+          <!-- Стол -->
+          <group DEF='Table'>
+            <transform translation="-25 0 -2.5">
+              <Shape>
+                <Appearance>
+                  <material diffuseColor='0 0 0'></material>
+                  <ImageTexture repeatS='true' repeatT='true'  url='https://thumbs.dreamstime.com/b/grey-marble-texture-delicate-veins-natural-pattern-backdrop-background-can-also-be-used-create-effect-to-145849461.jpg' ></ImageTexture> 
+                </Appearance>
+                <Box size="5 60 90"></Box>
+              </Shape>
+            </transform>
+            <transform translation="25 0 -2.5">
+              <Shape>
+                <Appearance>
+                  <material diffuseColor='0 0 0'></material>
+                  <ImageTexture repeatS='true' repeatT='true' url='https://thumbs.dreamstime.com/b/grey-marble-texture-delicate-veins-natural-pattern-backdrop-background-can-also-be-used-create-effect-to-145849461.jpg' ></ImageTexture> 
+                </Appearance>
+                <Box size="5 60 90"></Box>
+              </Shape>
+            </transform>
+            <transform translation="0 0 45">
+              <Shape>
+                <Appearance>
+                  <material diffuseColor='0 0 0'></material>
+                  <ImageTexture repeatS='true' repeatT='true' url='https://thumbs.dreamstime.com/b/grey-marble-texture-delicate-veins-natural-pattern-backdrop-background-can-also-be-used-create-effect-to-145849461.jpg' ></ImageTexture>
+                </Appearance>
+                <Box size="55 60 5"></Box>
+              </Shape>
+            </transform>
+          </group>
+
+          <!-- подставка -->
+          <transform rotation='0 0 1 0.707' translation="-14 17 52.5">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.8' ></Material>
+              </Appearance>
+              <Box size="10 10 10"></Box>
+            </Shape>
+          </transform>
+          <transform rotation='0 0 1 0.707' translation="15 -18 51">
+            <Shape>
+              <Appearance>
+                <Material  diffuseColor='0.8 0.8 0.8' ></Material>
+              </Appearance>
+              <Box size="7 7 7"></Box>
+            </Shape>
+          </transform>
+          
+          </group>
+
+        <group DEF='STAND2'>
+
+          <SpotLight DEF="stand2_light" attenuation='0.2 0 0' beamWidth='0.4' color='1 1 1' cutOffAngle='1.02' direction='0 0 -1' global='false' intensity='1' location='100 0 90' radius='58.3'></SpotLight>
+
+          <transform translation='100 0 0'>
+            <shape USE='Table'/>
+          </transform>
+          
+          <!-- Подушка -->
+          <group DEF='Pillow'>
+
+            <transform rotation="1 0 0 -1.57" translation="80 -20 50">
+              <group DEF='Top_pillow'>
+                <Shape>
+                  <Appearance>
+                    <Material diffuseColor='0.9 0.10 0.10'/>
+                  </Appearance>
+                  <ElevationGrid id="Pillow" xDimension="25" zDimension="25" xSpacing="1.6" zSpacing="1.6" 
+                  height="0 0 0 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0 0 0
+                    0 0.8 0.8 0.8 0.8 0.8 0.6 0.8 0.8 0.6 1.0 1.2 1.0 1.0 1.0 1.0 0.6 1.2 1.2 1.0 0.8 0.8 0.8 0.8 0
+                    0 0.8 1.6 1.6 1.6 2.0 1.4 1.8 1.6 1.6 2.0 1.8 1.4 1.6 1.8 1.8 1.8 2.0 2.0 1.8 1.6 1.6 1.6 0.8 0
+                    0 0.8 1.6 2.4 2.4 2.8 2.2 2.2 2.8 2.2 2.8 2.8 2.8 2.6 2.2 2.8 2.2 2.8 2.6 2.2 2.4 2.4 1.6 0.8 0
+                    0 0.8 1.6 2.4 3.2 3.2 3.0 3.4 3.6 3.6 3.2 3.4 3.4 3.0 3.2 3.4 3.2 3.4 3.2 3.6 3.2 2.4 1.6 0.8 0
+                    0.0 0.6 1.4 2.4 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.6 2.2 2.0 0.8 0.0
+                    0.0 1.2 1.8 2.8 3.4 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.4 2.2 1.6 1.2 0.0
+                    0.0 0.8 1.4 2.8 3.6 4.0 4.0 4.0 4.0 4.0 4.0 3.2 3.2 3.2 3.2 4.0 4.0 4.0 4.0 4.0 3.0 2.2 1.8 1.2 0.0
+                    0.0 1.0 1.6 2.6 3.2 4.0 4.0 4.0 4.0 3.2 3.2 4.0 4.0 4.0 4.0 3.2 3.2 4.0 4.0 4.0 3.2 2.8 2.0 0.8 0.0
+                    0.0 1.2 1.4 2.2 3.6 4.0 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 4.0 3.0 2.8 2.0 0.6 0.0
+                    0.0 0.8 1.8 2.2 3.0 4.0 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 4.0 3.0 2.6 2.0 1.0 0.0
+                    0.0 0.8 2.0 2.4 3.0 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 3.6 2.6 1.4 1.0 0.0
+                    0.0 1.0 1.8 2.4 3.4 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 3.6 2.8 1.8 1.0 0.0
+                    0.0 0.6 1.8 2.2 3.6 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 3.2 2.4 1.4 0.6 0.0
+                    0.0 0.6 1.4 2.2 3.6 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 3.6 2.4 1.4 0.8 0.0
+                    0.0 0.6 2.0 2.8 3.2 4.0 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 4.0 3.6 2.8 1.8 0.8 0.0
+                    0.0 0.6 1.4 2.6 3.2 4.0 4.0 4.0 3.2 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 4.0 4.0 3.4 2.4 1.6 0.6 0.0
+                    0.0 0.6 1.8 2.8 3.6 4.0 4.0 4.0 4.0 3.2 3.2 4.0 4.0 4.0 4.0 3.2 3.2 4.0 4.0 4.0 3.6 2.2 1.4 0.8 0.0
+                    0.0 1.0 1.4 2.8 3.0 4.0 4.0 4.0 4.0 4.0 4.0 3.2 3.2 3.2 3.2 4.0 4.0 4.0 4.0 4.0 3.6 2.4 1.6 1.0 0.0
+                    0.0 1.2 1.4 2.6 3.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 4.0 3.4 2.2 1.8 0.6 0.0
+                    0 0.8 1.6 2.4 3.2 3.2 3.0 3.0 3.2 3.2 3.6 3.0 3.0 3.2 3.6 3.0 3.2 3.0 3.4 3.4 3.2 2.4 1.6 0.8 0
+                    0 0.8 1.6 2.4 2.4 2.6 2.4 2.6 2.8 2.4 2.4 2.8 2.4 2.2 2.4 2.6 2.8 2.8 2.6 2.2 2.4 2.4 1.6 0.8 0
+                    0 0.8 1.6 1.6 1.6 2.0 1.6 2.0 1.8 2.0 1.8 1.6 1.6 1.8 1.6 1.6 1.4 2.0 1.8 1.4 1.6 1.6 1.6 0.8 0
+                    0 0.8 0.8 0.8 0.8 1.0 0.8 1.2 1.2 0.6 0.6 0.6 0.6 0.8 1.2 0.6 1.2 0.8 1.2 1.2 0.8 0.8 0.8 0.8 0
+                    0 0 0 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0 0 0">
+                  </ElevationGrid>
+                </Shape>
+              </group>
+            </transform>
+
+            
+            <transform rotation="1 0 0 1.57" translation="80 18.2 50">
+              <Shape use='Top_pillow'/>   
+            </transform>
+
+            <transform  translation="99.4 -1 50">
+              <Shape>
+                <Appearance>
+                  <Material diffuseColor='0.9 0.10 0.10'/>
+                </Appearance>
+                <box size = "38.4 38.4 0.2"></box>
+              </Shape>
+            </transform>  
+          </group>
+          
+          <!-- Значок короны -->
+          <group DEF='Logo_crown'>
+            <transform scale = '0.2 0.2 0.2' translation="96 -15 53" rotation='1 0 0 -2.8'>
+              <shape>
+                <IndexedLineSet coordIndex='0 1 2 3 4 5 6 0'
+                            colorIndex='0 1 2 3 4 5 6'
+                            colorPerVertex='true'>
+                <Coordinate point="0 0 0, 6.3 5.1 0, 11.8 -2.4 0, 15.3 5.1 0, 21.1 0 0, 17 10.1 0, 3.6 10.1 0"></Coordinate>
+                <Color color="1 0.8 0, 1 0.8 0, 1 0.8 0, 1 0.8 0, 1 0.8 0, 1 0.8 0, 1 0.8 0"></Color>
+                </IndexedLineSet>
+              </shape>
+            </transform>
+          </group>
+
+          <!-- корона -->
+          <transform DEF='crown_move' translation="0 0 0" >
+            <transform DEF='crown_rotate' scale = "9.5 9.5 9.5" translation="99 -2 53">
+              <inline contentType="model/x3d+xml" url="crown.x3d"/>
+            </transform>
+          </transform>
+        </group>
+
+        <!-- анимация скипетра-->
+        <TimeSensor id="timer_scepter" DEF="Time1" cycleInterval="15" loop="true" enabled="true"></TimeSensor>
+        <PositionInterpolator DEF="PosSk" key="0 0.20 0.80 0.9 1"
+                    keyValue="0 0 58, 0 0 78, 0 0 78, 0 0 58, 0 0 58"></PositionInterpolator>
+
+        <OrientationInterpolator DEF="OrientSk1" key="0 0.20 0.80 0.9 1"
+        keyValue="1 0 0 0.07, 1 0 0 0.8, 1 0 0 0.8, 1 0 0 0.07, 1 0 0 0.07"></OrientationInterpolator>
+        <OrientationInterpolator DEF="OrientSk2" key="0 0.20 0.5 0.80 1"
+        keyValue="0 1 0 0, 0 1 0 0, 0 1 0 1.57, 0 1 0 0, 0 1 0 0"></OrientationInterpolator>
+
+        <ROUTE fromNode="Time1" fromField="fraction_changed"  toNode="PosSk" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="Time1" fromField="fraction_changed"  toNode="OrientSk1" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="Time1" fromField="fraction_changed"  toNode="OrientSk2" toField="set_fraction"></ROUTE>
+
+        <ROUTE fromNode="PosSk" fromField="value_changed" toNode="scepter_pos" toField="set_translation"></ROUTE>
+        <ROUTE fromNode="OrientSk1" fromField="value_changed" toNode="scepter_pos" toField="set_rotation"></ROUTE>
+        <ROUTE fromNode="OrientSk2" fromField="value_changed" toNode="scepter_rot" toField="set_rotation"></ROUTE>
+
+
+        <PositionInterpolator DEF="PosLight1" key="0 0.20 0.80 1"
+                    keyValue="0 0 90, 0 0 120, 0 0 120, 0 0 90"></PositionInterpolator>
+        <ROUTE fromNode="Time1" fromField="fraction_changed"  toNode="PosLight1" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="PosLight1" fromField="value_changed" toNode="stand1_light" toField="set_location"></ROUTE>
+
+
+        <!-- анимация короны-->
+        <TimeSensor id="timer_crown" DEF="Time2" cycleInterval="10" loop="true" enabled="true"></TimeSensor>
+        
+        <PositionInterpolator DEF="PosCrown" key="0 0.1 0.20 0.80 0.9 1"
+        keyValue="0 0 0, 0 0 0, 0 0 20, 0 0 20, 0 0 0, 0 0 0"></PositionInterpolator>
+        <OrientationInterpolator DEF="OrientCrown" key="0 0.20 0.5 0.80 1"
+        keyValue="1 0 0 0, 0 0 1 0, 0 0 1 -3.14, 0 0 1 -6.28, 0 0 1 -6.28"></OrientationInterpolator>
+
+
+        <ROUTE fromNode="Time2" fromField="fraction_changed"  toNode="PosCrown" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="Time2" fromField="fraction_changed"  toNode="OrientCrown" toField="set_fraction"></ROUTE>
+
+        <ROUTE fromNode="PosCrown" fromField="value_changed" toNode="crown_move" toField="set_translation"></ROUTE>
+        <ROUTE fromNode="OrientCrown" fromField="value_changed" toNode="crown_rotate" toField="set_rotation"></ROUTE>
+
+        <PositionInterpolator DEF="PosLight2" key="0 0.20 0.80 1"
+                    keyValue="100 0 90, 100 0 120, 100 0 120, 100 0 90"></PositionInterpolator>
+        <ROUTE fromNode="Time2" fromField="fraction_changed"  toNode="PosLight2" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="PosLight2" fromField="value_changed" toNode="stand2_light" toField="set_location"></ROUTE>
+
+      </Scene>
+    </X3D>
   </body> 
 </html>
