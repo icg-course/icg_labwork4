@@ -191,7 +191,7 @@
         <!-- анимация скипетра-->
         <TimeSensor id="timer_scepter" DEF="Time1" cycleInterval="15" loop="true" enabled="true"></TimeSensor>
         <PositionInterpolator DEF="PosSk" key="0 0.20 0.80 0.9 1"
-                    keyValue="0 0 58, 0 0 78, 0 0 78, 0 0 58, 0 0 58">
+                    keyValue="0 0 58, 0 0 78, 0 0 78, 0 0 58, 0 0 58"></PositionInterpolator>
 
         <OrientationInterpolator DEF="OrientSk1" key="0 0.20 0.80 0.9 1"
         keyValue="1 0 0 0.07, 1 0 0 0.8, 1 0 0 0.8, 1 0 0 0.07, 1 0 0 0.07"></OrientationInterpolator>
@@ -208,7 +208,7 @@
 
 
         <PositionInterpolator DEF="PosLight1" key="0 0.20 0.80 1"
-                    keyValue="0 0 90, 0 0 120, 0 0 120, 0 0 90">
+                    keyValue="0 0 90, 0 0 120, 0 0 120, 0 0 90"></PositionInterpolator>
         <ROUTE fromNode="Time1" fromField="fraction_changed"  toNode="PosLight1" toField="set_fraction"></ROUTE>
         <ROUTE fromNode="PosLight1" fromField="value_changed" toNode="stand1_light" toField="set_location"></ROUTE>
 
@@ -217,7 +217,7 @@
         <TimeSensor id="timer_crown" DEF="Time2" cycleInterval="10" loop="true" enabled="true"></TimeSensor>
         
         <PositionInterpolator DEF="PosCrown" key="0 0.1 0.20 0.80 0.9 1"
-        keyValue="0 0 0, 0 0 0, 0 0 20, 0 0 20, 0 0 0, 0 0 0">
+        keyValue="0 0 0, 0 0 0, 0 0 20, 0 0 20, 0 0 0, 0 0 0"></PositionInterpolator>
         <OrientationInterpolator DEF="OrientCrown" key="0 0.20 0.5 0.80 1"
         keyValue="1 0 0 0, 0 0 1 0, 0 0 1 -3.14, 0 0 1 -6.28, 0 0 1 -6.28"></OrientationInterpolator>
 
@@ -229,7 +229,7 @@
         <ROUTE fromNode="OrientCrown" fromField="value_changed" toNode="crown_rotate" toField="set_rotation"></ROUTE>
 
         <PositionInterpolator DEF="PosLight2" key="0 0.20 0.80 1"
-                    keyValue="100 0 90, 100 0 120, 100 0 120, 100 0 90">
+                    keyValue="100 0 90, 100 0 120, 100 0 120, 100 0 90"></PositionInterpolator>
         <ROUTE fromNode="Time2" fromField="fraction_changed"  toNode="PosLight2" toField="set_fraction"></ROUTE>
         <ROUTE fromNode="PosLight2" fromField="value_changed" toNode="stand2_light" toField="set_location"></ROUTE>
 
