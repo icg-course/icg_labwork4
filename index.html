@@ -1,13 +1,227 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+
+<head>
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <title>Лабораторная работа 4</title>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+  <script src="https://www.x3dom.org/download/x3dom.js"></script>
+</head>
+
+<body style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("t1.jpg") no-repeat fixed;
+  background-size: cover; background-position: center;'>
+
+  <X3D width="100vw" height="100vh">
+    <Scene>
+
+
+      <Transform DEF="gorshok" rotation="1 0 0 -1.57">
+        <!-- цветок 2-->
+        <Transform translation="6 0 0.15">
+          <Group DEF="flower">
+            <!-- цветок 1-->
+            <!-- лепесток 1-->
+            <Transform DEF="lepestok" translation="0 0 0">
+              <Anchor url="http://botsad-spb.com/" parameter="target='_self'">
+                <Shape>
+                  <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8 9 10 11' solid='false'>
+                    <Coordinate point=' 0 0 0, -1.5 4 2, -1 5 1, -1 5 1, 0 6 0.5, 0 0 0,
+                              0 6 0.5, 1 5 1, 0 0 0, 1 5 1, 1.5 4 2, 0 0 0'></Coordinate>
+                    <ColorRGBA color='1 1 1 1, 0.8 0.5 1 1, 0.6 0.2 0.8 1, 0.6 0.2 0.8 1, 0.8 0.5 1 1, 1 1 1 1,
+                            0.6 0.2 0.8 1, 0.8 0.5 1 1, 1 1 1 1, 0.6 0.2 0.8 1, 0.8 0.5 1 1, 1 1 1 1'></ColorRGBA>
+                  </IndexedTriangleStripSet>
+                </Shape>
+              </Anchor>
+            </Transform>
+
+            <!-- лепесток 2-->
+            <Transform translation="0 0 0" rotation="0 0 1 0.7">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+            <!-- лепесток 3-->
+            <Transform translation="0 0 0" rotation="0 0 1 1.4">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+
+            <!-- лепесток 4-->
+            <Transform translation="0 0 0" rotation="0 0 1 2.1">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+            <!-- лепесток 5-->
+            <Transform translation="0 0 0" rotation="0 0 1 2.8">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+            <!-- лепесток 6-->
+            <Transform translation="0 0 0" rotation="0 0 1 3.5">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+            <!-- лепесток 7-->
+            <Transform translation="0 0 0" rotation="0 0 1 4.19">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+            <!-- лепесток 8-->
+            <Transform translation="0 0 0" rotation="0 0 1 4.89">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+            <!-- лепесток 9-->
+            <Transform translation="0 0 0" rotation="0 0 1 5.59">
+              <Shape USE="lepestok">
+              </Shape>
+            </Transform>
+
+            <!-- пестики -->
+                <Shape>
+                 <IndexedLineSet coordIndex="0 1 2 1 3 1 4 1 5 1 6 1 7" colorIndex="0 1 0 1 0 1 0 1 0 1 0 1 0"
+                colorPerVertex="true">
+                <Coordinate point="-1 0 3, 0 0 0, 0 0 3, 1 0 3, -0.5 1 3, 0.5 1 3, -0.5 -1 3, 0.5 -1 3"></Coordinate>
+                <Color color="0.5 0 0.5, 0.8 0.5 1"></Color>
+              </IndexedLineSet>
+            </Shape>
+
+            <!-- лепестки 1,2 внутри -->
+            <Shape DEF="lepestokvn">
+              <Appearance>
+                <Material DEF='Mat'></Material>
+              </Appearance>
+              <IndexedTriangleSet index='0 1 2 0 3 4' solid='false'>
+                <Coordinate point='0 0 0, -3 2 2, -1 3.5 1.85, 3 2 2, 1 3.5 1.85'></Coordinate>
+              </IndexedTriangleSet>
+            </Shape>
+
+            <!-- лепестки 3,4 внутри -->
+            <Transform translation="0 0 0" rotation="0 0 1 3.14">
+              <Shape USE="lepestokvn">
+              </Shape>
+            </Transform>
+
+            <!-- тычинки -->
+            <Transform DEF="tichinki">
+              <Shape>
+                <Appearance>
+                  <Material emissiveColor="1 1 1"> </Material>
+                </Appearance>
+                <PointSet>
+                  <Coordinate point="-1 0 3, 0 0 0, 0 0 3, 1 0 3, -0.5 1 3, 0.5 1 3, -0.5 -1 3, 0.5 -1 3"></Coordinate>
+                </PointSet>
+              </Shape>
+            </Transform>
+            <!-- конец тычинок -->
+          </Group>
+        </Transform>
+
+        <Transform translation="-6 0 0.15" rotation="0 0 0 0.7">
+          <Shape USE="flower">
+          </Shape>
+        </Transform>
+
+        <!-- почва в горшке -->
+        <Transform translation="0 0 -0.2">
+          <Transform translation="0 -1 -2">
+            <Shape>
+              <Appearance>
+                <TextureTransform scale="1 2"></TextureTransform>
+                <ImageTexture url="gr1.jpg"></ImageTexture>
+              </Appearance>
+              <IndexedFaceSet ccw="true" solid="false"
+                coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 6 7 3 2 -1 2 3 0 1 -1 0 1 5 4 -1">
+                <Coordinate point="-7.8 -2.3 2, 7.8 -2.3 2, 6 -1 -4, -6 -1 -4, -7.8 4.3 2, 7.8 4.3 2, 6 3 -4, -6 3 -4">
+                </Coordinate>
+              </IndexedFaceSet>
+            </Shape>
+          </Transform>
+
+          <!-- горшок -->
+          <Transform translation="0 -1 -2">
+            <Shape>
+              <Appearance>
+                <TextureTransform scale="2 4"></TextureTransform>
+                <ImageTexture url="g2.jpg"></ImageTexture>
+              </Appearance>
+              <IndexedFaceSet ccw="true" solid="false"
+                coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 6 7 3 2 -1 2 3 0 1 -1">
+                <Coordinate point="-8 -2.5 2.5, 8 -2.5 2.5, 6 -1 -4, -6 -1 -4, -8 4.5 2.5, 8 4.5 2.5, 6 3 -4, -6 3 -4">
+                </Coordinate>
+              </IndexedFaceSet>
+            </Shape>
+          </Transform>
+        </Transform>
+      </Transform>
+
+
+      <!-- навигация -->
+      <Viewpoint DEF='camera' description="Начальный вид" position="0 0 50"></Viewpoint>
+
+      <TimeSensor DEF='TSgorshok' cycleInterval='5' loop='true'></TimeSensor>
+      <positionInterpolator DEF='PosInt' key='0, 0.25, 0.5, 0.75, 1'
+        keyValue='-5 -5 0, -5 5 -5, 5 5 -5, 5 -5 5, -5 -5 5'>
+      </positionInterpolator>
+      <ROUTE fromNode='TSgorshok' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'>
+      </ROUTE>
+
+      <ROUTE fromNode='PosInt' fromField='value_changed' toNode='gorshok' toField='set_translation'>
+      </ROUTE>
+
+      <TimeSensor DEF='TSlepestok' cycleInterval='4' loop='true'></TimeSensor>
+      <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0, 0 0 1 -3.14, 0 0 1 -6.28'>
+      </OrientationInterpolator>
+      <ROUTE fromNode='TSlepestok' fromField='fraction_changed' toNode='OrientInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='OrientInt' fromField='value_changed' toNode='lepestok' toField='set_rotation'>
+      </ROUTE>
+
+
+      <TimeSensor DEF="TStichinki" cycleInterval="2" loop='true'></TimeSensor>
+      <PositionInterpolator DEF="PosInt" key="0, 0.33, 0.66, 1" keyValue="1 1 1, 1.1 1.1 1.1, 1.2 1.2 1.2, 1 1 1">
+      </PositionInterpolator>
+
+      <ROUTE fromNode="TStichinki" fromField="fraction_changed" toNode="PosInt" toField="set_fraction">
+      </ROUTE>
+      <ROUTE fromNode="PosInt" fromField="value_changed" toNode="tichinki" toField="set_scale">
+      </ROUTE>
+
+      <TimeSensor DEF='TS' cycleInterval='5' loop='true'></TimeSensor>
+      <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='0.5 0.1 0.3, 0.1 0.1 0.1, 0.1 0 0.1, 0.5 0.1 0.3'>
+      </ColorInterpolator>
+      <ROUTE fromNode='TS' fromField='fraction_changed' toNode='ColInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='ColInt' fromField='value_changed' toNode='Mat' toField='set_diffuseColor'>
+      </ROUTE>
+
+      <!-- текст-->
+      <Transform DEF='Text' translation="-16 10 0"  rotation="0 1 0 0.79">
+        <Shape>
+          <Appearance>
+            <material DEF="textcolor" transparency="0" diffuseColor='0.6 0.2 0.8'>
+          </Appearance>
+          <Text string="Амиша из гр. №4841" solid="false">
+            <FontStyle size="1" style="BOLDITALIC" family="SANS"> </FontStyle>
+          </Text>
+        </Shape>
+      </Transform>
+      <!-- конец текста-->
+
+      <TimeSensor DEF="TStext" cycleInterval="2" loop="true"></TimeSensor>
+      <ScalarInterpolator DEF="ScInt" key="0 .5 1" keyValue=".1 .9 .1"></ScalarInterpolator>
+      <ROUTE fromNode="TStext" fromField="fraction_changed" toNode="ScInt" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="ScInt" fromField="value_changed" toNode="textcolor" toField="set_transparency"></ROUTE>
+
+    </Scene>
+  </X3D>
+</body>
+
 </html>
