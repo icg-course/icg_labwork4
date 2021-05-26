@@ -113,7 +113,7 @@
             <Transform DEF="tichinki">
               <Shape>
                 <Appearance>
-                  <Material emissiveColor="1 1 1"> </Material>
+                  <Material emissiveColor="1 1 1"></Material>
                 </Appearance>
                 <PointSet>
                   <Coordinate point="-1 0 3, 0 0 0, 0 0 3, 1 0 3, -0.5 1 3, 0.5 1 3, -0.5 -1 3, 0.5 -1 3"></Coordinate>
@@ -166,16 +166,17 @@
       <!-- навигация -->
       <Viewpoint DEF='camera' description="Начальный вид" position="0 0 50"></Viewpoint>
 
+      <!-- движение горшка с цветком -->
       <TimeSensor DEF='TSgorshok' cycleInterval='5' loop='true'></TimeSensor>
       <positionInterpolator DEF='PosInt' key='0, 0.25, 0.5, 0.75, 1'
         keyValue='-5 -5 0, -5 5 -5, 5 5 -5, 5 -5 5, -5 -5 5'>
       </positionInterpolator>
       <ROUTE fromNode='TSgorshok' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'>
       </ROUTE>
-
       <ROUTE fromNode='PosInt' fromField='value_changed' toNode='gorshok' toField='set_translation'>
       </ROUTE>
 
+      <!-- прокрутка цветков вокруг своей оси -->
       <TimeSensor DEF='TSlepestok' cycleInterval='4' loop='true'></TimeSensor>
       <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0, 0 0 1 -3.14, 0 0 1 -6.28'>
       </OrientationInterpolator>
@@ -184,16 +185,16 @@
       <ROUTE fromNode='OrientInt' fromField='value_changed' toNode='lepestok' toField='set_rotation'>
       </ROUTE>
 
-
+      <!-- масштабирование тычинок -->
       <TimeSensor DEF="TStichinki" cycleInterval="2" loop='true'></TimeSensor>
       <PositionInterpolator DEF="PosInt" key="0, 0.33, 0.66, 1" keyValue="1 1 1, 1.1 1.1 1.1, 1.2 1.2 1.2, 1 1 1">
       </PositionInterpolator>
-
       <ROUTE fromNode="TStichinki" fromField="fraction_changed" toNode="PosInt" toField="set_fraction">
       </ROUTE>
       <ROUTE fromNode="PosInt" fromField="value_changed" toNode="tichinki" toField="set_scale">
       </ROUTE>
 
+      <!-- изменение цвета внутренних лепестков -->
       <TimeSensor DEF='TS' cycleInterval='5' loop='true'></TimeSensor>
       <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='0.5 0.1 0.3, 0.1 0.1 0.1, 0.1 0 0.1, 0.5 0.1 0.3'>
       </ColorInterpolator>
@@ -203,10 +204,10 @@
       </ROUTE>
 
       <!-- текст-->
-      <Transform DEF='Text' translation="-16 10 0"  rotation="0 1 0 0.79">
+      <Transform DEF='Text' translation="-16 10 0" rotation="0 1 0 0.79">
         <Shape>
           <Appearance>
-            <material DEF="textcolor" transparency="0" diffuseColor='0.6 0.2 0.8'>
+            <material DEF="textcolor" transparency="0" diffuseColor='0.6 0.2 0.8'></material>>
           </Appearance>
           <Text string="Амиша из гр. №4841" solid="false">
             <FontStyle size="1" style="BOLDITALIC" family="SANS"> </FontStyle>
@@ -215,6 +216,7 @@
       </Transform>
       <!-- конец текста-->
 
+      <!-- скаляр текста -->
       <TimeSensor DEF="TStext" cycleInterval="2" loop="true"></TimeSensor>
       <ScalarInterpolator DEF="ScInt" key="0 .5 1" keyValue=".1 .9 .1"></ScalarInterpolator>
       <ROUTE fromNode="TStext" fromField="fraction_changed" toNode="ScInt" toField="set_fraction"></ROUTE>
