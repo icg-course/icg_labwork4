@@ -1,13 +1,1443 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+
+<head>
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+  <title>Лабораторная работа 4</title>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+  <script src="https://www.x3dom.org/download/x3dom.js"></script>
+</head>
+
+<body style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("1113.jpg") ;background-position:
+  center;'>
+
+  <X3D width="100vw" height="100vh">
+
+    <Scene>
+
+      <!-- Общий трансформ -->
+      <Transform rotation="0 1 0 3.14">
+
+        <!-- Лабораторные 1 + 3 (Группировка). Замок -->
+        <Transform translation="0 0 0">
+          <!-- 1. Ворота -->
+          <Transform translation="0 0 0">
+            <Transform translation="0 4 -5">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="st1.jpg"></ImageTexture>
+                  <Material diffuseColor="#CD5C5C"></Material>
+                </Appearance>
+                <box size="3 2 5"></box>
+              </Shape>
+            </Transform>
+            <Transform translation="-2 2.5 -5">
+              <Transform DEF="BlokiVorot" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <box size="1 5 5"></box>
+                </Shape>
+              </Transform>
+            </Transform>
+            <Transform translation="2 2.5 -5">
+              <Shape USE="BlokiVorot">
+              </Shape>
+            </Transform>
+            <!-- решетка-->
+            <Transform DEF="Reshetka" translation="0 2.75 -7.485" scale="1 0.75 1">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="re.png"></ImageTexture>
+                  <Material diffuseColor="#CD5C5C"></Material>
+                </Appearance>
+                <box size="3 4 0.0000001"></box>
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 2. Малая башння (1) -->
+          <Transform translation="0 0 0">
+            <Transform translation="0 5 -5">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="st1.jpg"></ImageTexture>
+                  <Material diffuseColor="#CD5C5C"></Material>
+                </Appearance>
+                <Cylinder height="2" radius="2"></Cylinder>
+              </Shape>
+            </Transform>
+            <Transform translation="0 7.5 -5">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="kr1.jpg"></ImageTexture>
+                  <Material diffuseColor="#CD5C5C"></Material>
+                </Appearance>
+                <Cone bottomRadius="3" height="3" solid="false"></Cone>
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 3. Полная башня (1): у ворот слева -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни -->
+            <Transform translation="3.5 2 -7.5">
+              <Transform DEF="Niz" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="4" radius="1"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="3.5 4.5 -7.5">
+              <Transform DEF="Sredn" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="1" radius="1.5"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="3.5 5.5 -7.5">
+              <Transform DEF="Verh" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="2" radius="0.75"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="3.5 7.5 -7.5">
+              <Transform DEF="Krisha" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="0.5 0.5"></TextureTransform>
+                    <ImageTexture url="kr1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cone bottomRadius="1.5" height="3" solid="false"></Cone>
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 4. Полная башня (2): у ворот справа -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни -->
+            <Transform translation="-3.5 2 -7.5">
+              <Shape USE="Niz">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="-3.5 4.5 -7.5">
+              <Shape USE="Sredn">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="-3.5 5.5 -7.5">
+              <Shape USE="Verh">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="-3.5 7.5 -7.5">
+              <Shape USE="Krisha">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 5. Одинарная стена (1): у ворот слева -->
+          <Transform translation="8 1.75 -5" rotation="0 1 0 -0.523599">
+            <Transform DEF="Stena1" translation="0 0 0">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="st1.jpg"></ImageTexture>
+                  <Material diffuseColor="#CD5C5C"></Material>
+                </Appearance>
+                <box size="10 3.5 0.5"></box>
+              </Shape>
+            </Transform>
+            <!-- 5.1 Группа окон -->
+            <Transform translation="-8.25 -1.5 5">
+              <!-- окно-->
+              <Transform translation="8 2.5 -5.500001">
+                <Transform DEF="Okno1" translation="0 0 0" scale="0.25 0.25 0.25">
+                  <Shape>
+                    <Appearance>
+                      <TextureTransform scale="1 1"></TextureTransform>
+                      <ImageTexture url="okno.png"></ImageTexture>
+                      <Material diffuseColor="#CD5C5C"></Material>
+                    </Appearance>
+                    <box size="3 3.5 0" solid="true"></box>
+                  </Shape>
+                </Transform>
+              </Transform>
+              <!-- окно-->
+              <Transform translation="6.5 2.5 -5.500001">
+                <Shape USE="Okno1">
+                </Shape>
+              </Transform>
+              <!-- окно-->
+              <Transform translation="9.5 2.5 -5.500001">
+                <Shape USE="Okno1">
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 6. Одинарная стена (2): у ворот справа -->
+          <Transform translation="-8 1.75 -5" rotation="0 1 0 0.523599">
+            <Transform translation="0 0 0">
+              <Shape USE="Stena1">
+              </Shape>
+            </Transform>
+            <!-- 6.1 Группа окон -->
+            <Transform translation="8.25 -1.5 -5">
+              <!-- окно-->
+              <Transform translation="-8 2.5 4.499999">
+                <Shape USE="Okno1">
+                </Shape>
+              </Transform>
+              <!-- окно-->
+              <Transform translation="-6.5 2.5 4.499999">
+                <Shape USE="Okno1">
+                </Shape>
+              </Transform>
+              <!-- окно-->
+              <Transform translation="-9.5 2.5 4.499999">
+                <Shape USE="Okno1">
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 7. Полная башня (3): слева ближайшая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни -->
+            <Transform translation="12.5 2 -1.5">
+              <Transform DEF="Niz1" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="4" radius="2"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="12.5 4.5 -1.5">
+              <Transform DEF="Sredn1" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="1" radius="2.5"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="12.5 5.5 -1.5">
+              <Transform DEF="Verh1" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="2" radius="1.75"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="12.5 7.5 -1.5">
+              <Transform DEF="Krisha1" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="kr1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cone bottomRadius="2.5" height="3" solid="false"></Cone>
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 8. Полная башня (4): справа ближайшая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни -->
+            <Transform translation="-12.5 2 -1.5">
+              <Shape USE="Niz1">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="-12.5 4.5 -1.5">
+              <Shape USE="Sredn1">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="-12.5 5.5 -1.5">
+              <Shape USE="Verh1">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="-12.5 7.5 -1.5">
+              <Shape USE="Krisha1">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 9. Двойная стена с полом (1): левая -->
+          <Transform translation="0 0 0">
+            <Transform translation="14 1.75 3.5" rotation="0 1 0 1.570796">
+              <!-- стена внешняя -->
+              <Transform translation="0 0 0">
+                <Shape USE="Stena1">
+                </Shape>
+              </Transform>
+              <!-- 9.1 Группа окон -->
+              <Transform translation="-14 -1.5 5">
+                <!-- окно -->
+                <Transform translation="14 2.5 -4.499999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно -->
+                <Transform translation="12.5 2.5 -4.499999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно -->
+                <Transform translation="15.5 2.5 -4.499999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+            <!-- стена внутреняя -->
+            <Transform translation="11 1.75 3.5" rotation="0 1 0 1.570796">
+              <Shape USE="Stena1">
+              </Shape>
+            </Transform>
+            <!-- пол -->
+            <Transform translation="12.5 1.75 3.5">
+              <Transform DEF="Pol" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <box size="3 0.5 10"></box>
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 10. Двойная стена с полом (2): правая -->
+          <Transform translation="0 0 0">
+            <Transform translation="-14 1.75 3.5" rotation="0 1 0 1.570796">
+              <!-- стена внешняя -->
+              <Transform translation="0 0 0">
+                <Shape USE="Stena1">
+                </Shape>
+              </Transform>
+              <!-- 10.1 Группа окон -->
+              <Transform translation="14 -1.5 -5">
+                <!-- окно-->
+                <Transform translation="-14 2.5 4.499999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно-->
+                <Transform translation="-12.5 2.5 4.499999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно-->
+                <Transform translation="-15.5 2.5 4.499999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+            <!-- стена внутреняя -->
+            <Transform translation="-11 1.75 3.5" rotation="0 1 0 1.570796">
+              <Shape USE="Stena1">
+              </Shape>
+            </Transform>
+            <!-- пол -->
+            <Transform translation="-12.5 1.75 3.5">
+              <Shape USE="Pol">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 11. Полная башня (5): левая дальняя -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни -->
+            <Transform translation="12.5 2 8.5">
+              <Shape USE="Niz1">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="12.5 4.5 8.5">
+              <Shape USE="Sredn1">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="12.5 5.5 8.5">
+              <Shape USE="Verh1">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="12.5 7.5 8.5">
+              <Shape USE="Krisha1">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 12. Полная башня (6): правая дальняя -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни -->
+            <Transform translation="-12.5 2 8.5">
+              <Shape USE="Niz1">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="-12.5 4.5 8.5">
+              <Shape USE="Sredn1">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="-12.5 5.5 8.5">
+              <Shape USE="Verh1">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="-12.5 7.5 8.5">
+              <Shape USE="Krisha1">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 13. Полная башня (7): самая дальняя -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни -->
+            <Transform translation="0 2 10">
+              <Shape USE="Niz1">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="0 4.5 10">
+              <Shape USE="Sredn1">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="0 5.5 10">
+              <Shape USE="Verh1">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="0 7.5 10">
+              <Shape USE="Krisha1">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 14. Двойная стена с полом (3): задняя левая -->
+          <Transform translation="0 0 0">
+            <Transform translation="6.5 1.75 10.5" rotation="0 1 0 0.10472">
+              <!-- стена внешняя -->
+              <Transform DEF="Stena2" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <box size="12.5 3.5 0.5"></box>
+                </Shape>
+              </Transform>
+              <!-- 14.1 Группа окон-->
+              <Transform translation="-6.75 -1.5 -10.5">
+                <!-- окно-->
+                <Transform translation="6.5 2.5 11.000001">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно-->
+                <Transform translation="5 2.5 11.000001">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно-->
+                <Transform translation="8 2.5 11.000001">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+            <!-- стена внутреняя -->
+            <Transform translation="6 1.75 7.5" rotation="0 1 0 0.10472">
+              <Shape USE="Stena2">
+              </Shape>
+            </Transform>
+            <!-- пол -->
+            <Transform translation="6.25 1.75 9" rotation="0 1 0 0.10472">
+              <Transform DEF="Pol1" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <box size="12.5 0.5 3"></box>
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 15. Двойная стена с полом (4): задняя правая -->
+          <Transform translation="0 0 0">
+            <Transform translation="-6.5 1.75 10.5" rotation="0 1 0 -0.10472">
+              <!-- стена внешняя -->
+              <Transform translation="0 0 0">
+                <Shape USE="Stena2">
+                </Shape>
+              </Transform>
+              <!-- 15.1 Группа окон -->
+              <Transform translation="6.75 -1.5 10.5">
+                <!-- окно-->
+                <Transform translation="-6.5 2.5 -9.999999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно-->
+                <Transform translation="-5 2.5 -9.999999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+                <!-- окно-->
+                <Transform translation="-8 2.5 -9.999999">
+                  <Shape USE="Okno1">
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+            <!-- стена внутреняя -->
+            <Transform translation="-6 1.75 7.5" rotation="0 1 0 -0.10472">
+              <Shape USE="Stena2">
+              </Shape>
+            </Transform>
+            <!-- пол -->
+            <Transform translation="-6.25 1.75 9" rotation="0 1 0 -0.10472">
+              <Shape USE="Pol1">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 16. Внутренние одинарные стены -->
+          <Transform translation="0 0 0">
+            <!-- стена 1 передняя-->
+            <Transform translation="0 3.5 -2.75">
+              <Transform DEF="Stena3" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <box size="10 7 0.5"></box>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- стена 2 левая-->
+            <Transform translation="5 3.5 2" rotation="0 1 0 1.570796">
+              <Shape USE="Stena3">
+              </Shape>
+            </Transform>
+            <!-- стена 3 задняя-->
+            <Transform translation="0 3.5 6.75">
+              <Shape USE="Stena3">
+              </Shape>
+            </Transform>
+            <!-- стена 4 правая-->
+            <Transform translation="-5 3.5 2" rotation="0 1 0 1.570796">
+              <Shape USE="Stena3">
+              </Shape>
+            </Transform>
+            <!-- Двойные стены (1): левые -->
+            <Transform translation="0 0 0">
+              <!-- передняя-->
+              <Transform translation="8 1.75 -2">
+                <Transform DEF="Stena4" translation="0 0 0">
+                  <Shape>
+                    <Appearance>
+                      <TextureTransform scale="1 1"></TextureTransform>
+                      <ImageTexture url="st1.jpg"></ImageTexture>
+                      <Material diffuseColor="#CD5C5C"></Material>
+                    </Appearance>
+                    <box size="6 3.5 0.5"></box>
+                  </Shape>
+                </Transform>
+              </Transform>
+              <!-- задняя-->
+              <Transform translation="8 1.75 -1">
+                <Shape USE="Stena4">
+                </Shape>
+              </Transform>
+              <!-- пол-->
+              <Transform translation="8 1.75 -1.5">
+                <Transform DEF="Pol2" translation="0 0 0">
+                  <Shape>
+                    <Appearance>
+                      <TextureTransform scale="1 1"></TextureTransform>
+                      <ImageTexture url="st1.jpg"></ImageTexture>
+                      <Material diffuseColor="#CD5C5C"></Material>
+                    </Appearance>
+                    <box size="6 0.5 1"></box>
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+            <!-- Двойные стены (2): правые -->
+            <Transform translation="0 0 0">
+              <!-- передняя-->
+              <Transform translation="-8 1.75 -2">
+                <Shape USE="Stena4">
+                </Shape>
+              </Transform>
+              <!-- задняя-->
+              <Transform translation="-8 1.75 -1">
+                <Shape USE="Stena4">
+                </Shape>
+              </Transform>
+              <!-- пол-->
+              <Transform translation="-8 1.75 -1.5">
+                <Shape USE="Pol2">
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 17. Малая башния (2): центральная -->
+          <Transform translation="0 0 0">
+            <!-- оснавная часть главной башни-->
+            <Transform translation="0 5 2">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="st1.jpg"></ImageTexture>
+                  <Material diffuseColor="#CD5C5C"></Material>
+                </Appearance>
+                <Cylinder height="10" radius="3"></Cylinder>
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="0 12.5 2">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="1 1"></TextureTransform>
+                  <ImageTexture url="kr1.jpg"></ImageTexture>
+                  <Material diffuseColor="#CD5C5C"></Material>
+                </Appearance>
+                <Cone bottomRadius="4" height="5" solid="false"></Cone>
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 18. Полная башня (8): боковая левая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни-->
+            <Transform translation="8 1.75 2">
+              <Transform DEF="Niz2" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="3.25" radius="1.5"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="8 3.25 2">
+              <Transform DEF="Sredn2" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="1" radius="1.75"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="8 4.25 2">
+              <Transform DEF="Verh2" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="1.75" radius="1.25"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="8 6 2">
+              <Transform DEF="Krisha2" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="kr1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cone bottomRadius="2" height="2.75" solid="false"></Cone>
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 19. Полная башня (9): боковые правая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни-->
+            <Transform translation="-8 1.75 2">
+              <Shape USE="Niz2">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="-8 3.25 2">
+              <Shape USE="Sredn2">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="-8 4.25 2">
+              <Shape USE="Verh2">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="-8 6 2">
+              <Shape USE="Krisha2">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 20. Полная башня (10): центральная ближайшая левая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни-->
+            <Transform translation="3.25 4 -1.25">
+              <Transform DEF="Niz3" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="8" radius="1"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="3.25 7.5 -1.25">
+              <Transform DEF="Sredn3" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="1" radius="1.25"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="3.25 8 -1.25">
+              <Shape USE="Verh">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="3.25 10 -1.25">
+              <Transform DEF="Krisha3" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="kr1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cone bottomRadius="1.25" height="3" solid="false"></Cone>
+                </Shape>
+              </Transform>
+            </Transform>
+          </Transform>
+
+          <!-- 21. Полная башня (11): центральная ближайшая правая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни-->
+            <Transform translation="-3.25 4 -1.25">
+              <Shape USE="Niz3">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="-3.25 7.5 -1.25">
+              <Shape USE="Sredn3">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="-3.25 8 -1.25">
+              <Shape USE="Verh">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="-3.25 10 -1.25">
+              <Shape USE="Krisha3">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 22. Полная башня (12): центральная дальняя левая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни-->
+            <Transform translation="3.5 6 5.5">
+              <Transform DEF="Niz4" translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <TextureTransform scale="1 1"></TextureTransform>
+                    <ImageTexture url="st1.jpg"></ImageTexture>
+                    <Material diffuseColor="#CD5C5C"></Material>
+                  </Appearance>
+                  <Cylinder height="12" radius="1"></Cylinder>
+                </Shape>
+              </Transform>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="3.5 12 5.5">
+              <Shape USE="Sredn3">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="3.5 13 5.5">
+              <Shape USE="Verh">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="3.5 15 5.5">
+              <Shape USE="Krisha3">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 23. Полная башня (13): центральная дальняя правая -->
+          <Transform translation="0 0 0">
+            <!-- нижняя часть башни-->
+            <Transform translation="-3.5 6 5.5">
+              <Shape USE="Niz4">
+              </Shape>
+            </Transform>
+            <!-- средняя часть башни -->
+            <Transform translation="-3.5 12 5.5">
+              <Shape USE="Sredn3">
+              </Shape>
+            </Transform>
+            <!-- верхняя часть башни -->
+            <Transform translation="-3.5 13 5.5">
+              <Shape USE="Verh">
+              </Shape>
+            </Transform>
+            <!-- крыша башни -->
+            <Transform translation="-3.5 15 5.5">
+              <Shape USE="Krisha3">
+              </Shape>
+            </Transform>
+          </Transform>
+
+          <!-- 24. Текст ♥ -->
+          <Transform DEF="SText" translation="0 1 -25" rotation="0 1 0 3.141593">
+            <Scene>
+              <Transform translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <Material DEF="TextS" diffuseColor="#C71585" transparency="0" specularColor="#C71585"></Material>
+                  </Appearance>
+                  <Text string="♥" solid="false">
+                    <FontStyle size="1" style="MATURA MT" family="Helvetica"> </FontStyle>
+                  </Text>
+                </Shape>
+              </Transform>
+            </Scene>
+          </Transform>
+
+        </Transform>
+
+
+        <!-- Лабораторная 2 + 3 (Группировка). Детали вокруг замка -->
+        <Transform translation="0 0 0">
+
+          <!-- 1. Салюты -->
+          <Transform translation="0 0 0">
+
+            <!-- 1.1 Маленький салют скейл 1.5 правый слева -->
+            <Transform translation="-9 20 20" scale="1.5 1.5 1.5">
+              <Transform DEF="SalutMal" translation="0 0 0" scale="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <Material emissiveColor="1 1 1"></Material>
+                  </Appearance>
+                  <PointSet>
+                    <Coordinate point="-1.5 0 0,
+
+                       -1 -1 0,
+                       -1 -0.5 -0.5, -1 -0.5 0,
+                       -1 -0.5 0.5,
+                       -1 0 -1, -1 0 -0.5, -1 0 0, -1 0 0.5, -1 0 1,
+                       -1 0.5 -0.5, -1 0.5 0,
+                       -1 0.5 0.5, 
+                       -1 1 0,
+                       
+                       -0.5 -1 -0.5, -0.5 -1 0, -0.5 -0.5 -1, -0.5 -0.5 -0.5, -0.5 -0.5 0,
+                       -0.5 -1 0.5, -0.5 -0.5 1, -0.5 -0.5 0.5,
+                       -0.5 0 -1, -0.5 0 -0.5, -0.5 0 0, -0.5 0 0.5, -0.5 0 1,
+                       -0.5 1 -0.5, -0.5 1 0, -0.5 0.5 -1, -0.5 0.5 -0.5, -0.5 0.5 0,
+                       -0.5 1 0.5, -0.5 0.5 1, -0.5 0.5 0.5, 
+                       
+                       0 -1.5 0,
+                       0 -1 -0.5, 0 -1 0, 0 -0.5 -1, 0 -0.5 -0.5, 0 -0.5 0,
+                       0 -1 0.5, 0 -0.5 1, 0 -0.5 0.5,
+                       0 0 -1.5, 0 0 -1, 0 0 -0.5, 0 0 0, 0 0 0.5, 0 0 1, 0 0 1.5,
+                       0 1 -0.5, 0 1 0, 0 0.5 -1, 0 0.5 -0.5, 0 0.5 0,
+                       0 1 0.5, 0 0.5 1, 0 0.5 0.5,
+                       0 1.5 0,
+
+                       0.5 -1 -0.5, 0.5 -1 0, 0.5 -0.5 -1, 0.5 -0.5 -0.5, 0.5 -0.5 0,
+                       0.5 -1 0.5, 0.5 -0.5 1, 0.5 -0.5 0.5,
+                       0.5 0 -1, 0.5 0 -0.5, 0.5 0 0, 0.5 0 0.5, 0.5 0 1,
+                       0.5 1 -0.5, 0.5 1 0, 0.5 0.5 -1, 0.5 0.5 -0.5, 0.5 0.5 0,
+                       0.5 1 0.5, 0.5 0.5 1, 0.5 0.5 0.5, 
+
+                       1 -1 0,
+                       1 -0.5 -0.5, 1 -0.5 0,
+                       1 -0.5 0.5,
+                       1 0 -1, 1 0 -0.5, 1 0 0, 1 0 0.5, 1 0 1,
+                       1 0.5 -0.5, 1 0.5 0,
+                       1 0.5 0.5,
+                       1 1 0,
+
+                       1.5 0 0
+                       "></Coordinate>
+                  </PointSet>
+                </Shape>
+              </Transform>
+            </Transform>
+
+            <!-- 1.2 Маленький салют правый слева -->
+            <Transform translation="-6 19 20">
+              <Shape USE="SalutMal">
+              </Shape>
+            </Transform>
+
+            <!-- 1.3 Маленький салют правый справа -->
+            <Transform translation="-12 25 20">
+              <Shape USE="SalutMal">
+              </Shape>
+            </Transform>
+
+            <!-- 1.4 Маленький салют скейл 1.75 правый справа-->
+            <Transform translation="-14 15 20" scale="1.75 1.75 1.75">
+              <Shape USE="SalutMal">
+              </Shape>
+            </Transform>
+
+            <!-- 1.5 Большой салют скейл 1.75 правый -->
+            <Transform translation="-2 27 20" scale="1.75 1.75 1.75">
+              <Transform DEF="SalutBolZel" translation="0 0 0" scale="0 0 0">
+                <!-- 1.5.1 Правая сторона -->
+                <Transform DEF="SalutBol" translation="0 0 0">
+                  <Shape>
+                    <Appearance>
+                      <Material emissiveColor="1 1 1"></Material>
+                    </Appearance>
+                    <PointSet>
+                      <Coordinate
+                        point="
+                  -3.5 -0.5 -0.5, -3.5 -0.5 0, -3.5 -0.5 0.5, -3.5 0 -0.5, -3.5 0 0, -3.5 0 0.5, -3.5 0.5, -0.5, -3.5 0.5 0, -3.5 0.5 0.5,
+                  
+                  -3 -1 -1, -3 -1 -0.5, -3 -1 0,
+                  -3 -1 1, -3 -1 0.5,
+                  -3 -0.5 -1, -3 -0.5 -0.5, -3 -0.5 0,
+                  -3 -0.5 1, -3 -0.5 0.5,
+                  -3 0 -1, -3 0 -0.5, -3 0 0,
+                  -3 0.5 -1, -3 0.5 -0.5, -3 0.5 0,
+                  -3 0.5 1, -3 0.5 0.5,
+                  -3 1 -1, -3 1 -0.5, -3 1 0,
+                  -3 1 1, -3 1 0.5,
+                                    
+                  -2.5 -2 -2, -2.5 -2 -1.5, -2.5 -2 -1, -2.5 -2 -0.5, -2.5 -2 0,
+                  -2.5 -2 2, -2.5 -2 1.5, -2.5 -2 1, -2.5 -2 0.5,
+                  -2.5 -1.5 -2, -2.5 -1.5 -1.5, -2.5 -1.5 -1, -2.5 -1.5 -0.5, -2.5 -1.5 0,
+                  -2.5 -1.5 2, -2.5 -1.5 1.5, -2.5 -1.5 1, -2.5 -1.5 0.5,
+                  -2.5 -1 -2, -2.5 -1 -1.5, -2.5 -1 -1, -2.5 -1 -0.5, -2.5 -1 0,
+                  -2.5 -1 2, -2.5 -1 1.5, -2.5 -1 1, -2.5 -1 0.5,
+                  -2.5 -0.5 -2, -2.5 -0.5 -1.5, -2.5 -0.5 -1, -2.5 -0.5 -0.5, -2.5 -0.5 0,
+                  -2.5 -0.5 2, -2.5 -0.5 1.5, -2.5 -0.5 1, -2.5 -0.5 0.5,
+                  -2.5 0 -2, -2.5 0 -1.5, -2.5 0 -1, -2.5 0 -0.5, -2.5 0 0,
+                  -2.5 0 2, -2.5 0 1.5, -2.5 0 1, -2.5 0 0.5,
+                  -2.5 0.5 -2, -2.5 0.5 -1.5, -2.5 0.5 -1, -2.5 0.5 -0.5, -2.5 0.5 0,
+                  -2.5 0.5 2, -2.5 0.5 1.5, -2.5 0.5 1, -2.5 0.5 0.5,
+                  -2.5 1 -2, -2.5 1 -1.5, -2.5 -1 1, -2.5 1 -0.5, -2.5 1 0,
+                  -2.5 1 2, -2.5 1 1.5, -2.5 1 1, -2.5 1 0.5,
+                  -2.5 1.5 -2, -2.5 1.5 -1.5, -2.5 1.5 -1, -2.5 1.5 -0.5, -2.5 1.5 0,
+                  -2.5 1.5 2, -2.5 1.5 1.5, -2.5 1.5 1, -2.5 1.5 0.5,
+                  -2.5 2 -2, -2.5 2 -1.5, -2.5 2 -1, -2.5 2 -0.5, -2.5 2 0,
+                  -2.5 2 2, -2.5 2 1.5, -2.5 2 1, -2.5 2 0.5,
+                  
+                  -2 -2.5 -2, -2 -2.5 -1.5, -2 -2.5 -1, -2 -2.5 -0.5, -2 -2.5 0,
+                  -2 -2.5 2, -2 -2.5 1.5, -2 -2.5 1, -2 -2.5 0.5,
+                  -2 -2 -2.5, -2 -2 -2, -2 -2 -1.5, -2 -2 -1, -2 -2 -0.5, -2 -2 0,
+                  -2 -2 2.5, -2 -2 2, -2 -2 1.5, -2 -2 1, -2 -2 0.5,
+                  -2 -1.5 -2.5, -2 -1.5 -2, -2 -1.5 -1.5, -2 -1.5 -1, -2 -1.5 -0.5, -2 -1.5 0,
+                  -2 -1.5 2.5, -2 -1.5 2, -2 -1.5 1.5, -2 -1.5 1, -2 -1.5 0.5,
+                  -2 -1 -2.5, -2 -1 -2, -2 -1 -1.5, -2 -1 -1, -2 -1 -0.5, -2 -1 0,
+                  -2 -1 2.5, -2 -1 2, -2 -1 1.5, -2 -1 1, -2 -1 0.5,
+                  -2 -0.5 -2.5, -2 -0.5 -2, -2 -0.5 -1.5, -2 -0.5 -1, -2 -0.5 -0.5, -2 -0.5 0,
+                  -2 -0.5 2.5, -2 -0.5 2, -2 -0.5 1.5, -2 -0.5 1, -2 -0.5 0.5,
+                  -2 0 -2.5, -2 0 -2, -2 0 -1.5, -2 0 -1, -2 0 -0.5, -2 0 0,
+                  -2 0 2.5, -2 0 2, -2 0 1.5, -2 0 1, -2 0 0.5,
+                  -2 0.5 -2.5, -2 0.5 -2, -2 0.5 -1.5, -2 0.5 -1, -2 0.5 -0.5, -2 0.5 0,
+                  -2 0.5 2.5, -2 0.5 2, -2 0.5 1.5, -2 0.5 1, -2 0.5 0.5,
+                  -2 1 -2.5, -2 1 -2, -2 1 -1.5, -2 -1 1, -2 1 -0.5, -2 1 0,
+                  -2 1 2.5, -2 1 2, -2 1 1.5, -2 1 1, -2 1 0.5,
+                  -2 1.5 -2.5, -2 1.5 -2, -2 1.5 -1.5, -2 1.5 -1, -2 1.5 -0.5, -2 1.5 0,
+                  -2 1.5 2.5, -2 1.5 2, -2 1.5 1.5, -2 1.5 1, -2 1.5 0.5,
+                  -2 2 -2.5, -2 2 -2, -2 2 -1.5, -2 2 -1, -2 2 -0.5, -2 2 0,
+                  -2 2 2.5, -2 2 2, -2 2 1.5, -2 2 1, -2 2 0.5,
+                  -2 2.5 -2, -2 2.5 -1.5, -2 2.5 -1, -2 2.5 -0.5, -2 2.5 0,
+                  -2 2.5 2, -2 2.5 1.5, -2 2.5 1, -2 2.5 0.5,
+
+                  -1.5 -2.5 -2, -1.5 -2.5 -1.5, -1.5 -2.5 -1, -1.5 -2.5 -0.5, -1.5 -2.5 0,
+                  -1.5 -2.5 2, -1.5 -2.5 1.5, -1.5 -2.5 1, -1.5 -2.5 0.5,
+                  -1.5 -2 -2.5, -1.5 -2 -2, -1.5 -2 -1.5, -1.5 -2 -1, -1.5 -2 -0.5, -1.5 -2 0,
+                  -1.5 -2 2.5, -1.5 -2 2, -1.5 -2 1.5, -1.5 -2 1, -1.5 -2 0.5,
+                  -1.5 -1.5 -2.5, -1.5 -1.5 -2, -1.5 -1.5 -1.5, -1.5 -1.5 -1, -1.5 -1.5 -0.5, -1.5 -1.5 0,
+                  -1.5 -1.5 2.5, -1.5 -1.5 2, -1.5 -1.5 1.5, -1.5 -1.5 1, -1.5 -1.5 0.5,
+                  -1.5 -1 -2.5, -1.5 -1 -2, -1.5 -1 -1.5, -1.5 -1 -1, -1.5 -1 -0.5, -1.5 -1 0,
+                  -1.5 -1 2.5, -1.5 -1 2, -1.5 -1 1.5, -1.5 -1 1, -1.5 -1 0.5,
+                  -1.5 -0.5 -2.5, -1.5 -0.5 -2, -1.5 -0.5 -1.5, -1.5 -0.5 -1, -1.5 -0.5 -0.5, -1.5 -0.5 0,
+                  -1.5 -0.5 2.5, -1.5 -0.5 2, -1.5 -0.5 1.5, -1.5 -0.5 1, -1.5 -0.5 0.5,
+                  -1.5 0 -2.5, -1.5 0 -2, -1.5 0 -1.5, -1.5 0 -1, -1.5 0 -0.5, -1.5 0 0,
+                  -1.5 0 2.5, -1.5 0 2, -1.5 0 1.5, -1.5 0 1, -1.5 0 0.5,
+                  -1.5 0.5 -2.5, -1.5 0.5 -2, -1.5 0.5 -1.5, -1.5 0.5 -1, -1.5 0.5 -0.5, -1.5 0.5 0,
+                  -1.5 0.5 2.5, -1.5 0.5 2, -1.5 0.5 1.5, -1.5 0.5 1, -1.5 0.5 0.5,
+                  -1.5 1 -2.5, -1.5 1 -2, -1.5 1 -1.5, -1.5 -1 1, -1.5 1 -0.5, -1.5 1 0,
+                  -1.5 1 2.5, -1.5 1 2, -1.5 1 1.5, -1.5 1 1, -1.5 1 0.5,
+                  -1.5 1.5 -2.5, -1.5 1.5 -2, -1.5 1.5 -1.5, -1.5 1.5 -1, -1.5 1.5 -0.5, -1.5 1.5 0,
+                  -1.5 1.5 2.5, -1.5 1.5 2, -1.5 1.5 1.5, -1.5 1.5 1, -1.5 1.5 0.5,
+                  -1.5 2 -2.5, -1.5 2 -2, -1.5 2 -1.5, -1.5 2 -1, -1.5 2 -0.5, -1.5 2 0,
+                  -1.5 2 2.5, -1.5 2 2, -1.5 2 1.5, -1.5 2 1, -1.5 2 0.5,
+                  -1.5 2.5 -2, -1.5 2.5 -1.5, -1.5 2.5 -1, -1.5 2.5 -0.5, -1.5 2.5 0,
+                  -1.5 2.5 2, -1.5 2.5 1.5, -1.5 2.5 1, -1.5 2.5 0.5,
+
+                  -1 -3 -1, -1 -3 -0.5, -1 -3 0, -1 -3 0.5, -1 -3 1,
+                  -1 -2.5 -2, -1 -2.5 -1.5, -1 -2.5 -1, -1 -2.5 -0.5, -1 -2.5 0,
+                  -1 -2.5 2, -1 -2.5 1.5, -1 -2.5 1, -1 -2.5 0.5,
+                  -1 -2 -2.5, -1 -2 -2, -1 -2 -1.5, -1 -2 -1, -1 -2 -0.5,  -1 -2 0,
+                  -1 -2 2.5, -1 -2 2, -1 -2 1.5, -1 -2 1, -1 -2 0.5,
+                  -1 -1.5 -2.5, -1 -1.5 -2, -1 -1.5 -1.5, -1 -1.5 -1, -1 -1.5 -0.5, -1 -1.5 0,
+                  -1 -1.5 2.5, -1 -1.5 2, -1 -1.5 1.5, -1 -1.5 1, -1 -1.5 0.5,
+                  -1 -1 -3, -1 -1 -2.5, -1 -1 -2, -1 -1 -1.5, -1 -1 -1, -1 -1 -0.5, -1 -1 0,
+                  -1 -1 3, -1 -1 2.5, -1 -1 2, -1 -1 1.5, -1 -1 1, -1 -1 0.5,
+                  -1 -0.5 -3, -1 -0.5 -2.5, -1 -0.5 -2, -1 -0.5 -1.5, -1 -0.5 -1, -1 -0.5 -0.5, -1 -0.5 0,
+                  -1 -0.5 3, -1 -0.5 2.5, -1 -0.5 2, -1 -0.5 1.5, -1 -0.5 1, -1 -0.5 0.5,
+                  -1 0 -3, -1 0 -3, -1 0 -2.5, -1 0 -2, -1 0 -1.5, -1 0 -1, -1 0 -0.5, -1 0 0,
+                  -1 0 3, -1 0 2.5, -1 0 2, -1 0 1.5, -1 0 1, -1 0 0.5,
+                  -1 0.5 -3, -1 0.5 -2.5, -1 0.5 -2, -1 0.5 -1.5, -1 0.5 -1, -1 0.5 -0.5, -1 0.5 0,
+                  -1 0.5 3, -1 0.5 2.5, -1 0.5 2, -1 0.5 1.5, -1 0.5 1, -1 0.5 0.5,
+                  -1 1 -3, -1 1 -2.5, -1 1 -2, -1 1 -1.5, -1 1 -1, -1 1 -0.5, -1 1 0,
+                  -1 1 3, -1 1 2.5, -1 1 2, -1 1 1.5, -1 1 1, -1 1 0.5,
+                  -1 1.5 -2.5, -1 1.5 -2, -1 1.5 -1.5, -1 1.5 -1, -1 1.5 -0.5, -1 1.5 0,
+                  -1 1.5 2.5, -1 1.5 2, -1 1.5 1.5, -1 1.5 1, -1 1.5 0.5,
+                  -1 2 -2.5, -1 2 -2, -1 2 -1.5, -1 2 -1, -1 2 -0.5, -1 2 0,
+                  -1 2 2.5, -1 2 2, -1 2 1.5, -1 2 1, -1 2 0.5,
+                  -1 2.5 -2, -1 2.5 -1.5, -1 2.5 -1, -1 2.5 -0.5, -1 2.5 0,
+                  -1 2.5 2, -1 2.5 1.5, -1 2.5 1, -1 2.5 0.5,
+                  -1 3 -1, -1 3 -0.5, -1 3 0, -1 3 0.5, -1 3 1,
+
+                  -0.5 -3 -1, -0.5 -3 -0.5, -0.5 -3 0, -0.5 -3 0.5, -0.5 -3 1,
+                  -0.5 -2.5 -2, -0.5 -2.5 -1.5, -0.5 -2.5 -1, -0.5 -2.5 -0.5, -0.5 -2.5 0,
+                  -0.5 -2.5 2, -0.5 -2.5 1.5, -0.5 -2.5 1, -0.5 -2.5 0.5,
+                  -0.5 -2 -2.5, -0.5 -2 -2, -0.5 -2 -1.5, -0.5 -2 -1, -0.5 -2 -0.5,  -0.5 -2 0,
+                  -0.5 -2 2.5, -0.5 -2 2, -0.5 -2 1.5, -0.5 -2 1, -0.5 -2 0.5,
+                  -0.5 -1.5 -2.5, -0.5 -1.5 -2, -0.5 -1.5 -1.5, -0.5 -1.5 -1, -0.5 -1.5 -0.5, -0.5 -1.5 0,
+                  -0.5 -1.5 2.5, -0.5 -1.5 2, -0.5 -1.5 1.5, -0.5 -1.5 1, -0.5 -1.5 0.5,
+                  -0.5 -1 -3, -0.5 -1 -2.5, -0.5 -1 -2, -0.5 -1 -1.5, -0.5 -1 -1, -0.5 -1 -0.5, -0.5 -1 0,
+                  -0.5 -1 3, -0.5 -1 2.5, -0.5 -1 2, -0.5 -1 1.5, -0.5 -1 1, -0.5 -1 0.5,
+                  -0.5 -0.5 -3.5, -0.5 -0.5 -3, -0.5 -0.5 -2.5, -0.5 -0.5 -2, -0.5 -0.5 -1.5, -0.5 -0.5 -1, -0.5 -0.5 -0.5, -0.5 -0.5 0,
+                  -0.5 -0.5 3.5, -0.5 -0.5 3, -0.5 -0.5 2.5, -0.5 -0.5 2, -0.5 -0.5 1.5, -0.5 -0.5 1, -0.5 -0.5 0.5,
+                  -0.5 0 -3.5, -0.5 0 -3, -0.5 0 -2.5, -0.5 0 -2, -0.5 0 -1.5, -0.5 0 -1, -0.5 0 -0.5, -0.5 0 0,
+                  -0.5 0 3.5, -0.5 0 3, -0.5 0 2.5, -0.5 0 2, -0.5 0 1.5, -0.5 0 1, -0.5 0 0.5,
+                  -0.5 0.5 -3.5, -0.5 0.5 -3, -0.5 0.5 -2.5, -0.5 0.5 -2, -0.5 0.5 -1.5, -0.5 0.5 -1, -0.5 0.5 -0.5, -0.5 0.5 0,
+                  -0.5 0.5 3.5, -0.5 0.5 3, -0.5 0.5 2.5, -0.5 0.5 2, -0.5 0.5 1.5, -0.5 0.5 1, -0.5 0.5 0.5,
+                  -0.5 1 -3, -0.5 1 -2.5, -0.5 1 -2, -0.5 1 -1.5, -0.5 1 -1, -0.5 1 -0.5, -0.5 1 0,
+                  -0.5 1 3, -0.5 1 2.5, -0.5 1 2, -0.5 1 1.5, -0.5 1 1, -0.5 1 0.5,
+                  -0.5 1.5 -2.5, -0.5 1.5 -2, -0.5 1.5 -1.5, -0.5 1.5 -1, -0.5 1.5 -0.5, -0.5 1.5 0,
+                  -0.5 1.5 2.5, -0.5 1.5 2, -0.5 1.5 1.5, -0.5 1.5 1, -0.5 1.5 0.5,
+                  -0.5 2 -2.5, -0.5 2 -2, -0.5 2 -1.5, -0.5 2 -1, -0.5 2 -0.5, -0.5 2 0,
+                  -0.5 2 2.5, -0.5 2 2, -0.5 2 1.5, -0.5 2 1, -0.5 2 0.5,
+                  -0.5 2.5 -2, -0.5 2.5 -1.5, -0.5 2.5 -1, -0.5 2.5 -0.5, -0.5 2.5 0,
+                  -0.5 2.5 2, -0.5 2.5 1.5, -0.5 2.5 1, -0.5 2.5 0.5,
+                  -0.5 3 -1, -0.5 3 -0.5, -0.5 3 0, -0.5 3 0.5, -0.5 3 1,
+
+                  0 -3.5 0, 0 -3.5 -0.5, 0 -3.5 0.5, -0.5 -3.5 -0.5, -0.5 -3.5 0, 0.5 -3.5 0.5, -0.5 -3.5 0.5, -0.5 -3.5 0, 0.5 -3.5 0.5,
+                  0 -3 -1, 0 -3 -0.5, 0 -3 0, 0 -3 0.5, 0 -3 1,
+                  0 -2.5 -2, 0 -2.5 -1.5, 0 -2.5 -1, 0 -2.5 -0.5, 0 -2.5 0,
+                  0 -2.5 2, 0 -2.5 1.5, 0 -2.5 1, 0 -2.5 0.5,
+                  0 -2 -2.5, 0 -2 -2, 0 -2 -1.5, 0 -2 -1, 0 -2 -0.5,  0 -2 0,
+                  0 -2 2.5, 0 -2 2, 0 -2 1.5, 0 -2 1, 0 -2 0.5,
+                  0 -1.5 -2.5, 0 -1.5 -2, 0 -1.5 -1.5, 0 -1.5 -1, 0 -1.5 -0.5, 0 -1.5 0,
+                  0 -1.5 2.5, 0 -1.5 2, 0 -1.5 1.5, 0 -1.5 1, 0 -1.5 0.5,
+                  0 -1 -3, 0 -1 -2.5, 0 -1 -2, 0 -1 -1.5, 0 -1 -1, 0 -1 -0.5, 0 -1 0,
+                  0 -1 3, 0 -1 2.5, 0 -1 2, 0 -1 1.5, 0 -1 1, 0 -1 0.5,
+                  0 -0.5 -3.5, 0 -0.5 -3, 0 -0.5 -2.5, 0 -0.5 -2, 0 -0.5 -1.5, 0 -0.5 -1, 0 -0.5 -0.5, 0 -0.5 0,
+                  0 -0.5 3.5, 0 -0.5 3, 0 -0.5 2.5, 0 -0.5 2, 0 -0.5 1.5, 0 -0.5 1, 0 -0.5 0.5,
+                  0 0 -3.5, 0 0 -3, 0 0 -2.5, 0 0 -2, 0 0 -1.5, 0 0 -1, 0 0 -0.5, 0 0 0,
+                  0 0 3.5, 0 0 3, 0 0 2.5, 0 0 2, 0 0 1.5, 0 0 1, 0 0 0.5,
+                  0 0.5 -3.5, 0 0.5 -3, 0 0.5 -2.5, 0 0.5 -2, 0 0.5 -1.5, 0 0.5 -1, 0 0.5 -0.5, 0 0.5 0,
+                  0 0.5 3.5, 0 0.5 3, 0 0.5 2.5, 0 0.5 2, 0 0.5 1.5, 0 0.5 1, 0 0.5 0.5,
+                  0 1 -3, 0 1 -2.5, 0 1 -2, 0 1 -1.5, 0 1 -1, 0 1 -0.5, 0 1 0,
+                  0 1 3, 0 1 2.5, 0 1 2, 0 1 1.5, 0 1 1, 0 1 0.5,
+                  0 1.5 -2.5, 0 1.5 -2, 0 1.5 -1.5, 0 1.5 -1, 0 1.5 -0.5, 0 1.5 0,
+                  0 1.5 2.5, 0 1.5 2, 0 1.5 1.5, 0 1.5 1, 0 1.5 0.5,
+                  0 2 -2.5, 0 2 -2, 0 2 -1.5, 0 2 -1, 0 2 -0.5, 0 2 0,
+                  0 2 2.5, 0 2 2, 0 2 1.5, 0 2 1, 0 2 0.5,
+                  0 2.5 -2, 0 2.5 -1.5, 0 2.5 -1, 0 2.5 -0.5, 0 2.5 0,
+                  0 2.5 2, 0 2.5 1.5, 0 2.5 1, 0 2.5 0.5,
+                  0 3 -1, 0 3 -0.5, 0 3 0, 0 3 0.5, 0 3 1,
+                  
+                  0 3.5 0, 0 3.5 -0.5, 0 3.5 0.5, -0.5 3.5 -0.5, -0.5 3.5 0, 0.5 3.5 0.5, -0.5 3.5 0.5, -0.5 3.5 0, 0.5 3.5 0.5">
+                      </Coordinate>
+                    </PointSet>
+                  </Shape>
+                </Transform>
+                <!-- 1.5.2 Левая сторона -->
+                <Transform translation="0 0 0" rotation="0 0 1 3.14">
+                  <Shape USE="SalutBol">
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+
+            <!-- 1.6 Большой салют скейл 1.25 левый -->
+            <Transform translation="12 21 20" scale="1.25 1.25 1.25">
+              <Shape USE="SalutBolZel">
+              </Shape>
+            </Transform>
+
+            <!-- 1.7 Большой салют почти по центру -->
+            <Transform translation="-2 15 20">
+              <Shape USE="SalutBolZel">
+              </Shape>
+            </Transform>
+
+            <!-- 1.8 Маленький салют скейл 1.5 левый самый правый -->
+            <Transform translation="6 18 20" scale="1.5 1.5 1.5">
+              <Shape USE="SalutMal">
+              </Shape>
+            </Transform>
+
+            <!-- 1.9 Маленький салют левый справа выше -->
+            <Transform translation="7 23 20">
+              <Shape USE="SalutMal">
+              </Shape>
+            </Transform>
+
+            <!-- 1.10 Маленький салют самый левый -->
+            <Transform translation="18 15 20">
+              <Shape USE="SalutMal">
+              </Shape>
+            </Transform>
+
+            <!-- трансформ на ВСЕ салюты -->
+          </Transform>
+
+          <!-- 2. Флаги -->
+          <Transform translation="0 0 0">
+
+            <!-- 2.1 Флаг боковой правый -->
+            <Transform translation="0 0 0">
+              <!-- 2.1.1 "Палка" флага => линия -->
+              <Transform translation="0 0 0">
+                <Shape>
+                  <IndexedLineSet coordIndex="0 1 2" colorIndex="0 0 1" colorPerVertex="true">
+                    <Coordinate point="-3.5 16.5 5.5, -3.5 17 5.5, -3.5 18.5 5.5">
+                    </Coordinate>
+                    <Color color="0.5 0 0.5, 0.8 0.5 1"></Color>
+                  </IndexedLineSet>
+                </Shape>
+              </Transform>
+              <!-- 2.1.2 Сам флаг => треугольная лента -->
+              <Transform translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <Material DEF="Flag1"></Material>
+                  </Appearance>
+                  <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8' solid='false'>
+                    <Coordinate point='-6.5 18.5 5.5, -4.5 17.75 5.5, -3.5 18.5 5.5,
+                                       -3.5 18.5 5.5, -4.5 17.75 5.5, -3.5 17 5.5,
+                                       -3.5 17 5.5, -4.5 17.75 5.5, -6.5 17 5.5'>
+                    </Coordinate>
+                  </IndexedTriangleStripSet>
+                </Shape>
+              </Transform>
+            </Transform>
+
+            <!-- 2.2 Флаг боковой левый -->
+            <Transform translation="0 0 0">
+              <!-- 2.2.1 "Палка" флага => линия -->
+              <Transform translation="0 0 0">
+                <Shape>
+                  <IndexedLineSet coordIndex="0 1 2" colorIndex="0 0 1" colorPerVertex="true">
+                    <Coordinate point="3.5 16.5 5.5, 3.5 17 5.5, 3.5 18.5 5.5">
+                    </Coordinate>
+                    <Color color="0.5 0 0.5, 0.8 0.5 1"></Color>
+                  </IndexedLineSet>
+                </Shape>
+              </Transform>
+              <!-- 2.2.2 Сам флаг => треугольная лента -->
+              <Transform translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <Material DEF="Flag2"></Material>
+                  </Appearance>
+                  <IndexedTriangleStripSet index='0 1 2 3 4 5 6 7 8' solid='false'>
+                    <Coordinate point='0.5 18.5 5.5, 2.5 17.75 5.5, 3.5 18.5 5.5,
+                                       3.5 18.5 5.5, 2.5 17.75 5.5, 3.5 17 5.5,
+                                       3.5 17 5.5, 2.5 17.75 5.5, 0.5 17 5.5'>
+                    </Coordinate>
+                  </IndexedTriangleStripSet>
+                </Shape>
+              </Transform>
+            </Transform>
+
+            <!-- 2.3 Флаг центральный -->
+            <Transform translation="0 0 0">
+              <!-- 2.3.1 "Палка" флага => линия -->
+              <Transform translation="0 0 0">
+                <Shape>
+                  <IndexedLineSet coordIndex="0 1 2" colorIndex="0 0 1" colorPerVertex="true">
+                    <Coordinate point="0 15 2, 0 15.5 2, 0 16.5 2">
+                    </Coordinate>
+                    <Color color="0.5 0 0.5, 0.8 0.5 1"></Color>
+                  </IndexedLineSet>
+                </Shape>
+              </Transform>
+              <!-- 2.3.2 Сам флаг => треугольник -->
+              <Transform translation="0 0 0">
+                <Shape>
+                  <Appearance>
+                    <Material DEF="Flag3"></Material>
+                  </Appearance>
+                  <IndexedTriangleSet index='0 1 2' solid='false'>
+                    <Coordinate point='-2 16 2, 0 15.5 2, 0 16.5 2'>
+                    </Coordinate>
+                  </IndexedTriangleSet>
+                </Shape>
+              </Transform>
+            </Transform>
+
+            <!-- Трансформ на ВСЕ флаги -->
+          </Transform>
+
+
+          <!-- 3. Линии в полигоны -->
+          <Transform translation="0 0 0">
+
+            <!-- 3.1 Сцена под замок -->
+            <Transform translation="0 0 0">
+              <Shape>
+                <Appearance>
+                  <TextureTransform scale="2 4"></TextureTransform>
+                  <ImageTexture url="pd11.jpg"></ImageTexture>
+                </Appearance>
+                <IndexedFaceSet ccw="true" solid="false" coordIndex="0 1 2 3 -1 2 3 4 5 -1 4 5 6 7 -1 6 7 8 9 -1 8 9 10 11 -1 10 11 12 13 -1 12 13 1 0 -1
+                              0 2 4 6 8 10 12 -1 1 3 5 7 9 11 13 -1">
+                  <Coordinate point="4.5 0 -9, 4.5 -0.5 -9,
+                           15.5 -0.5 -2.25, 15.5 0 -2.25,
+                           15.5 0 10.5, 15.5 -0.5 10.5,
+                           0 -0.5 12.5, 0 0 12.5,
+                           -15.5 0 10.5, -15.5 -0.5 10.5,
+                           -15.5 -0.5 -2.25, -15.5 0 -2.25,
+                           -4.5 0 -9, -4.5 -0.5 -9">
+                  </Coordinate>
+                </IndexedFaceSet>
+              </Shape>
+            </Transform>
+
+            <!-- Трансформ на ВСЕ линии в полигоны -->
+          </Transform>
+
+
+          <!-- трансформ на 2 лабу закрывающий -->
+        </Transform>
+
+        <!-- Лабораторная 3. Анимация, свет и тдп -->
+        <Transform translation="0 0 0">
+
+          <!-- 1. Ссылка -->
+          <Transform translation="0 2 -25" rotation="0 1 0 3.141593">
+            <Inline url="tekst.x3d"></Inline>
+          </Transform>
+
+          <!-- 2. Свет -->
+          <!-- 2.1 Сверху от салютов -->
+          <SpotLight direction="0 -1 0" color="white" location="-2 20 10" radius='30' intensity="1" beamWidth="0.2"
+            cutOffAngle="0.8">
+          </SpotLight>
+
+          <!-- 2.2 Розовые тени -->
+          <DirectionalLight direction='1 -1 -1' color='1 0 0.5' intensity='0.3'>
+          </DirectionalLight>
+
+          <!-- 3. Туман -->
+          <Fog DEF='tuman' fogType="EXPONENTIAL" color="#293133" visibilityRange='300'></Fog>
+
+          <!-- 4. Камера -->
+          <Viewpoint DEF='camera' description="Начальный вид" position="-25 10 -50" orientation="0 1 0 -2.8">
+          </Viewpoint>
+
+          <!-- 5. Навигация -->
+          <NavigationInfo DEF='navigation' avatarSize="15 20 2" type="LOOKAT" speed="7">
+          </NavigationInfo>
+
+          <!-- трансформ на всю лабу 3 -->
+        </Transform>
+
+
+        <!-- Лабораторная 4. Анимация, свет и тдп -->
+        <Transform translation="0 0 0">
+
+          <!-- 1. Позишн -->
+          <!-- 1.1 Анимация на салюты -->
+          <TimeSensor DEF="TSSalutBolZel" cycleInterval="10" loop='true'></TimeSensor>
+          <PositionInterpolator DEF="posSalutBolZel" key="0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1" keyValue="0 0 0, 0.25 0.25 0.25, 0.5 0.5 0.5, 0.65 0.65 0.65, 0.75 0.75 0.75,
+            0.85 0.85 0.85, 0.9 0.9 0.9, 0.94 0.94 0.94, 0.98 0.98 0.98, 0.99 0.99 0.99, 1 1 1">
+          </PositionInterpolator>
+          <ROUTE fromNode="TSSalutBolZel" fromField="fraction_changed" toNode="posSalutBolZel" toField="set_fraction">
+          </ROUTE>
+          <ROUTE fromNode="posSalutBolZel" fromField="value_changed" toNode="SalutBolZel" toField="set_scale">
+          </ROUTE>
+
+          <TimeSensor DEF="TSSalutMal" cycleInterval="8" loop='true'></TimeSensor>
+          <PositionInterpolator DEF="posSalutMal" key="0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1" keyValue="0 0 0, 0.25 0.25 0.25, 0.5 0.5 0.5, 0.65 0.65 0.65, 0.75 0.75 0.75,
+           0.85 0.85 0.85, 0.9 0.9 0.9, 0.94 0.94 0.94, 0.98 0.98 0.98, 0.99 0.99 0.99, 1 1 1">
+          </PositionInterpolator>
+          <ROUTE fromNode="TSSalutMal" fromField="fraction_changed" toNode="posSalutMal" toField="set_fraction">
+          </ROUTE>
+          <ROUTE fromNode="posSalutMal" fromField="value_changed" toNode="SalutMal" toField="set_scale">
+          </ROUTE>
+
+          <!-- 1.2 Ворота -->
+          <TimeSensor DEF='TSReshetka' cycleInterval='3' loop='true'></TimeSensor>
+          <positionInterpolator DEF='PosReshetka' key='0, 0.5, 1' keyValue='0 2.75 -7.48, 0 2.375 -7.48, 0 2 -7.48'>
+          </positionInterpolator>
+          <ROUTE fromNode='TSReshetka' fromField='fraction_changed' toNode='PosReshetka' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='PosReshetka' fromField='value_changed' toNode='Reshetka' toField='set_translation'>
+          </ROUTE>
+
+
+          <!-- 2. Скаляр -->
+          <!-- 2.1 Подпись -->
+          <TimeSensor DEF="TSTextS" cycleInterval="0.5" loop="true"></TimeSensor>
+          <ScalarInterpolator DEF="ScTextS" key="0, 0.5, 1" keyValue="0.1, 0.9, 0.1">
+          </ScalarInterpolator>
+          <ROUTE fromNode="TSTextS" fromField="fraction_changed" toNode="ScTextS" toField="set_fraction">
+          </ROUTE>
+          <ROUTE fromNode="ScTextS" fromField="value_changed" toNode="TextS" toField="set_transparency">
+          </ROUTE>
+
+
+          <!-- 3. Калор -->
+          <!-- 3.1 Флаги -->
+          <TimeSensor DEF='TSFlag1' cycleInterval='10' loop='true'></TimeSensor>
+          <ColorInterpolator DEF='ColFlag1' key='0, 0.25, 0.5, 0.75, 1'
+            keyValue='0.62 0.1 0.58, 0.95 0.77 0.94, 0.78 0.41 0.76, 0.26 0.01 0.24, 0.62 0.1 0.58,'>
+          </ColorInterpolator>
+          <ROUTE fromNode='TSFlag1' fromField='fraction_changed' toNode='ColFlag1' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='ColFlag1' fromField='value_changed' toNode='Flag1' toField='set_diffuseColor'>
+          </ROUTE>
+
+          <TimeSensor DEF='TSFlag2' cycleInterval='10' loop='true'></TimeSensor>
+          <ColorInterpolator DEF='ColFlag2' key='0, 0.25, 0.5, 0.75, 1'
+            keyValue='0.62 0.1 0.58, 0.95 0.77 0.94, 0.78 0.41 0.76, 0.26 0.01 0.24, 0.62 0.1 0.58,'>
+          </ColorInterpolator>
+          <ROUTE fromNode='TSFlag2' fromField='fraction_changed' toNode='ColFlag2' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='ColFlag2' fromField='value_changed' toNode='Flag2' toField='set_diffuseColor'>
+          </ROUTE>
+
+          <TimeSensor DEF='TSFlag3' cycleInterval='10' loop='true'></TimeSensor>
+          <ColorInterpolator DEF='ColFlag3' key='0, 0.25, 0.5, 0.75, 1'
+            keyValue='0.62 0.1 0.58, 0.95 0.77 0.94, 0.78 0.41 0.76, 0.26 0.01 0.24, 0.62 0.1 0.58,'>
+          </ColorInterpolator>
+          <ROUTE fromNode='TSFlag3' fromField='fraction_changed' toNode='ColFlag3' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='ColFlag3' fromField='value_changed' toNode='Flag3' toField='set_diffuseColor'>
+          </ROUTE>
+
+
+          <!-- 4. Оринтейшн -->
+          <!-- 4. Подпись -->
+          <timeSensor DEF='TSSText' cycleInterval='1' loop='true'></timeSensor>
+          <orientationInterpolator DEF='OrientSText' key='0 0.25 0.5 0.75 1'
+            keyValue='0 1 0 0  0 1 0 1.57079  0 1 0 3.14159  0 1 0 4.71239  0 1 0 6.28317'>
+          </orientationInterpolator>
+          <ROUTE fromNode='TSSText' fromField='fraction_changed' toNode='OrientSText' toField='set_fraction'>
+          </ROUTE>
+          <ROUTE fromNode='OrientSText' fromField='value_changed' toNode='SText' toField='set_rotation'>
+          </ROUTE>
+
+
+          <!-- Трансформ на всю лабу 4 -->
+        </Transform>
+
+
+
+
+        <!-- трансформ на ВСЕ лабы закрывающий -->
+      </Transform>
+
+    </Scene>
+
+  </X3D>
+</body>
+
 </html>
