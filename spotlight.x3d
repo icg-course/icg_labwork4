@@ -1,0 +1,32 @@
+<Scene>
+    <Transform rotation='0 0 -1 -0.999' translation='0.0967 0.24 0'>
+      <Transform translation='0 0.115 0'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.2 0.2 0.2'/>
+          </Appearance>
+          <Cylinder height='0.23' radius='0.12'/>
+        </Shape>
+      </Transform>
+    </Transform>
+    <Transform translation='0 0.0538 0'>
+      <Transform translation='0 0.09 0'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.4 0.4 0.4'/>
+          </Appearance>
+          <Cylinder height='0.18' radius='0.03'/>
+        </Shape>
+      </Transform>
+    </Transform>
+    <Transform scale='1 1 1.48'>
+      <Transform translation='0 0.035 0'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.2 0.2 0.2'/>
+          </Appearance>
+          <Cylinder height='0.07' radius='0.14'/>
+        </Shape>
+      </Transform>
+    </Transform>
+</Scene>
