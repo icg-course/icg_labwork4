@@ -392,6 +392,15 @@
 				<Shape USE="Light"></Shape>
 			</Transform>
 		</Group>
+		
+		<!--Анимация турбины-->
+		<TimeSensor DEF='TS' cycleInterval='2' loop='true'></TimeSensor>
+		<OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 0 1 0, 0 0 1 -3.14, 0 0 1 -6.28'></OrientationInterpolator>
+		<ROUTE fromNode='TS' fromField='fraction_changed' toNode='OrientInt' toField='set_fraction'>
+		</ROUTE>
+		<ROUTE fromNode='OrientInt' fromField='value_changed' toNode='Turbine1' toField='set_rotation'>
+		</ROUTE>
+		
     </Scene>
   </X3D>
 </body>
