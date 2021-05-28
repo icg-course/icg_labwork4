@@ -30,6 +30,7 @@
       
 <!--заполнение по четырём точкам-->
 <!--ваза-->
+<Transform DEF="VASE" translation = "0 0 0"> 
   <Transform translation = "1 0.157 -1">
     <Shape>
         <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
@@ -110,7 +111,8 @@
           <Shape USE="flower">
           </Shape>
         </Transform>
-
+    </Transform>
+  </Transform>
 
 <!--трава-->  
  <Transform translation = "-9 -4.8 -8">
@@ -298,17 +300,25 @@
                 </Shape>
             </Transform>
 
-
-
-
       
+      <!-- перемещение мороженного -->
       <TimeSensor DEF='TSICEC' cycleInterval='5' loop='true'></TimeSensor>
       <positionInterpolator DEF='PosInt' key='0, 0.2, 0.4, 0.6, 0.8, 1'
-        keyValue='-1.3 0 0, -1.3 0 -1, 0.2 0 -1, 0.2 0 1, -1.3 0 1, -1.3 0 0'>
+        keyValue='-0.6 0 0.1, -0.6 0 -0.6, 0.4 0 -0.6, 0.4 0 0.6, -0.6 0 0.6, -0.7 0 0.1'>
       </positionInterpolator>
       <ROUTE fromNode='TSICEC' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'>
       </ROUTE>
       <ROUTE fromNode='PosInt' fromField='value_changed' toNode='ICEC' toField='set_translation'>
+      </ROUTE>
+
+
+      <!-- прокрутка вазы с цветами вокруг своей оси -->
+      <TimeSensor DEF='TSVASE' cycleInterval='4' loop='true'></TimeSensor>
+      <OrientationInterpolator DEF='OrientInt' key='0 0.5 1' keyValue='0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28'>
+      </OrientationInterpolator>
+      <ROUTE fromNode='TSVASE' fromField='fraction_changed' toNode='OrientInt' toField='set_fraction'>
+      </ROUTE>
+      <ROUTE fromNode='OrientInt' fromField='value_changed' toNode='VASE' toField='set_rotation'>
       </ROUTE>
 
 
