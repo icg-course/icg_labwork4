@@ -216,7 +216,7 @@
         </Transform>
         </Transform>  
     <!-- ножка-->
-        <Transform translation = "0 0.35 0">
+        <Transform translation = "0 0.4 0">
             <Shape>
                 <Appearance>
                     <Material diffuseColor = "0.5 0.7 0.8" specularColor = "0.44 0.28 0.89" transparency = "0.05"></Material>
@@ -302,8 +302,8 @@
       
       <!-- перемещение мороженного -->
       <TimeSensor DEF='TSICEC' cycleInterval='5' loop='true'></TimeSensor>
-      <positionInterpolator DEF='PosInt' key='0, 0.2, 0.4, 0.6, 0.8, 1'
-        keyValue='-0.6 0 0.1, -0.6 0 -0.6, 0.4 0 -0.6, 0.4 0 0.6, -0.6 0 0.6, -0.7 0 0.1'>
+      <positionInterpolator DEF='PosInt' key='0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1'
+        keyValue='-1.2 0 0, -2.3 0.8 0, -3.4 0.5 0, -4.3 -0.5 0, -5 -1.2 0, -5.5 -2.1 0, -5 -1.2 0, -4.3 -0.5 0, -3.4 0.5 0, -2.3 0.8 0, -1.2 0 0'>
       </positionInterpolator>
       <ROUTE fromNode='TSICEC' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'>
       </ROUTE>
