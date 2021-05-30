@@ -1,13 +1,215 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<html lang="en">
+
+    <head>
+        <title>Лабораторная работа 4</title>
+        <meta charset="utf-8" />
+        <script type='text/javascript' src='https://www.x3dom.org/download/dev/x3dom-full.js'> </script>
+        <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css' />
+        
+    </head>
+
+<body>
+    <x3d width="100vw" height="100vh">
+        <scene>
+            
+            <Collision DEF="Main_collision" enabled="true">
+                <Group DEF="Robot_anim">
+                    <Anchor url="https://youtu.be/2TdJkBiTot4" parameter="target='_self'">
+                        <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+                        <OrientationInterpolator DEF="OrientInt" key="0 0.5 1"
+                            keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28">
+                        </OrientationInterpolator>
+                        <Transform translation="0 1 0" scale="0.1 0.1 0.1" rotation="0 1 0 2.8">
+                            <Transform DEF="Robo_Rot">
+                                <appearance>
+                                    <ImageTexture url="./Bet1.jpg"></ImageTexture>
+                                </appearance>
+                                <Inline url="Robot.x3d"></Inline>
+                            </Transform>
+                        </Transform>
+
+                        <ROUTE fromNode="Time" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction"></ROUTE>
+                        <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Robo_Rot" toField="set_rotation"></ROUTE>
+
+                    </Anchor>
+                </Group>
+
+                <!--Кусок сцены-->
+                <!--Группа стен пола и потолка-->
+                <Group DEF="Part_scene">
+                    <transform DEF="GF" translation="0 0 0">
+                        <shape DEF="G">
+                            <appearance>
+                                <Material color="#ffffff"></Material>
+                                <ImageTexture url="./Bet1.jpg">
+                                </ImageTexture>
+                            </appearance>
+                            <box Size="20 0.1 20"></box>
+                        </shape>
+                    </transform>
+                    <Transform DEF="LWall" translation="-9.95 4 0">
+                        <Shape DEF="Wall">
+                            <Appearance>
+                                <Material color="#ffffff"></Material>
+                                <ImageTexture url="./BetWEEWEE.jpg">
+                                </ImageTexture>
+                            </Appearance>
+                            <Box Size=".1 8 20"></Box>
+                        </Shape>
+                    </Transform>
+                    <Transform DEF="RWall" translation="9.95 4 0">
+                        <Shape USE="Wall"></Shape>
+                    </Transform>
+                    <transform DEF="F" translation="0 8 0">
+                        <shape USE="G"></shape>
+                    </transform>
+                </Group>
+                <transform DEF="Part_scene_2" translation="0 0 20">
+                    <shape USE="Part_scene"></shape>
+                </transform>
+                <Transform DEF="BWall" translation="0 4 -9.9" rotation="0 1 0 1.5708">
+                    <Shape USE="Wall"></Shape>
+                </Transform>
+
+                <!--Ball-->
+                <Group DEF="Ball_anim">
+                    <TimeSensor DEF="Time" cycleInterval="0.9" loop="true" enabled="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.32 0.74 1" keyValue="1 3 9, 1 0.45 9, 1 3.9 9, 1 3 9">
+                    </PositionInterpolator>
+
+                    <OrientationInterpolator DEF="OrientInt" key="0 0.25 1"
+                        keyValue="1 0 0 0, 1 0 0 -3.14, 1 0 0 -6.28">
+                    </OrientationInterpolator>
+
+                    <Transform DEF="Bounce" translation="1 3 9">
+                        <Transform DEF="Rotating">
+                            <shape>
+                                <appearance>
+                                    <imagetexture url="./Ball.jpg"></imagetexture>
+                                </appearance>
+                                <sphere radius="0.4"></sphere>
+                            </shape>
+                        </Transform>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Bounce" toField="set_translation"></ROUTE>
+
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Rotating" toField="set_rotation"></ROUTE>
+                </Group>
+
+                <!--Подиум?-->
+                <Transform translation="0 0.5 0">
+                    <TimeSensor DEF="Time" cycleInterval="1" loop="true"> </TimeSensor>
+                    <ColorInterpolator DEF="ColInt" key="0 0.16 0.32 0.48 0.64 0.8 1"
+                        keyValue="1 0 0, 1 0.5 0, 1 1 0.5, 1 1 1, 1 1 0.5, 1 0.5 0,  1 0 0">
+                    </ColorInterpolator>
+                    <Shape>
+                        <Appearance>
+                            <Material DEF="Mat" diffuseColor="1 0 0" specularColor="1 1 1"></Material>
+                        </Appearance>
+                        <Cylinder radius="1.5" height="1"></Cylinder>
+                    </Shape>
+
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="ColInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="ColInt" fromField="value_changed" toNode="Mat" toField="set_diffuseColor"></ROUTE>
+
+                </Transform>
+            </Collision>
+
+            <!--Light and fog-->
+            <Group DEF="Light">
+                <PointLight ambientIntensity='0' attenuation='1,0,0' color='1,0,0' global='false' intensity='1'
+                    location='0,3,3' on='true' radius='100' shadowFilterSize='0' shadowIntensity='1'
+                    shadowMapSize='1024' shadowOffset='0' zFar='-1' zNear='-1'></PointLight>
+
+                <DirectionalLight ambientIntensity='0' color='1,0.1,0' direction='0,-0.1,-2' global='false'
+                    intensity='.5' on='true' shadowCascades='1' shadowFilterSize='6' shadowIntensity='1'
+                    shadowMapSize='2024' shadowOffset='0' shadowSplitFactor='1' shadowSplitOffset='0.1'>
+                </DirectionalLight>
+
+                <SpotLight ambientIntensity='0' attenuation='1,0,0' beamWidth='1.5' color='0.5,0,0.4' cutOffAngle='1'
+                    direction='0,-2,0' global='false' intensity='1' location='0,7,0' radius='5' shadowCascades='1'
+                    shadowFilterSize='2' shadowIntensity='1' shadowMapSize='1024'></SpotLight>
+                <transform>
+                    <Fog bind='true' color='(1,0,1)' fogType='EXPONENTIAL' isActive='true' visibilityRange='45'></Fog>
+                </transform>
+            </Group>
+
+            <!--Dollar-->
+            <Group DEF="MainD">
+                <Group DEF="$">
+                    <Transform DEF="1" translation="0 6 0" rotation="0 1 0 0.4">
+                        <Shape DEF="Kupira">
+                            <appearance>
+                                <ImageTexture url="3hrd.png"></ImageTexture>
+                                <texturetransform scale="1 2.4"></texturetransform>
+                            </appearance>
+                            <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                                coordIndex="0 1 2 3 0 -1 " colorIndex="0 1 2 3 0 -1">
+                                <Coordinate point="0 0 0, 0 0.231 0, 0.55 0.231 0, 0.55 0 0"></Coordinate>
+                            </IndexedFaceSet>
+                        </Shape>
+                    </Transform>
+
+                    <Transform DEF="2" translation="2 5 3" rotation="1 0 0 1" rotation="0 1 0 1">
+                        <Transform rotation="0 0 1 1.7">
+                            <shape USE="Kupira"></shape>
+                        </Transform>
+                    </Transform>
+
+
+                    <Transform DEF="3" translation="-4 4.5 1" rotation="0 1 0 0.5">
+                        <Transform rotation="0 0 1 1">
+                            <shape USE="Kupira"></shape>
+                        </Transform>
+                    </Transform>
+
+                    <Transform DEF="4" translation="-6 2 -1">
+                        <Transform rotation="0 0 1 1.9">
+                            <shape USE="Kupira"></shape>
+                        </Transform>
+                    </Transform>
+
+                    <Transform DEF="5" translation="1 1 -5">
+                        <Transform rotation="0 0 1 0.9">
+                            <shape USE="Kupira"></shape>
+                        </Transform>
+                    </Transform>
+                </Group>
+
+                <transform DEF="$2" translation="-1 2 1">
+                    <shape USE="$"></shape>
+                </transform>
+
+                <transform DEF="$3" translation="4 1 -1">
+                    <shape USE="$"></shape>
+                </transform>
+            </Group>
+
+            <NavigationInfo avatarSize='[ 3, 5, 2 ]' explorationMode='all' speed='2.0' transitionTime='1.0'
+                transitionType='["LINEAR"]' headlight='false' type="FLY"></NavigationInfo>
+
+            <!--Cumera-->
+            <Viewpoint position="0 4 15" orientation="0 0 0 0" zNear="1" zFar="1000"
+                centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.9" description="defaultX3DViewpointNode">
+            </Viewpoint>
+
+            <!--background-->
+            <Background DEF='Summer' skyAngle='0.8,
+                        1.3,
+                        1.5708' skyColor='0 0 0.1,
+                        0 0 0.2,
+                        0 0 0.4' groundAngle='0.4,
+                            1.2,
+                            1.5708' groundColor='0 0 0.1,
+                            0 0 0.15,
+                            0 0 0.542,
+                            0 0 0.669' />
+
+        </scene>
+    </x3d>
+</body>
+
 </html>
