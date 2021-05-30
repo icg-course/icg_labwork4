@@ -159,11 +159,11 @@
   
 
          <TimeSensor DEF="Time" cycleInterval="4" loop="true"></TimeSensor>
-        <PositionInterpolator DEF="PosInt" key="0 0.33 0.66 1"
-        keyValue="0 0 7, 0 -2.4 2, 0 -2.4 7,  0 0 7">
+        <PositionInterpolator DEF="PosInt" key="0 0.5 1"
+        keyValue="0 -2.4 2, 0 0 8,  0 -2.4 2">
         </PositionInterpolator>
         
-        <Transform DEF="Trans" translation="0 0 7">
+        <Transform DEF="Trans" translation="0 0 8">
         <Shape>
         <Appearance>
         <Material></Material>
@@ -176,6 +176,16 @@
         toNode="PosInt" toField="set_fraction"></ROUTE>
         <ROUTE fromNode="PosInt" fromField="value_changed"
         toNode="Trans" toField="set_translation"></ROUTE>
+
+           
+
+        <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="1 0 0 0, 1 0 0 3.14, 1 0 0 6.28">
+        </OrientationInterpolator>
+        <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Kegl" toField="set_rotation">
+        </ROUTE>
+        <ROUTE fromNode="Time" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+        </ROUTE>
+        
        </Scene>
     </x3d>
   </body> 
