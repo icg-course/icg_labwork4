@@ -1,13 +1,435 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+<head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <script src="https://x3dom.org/download/dev/x3dom-full.debug.js"></script>
+</head>
+<body>
+<h1>Perevalkina E.O. 4843</h1>
+<X3D style="width:85%; height:85%; border:none;">
+    <Scene>
+        <Collision>
+            <Transform DEF="Ball" rotation="0 1 0 2" translation="-12 -2.5 0">
+                <Inline url="ball.x3d"></Inline>
+            </Transform>
+
+            <Transform DEF="Trans">
+
+                <!--Кузов-->
+                <transform rotation="0 0 1 1.57" translation="0 0 0">
+                    <Shape>
+                        <Appearance>
+                            <Material diffuseColor="blue"></Material>
+                        </Appearance>
+                        <Cylinder radius="1.4" height="7"></Cylinder>
+                    </Shape>
+                </transform>
+
+                <!--Кабина-->
+                <transform translation="4 1 0">
+                    <Shape>
+                        <Appearance>
+                            <Material diffuseColor="blue"></Material>
+                        </Appearance>
+                        <Box size="2.5 5 3"></Box>
+                    </Shape>
+                </transform>
+
+                <!--Основание кузова-->
+                <transform translation="0.5 -1.3 0">
+                    <Shape>
+                        <Appearance>
+                            <Material diffuseColor="blue"></Material>
+                        </Appearance>
+                        <Box size="9.5 0.5 3"></Box>
+                    </Shape>
+                </transform>
+
+                <!--Основание вагона-->
+                <transform translation="8 -1.3 0">
+                    <Shape>
+                        <Appearance>
+                            <Material diffuseColor="blue"></Material>
+                        </Appearance>
+                        <Box size="4.4 0.5 4"></Box>
+                    </Shape>
+                </transform>
+
+
+                <!--Колёса-->
+                <transform translation="-3.3 -2.49 1.4">
+                    <Shape DEF="Wheel">
+                        <Appearance>
+                            <Material diffuseColor="0.1 0.1 0.1"></Material>
+                        </Appearance>
+                        <Torus innerRadius="0.35" outerRadius="0.6"></Torus>
+                    </Shape>
+                </transform>
+                <transform translation="-1.4 -2.49 1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="0.5 -2.49 1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="2.4 -2.49 1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="4.3 -2.49 1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="6.9 -2.49 1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="9.3 -2.49 1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+
+                <transform translation="-3.3 -2.49 -1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="-1.4 -2.49 -1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="0.5 -2.49 -1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="2.4 -2.49 -1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="4.3 -2.49 -1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="6.9 -2.49 -1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+                <transform translation="9.3 -2.49 -1.4">
+                    <Shape USE="Wheel">
+                    </Shape>
+                </transform>
+
+                <!--Окна-->
+                <transform translation="4 2 1.3">
+                    <Shape DEF="Window">
+                        <Appearance>
+                            <Material diffuseColor="white"></Material>
+                        </Appearance>
+                        <Sphere radius="0.7"></Sphere>
+                    </Shape>
+                </transform>
+                <transform translation="4 2 -1.3">
+                    <Shape USE="Window">
+                    </Shape>
+                </transform>
+
+                <!--Труба-->
+                <transform translation="-2 2 0">
+                    <Shape>
+                        <Appearance>
+                            <Material DEF="Mat" diffuseColor="gray"></Material>
+                        </Appearance>
+                        <Cylinder radius="0.5" height="1.5"></Cylinder>
+                    </Shape>
+                </transform>
+
+                <!--Верхняя часть трубы-->
+                <transform translation="-2 3 0">
+                    <Shape>
+                        <Appearance>
+                            <Material diffuseColor="gray"></Material>
+                        </Appearance>
+                        <Cone height="1" bottomradius="1" ></Cone>
+                    </Shape>
+                </transform>
+
+                <!--Крепление кузова и вагона-->
+                <transform rotation="0 0 1 1.57" translation="6 0 0">
+                    <Shape>
+                        <Appearance>
+                            <Material diffuseColor="gray"></Material>
+                        </Appearance>
+                        <Cylinder radius="0.4" height="1.5"></Cylinder>
+                    </Shape>
+                </transform>
+
+                <!--Вагон-->
+                <Transform translation="8 -1.05 0">
+                    <Shape>
+                        <Appearance>
+                            <Material emissiveColor='0 0 1'> </Material>
+                        </Appearance>
+                        <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" solid="false"
+                                        coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 0 1 2 3 -1 6 7 3 2 -1 5 4 0 1 -1 " >
+                            <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2"></Coordinate>
+                        </IndexedFaceSet>
+                    </Shape>
+                </Transform>
+
+                <!--Дым-->
+                <Shape>
+                    <Appearance>
+                        <Material emissiveColor='0 0 0'> </Material>
+                    </Appearance>
+                    <PointSet>
+                        <Coordinate point="-2 3.6 0,
+          -2.05 3.7 0, -1.95 3.7 0,
+          -2.1 3.8 0, -2 3.8 0, -1.9 3.8 0,
+          -2.2 3.9 0, -2.1 3.9 0, -2 3.9 0, -1.9 3.9 0, -1.8 3.9 0,
+          -2.3 4 0, -2.2 4 0, -2.1 4 0, -2 4 0, -1.9 4 0, -1.8 4 0, -1.7 4 0,
+          -2.4 4.1 0, -2.3 4.1 0, -2.2 4.1 0, -2.1 4.1 0, -2 4.1 0, -1.9 4.1 0, -1.8 4.1 0, -1.7 4.1 0, -1.6 4.1 0,
+          -2.5 4.2 0, -2.4 4.2 0, -2.3 4.2 0, -2.2 4.2 0, -2.1 4.2 0, -2 4.2 0, -1.9 4.2 0, -1.8 4.2 0, -1.7 4.2 0, -1.6 4.2 0, -1.5 4.2 0,
+          -2.6 4.3 0, -2.5 4.3 0, -2.4 4.3 0, -2.3 4.3 0, -2.2 4.3 0, -2.1 4.3 0, -2 4.3 0, -1.9 4.3 0, -1.8 4.3 0, -1.7 4.3 0, -1.6 4.3 0, -1.5 4.3 0, -1.4 4.3 0,
+          -2.7 4.4 0, -2.6 4.4 0, -2.5 4.4 0, -2.4 4.4 0, -2.3 4.4 0, -2.2 4.4 0, -2.1 4.4 0, -2 4.4 0, -1.9 4.4 0, -1.8 4.4 0, -1.7 4.4 0, -1.6 4.4 0, -1.5 4.4 0, -1.4 4.4 0, -1.3 4.4 0,
+          -2.8 4.5 0, -2.7 4.5 0, -2.6 4.5 0, -2.5 4.5 0, -2.4 4.5 0, -2.3 4.5 0, -2.2 4.5 0, -2.1 4.5 0, -2 4.5 0, -1.9 4.5 0, -1.8 4.5 0, -1.7 4.5 0, -1.6 4.5 0, -1.5 4.5 0, -1.4 4.5 0, -1.3 4.5 0, -1.2 4.5 0 "></Coordinate>
+                    </PointSet>
+                </Shape>
+
+                <!--Индексированная линия-->
+                <Transform translation="8 0.5 2">
+                    <Shape>
+                        <IndexedLineSet coordIndex="0 1 3 2 0 –1"
+                                        colorIndex="0 1 2 3 4 -1"
+                                        colorPerVertex="true">
+                            <Coordinate point="0 0 0, 1 1 0, -1 1 0, 0 2 0"></Coordinate>
+                            <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1"></Color>
+                        </IndexedLineSet>
+                    </Shape>
+                </Transform>
+
+                <!--Индексированная линия-->
+                <Transform translation="8 -0.8 2">
+                    <Shape>
+                        <IndexedLineSet coordIndex="0 1 3 2 0 –1"
+                                        colorIndex="0 1 2 3 4 -1"
+                                        colorPerVertex="true">
+                            <Coordinate point="0 0 0, 1 1 0, -1 1 0, 0 2 0"></Coordinate>
+                            <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1"></Color>
+                        </IndexedLineSet>
+                    </Shape>
+                </Transform>
+
+                <!--Крыша вагона-->
+                <Transform translation="8 2.9 0">
+                    <Shape>
+                        <IndexedTriangleSet index="0 1 4 1 2 4 0 3 4 2 3 4" solid="false">
+                            <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, 0 2.5 0"></Coordinate>
+                            <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1"></Color>
+                        </IndexedTriangleSet>
+                    </Shape>
+                </Transform>
+
+                <!--Крыша кузова-->
+                <Transform translation="4 3.5 0">
+                    <Shape>
+                        <IndexedTriangleStripSet index='0 1 4 2 3 -1 3 0 4 ' solid='false'>
+                            <Coordinate point='-1.25 0 1.5, 1.25 0 1.5, 1.25 0 -1.5, -1.25 0 -1.5, 0 2 0'></Coordinate>
+                            <Color color="0 1 0, 0 0 1, 0 1 1, 1 0 1, 1 0 0"></Color>
+                        </IndexedTriangleStripSet>
+                    </Shape>
+                </Transform>
+
+                <!-- Лицо -->
+                <transform rotation="1 0 0 1.57">
+                    <transform translation ="-3.2 0 0" rotation="0 0 1 1.57">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Thomas.jpg"> </ImageTexture>
+                            </Appearance>
+                            <Cylinder radius="1.35" height="1"></Cylinder>
+                        </Shape>
+                    </transform>
+                </transform>
+        </Collision>
+
+        </Transform>
+
+        <!--Рельсы-->
+        <transform translation="0 -3.7 -1.5">
+            <Shape>
+                <Appearance>
+                    <ImageTexture url="rels.jpg"> </ImageTexture>
+                    <material diffusecolor='0 0 0'></material>
+                </Appearance>
+                <Box size="35 0.5 16"></Box>
+            </Shape>
+        </transform>
+
+        <!--Текст-->
+        <Anchor url="https://www.rzd.ru/" parameter="target='_self'">
+            <transform translation="-3 6 0">
+                <Shape>
+                    <Appearance>
+                        <Material diffuseColor="red"></Material>
+                    </Appearance>
+                    <Text string="Поезд Санкт-Петербург - Кострома" solid="false" ></text>
+                </Shape>
+            </transform>
+        </Anchor>
+
+        <!--Cтена-->
+        <transform translation="-17.5 5 -1.5" rotation="1 0 0 1.57">
+            <shape>
+                <appearance>
+                    <ImageTexture url="Wall.jpg"> </ImageTexture>
+                    <material diffusecolor='0 0 0'></material>
+                </appearance>
+                <box size=".1 16 18"></box>
+            </shape>
+        </transform>
+
+
+        <!--Light and fog-->
+        <Group DEF="Light">
+
+            <!-- Направленный свет -->
+            <DirectionalLight color='0.7, 0.5, 0.4' direction='-1, -1, 0'
+                              intensity='1' shadowFilterSize='2'
+                              shadowIntensity='0.5' >
+            </DirectionalLight>
+
+            <!-- Спот (фара 1) -->
+            <transform DEF="SpotLight2" >
+            <SpotLight  beamWidth='1.5' color='0.5,0.4,0.3' cutOffAngle='1'
+                        direction='-1,0,0' intensity='1'
+                        location='-2,1,-1' radius='15'
+                        shadowFilterSize='2' shadowIntensity='1'>
+            </SpotLight>
+            </transform>
+
+            <!-- Спот (фара 2) -->
+            <transform DEF="SpotLight1" >
+            <SpotLight  beamWidth='1.5' color='0.5,0.4,0.3' cutOffAngle='1'
+                        direction='-1,0,0' intensity='1'
+                        location='-2, 1, 1' radius='15'
+                        shadowFilterSize='2' shadowIntensity='1'>
+            </SpotLight>
+            </transform>
+
+        </Group>
+
+        <!--Light-->
+
+        <!-- Навигация и камера -->
+        <NavigationInfo avatarSize= '[ 3, 5, 2 ]' explorationMode='all'
+                        speed='5.0' transitionTime='1.0' transitionType='["LINEAR"]'
+                        headlight='false' type="FLY" >
+        </NavigationInfo>
+
+        <Viewpoint position="-15 3 14"
+                   orientation="0 -1 0 0.5"
+                   fieldOfView="0.9"></Viewpoint>
+        <Viewpoint position="-5 5 18"
+                   orientation="0 -1 0 0"
+                   fieldOfView="0.99"></Viewpoint>
+
+        <transform rotation="1 0 0 0.5">
+            <Viewpoint position="-6 5 -18"
+                       orientation="0 1 0 3.14"
+                       fieldOfView="0.99"></Viewpoint>
+        </transform>
+
+
+        <!--background-->
+        <Background DEF='Fall'
+                    skyAngle='0.8,1.3,1.5708'
+                    skyColor='0.1 0.2 0.3,
+                  0.2 0.3 0.4 ,
+                  0.4 0.4 0.5'
+                    groundAngle='0.4,
+                     1.2,
+                     1.5708'
+                    groundColor='0.1 0.1 0.1,
+                     0.1 0.2 0.15,
+                     0.1 0.3 0.542,
+                     0.2 0.4 0.8'/>
+
+        <!-- Фоновая музыка -->
+        <AudioClip url="TTM.mp3"  loop='true' enabled='false'></AudioClip>
+
+        <!-- TimeSensor -->
+        <TimeSensor DEF='Time' cycleInterval='6' loop='true' ></TimeSensor>
+        <!-- Интерполятор позиции для поезда -->
+        <PositionInterpolator DEF='PosInt' key='0 0.25 0.5 0.75 1'
+                              keyValue='0 0 0, -4 0 0, -7 0 0, -4 0 0, 0 0 0 '>
+        </PositionInterpolator>
+        <!-- ROUTE позиции для поезда -->
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+               toNode='PosInt' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt' fromField='value_changed'
+               toNode='Trans' toField='set_translation'>
+        </ROUTE>
+
+        <!-- Интерполятор позиции для мяча -->
+        <PositionInterpolator DEF="PosInt1" key='0 0.25 0.5 0.75 1'
+                              keyValue="-10 -2.5 0, -10 -2.5 0, -16.5 0 0, -13.5 -2.5 0, -10 -2.5 0">
+        </PositionInterpolator>
+        <!-- ROUTE позиции для мяча -->
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+               toNode='PosInt1' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt1' fromField='value_changed'
+               toNode='Ball' toField='set_translation'>
+        </ROUTE>
+
+        <ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+               toNode='ColInt' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='ColInt' fromField='value_changed'
+               toNode='Mat' toField='set_diffuseColor'>
+        </ROUTE>
+
+        <!-- Интерполятор ориентации для мяча -->
+        <OrientationInterpolator DEF="OrientInt1" key='0 0.25 0.5 0.75 1' keyValue="0 0 0 0, 0 0 0 0, 1 0 0 -3.14, 1 0 0 -3.14, 0 0 0 0"></OrientationInterpolator>
+        <!-- ROUTE ориентации для мяча -->
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+               toNode='OrientInt1' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='OrientInt1' fromField='value_changed'
+               toNode='Ball' toField='set_rotation'>
+        </ROUTE>
+
+        <!-- Интерполятор позиции для SpotLight -->
+        <PositionInterpolator DEF='PosInt2' key="0 0.25 0.5 0.75 1"
+                              keyValue='-2 1 1, -5 1 1, -7 1 1, -5 1 1, -2 1 1'>
+        </PositionInterpolator>
+        <!-- ROUTE позиции для SpotLight -->
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+               toNode='PosInt2' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt2' fromField='value_changed'
+               toNode='SpotLight1' toField='set_translation'>
+        </ROUTE>
+
+        <!-- Интерполятор позиции для SpotLight -->
+        <PositionInterpolator DEF='PosInt3' key="0 0.25 0.5 0.75 1"
+                              keyValue='-2 1 -1, -5 1 -1, -7 1 -1, -5 1 -1, -2 1 -1'>
+        </PositionInterpolator>
+        <!-- ROUTE позиции для SpotLight -->
+        <ROUTE fromNode='Time' fromField='fraction_changed'
+               toNode='PosInt3' toField='set_fraction'>
+        </ROUTE>
+        <ROUTE fromNode='PosInt3' fromField='value_changed'
+               toNode='SpotLight2' toField='set_translation'>
+        </ROUTE>
+
+
+    </Scene>
+</X3D>
+</body>
 </html>
+
