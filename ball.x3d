@@ -1,0 +1,11 @@
+   <Scene>
+		<transform>
+		<shape>
+		<Appearance>
+			<imagetexture url='ball.jpg'></imagetexture>
+			<TextureTransform scale='1.5, 0.8'></TextureTransform>
+		</Appearance>
+		<sphere radius="1"></sphere>
+		</shape>
+		</transform>
+	</Scene>
