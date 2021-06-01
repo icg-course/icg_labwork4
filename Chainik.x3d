@@ -1,0 +1,8 @@
+<Scene>
+<shape> 
+                <appearance> 
+                    <material DEF="Mat"></material> 
+                </appearance> 
+                <sphere radius="0.3"></sphere> 
+            </shape> 
+</Scene>

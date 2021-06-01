@@ -1,13 +1,424 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+<html> 
+<head> 
+<title>Lab4</title> 
+<script src="https://x3dom.org/download/dev/x3dom-full.js"></script> 
+<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link> 
+</head> 
+<body> 
+<h1>Prokopeva S.L. 4843 </h1> 
+<x3d width='90em' height='40em'> 
+    <scene> 
+<Collision DEF="Main_collision" enabled = "true"></Collision>
+<!-- Nebo-->      
+<background skyAngle='0.8,1.3,2' skycolor='0.156 0.196 0.862,0.156 0.196 0.862,0.156 0.196 0.862' groundAngle='0.4,.4,.8' groundcolor='0 0.128 0,0 0.128 0,0 0.128 0,0 0.128 0'></background>
+<!-- Nozhki--> 
+<group DEF="Nozhki">            
+    <transform translation="-1.7 0 -0.2">
+        <Shape DEF="nozhka">
+            <Appearance>
+                <Material diffuseColor='darkbrown'></Material>
+            </Appearance>
+                <box size="0.1 1.3 0.1"></box>
+        </Shape>
+</transform>
+<transform translation="1.7 0 -0.2">
+        <shape USE="nozhka"></shape>
+</transform>
+<transform translation="-1.7 0 1.2">
+        <shape USE="nozhka"></shape>
+</transform>
+<transform translation="1.7 0 1.2">
+        <shape USE="nozhka"></shape>
+</transform>
+</group>       
+<!-- Object Box x3dom-->    
+<transform DEF="stoleshnica" translation="0 0.7 0.5" > 
+    <shape> 
+      <appearance> 
+            <Imagetexture url ='stol.png'></Imagetexture> 
+            <texturetransform rotation = '-1.57'></texturetransform>
+		  </appearance> 
+            <box size="4 0.1 2"></box> 
+      </shape> 
+</transform> 
+<!-- Tarelki--> 
+<group DEF="Tarelki">            
+   <transform translation="1.5 .75 0.5"  rotation="1 0 0 3.14">
+      <Shape DEF="tarelka">
+        <Appearance>
+            <Material diffuseColor='gray'></Material>
+        </Appearance>
+            <cone bottomradius="0.4" height="0.15"></cone>
+      </Shape>
+</transform>
+<transform translation="-1.5 .75 0.5"  rotation="1 0 0 3.14">
+      <shape USE="tarelka"></shape>
+</transform>
+<transform translation=" 0 .75 0.9"  rotation="1 0 0 3.14">
+      <shape USE="tarelka"></shape>
+</transform>
+</group>     
+<!-- Object Torus x3dom-->    
+<transform DEF="ponchik" translation="-1.5 1 0.5" scale=".1 .1 .1" rotation="1 0 0 1.57"> 
+      <shape> 
+          <appearance> 
+                <material diffuseColor='.5 .1 .5'></material> 
+          </appearance> 
+                <Torus></Torus> 
+      </shape> 
+</transform> 
+<!-- keksik-->  
+<!--IndexedFaceSet-->  
+ <Transform DEF="osn" translation="1.5 0.75 0.5">
+          <Shape>
+            <Appearance>
+              <Material emissiveColor='1 0 1'> </Material>
+            </Appearance>
+              <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" solid="false" 
+                            coordIndex="0 8 15 7 -1 7 15 14 6 -1 6 14 13 5 -1 5 13 12 4 -1 4 12 11 3 -1 3 11 10 2 -1 2 10 9 1 -1 1 9 8 0 -1  " >
+              <Coordinate point="
+-0.1 0 0.1, 
+ 0 0 0.15,
+ 0.1 0 0.1, 
+ 0.15 0 0, 
+ 0.1 0 -0.1, 
+ 0 0 -0.15, 
+-0.1 0 -0.1, 
+-0.15 0 0, 
+-0.1 0.2 0.1,  
+ 0 0.2 0.15,  
+ 0.1 0.2 0.1, 
+ 0.15 0.2 0, 
+ 0.1 0.2 -0.1, 
+ 0 0.2 -0.15, 
+-0.1 0.2 -0.1,
+-0.15 0.2 0"></Coordinate>
+            </IndexedFaceSet>
+          </Shape>
+</Transform>
+        <!--IndexedTriangleSet -->    
+<Transform DEF="keksik"translation="0 .75 0.9">
+    <Shape>
+        <IndexedTriangleSet index="0 1 8 1 2 8 2 3 8 3 4 8 4 5 8 5 6 8 6 7 8 7 0 8" solid="false">
+               <Coordinate point="
+    -0.1 0.2 0.1,
+     0 0.2 0.15, 
+     0.1 0.2 0.1, 
+     0.15 0.2 0,
+     0.1 0.2 -0.1,
+     0 0.2 -0.15,
+    -0.1 0.2 -0.1,
+    -0.15 0.2 0,
+     0 0.3 0"></Coordinate>
+               <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1"></Color>
+        </IndexedTriangleSet>
+    </Shape>
+</Transform>
+<!-- Chainik-->         
+<!-- Object Sphere x3dom-->  
+<transform translation="0 .95 0">
+  <Inline url="Chainik.x3d"></Inline>
+</transform>           
+<!-- Object Torus x3dom-->   
+<transform DEF="ruchka" translation="0 1.2 0" scale="0.1 0.1 0.1 " rotation="0 1 0 1.57"> 
+      <shape> 
+          <appearance> 
+                <material diffuseColor='.15 .15 .15'></material> 
+          </appearance> 
+                <torus innerRadius=".2" outerRadius="1.7"></torus> 
+      </shape> 
+</transform> 
+<!-- Object Cylinder x3dom-->             
+<transform DEF="nosik" translation="0 1 -0.2" scale="0.05 0.2 0.05" rotation="1 0 0 -0.80"> 
+      <shape> 
+          <appearance> 
+                <material diffuseColor='.15 .15 .15'></material> 
+          </appearance> 
+                <cylinder></cylinder> 
+      </shape> 
+</transform> 
+<!-- Chainik -->                
+<!-- Object Cylinder x3dom-->     
+<Transform DEF ="Krygka">   
+<transform translation="-1.2 .9 -0.12" scale=".1 .15 .1" rotation="0 0 0 0"> 
+      <shape> 
+          <appearance> 
+                <material DEF="Mat"></material> 
+          </appearance> 
+                <cylinder></cylinder> 
+      </shape> 
+</transform> 
+<!-- Object Torus x3dom-->         
+<transform DEF="ruchka" translation="-1.2 .9 -0.24" scale=".1 .15 .1" rotation="0 1 0 1.57"> 
+      <shape> 
+          <appearance> 
+                <material diffuseColor='.15 .15 .15'></material> 
+          </appearance> 
+                <torus innerRadius=".15" outerRadius=".5"></torus> 
+      </shape> 
+</transform> 
+</Transform> 
+<!-- Object Cylinder x3dom-->                 
+<transform DEF="Krygka1" translation=" 1.2 .9 -0.12" scale=".1 .15 .1" rotation="0 0 0 0"> 
+      <shape> 
+          <appearance> 
+                <material DEF="Mat1"></material> 
+          </appearance> 
+                <cylinder></cylinder> 
+      </shape> 
+</transform> 
+<!-- Object Torus x3dom-->                 
+<transform DEF="ruchka1" translation=" 1.2 .9 -0.24" scale=".1 .15 .1" rotation="0 1 0 1.57"> 
+      <shape> 
+          <appearance> 
+                <material diffuseColor='.15 .15 .15'></material> 
+          </appearance> 
+                <torus innerRadius=".15" outerRadius=".5"></torus> 
+      </shape> 
+</transform> 
+<!-- keksik-->  
+<!--IndexedFaceSet-->  
+<Anchor url="https://www.youtube.com/watch?v=eVNvrZA1bmE" parameter="target='_self'">
+<Transform DEF="osn2" translation="0 .75 0.9">
+      <Shape>
+            <Appearance>
+              <Material emissiveColor='1 0 1'> </Material>
+            </Appearance>
+            <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" solid="false" 
+                            coordIndex="0 8 15 7 -1 7 15 14 6 -1 6 14 13 5 -1 5 13 12 4 -1 4 12 11 3 -1 3 11 10 2 -1 2 10 9 1 -1 1 9 8 0 -1  " >
+              <Coordinate point="
+-0.1 0 0.1, 
+ 0 0 0.15,
+ 0.1 0 0.1, 
+ 0.15 0 0, 
+ 0.1 0 -0.1, 
+ 0 0 -0.15, 
+-0.1 0 -0.1, 
+-0.15 0 0, 
+-0.1 0.2 0.1,  
+ 0 0.2 0.15,  
+ 0.1 0.2 0.1, 
+ 0.15 0.2 0, 
+ 0.1 0.2 -0.1, 
+ 0 0.2 -0.15, 
+-0.1 0.2 -0.1,
+-0.15 0.2 0"></Coordinate>
+            </IndexedFaceSet>
+      </Shape>
+</Transform>
+</Anchor>
+<!-- keksik-->
+<!--Par-->
+<Transform DEF="Par">
+    <Shape>
+        <Appearance>
+            <Material emissiveColor='1 1 1'> </Material>
+        </Appearance>
+          <PointSet>
+            <Coordinate point="0. 1.2 -0.4, 
+            .05 1.25 -0.45, -.05 1.25 -0.45, 
+            .1 1.3 -0.5, 0 1.3 -0.5, -.1 1.3 -0.5, 
+            .15 1.35 -0.55, 0.05 1.35 -0.55, -.05 1.35 -0.55, -.15 1.35 -0.55, 
+            .2 1.4 -0.6, .1 1.4 -0.6, 0 1.4 -0.6, -.1 1.4 -0.6, -.2 1.4 -.6,
+	      1.2 1.08 -0.12, 1.15 1.08 -0.15, 1.25 1.08 -0.15,1.15 1.08 -0.09, 1.25 1.08 -0.09,
+	      1.2 1.13 -0.15, 1.15 1.13 -0.18, 1.25 1.13 -0.18,1.15 1.13 -0.12, 1.25 1.13 -0.12
+            "></Coordinate>
+          </PointSet>
+      </Shape>
+</Transform>
+<!--Pole-->
+<transform translation="-3.9 -0.7 -5">
+      <Shape> 
+	     <Appearance>
+               <Material diffuseColor="green"></Material>
+                  </Appearance>
+                      <ElevationGrid xDimension="7" zDimension="6" 
+                          height=".15, .1, 0.2, 0.15, .05, .15, 0,
+                          .05, 0.15, 0.12, 0.12, 0.15, .05, 0, 	
+                          0.15, 0.12, 0, 0, 0.12, 0.15, 0, 
+                          0.15, 0.12, 0, 0, 0.12, 0.15, 0, 	
+                          .05, 0.15, 0.12, 0.12, 0.15, .05, 0, 
+                          .07, .05, 0.15, 0.15, .05, .07, 0"
+                          xSpacing="1.3" zSpacing="2" solid="false"> 
+          	          </ElevationGrid>          
+	    </Shape>
+</transform>
+<!--Keksik-->
+<Transform DEF="keksik2" translation="1.5 .75 0.5">
+       <Shape>
+          <IndexedTriangleStripSet index='0 1 8 1 2 -1 2 3 8 3 -1 3 4 8 4 -1 4 5 8 5 -1 5 6 8 6 -1 6 7 8 7 -1 7 0 8 ' solid='false'>
+              <Coordinate point="
+                  -0.1 0.2 0.1,
+                  0 0.2 0.15, 
+                  0.1 0.2 0.1, 
+                  0.15 0.2 0,
+                  0.1 0.2 -0.1,
+                  0 0.2 -0.15,
+                  -0.1 0.2 -0.1,
+                  -0.15 0.2 0,
+                  0 0.3 0"></Coordinate>
+               <Color color="0 1 0, 0 0 1, 0 1 1, 1 0 1, 1 0 0, 0 1 0, 0 0 1, 0 1 1, 1 0 1  "></Color>
+          </IndexedTriangleStripSet>
+        </Shape>
+</Transform>
+<!--Keksik-->
+<!-- Object Cylinder x3dom-->                 
+<transform DEF="svecha" translation="1.5 .95 0.5"> 
+      <shape> 
+          <appearance> 
+                <material diffuseColor='red'></material> 
+          </appearance> 
+                <cylinder radius="0.01" height="0.4"></cylinder> 
+      </shape> 
+</transform> 
+<transform translation="1.5 1.2 0.5">
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='yellow' specularColor="#ffb300"></Material>
+        </Appearance>
+        <cone bottomRadius="0.01" height="0.1"></cone>
+      </Shape>
+ </transform>
+
+<!--Decor-->
+<Transform translation=" 0 .83 1.3" scale="0.4 0.07 0.4" rotation="1 0 0 3.14">
+      <Shape>
+          <IndexedLineSet coordIndex="0 1 3 2 0 -1"
+                           colorIndex="0 1 2 3 4 -1"
+                           colorPerVertex="true">
+            <Coordinate point="0 0 0, 1 0 1, -1 0 1, 0 0 2"></Coordinate>
+            <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1"></Color>
+          </IndexedLineSet>
+      </Shape>
+</Transform>
+<!--Decor-->
+<Transform translation="1.5 .83 .9" scale="0.4 0.07 0.4"  rotation="1 0 0 3.14">
+      <Shape>
+          <IndexedLineSet coordIndex="0 1 3 2 0 -1"
+                          colorIndex="0 1 2 3 4 -1"
+                          colorPerVertex="true">
+               <Coordinate point="0 0 0, 1 0 1, -1 0 1, 0 0 2"></Coordinate>
+               <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1"></Color>
+          </IndexedLineSet>
+      </Shape>
+</Transform>
+<!--Decor-->
+<Transform translation="-1.5 .83 .9" scale="0.4 0.07 0.4"  rotation="1 0 0 3.14">
+     <Shape>
+        <IndexedLineSet coordIndex="0 1 3 2 0 -1"
+                        colorIndex="0 1 2 3 4 -1"
+                        colorPerVertex="true">
+              <Coordinate point="0 0 0, 1 0 1, -1 0 1, 0 0 2"></Coordinate>
+              <Color color="0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1"></Color>
+        </IndexedLineSet>
+      </Shape>
+</Transform>
+<!--tuman-->
+<Fog fogType="LINEAR" color="#0000FF" visibilityRange='50'></Fog>
+<!--navigationinfo-->
+<NavigationInfo avatarSize="0.4 1 0.4" type="LOOKAT" speed="3">
+</NavigationInfo>   
+<!--viewpoint-->     
+<Viewpoint description="Начальный вид" position="0 5 5" orientation="1 0 0 -0.55"></Viewpoint>
+<!--viewpoint-->     
+<Viewpoint rotation="1 0 0 0.5" description="Начальный вид" position="8 2 0" orientation="0 1 0 1.57"></Viewpoint>
+<!--spotlight-->  
+<spotlight location="0 3 .5" direction="0 -1 0" radius="3.5" intensity="2" beamwidth=".78" cutoffAngle="0.35"></spotlight>
+<!--pointlight-->  
+<pointlight location="1.5 1.2 0.5" radius=".5" ambientIntensity="1" color="white"></pointlight>
+<!--DirectionalLight-->
+<DirectionalLight color='0.7, 0.5, 0.4' direction='-1, -1, 0' intensity='1' on='true' shadowFilterSize='2' shadowIntensity='0.3' > </DirectionalLight>
+
+<!---vraschenie ponchika-->
+<TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+<OrientationInterpolator DEF='ponchik1' key='0 0.5 1' keyValue='1 0 0 0 1 0 0 -3.14 1 0 0 -6.28'></OrientationInterpolator>
+            <ROUTE
+					fromNode="Time" fromField="fraction_changed" 
+					toNode="ponchik1" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="ponchik1" fromField="value_changed" 
+					toNode="ponchik" toField="set_rotation">
+				</ROUTE>
+<!---vraschenie ponchika-->
+
+<!---vraschenie verhushek keksikov-->
+<OrientationInterpolator DEF='keksik1' key='0 0.5 1' keyValue='0 1 0 0 0 1 0 -3.14 0 1 0 -6.28'></OrientationInterpolator>
+            <ROUTE
+					fromNode="Time" fromField="fraction_changed" 
+					toNode="keksik1" toField="set_fraction">
+				</ROUTE>
+				
+				<ROUTE
+					fromNode="keksik1" fromField="value_changed" 
+					toNode="keksik" toField="set_rotation">
+				</ROUTE>                       
+<OrientationInterpolator DEF='keksik3' key='0 0.5 1' keyValue='0 1 0 0 0 1 0 -3.14 0 1 0 -6.28'></OrientationInterpolator>
+            <ROUTE
+                                                      fromNode="Time" fromField="fraction_changed" 
+                                                      toNode="keksik3" toField="set_fraction">
+                                                </ROUTE>
+                                                
+                                                <ROUTE
+                                                      fromNode="keksik3" fromField="value_changed" 
+                                                      toNode="keksik2" toField="set_rotation">
+                                                </ROUTE>
+<!---vraschenie verhushek keksikov-->    
+
+<!---vraschenie osnovania keksikov-->                                                 
+<OrientationInterpolator DEF='osn1' key='0 0.5 1' keyValue='0 1 0 0 0 1 0 -3.14 0 1 0 -6.28'></OrientationInterpolator>
+            <ROUTE
+                                                      fromNode="Time" fromField="fraction_changed" 
+                                                      toNode="osn1" toField="set_fraction">
+                                                </ROUTE>
+                                                                        
+                                                <ROUTE
+                                                      fromNode="osn1" fromField="value_changed" 
+                                                      toNode="osn" toField="set_rotation">
+                                                </ROUTE>
+<OrientationInterpolator DEF='osn3' key='0 0.5 1' keyValue='0 1 0 0 0 1 0 -3.14 0 1 0 -6.28'></OrientationInterpolator>
+            <ROUTE
+                                                      fromNode="Time" fromField="fraction_changed" 
+                                                      toNode="osn3" toField="set_fraction">
+                                                </ROUTE>
+                                                                                                            
+                                                <ROUTE
+                                                      fromNode="osn3" fromField="value_changed" 
+                                                      toNode="osn2" toField="set_rotation">
+                                                </ROUTE>  
+<!---vraschenie osnovania keksikov-->   
+
+<!---izmenenie cveta-->   
+<TimeSensor DEF='Time' cycleInterval='5' loop='true'></TimeSensor>
+<ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='#0000FF, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator> 
+<ROUTE fromNode='Time' fromField='fraction_changed' 
+toNode='ColInt' toField='set_fraction'> 
+</ROUTE> 
+<ROUTE fromNode='ColInt' fromField='value_changed' 
+toNode='Mat' toField='set_diffuseColor'> 
+</ROUTE> 
+<!---izmenenie cveta-->  
+<TimeSensor DEF='Time' cycleInterval='5' loop='true'></TimeSensor>
+<ColorInterpolator DEF='ColInt' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator> 
+<ROUTE fromNode='Time' fromField='fraction_changed' 
+toNode='ColInt' toField='set_fraction'> 
+</ROUTE> 
+<ROUTE fromNode='ColInt' fromField='value_changed' 
+toNode='Mat1' toField='set_diffuseColor'> 
+</ROUTE> 
+<!---izmenenie polozhenia--> 
+<PositionInterpolator DEF="PosInt1" key='0 0.25 0.5 0.75 1' keyValue="-.3 .07 -0.1, -.5 .07 0, .5 .07 -0.1, -.3 .07 0.1, -.3 .07 -0.1"> 
+      <ROUTE 
+            fromNode='Time' fromField='fraction_changed' 
+            toNode='PosInt1' toField='set_fraction'> 
+      </ROUTE> 
+      <ROUTE 
+            fromNode='PosInt1' fromField='value_changed' 
+            toNode='Krygka' toField='set_translation'> 
+      </ROUTE>
+</PositionInterpolator>
+</scene> 
+</x3d> 
+</body> 
 </html>
