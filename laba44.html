@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <style>
+        section{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)}
+    </style>
+    <head>
+        <meta charset="utf-8" />
+        <title>Лаба2</title>
+        <link rel="stylesheet" href="http://x3dom.org/release/x3dom.css" />
+		<script src="http://x3dom.org/release/x3dom-full.js"></script>
+    </head>
+    <body style='width:100%; height:100%; border:0; margin:0; padding:0; background: linear-gradient(#ADD8E6 1%,#4682B4 50%, White);'>
+        <x3d id='x3dElement' showStat='false' showLog='false' style='width:100%; height:100%; border:0'>
+            <Scene DEF='scene'>
+                <Transform id="S1" DEF="S1" scale="0.6 0.6 0.6" translation="16 0 18" rotation='0 1 0 2.8'>
+                    // машина интегрированная
+                    <Inline url="S1.x3d"></Inline>
+                    <TimeSensor id="time" DEF="time" cycleInterval="5" loop="true" enabled="true"></TimeSensor>
+                    <PositionInterpolator DEF="move" key="0 0.125 0.25 0.375 0.5 0.625 0.75 0.875 1" keyValue="16 0 23, 16 0 26, 16 0 28, 16 0 30, 16 0 32, 16 0 30, 16 0 25, 16 0 20, 16 0 14"></PositionInterpolator>
+                    <PositionChaser DEF="PosCh" duration="2"></PositionChaser>
+                    <ROUTE fromNode="time" fromField="fraction_changed"
+                           toNode="move" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="move" fromField="value_changed"
+                           toNode="PosCh" toField="set_destination"></ROUTE>
+                    <ROUTE fromNode="PosCh" fromField="value_changed"
+                           toNode="S1" toField="translation"></ROUTE>
+                </Transform>
+                <Viewpoint fieldOfView="0.78" orientation='-0.43713 -0.89885 0.03139 0.53248' position="-1.64282 10.06936 39.44506">
+                    // камеры
+                </Viewpoint>
+                <Viewpoint fieldOfView="0.78" orientation='-0.32518 0.90957 0.25875 0.95044' position="30.64888 12.16171 39.94573">
+                    // камеры
+                </Viewpoint>
+                <Viewpoint fieldOfView="0.78" orientation='-0.26211 -0.89512 0.36063 0.97084' position="-6.65812 2.98931 28.32515">
+                    // камеры
+                </Viewpoint>
+                <NavigationInfo type="ANY" speed="10" transitionType="ANIMATE" transitionTime="10" avatarSize="0.1 0.1 0.1"></NavigationInfo> // переключение между ними хар-ки
+                <PointLight id='point' on='TRUE' intensity='0.1' color='255 224 67' location='0 20 0' rotation='0,785398 0 0 0,785398' radius='300' shadowintensity="0.5">
+                </PointLight>
+                <SpotLight location="14 0 12" intensity="0.1" direction="0 2 3" beamWidth="0.9" cutOffAngle="0.90" radius="100">
+                </SpotLight>
+                <Fog color='0 0 0' fogType="EXPONENTIAL" visibilityRange="70">
+                </Fog> // туман
+                <Background skyColor='7 4 5 7 1' skyAngle="10">
+                </Background>
+                <transform translation="10 3 5">
+                    // здание само
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url=22.jpg></ImageTexture>
+                        </Appearance>
+                        <box size="18 6 8"></box>
+                    </Shape>
+                </transform>
+                <transform translation="4 3 5">
+                    // окна
+                    <Anchor url="https://www.opel.ru/" parameter="target='_self'">
+                        // клик+сылка
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url=5.jpg></ImageTexture>
+                            </Appearance>
+                            <box size="2 2 8.1"></box>
+                        </Shape>
+                    </Anchor>
+                </transform>
+                <transform translation="16 3 5">
+                    // окна
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url=5.jpg></ImageTexture>
+                        </Appearance>
+                        <box size="2 2 8.1"></box>
+                    </Shape>
+                </transform>
+                <transform translation="10 2 8.05">
+                    // Ворота
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url=7.jpg></ImageTexture>
+                        </Appearance>
+                        <box size="7 4 2"></box>
+                    </Shape>
+                </transform>
+                <transform translation="10 6.2 9.1">
+                    // Текст
+                    <Shape>
+                        <Appearance>
+                            <Material diffusecolor='blue'></Material>
+                        </Appearance>
+                        <text length='10' maxExtent='10' string='OPEL SERVISE'>
+                            <FontStyle family='SANS' horizontal='true' justify='MIDDLE' language='ru'
+                                       leftToRight='true' size='0.7' spacing='1' style='ITALIC' topToBottom='true'></FontStyle>
+                        </text>
+                    </Shape>
+                </transform>
+                <transform translation='1 6 1'>
+                    //крыша
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='1 2 4'>
+                            </material>
+                        </appearance>
+                        <IndexedFaceSet solid="false" coordIndex="0 1 3 2 -1 0 1 5 4 -1 5 4 6 7 -1 6 7 3 2 -1 3 5 7 1 -1 1 3 5 6
+
+				">
+                            <Coordinate point="0 0 0, 0 1 0, 0 0 8, 0 1 8,
+                                        18 0 0, 18 1 0,
+                                        18 0 8, 18 1 8,
+					">
+                            </Coordinate>
+                        </IndexedFaceSet>
+                    </Shape>
+                </transform>
+                <transform translation='-8 0 -6'>
+                    // пол (асфальт)
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url=3.jpg></ImageTexture>
+                        </Appearance>
+                        <ElevationGrid xDimension="14" zDimension="10"
+                                       height="
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+						"
+                                       xSpacing="3" zSpacing="4" solid="false">
+                        </ElevationGrid>
+                    </Shape>
+                </transform>
+                <Transform DEF="coub" translation="12 0 18" rotation='-0.35116 0.92166 0.16503 2.17154'>
+                    // кубики из лайнов
+                    <Shape>
+                        <IndexedLineSet coordIndex="0 1 3 2 0 -1 1 5 4 0 -1 5 7 6 4 -1 7 3 2 6" colorIndex="2 5 2 -1 0 1 5 4" colorPerVertex="true">
+                            <Coordinate point='0 0 0, 0 1 0, 0 0 1, 0 1 1,
+                                        1 0 0, 1 1 0, 1 0 1, 1 1 1,'>
+                            </Coordinate>
+                            <Color color="0 2 1, 3 1 1, 0.5 0, 0 1 0.5, 0.5 2 1, 0 1 0">
+                            </Color>
+                        </IndexedLineSet>
+                    </Shape>
+                </Transform>
+                <Transform translation="1 2 -2" rotation='0 0 0 0'>
+                    // клоны кубиков
+                    <Shape USE="coub">
+                    </Shape>
+                </Transform>
+                <Transform translation="2 4 -4" rotation='0 0 0 0'>
+                    // клоны кубиков
+                    <Shape USE="coub">
+                    </Shape>
+                </Transform>
+                <transform def="bl" translation='22 8 8' rotation='0 0 0 0'>
+                    // луна
+                    <shape>
+                        <appearance>
+                            <ImageTexture url='qd.jpg'></ImageTexture>
+                            <material shininess='0.1'>
+                            </material>
+                            <timeSensor DEF="time" cycleInterval="5" loop="true">
+                            </timeSensor>
+                            <PositionInterpolator DEF="move" key="0 0.5 1" keyValue="'22 8 8 '22 15 8 '22 10 8">
+                            </PositionInterpolator>
+                            <Route fromNode="time" fromField="fraction_changed" toNode="move" toField="set_fraction">
+                            </Route>
+                            <Route fromNode="move" fromField="value_changed" toNode="bl" toField="translation">
+                            </Route>
+                        </appearance>
+                        <sphere radius='2'></sphere>
+                    </shape>
+                </transform>
+            </Scene>
+        </x3d>
+    </body>
+</html>
