@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <style>
+        section{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)}
+    </style>
+    <head>
+        <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+    <title>Лабораторная работа 4</title>
+    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
+    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    </head>
+    <body style='width:100%; height:100%; border:0; margin:0; padding:0; background: linear-gradient(#ADD8E6 1%,#4682B4 50%, White);'>
+        <x3d id='x3dElement' showStat='false' showLog='false' style='width:100%; height:100%; border:0'>
+            <Scene DEF='scene'>
+                <Transform def="bl" scale="2 2 2" translation="14 0 12">
+                        <Inline url="S1.x3d"></Inline>
+                        <shape>
+                            <appearance>
+                                <timeSensor DEF="time" cycleInterval="5" loop="true">
+                                </timeSensor>
+                                <PositionInterpolator DEF="move" key="0 0.5 0.75 0.85 1" keyValue="'14 0 12 '16 0 12 '18 0 12' 20 0 12' 22 0 12">
+                                </PositionInterpolator>
+                            </appearance>
+                        </shape>
+                    </Transform>   
+                    <Route fromNode="time" fromField="fraction_changed" toNode="move" toField="set_fraction"></Route>
+                    <Route fromNode="move" fromField="value_changed" toNode="bl" toField="translation"></Route>
+                </Transform>
+                <Viewpoint fieldOfView="0.78" orientation='-0.43713 -0.89885 0.03139 0.53248' position="-7.89800 5.40453 17.61612">
+                </Viewpoint>
+                <Viewpoint fieldOfView="0.78" orientation='-0.32518 0.90957 0.25875 0.95044' position="16.33969 8.25075 13.57183">
+                </Viewpoint>
+                <Viewpoint fieldOfView="0.78" orientation='-0.22220 0.96974 -0.10113 2.02664' position="21.86200 4.84293 -10.07926">
+                </Viewpoint>
+                <NavigationInfo type="ANY" speed="5" transitionType="ANIMATE" transitionTime="10" avatarSize="0.1 0.1 0.1"></NavigationInfo>
+                        <PointLight id='point' on='TRUE' intensity='0.3' color='255 224 67' location='0 20 0' rotation='0,785398 0 0 0,785398' radius='300' shadowintensity="0.5">
+                </PointLight>
+                    <SpotLight location="14 0 12" intensity="1" direction="0 0.5 1" beamWidth="0.9" cutOffAngle="0.90" radius="10">
+                </SpotLight>
+                        <DirectionalLight direction='-1 -1 -1' on ="TRUE" intensity='0.2' shadowIntensity='0.5'> 
+                </DirectionalLight>
+                    <Fog color='0 0 0' fogType="EXPONENTIAL" visibilityRange="50">
+                </Fog>
+                        <Background skyColor='7 4 5 7 1' skyAngle="10">
+                </Background> 
+                <transform def="bl" translation='14 5 12' rotation='0 0 0 0'>
+                    <shape>
+                        <appearance>
+                            <ImageTexture url='2.jpg'></ImageTexture>
+                            <material shininess='0.1'>
+                            </material>
+                            <timeSensor DEF="time" cycleInterval="5" loop="true">
+                            </timeSensor>
+                            <PositionInterpolator DEF="move" key="0 0.5 1" keyValue="'14 5 12 '14 8 12 '14 6 12">
+                            </PositionInterpolator>
+                            
+                        </appearance>
+                        <sphere radius='1'></sphere>
+                    </shape>
+                </transform>
+                 <Route fromNode="time" fromField="fraction_changed" toNode="move" toField="set_fraction">
+                            </Route>
+                            <Route fromNode="move" fromField="value_changed" toNode="bl" toField="translation">
+                            </Route>           
+                        <transform translation="10 2 5">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url='2.jpg'></ImageTexture>
+                        </Appearance>
+                        <box size="12 4 8"></box>
+                    </Shape>
+                </transform>
+                <transform translation="6 2 5">
+                    <Anchor url="https://ru.wikipedia.org/wiki/%D0%9F%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D0%B0" parameter="target='_self'">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url='55.jpg'></ImageTexture>
+                            </Appearance>
+                            <box size="2 2 8.1"></box>
+                        </Shape>
+                    </Anchor>
+                </transform>
+                <transform translation='6 1.5 12'>
+                    <shape>
+                        <cylinder height="3"
+                                  radius="0.05">
+                        </cylinder>
+                        <TimeSensor DEF="Time" cycleInterval="5" loop="true"> </TimeSensor>
+                        <ColorInterpolator DEF="ColInt" key="0 0.2 0.66 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0"> </ColorInterpolator>
+                        <Appearance>
+                            <Material DEF="l1" diffuseColor="1 0 0"></Material>
+                        </Appearance>
+                    </shape>
+                </transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="ColInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="ColInt" fromField="value_changed" toNode="l1" toField="set_diffuseColor"></ROUTE>
+                <transform translation="14 2 5">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url='55.jpg'></ImageTexture>
+                        </Appearance>
+                        <box size="2 2 8.1"></box>
+                    </Shape>
+                </transform>
+                <transform translation="10 1.55 8.05">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url='7.jpg'></ImageTexture>
+                        </Appearance>
+                        <box size="3 3 2"></box>
+                    </Shape>
+                </transform>
+                <transform translation="10 4.2 9.1">
+                    <Shape>
+                        <Appearance>
+                            <Material diffusecolor='red'></Material>
+                        </Appearance>
+                        <text length='10' maxExtent='10' string='ДУРКА&#10010'>
+                            <FontStyle family='SANS' horizontal='true' justify='MIDDLE' language='ru'
+                                       leftToRight='true' size='0.7' spacing='1' style='ITALIC' topToBottom='true'></FontStyle>
+                        </text>
+                    </Shape>
+                </transform>
+                <Shape>
+                    <appearance>
+                        <material diffuseColor='0.1 0.2 0.3' shininess='0.1'>
+                        </material>
+                    </appearance>
+                    <IndexedFaceSet solid="false" coordIndex="0 1 3 2 -1 0 1 5 4 -1 5 4 6 7 -1
+
+				">
+                        <Coordinate point="0 0 0, 0 2 0, 0 0 15, 0 2 15,
+                                        20 0 0, 20 2 0,
+                                        20 0 15, 20 2 15,
+					">
+                        </Coordinate>
+                    </IndexedFaceSet>
+                </Shape>
+                <transform translation='4 4 1'>
+                    <Shape>
+                        <appearance>
+                            <material diffuseColor='0.5 0.2 0.3'>
+                            </material>
+                        </appearance>
+                        <IndexedFaceSet solid="false" coordIndex="0 1 3 2 -1 0 1 5 4 -1 5 4 6 7 -1 6 7 3 2
+
+				">
+                            <Coordinate point="0 0 0, 0 1 0, 0 0 8, 0 1 8,
+                                        12 0 0, 12 1 0,
+                                        12 0 8, 12 1 8,
+					">
+                            </Coordinate>
+                        </IndexedFaceSet>
+                    </Shape>
+                </transform>
+                <transform translation='-3 0 -2'>
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url='3.jpg'></ImageTexture>
+                        </Appearance>
+                        <ElevationGrid xDimension="14" zDimension="10"
+                                       height="
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+						"
+                                       xSpacing="2" zSpacing="2" solid="false">
+                        </ElevationGrid>
+                    </Shape>
+                </transform>
+                <Group DEF="Star">
+                    <transform translation="6 3 12" scale=".04 .04 .04">
+                        <shape>
+                            <IndexedTriangleSet Index='1 2 10  2 3 4  4 5 6  6 7 8  8 9 10  10 2 8  2 4 8  4 6 8  0 1 2  0 1 10  0 2 3  0 3 4  0 4 5  0 5 6  0 6 7  0 7 8  0 8 9  0 9 10 '
+                                                solid="false" colorpervertex="true" normalpervertex="true">
+                                <coordinate point='0 0 2,0 8 0, 2.5 3.5 0, 7.5 2.5 0, 4 -1 0, 5 -6 0, 0 -4 0, -5 -6 0, -4 -1 0, -7.5 2.5 0, -2.5 3.5 0'></coordinate>
+                                <ColorRGBA color="255 223 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 1 0 0 1, 254 221 222  1,"></ColorRGBA>
+                            </IndexedTriangleSet>
+                        </shape>
+                    </transform>
+                    <transform translation="6 3 12" scale=".04 .04 .04">
+                        <shape>
+                            <appearance>
+                                <material emissivecolor="0 0 0"></material>
+                            </appearance>
+                            <IndexedLineset coordIndex="0 1 2 0 -1  0 1 10 0 -1  0 2 3 0 -1 0 3 4 0 -1  0 4 5 0 -1  0 5 6 0 -1  0 6 7 0 -1  0 7 8 0 -1  0 8 9 0 -1  0 9 10 0 -1">
+                                <coordinate point='0 0 2,0 8 0, 2.5 3.5 0, 7.5 2.5 0, 4 -1 0, 5 -6 0, 0 -4 0, -5 -6 0, -4 -1 0, -7.5 2.5 0, -2.5 3.5 0'></coordinate>
+                            </IndexedLineset>
+                        </shape>
+                    </transform>
+                </Group>
+                <transform rotation="6 3 12">
+                    <group USE="Star"></group>
+                </transform>
+                <Transform DEF="coub" translation="1.90279 2.33913 -2.48285" rotation='-0.35116 0.92166 0.16503 2.17154'>
+                    <Shape>
+                        <IndexedLineSet coordIndex="0 1 3 2 0 -1 1 5 4 0 -1 5 7 6 4 -1 7 3 2 6" colorIndex="0 1 2 -1 0 1 5 4 -1" colorPerVertex="true">
+                            <Coordinate point='0 0 0, 0 1 0, 0 0 1, 0 1 1,
+                                        1 0 0, 1 1 0, 1 0 1, 1 1 1,'>
+                            </Coordinate>
+                            <Color color="0 2 1, 3 1 1, 0.5 0, 0 1 0.5, 0.5 2 1, 0 1 0">
+                            </Color>
+                        </IndexedLineSet>
+                    </Shape>
+                </Transform>
+                <Transform translation="1 2 -2" rotation='0 0 0 0'>
+                    <Shape USE="coub">
+                    </Shape>
+                </Transform>
+                <Transform translation="2 4 -4" rotation='0 0 0 0'>
+                    <Shape USE="coub">
+                    </Shape>
+                </Transform>
+            </Scene>
+        </x3d>
+    </body>
+</html>
