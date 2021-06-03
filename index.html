@@ -1,13 +1,792 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
-  <head>  
+
+<head>
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
+    <title>Лабораторная работа №2</title>
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+</head>
+
+<body
+    style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("E.jpg") no-repeat fixed; background-size: cover; background-position: center;'>
+
+    <x3D width="100vw" height="100vh">
+        <Scene>
+
+            <Transform translation="0 0 0">
+                <!--Основание(Поперек)-->
+                <Transform translation="0 0 0 " Rotation="0 0 1 1.57">
+
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 1"></TextureTransform>
+                            <ImageTexture url="Color.jpg"></ImageTexture>
+                        </Appearance>
+                        <Cylinder solid="false" height="12" radius="0.15"></Cylinder>
+                    </Shape>
+                </Transform>
+
+                <!--Основание 2(Вдоль)-->
+                <Transform translation="0 2 0 ">
+
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 1"></TextureTransform>
+                            <ImageTexture url="Color.jpg"></ImageTexture>
+                        </Appearance>
+                        <Cylinder solid="false" height="7" radius="0.15"></Cylinder>
+                    </Shape>
+                </Transform>
+
+                <!--Американский модуль-->
+                <Transform translation="0 0 0">
+                    <!--Двигать Американский модуль-->
+                    <Transform translation="1.5 -0.8 0 " Rotation="0 0 1 1.57">
+
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 3"></TextureTransform>
+                                <ImageTexture url="metall.jpg"></ImageTexture>
+                            </Appearance>
+                            <Cylinder solid="false" height="1.5" radius="0.30"></Cylinder>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation="1.8 -1.1 0" Rotation="1 0 0 1.57">
+                        <!--Флаг США-->
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 1"></TextureTransform>
+                                <ImageTexture url="USA.jpg"></ImageTexture>
+                            </Appearance>
+                            <box size="0.15 0.1 0"></box>
+                        </Shape>
+                    </Transform>
+
+                    <!--Вход в Американский модуль-->
+                    <Transform translation="1 -0.8 0 " Rotation="0 0 1 1.57">
+
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 1"></TextureTransform>
+                                <ImageTexture url="Color.jpg"></ImageTexture>
+                            </Appearance>
+                            <Cylinder solid="false" height="2" radius="0.15"></Cylinder>
+                        </Shape>
+                    </Transform>
+                </Transform>
+
+                <!--Европейский модуль-->
+                <Transform translation="0 0 0">
+                    <!--Двигать Европейский модуль-->
+                    <Transform translation="0 2 0 ">
+
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 4"></TextureTransform>
+                                <ImageTexture url="metall.jpg"></ImageTexture>
+                            </Appearance>
+                            <Cylinder solid="false" height="2" radius="0.3"></Cylinder>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation="0.31 1.5 0" Rotation="1 0 0 1.57">
+                        <!--Флаг Европы-->
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 1"></TextureTransform>
+                                <ImageTexture url="Euro.png"></ImageTexture>
+                            </Appearance>
+                            <box size="0 0.1 0.15"></box>
+                        </Shape>
+                    </Transform>
+                </Transform>
+
+                <Transform translation="0 5.1 0" Rotation="0 0 1 1.57">
+                    <!--Панель #7(2)-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.3 5 0"></box>
+                    </Shape>
+                </Transform>
+
+                <!--Русский модуль 2-->
+                <Transform translation="0 0 0">
+                    <!--Русский модуль-->
+                    <Transform translation="0 6 0 ">
+
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 3"></TextureTransform>
+                                <ImageTexture url="metall.jpg"></ImageTexture>
+                            </Appearance>
+                            <Cylinder solid="false" height="1.5" radius="0.30"></Cylinder>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation="0.31 5.5 0" Rotation="1 0 0 1.57">
+                        <!--Флаг России-->
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 1"></TextureTransform>
+                                <ImageTexture url="Russia.jpg"></ImageTexture>
+                            </Appearance>
+                            <box size="0 0.1 0.15"></box>
+                        </Shape>
+                    </Transform>
+
+                    <!--Иллюминатор-->
+                    <Transform translation="0.26 6 0 " Rotation="0 0 1 1.57">
+
+                        <Shape>
+                            <Appearance>
+                                <TextureTransform scale="1 1"></TextureTransform>
+                                <ImageTexture url="12.png"></ImageTexture>
+                            </Appearance>
+                            <Cylinder solid="false" height="0.1" radius="0.2"></Cylinder>
+                        </Shape>
+                    </Transform>
+                </Transform>
+
+                <Transform DEF="Panelka3" translation="-5.5 0 0" Rotation="1 0 0 1.57">
+                    <!--Панель #1-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation="-3.7 0 0" Rotation="1 0 0 1.57">
+                    <!--Панель #2-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform DEF="Panelka1" translation="-4.3 0 0" Rotation="1 0 0 1.57">
+                    <!--Панель #3-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation="-3.7 0 0">
+                    <!--Панель #4-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation=" 3.2 0 0" Rotation="1 0 0 1.57">
+                    <!--Панель #11-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation=" 3.2 0 0">
+                    <!--Панель #10-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform DEF="Panelka2" translation=" 4.7 0 0" Rotation="1 0 0 1.57">
+                    <!--Панель #9-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation="-1 0 -1.4" Rotation="1 0 0 1.57">
+                    <!--Панель #6-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 3 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation="-1.6 0 -1.4" Rotation="1 0 0 1.57">
+                    <!--Панель #5-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 3 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation=" 1 0 -1.4" Rotation="1 0 0 1.57">
+                    <!--Панель #7-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 3 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform translation=" 1.6 0 -1.4" Rotation="1 0 0 1.57">
+                    <!--Панель #8-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 3 0"></box>
+                    </Shape>
+                </Transform>
+
+                <!--Панель двигателей #7-->
+                <Transform translation=" 0 -1.4 0" Rotation="0 0 1 1.57">
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 2"></TextureTransform>
+                            <ImageTexture url="13.png"></ImageTexture>
+                        </Appearance>
+                        <box size="0.3 2 1"></box>
+                    </Shape>
+                </Transform>
+
+                <!--Панель двигателей #7(Закрывющая)-->
+                <Transform translation=" 0 -1.38 0" Rotation="0 0 1 1.57">
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 2"></TextureTransform>
+                            <ImageTexture url="Color.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.3 2.03 1.1"></box>
+                    </Shape>
+                </Transform>
+
+                <!--Левый двигатель-->
+                <Transform translation="-0.2 -1.6 -0.2 ">
+
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="20 1"></TextureTransform>
+                            <ImageTexture url="orange.jpg"></ImageTexture>
+                        </Appearance>
+                        <Cylinder solid="false" height="0.3" radius="0.17"></Cylinder>
+                    </Shape>
+                </Transform>
+
+                <!--Верхний двигатель-->
+                <Transform translation="0.2 -1.6 -0.2 ">
+
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="20 1"></TextureTransform>
+                            <ImageTexture url="orange.jpg"></ImageTexture>
+                        </Appearance>
+                        <Cylinder solid="false" height="0.3" radius="0.17"></Cylinder>
+                    </Shape>
+                </Transform>
+
+                <!--Правый двигатель-->
+                <Transform translation="0 -1.6 0.1 ">
+
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="20 1"></TextureTransform>
+                            <ImageTexture url="orange.jpg"></ImageTexture>
+                        </Appearance>
+                        <Cylinder solid="false" height="0.3" radius="0.17"></Cylinder>
+                    </Shape>
+                </Transform>
+
+                <Transform translation="0 0 0">
+                    <!--Точки верхнего двигателя -->
+                    <!--точки pointset -->
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0,  0 -0.3 0,  0 0.1 0">
+                    </PositionInterpolator>
+                    <Transform DEF="Tuch7" translation="0 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch7" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch8" translation="-0.1 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch8" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 0.1 0">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch9" translation="0.1 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch9" toField="set_translation"></ROUTE>
+
+                    <!--точки pointset -->
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0.1,  0 -0.3 0.1,0 -0.1 0.1">
+                    </PositionInterpolator>
+                    <Transform DEF="Tuch11" translation="0 0 0.1">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch11" toField="set_translation">
+                    </ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,0 -0.1 -0.1">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch10" translation="0 0 -0.1">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch10" toField="set_translation">
+                    </ROUTE>
+                </Transform>
+
+                <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
+                        keyValue="0 -0.1 0,  0 -0.3 0,  0 -0.1 0">
+                    </PositionInterpolator>
+                <Transform translation="-0.2 0 -0.3">
+                    <!--Точки Левого двигателя -->
+                    <!--точки pointset -->
+                    <Transform DEF = "Tuch15" translation="0 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch15" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
+                        keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF = "Tuch14" translation="-0.1 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch14" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
+                        keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 -0.1 0">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch6" translation="0.1 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch6" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0.1,  0 -0.3 0.1,  0 -0.1 0.1">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch5" translation="0 0 0.1">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch5" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,  0 -0.1 -0.1">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF = "Tuch16" translation="0 0 -0.1">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                </Transform>
+                <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch16" toField="set_translation"></ROUTE>
+
+                <Transform translation="0.2 0 -0.3">
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0,  0 -0.3 0,  0 -0.1 0">
+                    </PositionInterpolator>
+                    <!--Точки правого двигателя -->
+                    <!--точки pointset -->
+                    <Transform DEF = "Tuch13" translation="0 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch13" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch4" translation="-0.1 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch4" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 -0.1 0">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch3" translation="0.1 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch3" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,  0 0.1 -0.1">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch2" translation="0 0 0.1">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch2" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0.1,  0 -0.3 0.1,  0 -0.1 0.1">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF="Tuch" translation="0 0 -0.1">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch" toField="set_translation"></ROUTE>
+                </Transform>
+
+                <!--Треугольники (Космический мусор) -->
+                <TimeSensor DEF="Time" cycleInterval="1" loop="true"></TimeSensor>
+                <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 5 7,  0 -5 10,  0 5 7">
+                </PositionInterpolator>
+
+                <Transform DEF="Trans" translation="0 0 7">
+                    <Shape>
+                        <Appearance>
+                            <Material></Material>
+                        </Appearance>
+                        <IndexedTriangleSet index='0 1 2 3 4 5 6 7 8' solid='false' colorPerVertex='false'>
+                            <Coordinate point='-13 1 3, -13 2 1.5, -13 4 0.5,
+                             -2 13 1.5, 0 13 0, 2 13 1.5,
+                             13 5 -2.5, 13 3 1.5, 13 4 2'></Coordinate>
+                            <Color color='0 .8 0, 0 1 1, 1 0 0'></Color>
+                        </IndexedTriangleSet>
+                    </Shape>
+                </Transform>
+                <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Trans" toField="set_translation"></ROUTE>
+
+                <!--Треугольники (Космический мусор) -->
+                <Transform translation='0 0 0'>
+                    <Shape>
+                        <Appearance>
+                            <Material DEF='Triangle'></Material>
+                        </Appearance>
+                        <IndexedTriangleSet index='0 1 2 3 4 5 6 7 8' solid='false' colorPerVertex='false'>
+                            <Coordinate point='-7 10 3, -5 10 1.5, -5 10 0.5,
+                             -10 3 1.5, -10 10 0, -10 9 1.5,
+                             5 5 -2.5, 4 3 -1.5, 6 4 -2'></Coordinate>
+                        </IndexedTriangleSet>
+                    </Shape>
+                </Transform>
+
+                <ColorInterpolator DEF="ColInt" key="0 0.5 1" keyValue="1 0 0 , 0 1 0, 0 0 1">
+                </ColorInterpolator>
+                <ROUTE fromNode="Time" fromField="fraction_changed" toNode="ColInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="ColInt" fromField="value_changed" toNode="Triangle" toField="set_diffuseColor"></ROUTE>
+
+                
+                <!--Передняя антена -->
+                <Transform DEF="Antena3" translation="0 6.75 0" Rotation="0 1 0 1.57">
+                    <Shape>
+                        <IndexedLineSet coordIndex="3 1 0 2 3" colorIndex="0 1 0 1 0 1 0" colorPerVertex="false">
+                            <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2,
+                             -2 4 2, 2 4 2, 2 4 -2, -2 4 -2"></Coordinate>
+                            <Color color="0 0 1, 1 1 0"></Color>
+                        </IndexedLineSet>
+                    </Shape>
+                </Transform>
+
+                <!--Правая антена -->
+
+                <Transform DEF="Antena" translation="6 0 0" Rotation="0 0 1 1.57">
+                    <Shape>
+                        <IndexedLineSet coordIndex="3 1 0 2 3" colorIndex="0 1 0 1 0 1 0" colorPerVertex="false">
+                            <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2,
+                             -2 4 2, 2 4 2, 2 4 -2, -2 4 -2"></Coordinate>
+                            <Color color="0 0 1, 1 1 0"></Color>
+                        </IndexedLineSet>
+                    </Shape>
+                </Transform>
+
+                <!--Левая антена -->
+                <Transform DEF="Antena2" translation="-6 0 0" Rotation="0 0 1 1.57">
+                    <Shape>
+                        <IndexedLineSet coordIndex="3 1 0 2 3" colorIndex="0 1 0 1 0 1 0" colorPerVertex="false">
+                            <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2,
+                             -2 4 2, 2 4 2, 2 4 -2, -2 4 -2"></Coordinate>
+                            <Color color="0 0 1, 1 1 0"></Color>
+                        </IndexedLineSet>
+                    </Shape>
+                </Transform>
+
+                <Transform translation="0 4.7 0" Rotation="0 0 1 1.57">
+                    <!--Панель  #7-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.3 5 0"></box>
+                    </Shape>
+                </Transform>
+
+                <Transform DEF="Panelka" translation=" 5.5 0 0">
+                    <!--Панель #12-->
+                    <Shape>
+                        <Appearance>
+                            <TextureTransform scale="1 50"></TextureTransform>
+                            <ImageTexture url="sone.jpg"></ImageTexture>
+                        </Appearance>
+                        <box size="0.5 7 0"></box>
+                    </Shape>
+                </Transform>
+
+                <TimeSensor DEF='Time3' cycleInterval='5' loop='true' enabled="true"></TimeSensor>
+                <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="1 0 0 0, 0 1 0 3.14, 1 0 0 6.28">
+                </OrientationInterpolator>
+                <ROUTE fromNode="Time3" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+                </ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Antena3" toField="set_rotation">
+                </ROUTE>
+
+                <TimeSensor DEF='Time2' cycleInterval='4' loop='true' enabled="true"></TimeSensor>
+                <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="1 0 0 0, 1 0 0 3.14, 1 0 0 6.28">
+                </OrientationInterpolator>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Panelka" toField="set_rotation">
+                </ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Panelka1" toField="set_rotation">
+                </ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Panelka2" toField="set_rotation">
+                </ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Panelka3" toField="set_rotation">
+                </ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Antena" toField="set_rotation">
+                </ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Antena2" toField="set_rotation">
+                </ROUTE>
+                <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+                </ROUTE>
+            </Transform>
+        </Scene>
+    </x3D>
+</body>
 </html>
