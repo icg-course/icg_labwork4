@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -10,7 +9,8 @@
     <script src="https://www.x3dom.org/download/x3dom.js"></script>
 </head>
 
-<body style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("E.jpg") no-repeat fixed; background-size: cover; background-position: center;'>
+<body
+    style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("E.jpg") no-repeat fixed; background-size: cover; background-position: center;'>
 
     <x3D width="100vw" height="100vh">
         <Scene>
@@ -153,7 +153,7 @@
                     </Transform>
                 </Transform>
 
-                <Transform DEF = "Panelka3" translation="-5.5 0 0" Rotation="1 0 0 1.57">
+                <Transform DEF="Panelka3" translation="-5.5 0 0" Rotation="1 0 0 1.57">
                     <!--Панель #1-->
                     <Shape>
                         <Appearance>
@@ -219,7 +219,7 @@
                     </Shape>
                 </Transform>
 
-                <Transform DEF = "Panelka2" translation=" 4.7 0 0" Rotation="1 0 0 1.57">
+                <Transform DEF="Panelka2" translation=" 4.7 0 0" Rotation="1 0 0 1.57">
                     <!--Панель #9-->
                     <Shape>
                         <Appearance>
@@ -337,10 +337,9 @@
                     <!--точки pointset -->
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0 -0.1 0,  0 -0.3 0,  0 0.1 0">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0,  0 -0.3 0,  0 0.1 0">
                     </PositionInterpolator>
-                    <Transform DEF = "Tuch7" translation="0 0 0">
+                    <Transform DEF="Tuch7" translation="0 0 0">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -348,22 +347,20 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch7" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch7" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
                     </PositionInterpolator>
                     <!--точки pointset -->
-                    <Transform DEF = "Tuch8" translation="-0.1 0 0">
+                    <Transform DEF="Tuch8" translation="-0.1 0 0">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -371,22 +368,20 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch8" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch8" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 0.1 0">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 0.1 0">
                     </PositionInterpolator>
                     <!--точки pointset -->
-                    <Transform DEF = "Tuch9" translation="0.1 0 0">
+                    <Transform DEF="Tuch9" translation="0.1 0 0">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -394,22 +389,20 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch9" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch9" toField="set_translation"></ROUTE>
 
                     <!--точки pointset -->
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0 -0.1 0.1,  0 -0.3 0.1,0 -0.1 0.1">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0.1,  0 -0.3 0.1,0 -0.1 0.1">
                     </PositionInterpolator>
-                    <Transform DEF = "Tuch11"  translation="0 0 0.1">
+                    <Transform DEF="Tuch11" translation="0 0 0.1">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -417,22 +410,21 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch11" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch11" toField="set_translation">
+                    </ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,0 -0.1 -0.1">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,0 -0.1 -0.1">
                     </PositionInterpolator>
                     <!--точки pointset -->
-                    <Transform DEF= "Tuch10" translation="0 0 -0.1">
+                    <Transform DEF="Tuch10" translation="0 0 -0.1">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -440,21 +432,25 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch10" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch10" toField="set_translation">
+                    </ROUTE>
                 </Transform>
 
+                <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
+                        keyValue="0 -0.1 0,  0 -0.3 0,  0 -0.1 0">
+                    </PositionInterpolator>
                 <Transform translation="-0.2 0 -0.3">
                     <!--Точки Левого двигателя -->
                     <!--точки pointset -->
-                    <Transform translation="0 0 0">
+                    <Transform DEF = "Tuch15" translation="0 0 0">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -462,30 +458,40 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-
-                    <!--точки pointset -->
-                    <Transform translation="-0.1 0 0">
-                        <Shape>
-                            <Appearance>
-                                <ImageTexture url="Yellow.jpg"></ImageTexture>
-                                <Material></Material>
-                            </Appearance>
-                            <PointSet>
-                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
-                                </Coordinate>
-                            </PointSet>
-                        </Shape>
-                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch15" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
                     <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0.1 -0.1 -0.1,  0.1 -0.3 -0.1,  0.1 -0.1 -0.1">
+                        keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
+                    </PositionInterpolator>
+                    <!--точки pointset -->
+                    <Transform DEF = "Tuch14" translation="-0.1 0 0">
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="Yellow.jpg"></ImageTexture>
+                                <Material></Material>
+                            </Appearance>
+                            <PointSet>
+                                <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                </Coordinate>
+                            </PointSet>
+                        </Shape>
+                    </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch14" toField="set_translation"></ROUTE>
+
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
+                        keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 -0.1 0">
                     </PositionInterpolator>
                     <!--точки pointset -->
                     <Transform DEF="Tuch6" translation="0.1 0 0">
@@ -496,19 +502,17 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch6" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch6" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0 -0.1 0.1,  0 -0.3 0.1,  0 -0.1 0.1">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0.1,  0 -0.3 0.1,  0 -0.1 0.1">
                     </PositionInterpolator>
                     <!--точки pointset -->
                     <!--точки pointset -->
@@ -520,18 +524,20 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch5" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch5" toField="set_translation"></ROUTE>
 
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,  0 -0.1 -0.1">
+                    </PositionInterpolator>
                     <!--точки pointset -->
-                    <Transform translation="0 0 -0.1">
+                    <Transform DEF = "Tuch16" translation="0 0 -0.1">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -539,17 +545,23 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
                 </Transform>
+                <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch16" toField="set_translation"></ROUTE>
 
                 <Transform translation="0.2 0 -0.3">
+                    <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0,  0 -0.3 0,  0 -0.1 0">
+                    </PositionInterpolator>
                     <!--Точки правого двигателя -->
                     <!--точки pointset -->
-                    <Transform translation="0 0 0">
+                    <Transform DEF = "Tuch13" translation="0 0 0">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -557,15 +569,17 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch13" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="-0.1 -0.1 0,  -0.1 -0.3 0,  -0.1 -0.1 0">
                     </PositionInterpolator>
                     <!--точки pointset -->
                     <Transform DEF="Tuch4" translation="-0.1 0 0">
@@ -576,19 +590,17 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch4" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch4" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 -0.1 0">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0.1 -0.1 0,  0.1 -0.3 0,  0.1 -0.1 0">
                     </PositionInterpolator>
                     <!--точки pointset -->
                     <Transform DEF="Tuch3" translation="0.1 0 0">
@@ -599,22 +611,20 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch3" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch3" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,  0 0.1 -0.1">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 -0.1,  0 -0.3 -0.1,  0 0.1 -0.1">
                     </PositionInterpolator>
                     <!--точки pointset -->
-                    <Transform  DEF="Tuch2" translation="0 0 0.1">
+                    <Transform DEF="Tuch2" translation="0 0 0.1">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -622,22 +632,20 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch2" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch2" toField="set_translation"></ROUTE>
 
                     <TimeSensor DEF="Time" cycleInterval="0.1" loop="true"></TimeSensor>
-                    <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                          keyValue="0 -0.1 0.1,  0 -0.3 0.1,  0 -0.1 0.1">
+                    <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 -0.1 0.1,  0 -0.3 0.1,  0 -0.1 0.1">
                     </PositionInterpolator>
                     <!--точки pointset -->
-                    <Transform DEF = "Tuch" translation="0 0 -0.1">
+                    <Transform DEF="Tuch" translation="0 0 -0.1">
                         <Shape>
                             <Appearance>
                                 <ImageTexture url="Yellow.jpg"></ImageTexture>
@@ -645,21 +653,19 @@
                             </Appearance>
                             <PointSet>
                                 <Color color="1 0 0, 0 1 0, 0 0 1, 1 0 0"></Color>
-                                <Coordinate point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
+                                <Coordinate
+                                    point="0 -3 0.1,0 -2.9 0.1,0 -2.8 0.1,0 -2.7 0.1,0 -2.6 0.1,0 -2.5 0.1,0 -2.4 0.1,0 -2.3 0.1,0 -2.2 0.1,0 -2.1 0.1,0 -2 0.1,0 -1.9 0.1,0 -1.8 0.1">
                                 </Coordinate>
                             </PointSet>
                         </Shape>
                     </Transform>
-                    <ROUTE fromNode="Time" fromField="fraction_changed"
-                    toNode="PosInt" toField="set_fraction"></ROUTE>
-                    <ROUTE fromNode="PosInt" fromField="value_changed"
-                    toNode="Tuch" toField="set_translation"></ROUTE>
+                    <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Tuch" toField="set_translation"></ROUTE>
                 </Transform>
 
                 <!--Треугольники (Космический мусор) -->
                 <TimeSensor DEF="Time" cycleInterval="1" loop="true"></TimeSensor>
-                <PositionInterpolator DEF="PosInt" key="0 0.5 1"
-                                      keyValue="0 5 7,  0 -5 10,  0 5 7">
+                <PositionInterpolator DEF="PosInt" key="0 0.5 1" keyValue="0 5 7,  0 -5 10,  0 5 7">
                 </PositionInterpolator>
 
                 <Transform DEF="Trans" translation="0 0 7">
@@ -675,10 +681,8 @@
                         </IndexedTriangleSet>
                     </Shape>
                 </Transform>
-                <ROUTE fromNode="Time" fromField="fraction_changed"
-                       toNode="PosInt" toField="set_fraction"></ROUTE>
-                <ROUTE fromNode="PosInt" fromField="value_changed"
-                       toNode="Trans" toField="set_translation"></ROUTE>
+                <ROUTE fromNode="Time" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="PosInt" fromField="value_changed" toNode="Trans" toField="set_translation"></ROUTE>
 
                 <!--Треугольники (Космический мусор) -->
                 <Transform translation='0 0 0'>
@@ -694,17 +698,14 @@
                     </Shape>
                 </Transform>
 
-                <ColorInterpolator DEF="ColInt" key="0 0.5 1"
-                                   keyValue="1 0 0 , 0 1 0, 0 0 1">
+                <ColorInterpolator DEF="ColInt" key="0 0.5 1" keyValue="1 0 0 , 0 1 0, 0 0 1">
                 </ColorInterpolator>
+                <ROUTE fromNode="Time" fromField="fraction_changed" toNode="ColInt" toField="set_fraction"></ROUTE>
+                <ROUTE fromNode="ColInt" fromField="value_changed" toNode="Triangle" toField="set_diffuseColor"></ROUTE>
 
-                <ROUTE fromNode="Time" fromField="fraction_changed"
-                       toNode="ColInt" toField="set_fraction"></ROUTE>
-                <ROUTE fromNode="ColInt" fromField="value_changed"
-                       toNode="Triangle" toField="set_diffuseColor"></ROUTE>
-              
+                
                 <!--Передняя антена -->
-                <Transform DEF = "Antena3"  translation="0 6.75 0" Rotation="0 1 0 1.57">
+                <Transform DEF="Antena3" translation="0 6.75 0" Rotation="0 1 0 1.57">
                     <Shape>
                         <IndexedLineSet coordIndex="3 1 0 2 3" colorIndex="0 1 0 1 0 1 0" colorPerVertex="false">
                             <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2,
@@ -716,7 +717,7 @@
 
                 <!--Правая антена -->
 
-                <Transform DEF ="Antena" translation="6 0 0" Rotation="0 0 1 1.57">
+                <Transform DEF="Antena" translation="6 0 0" Rotation="0 0 1 1.57">
                     <Shape>
                         <IndexedLineSet coordIndex="3 1 0 2 3" colorIndex="0 1 0 1 0 1 0" colorPerVertex="false">
                             <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2,
@@ -727,7 +728,7 @@
                 </Transform>
 
                 <!--Левая антена -->
-                <Transform DEF = "Antena2"  translation="-6 0 0" Rotation="0 0 1 1.57">
+                <Transform DEF="Antena2" translation="-6 0 0" Rotation="0 0 1 1.57">
                     <Shape>
                         <IndexedLineSet coordIndex="3 1 0 2 3" colorIndex="0 1 0 1 0 1 0" colorPerVertex="false">
                             <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2,
@@ -760,26 +761,16 @@
                 </Transform>
 
                 <TimeSensor DEF='Time3' cycleInterval='5' loop='true' enabled="true"></TimeSensor>
-
                 <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="1 0 0 0, 0 1 0 3.14, 1 0 0 6.28">
                 </OrientationInterpolator>
                 <ROUTE fromNode="Time3" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
                 </ROUTE>
-                
                 <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Antena3" toField="set_rotation">
                 </ROUTE>
 
-                <ROUTE fromNode="Time3" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
-                <ROUTE fromNode="PosInt" fromField="value_changed" toNode="sims" toField="set_translation"></ROUTE>
-
-
-
                 <TimeSensor DEF='Time2' cycleInterval='4' loop='true' enabled="true"></TimeSensor>
-
                 <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="1 0 0 0, 1 0 0 3.14, 1 0 0 6.28">
                 </OrientationInterpolator>
-                <ROUTE fromNode="Time" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
-                </ROUTE>
                 <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Panelka" toField="set_rotation">
                 </ROUTE>
                 <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Panelka1" toField="set_rotation">
@@ -788,18 +779,14 @@
                 </ROUTE>
                 <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Panelka3" toField="set_rotation">
                 </ROUTE>
+                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Antena" toField="set_rotation">
+                </ROUTE>
                 <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Antena2" toField="set_rotation">
                 </ROUTE>
-                <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Antena" toField="set_rotation">
-                 </ROUTE>
                 <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
                 </ROUTE>
-                
-                <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
-                <ROUTE fromNode="PosInt" fromField="value_changed" toNode="sims" toField="set_translation"></ROUTE>
             </Transform>
         </Scene>
     </x3D>
 </body>
-
 </html>
