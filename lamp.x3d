@@ -1,0 +1,19 @@
+<Scene>
+<transform>
+<shape> 
+                <appearance> 
+                    <material DEF='lampMat3'></material> 
+                </appearance> 
+                <sphere radius="0.3"></sphere> 
+            </shape> 
+<TimeSensor id="Time" DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+<ColorInterpolator DEF='lamp4' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+       <ROUTE fromNode='Time' fromField='fraction_changed'
+              toNode='lamp4' toField='set_fraction'>
+       </ROUTE>
+       <ROUTE fromNode='lamp4' fromField='value_changed'
+              toNode='lampMat3' toField='set_diffuseColor'>
+       </ROUTE>
+
+</transform>
+</Scene>
