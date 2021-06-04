@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
 <head>
 
@@ -93,7 +93,7 @@
                     <appearance>
                         <material diffuseColor='#E6E6FA'></material>
                     </appearance>
-                    <cylinder></coylinder>
+                    <cylinder></cylinder>
                 </shape>
             </transform>
             <transform DEF="Korpusmonitor" translation="0 1.44 0.3" scale="0.6 0.40 0.03" >
@@ -273,7 +273,7 @@
                     <appearance>
                         <material diffuseColor='#E6E6FA'></material>
                     </appearance>
-                    <cylinder></coylinder>
+                    <cylinder></cylinder>
                 </shape>
             </transform>
             <transform DEF="nozkaDlyafonar" translation="-0.9 1.2 -0.14" scale="0.05 0.5 0.05" rotation="1 0 0 3.14">
@@ -347,7 +347,7 @@
                     <ROUTE fromNode="ColInt" fromField="value_changed" toNode="MaterialKrygka" toField="set_diffuseColor"></ROUTE>
             </group>
             <group DEF = "AnimationChair">
-                <OrientationInterpolator def="OrientInt1" key="0 0.5 1" keyvalue=" 0 1 0 1.57, 0 1 0 4.71, 0 1 0 7.85" interpolation="LINEAR"></orientationinterpolator>
+                <orientationinterpolator def="OrientInt1" key="0 0.5 1" keyvalue=" 0 1 0 1.57, 0 1 0 4.71, 0 1 0 7.85" interpolation="LINEAR"></orientationinterpolator>
                     <ROUTE fromnode="Time1" fromfield="fraction_changed" tonode="OrientInt1" tofield="set_fraction"></ROUTE>
                     <ROUTE fromnode="OrientInt1" fromfield="value_changed" tonode="Chair" tofield="set_rotation"></ROUTE>
             </group>    
