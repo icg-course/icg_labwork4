@@ -3,257 +3,270 @@
 <head>
   <meta charset="utf-8" />
   <title>Laba_4</title>
-  <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css"/>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/dev/x3dom.css" />
   <script src="https://x3dom.org/release/x3dom-full.js"></script>
 
 
 </head>
 
 <body>
-<X3D width='1517px' height='707px'>
+  <X3D width='1517px' height='707px'>
     <Scene>
-      <Viewpoint orientation="0 -1 0 0.3" position="2 0 20"></Viewpoint> 
+      <Viewpoint orientation="0 -1 0 0.3" position="2 0 20"></Viewpoint>
 
       <TimeSensor DEF="time" cycleInterval="4" loop="True">
       </TimeSensor>
 
-      <PositionInterpolator DEF="move" key="0 0.5 1" keyValue="0 0 0  0 -4 1  0 0 0  0 5 0  0 0 0"></PositionInterpolator>
+      <PositionInterpolator DEF="move" key="0 0.5 1" keyValue="0 0 0  0 -4 1  0 0 0  0 5 0  0 0 0">
+      </PositionInterpolator>
 
       <ColorInterpolator DEF="ColInt" key="0 0.33 0.66 1" keyValue="1 0 0, 0 1 0, 0 0 1, 1 0 0"></ColorInterpolator>
 
-      <OrientationInterpolator DEF="OrientInt" key="0 0.33 0.66 1" keyValue="1 1 0 0, 0 1 0 -0.3, 1 1 0 0.3, 0 1 0 0"> </OrientationInterpolator>
+      <OrientationInterpolator DEF="OrientInt" key="0 0.33 0.66 1" keyValue="1 1 0 0, 0 1 0 -0.3, 1 1 0 0.3, 0 1 0 0">
+      </OrientationInterpolator>
 
       <PositionChaser DEF='PosCh' duration='1'></PositionChaser>
 
-      <Transform rotation="1 0 0 1.75" >
+      <Transform rotation="1 0 0 1.75">
         <Transform rotation="0 0 1 1.85">
-            <Anchor url="https://www.youtube.com/watch?v=DDU-rZs-Ic4" Children="Core">
-            
+          <Anchor url="https://www.youtube.com/watch?v=DDU-rZs-Ic4" Children="Core">
 
-              <Collision DEF='MyCollisionNode' enabled='true'>
-                
-    <Transform DEF = "Space Ship">
 
-              <Shape>
-                <Appearance>
-                  <ImageTexture url="Текстуры/швы-болты_44.png">
-                  </ImageTexture>
-                </Appearance>
-                <Box size="5 0.4 0.4"></Box>
-              </Shape>
+            <Collision DEF='MyCollisionNode' enabled='true'>
 
-            <Shape DEF = "Core">
-              <Appearance>
-                <ImageTexture url="Текстуры/eRxyb9.png">
-                </ImageTexture>
-                <TextureTransform scale="3 3" rotation="0.78"></TextureTransform>
-              </Appearance>
-              <Sphere radius="1"></Sphere>
-            </Shape>
+              <Transform DEF="Space Ship">
 
-          <Transform rotation="0 1 0 1.5">
-            <Shape>
-              <Appearance>
-                <ImageTexture url="Текстуры/швы-болты_44.png">
-                </ImageTexture>
-              </Appearance>
-              <Box size="5.7 0.5 0.7"></Box>
-            </Shape>
-          </Transform>   
-
-            <Transform translation="-2.8 0 0">
-              <Shape>
-                <Appearance>
-                  <ImageTexture url="Текстуры/ehUOQz.png">
-                  </ImageTexture>
-                </Appearance>
-                <Cylinder height='3.32' radius='0.57'></Cylinder>
-              </Shape>
-            </Transform>
-
-            <Transform translation="2.8 0 0">
-              <Shape>
-                <Appearance>
-                  <ImageTexture url="Текстуры/ehUOQz.png">
-                  </ImageTexture>
-                </Appearance>
-                <Cylinder height='3.32' radius='0.57'></Cylinder>
-              </Shape>
-            </Transform>
-
-            <Transform scale='1 1 1' rotation='0 1 0 1.55'>
-              <Shape>
-                <Appearance>
-                  <ImageTexture url="Текстуры/10616486.png">
-                  </ImageTexture>
-                  <TextureTransform scale="3 3" rotation="0.78"></TextureTransform>
-                </Appearance>
-                <Torus innerRadius="0.7" outerRadius="2.6"></Torus>
-              </Shape>
-            </Transform>
-
-            <Transform translation="-2.8 2.68 0">
-              <Shape>
-                <Appearance>
-                  <ImageTexture url="Текстуры/1500x500.png">
-                  </ImageTexture>
-                  <TextureTransform rotation="0.4"></TextureTransform>
-                </Appearance>
-                <Cone bottomRadius="0.5" height="2"></Cone>
-              </Shape>
-            </Transform>
-
-            <Transform translation="2.8 2.68 0">
-              <Shape>
-                <Appearance>
-                  <ImageTexture url="Текстуры/1500x500.png">
-                  </ImageTexture>
-                  <TextureTransform rotation="0.4"></TextureTransform>
-                </Appearance>
-                <Cone bottomRadius="0.5" height="2"></Cone>
-              </Shape>
-            </Transform>
-            
-            <Transform translation="3.38 0.1 0" rotation="1 0 0 -1.57">
-              <Transform rotation="0 1 0 1.57">
                 <Shape>
                   <Appearance>
-                    <Material DEF="Color" diffuseColor="1 0 0">
-                    </Material>
+                    <ImageTexture url="Текстуры/швы-болты_44.png">
+                    </ImageTexture>
                   </Appearance>
-                  <Text string="Hiraishin" maxExtent="2.2" solid="false">
-                    <FontStyle horizontal="true" leftToRight="true"></FontStyle>
-                  </Text>
+                  <Box size="5 0.4 0.4"></Box>
                 </Shape>
+
+                <Shape DEF="Core">
+                  <Appearance>
+                    <ImageTexture url="Текстуры/eRxyb9.png">
+                    </ImageTexture>
+                    <TextureTransform scale="3 3" rotation="0.78"></TextureTransform>
+                  </Appearance>
+                  <Sphere radius="1"></Sphere>
+                </Shape>
+
+                <Transform rotation="0 1 0 1.5">
+                  <Shape>
+                    <Appearance>
+                      <ImageTexture url="Текстуры/швы-болты_44.png">
+                      </ImageTexture>
+                    </Appearance>
+                    <Box size="5.7 0.5 0.7"></Box>
+                  </Shape>
+                </Transform>
+
+                <Transform translation="-2.8 0 0">
+                  <Shape>
+                    <Appearance>
+                      <ImageTexture url="Текстуры/ehUOQz.png">
+                      </ImageTexture>
+                    </Appearance>
+                    <Cylinder height='3.32' radius='0.57'></Cylinder>
+                  </Shape>
+                </Transform>
+
+                <Transform translation="2.8 0 0">
+                  <Shape>
+                    <Appearance>
+                      <ImageTexture url="Текстуры/ehUOQz.png">
+                      </ImageTexture>
+                    </Appearance>
+                    <Cylinder height='3.32' radius='0.57'></Cylinder>
+                  </Shape>
+                </Transform>
+
+                <Transform scale='1 1 1' rotation='0 1 0 1.55'>
+                  <Shape>
+                    <Appearance>
+                      <ImageTexture url="Текстуры/10616486.png">
+                      </ImageTexture>
+                      <TextureTransform scale="3 3" rotation="0.78"></TextureTransform>
+                    </Appearance>
+                    <Torus innerRadius="0.7" outerRadius="2.6"></Torus>
+                  </Shape>
+                </Transform>
+
+                <Transform translation="-2.8 2.68 0">
+                  <Shape>
+                    <Appearance>
+                      <ImageTexture url="Текстуры/1500x500.png">
+                      </ImageTexture>
+                      <TextureTransform rotation="0.4"></TextureTransform>
+                    </Appearance>
+                    <Cone bottomRadius="0.5" height="2"></Cone>
+                  </Shape>
+                </Transform>
+
+                <Transform translation="2.8 2.68 0">
+                  <Shape>
+                    <Appearance>
+                      <ImageTexture url="Текстуры/1500x500.png">
+                      </ImageTexture>
+                      <TextureTransform rotation="0.4"></TextureTransform>
+                    </Appearance>
+                    <Cone bottomRadius="0.5" height="2"></Cone>
+                  </Shape>
+                </Transform>
+
+                <Transform translation="3.38 0.1 0" rotation="1 0 0 -1.57">
+                  <Transform rotation="0 1 0 1.57">
+                    <Shape>
+                      <Appearance>
+                        <Material DEF="Color" diffuseColor="1 0 0">
+                        </Material>
+                      </Appearance>
+                      <Text string="Hiraishin" maxExtent="2.2" solid="false">
+                        <FontStyle horizontal="true" leftToRight="true"></FontStyle>
+                      </Text>
+                    </Shape>
+                  </Transform>
+                </Transform>
+
               </Transform>
-            </Transform>
+            </Collision>
+          </Anchor>
 
+          <Transform scale="0.5 0.5 0.5" translation="1 4 5">
+            <Shape USE="Space Ship">
+
+            </Shape>
           </Transform>
-        </Collision>
-        </Anchor>
 
-        <Transform scale="0.5 0.5 0.5" translation="1 4 5">
-          <Shape USE="Space Ship" >
-        
+          <Shape>
+            <Background backUrl='Текстуры/space.png' bottomUrl='Текстуры/space.png' leftUrl='Текстуры/space.png'
+              rightUrl='Текстуры/space.png' topUrl='Текстуры/space.png'>
+            </Background>
           </Shape>
-        </Transform>
 
-            <Shape>
-              <Background backUrl='Текстуры/space.png' bottomUrl='Текстуры/space.png' leftUrl='Текстуры/space.png' rightUrl='Текстуры/space.png' topUrl='Текстуры/space.png'>
-              </Background>
-            </Shape>
+          <Transform DEF="Trans">
 
-              <Transform  DEF="Trans">
 
-              
             <Transform translation='0 -17 0'>
-            <Shape>
-              <Material diffuseColor="1 0 1">
-              </Material>
-              <PointSet>
-                <Color color="1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0">
-                </Color>
-                <Coordinate point="2 0 2, 2 0.4 2, 2 0.8 2, 2 1.2 2, 2 1.6 2, 2 2 2, 2 2.4 2, 2 2.8 2, 2 3.2 2, 2 3.6 2"></Coordinate>
-              </PointSet>
-            </Shape>            
-          </Transform>
-
-              <Transform translation='0 -17 0'>
-                <Shape>
-                  <Material diffuseColor="1 0 1">
-                  </Material>
-                  <IndexedLineSet coordIndex=' 2 5 6 1 2 –1' colorIndex='0 1 2 3 4 5 -1' colorPerVertex='true'>
-                  <Coordinate point='2 0 2, 2 0 2, 2 0 -2, -2 0 –2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2, 2 2 0, 2 2 2, 2 0 0'></Coordinate>
-                  <Color color='0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1'></Color>
-                  </IndexedLineSet>
-                </Shape>
-              </Transform>
-
-            <Transform translation="0 -17 0" >
-            <Shape DEF = 'coloreCube'>
-              <appearance>
-                <ImageTexture DEF="123" url="Текстуры/rusted-metal-pole-2.png">
-                </ImageTexture>
-                <TextureTransform rotation="1"></TextureTransform>
-              </appearance>
-              <IndexedFaceSet ccw="true" convex="true" creaseAngle="0" solid="false" coordIndex="0 3 7 4 -1 4 5 6 7 -1 6 7 3 2 -1 0 1 2 3 -1 0 1 5 4" >
-                <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2, 0 0 0, 2 0 0, 2 2 0, 0 2 0"></Coordinate>
-              </IndexedFaceSet>
-            </Shape>
+              <Shape>
+                <Material diffuseColor="1 0 1">
+                </Material>
+                <PointSet>
+                  <Color color="1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0, 1 0 0">
+                  </Color>
+                  <Coordinate
+                    point="2 0 2, 2 0.4 2, 2 0.8 2, 2 1.2 2, 2 1.6 2, 2 2 2, 2 2.4 2, 2 2.8 2, 2 3.2 2, 2 3.6 2">
+                  </Coordinate>
+                </PointSet>
+              </Shape>
             </Transform>
 
-            <Transform  translation="0 -15 0" >
-            <shape>
-              <IndexedTriangleSet index="0 1 2 4 5 6" solid="false">
-                <Coordinate point="2 2 2, -2 2 2, -3 4 -3, -2 3 -5,
+            <Transform translation='0 -17 0'>
+              <Shape>
+                <Material diffuseColor="1 0 1">
+                </Material>
+                <IndexedLineSet coordIndex=' 2 5 6 1 2 –1' colorIndex='0 1 2 3 4 5 -1' colorPerVertex='true'>
+                  <Coordinate
+                    point='2 0 2, 2 0 2, 2 0 -2, -2 0 –2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2, 2 2 0, 2 2 2, 2 0 0'>
+                  </Coordinate>
+                  <Color color='0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1'></Color>
+                </IndexedLineSet>
+              </Shape>
+            </Transform>
+
+            <Transform translation="0 -17 0">
+              <Shape DEF='coloreCube'>
+                <appearance>
+                  <ImageTexture DEF="123" url="Текстуры/rusted-metal-pole-2.png">
+                  </ImageTexture>
+                  <TextureTransform rotation="1"></TextureTransform>
+                </appearance>
+                <IndexedFaceSet ccw="true" convex="true" creaseAngle="0" solid="false"
+                  coordIndex="0 3 7 4 -1 4 5 6 7 -1 6 7 3 2 -1 0 1 2 3 -1 0 1 5 4">
+                  <Coordinate
+                    point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -2 4 2, 2 4 2, 2 4 -2, -2 4 -2, 0 0 0, 2 0 0, 2 2 0, 0 2 0">
+                  </Coordinate>
+                </IndexedFaceSet>
+              </Shape>
+            </Transform>
+
+            <Transform translation="0 -15 0">
+              <shape>
+                <IndexedTriangleSet index="0 1 2 4 5 6" solid="false">
+                  <Coordinate point="2 2 2, -2 2 2, -3 4 -3, -2 3 -5,
                 -2 -2 2, 2 -2 2, -3 -3 -2, 2 3 1.5, 6 4 2"></Coordinate>
-                <ColorRGBA color="0 .8 0 1, 0 1 1 1, 1 0 0 0, 1 .5 0 0,
+                  <ColorRGBA color="0 .8 0 1, 0 1 1 1, 1 0 0 0, 1 .5 0 0,
                 .8 0 1 0, 1 1 0 1, .6 .3 .1 0, 1 0 .5 1, 0 1 .5 0"></ColorRGBA>
-               </IndexedTriangleSet>
+                </IndexedTriangleSet>
               </shape>
-              </Transform>
-              
-              <Transform translation="2 -18 -1" >
+            </Transform>
+
+            <Transform translation="2 -18 -1">
               <shape>
                 <IndexedTriangleStripSet index='0 1 2 3 4 -1' solid='false'>
                   <Coordinate point='-4 1 3, -2 2 1.5, -3 4 0.5, -2 3 1.5,
                   0 4 0'></Coordinate>
                   <ColorRGBA color='0 .8 0 1, 0 1 1 1, 1 0 0 1, 1 .5 0 1,
                   .8 0 1 1'></ColorRGBA>
-                 </IndexedTriangleStripSet>
+                </IndexedTriangleStripSet>
               </shape>
             </Transform>
 
             <Transform translation="0 -16 -2" rotation='1 0 0 4.9'>
               <shape>
                 <Appearance>
-                    <ImageTexture USE="123" >
-                    </ImageTexture>
-                    <TextureTransform rotation="1"></TextureTransform>
-              </Appearance>
-                <ElevationGrid xDimension="3" zDimension="3" height="1, 0.3, 1, 0.5, 1, 1.5, 0, 1, 0.5, 0.25, 0.25, 0.5, 1, 0, 0.5, 0.25" xSpacing="2.0" zSpacing="2.0" solid="false" creaseAngle="3">
+                  <ImageTexture USE="123">
+                  </ImageTexture>
+                  <TextureTransform rotation="1"></TextureTransform>
+                </Appearance>
+                <ElevationGrid xDimension="3" zDimension="3"
+                  height="1, 0.3, 1, 0.5, 1, 1.5, 0, 1, 0.5, 0.25, 0.25, 0.5, 1, 0, 0.5, 0.25" xSpacing="2.0"
+                  zSpacing="2.0" solid="false" creaseAngle="3">
                 </ElevationGrid>
-              </shape>  
+              </shape>
             </Transform>
 
           </Transform>
 
-            </Transform>
-          </Transform>  
+        </Transform>
+      </Transform>
 
-            <shape >
-              <fog color="0 0 0" fogType="EXPONENTIAL" visibilityRange="90">
-              </fog>
-            </shape>
+      <shape>
+        <fog color="0 0 0" fogType="EXPONENTIAL" visibilityRange="90">
+        </fog>
+      </shape>
 
-        <NavigationInfo avatarSize='0.25 1.6 0.75' speed='2.0' type ="Fly" Headlight="FALSE">
-        </NavigationInfo>
-    
-        <Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"></Route> 
-        <!--Из узла "Время" с поля "Фракция изменилась" к узлу в поле "Набор фракций"-->
-        <Route fromNode="move" fromField ="value_changed" toNode="Space Ship" toField="translation"></Route>
+      <NavigationInfo avatarSize='0.25 1.6 0.75' speed='2.0' type="Fly" Headlight="FALSE">
+      </NavigationInfo>
 
-        <Route fromNode="time" fromField ="fraction_changed" toNode="ColInt" toField="set_fraction"></Route>
-        <Route fromNode="ColInt" fromField ="value_changed" toNode="Color" toField="set_diffuseColor"></Route>
+      <Route fromNode="time" fromField="fraction_changed" toNode="move" toField="set_fraction"></Route>
+      <!--Из узла "Время" с поля "Фракция изменилась" к узлу в поле "Набор фракций"-->
+      <Route fromNode="move" fromField="value_changed" toNode="Space Ship" toField="translation"></Route>
 
-        <ROUTE fromNode="time" fromField="fraction_changed"
-        toNode="OrientInt" toField="set_fraction"></ROUTE>
-        <ROUTE fromNode="OrientInt" fromField="value_changed"
-        toNode="Trans" toField="set_rotation"></ROUTE>
-       
+      <Route fromNode="time" fromField="fraction_changed" toNode="ColInt" toField="set_fraction"></Route>
+      <Route fromNode="ColInt" fromField="value_changed" toNode="Color" toField="set_diffuseColor"></Route>
 
-        <DirectionalLight direction='0 0 -1' color='1 0 1' intensity='.5'></DirectionalLight>
+      <ROUTE fromNode="time" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction"></ROUTE>
+      <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="Trans" toField="set_rotation"></ROUTE>
 
-        <PointLight location="5 0 10" color="1 0 0" intensity="1" shadowIntensity="0.7" shadowMapSize="512"></PointLight>
 
-        <Spotlight location="7 4 -3" color="1 1 0" intensity="1" direction="0 0 -1" cutOffAngle='5' beamWidth='.7'></Spotlight>
-      
+      <DirectionalLight direction='0 0 -1' color='1 0 1' intensity='.5'></DirectionalLight>
+
+      <PointLight location="5 0 10" color="1 0 0" intensity="1" shadowIntensity="0.7" shadowMapSize="512"></PointLight>
+
+      <Spotlight location="7 4 -3" color="1 1 0" intensity="1" direction="0 0 -1" cutOffAngle='5' beamWidth='.7'>
+      </Spotlight>
+
       <Transform translation="7 0 -5" scale="0.001 .001 .001">
-      <Inline url="Текстуры/test.x3d"></Inline>
-      </Transform> 
+        <Inline url="Текстуры/test.x3d"></Inline>
+      </Transform>
 
 
-          </Scene>
+    </Scene>
 
-          </X3D>
-          </body>
+  </X3D>
+</body>
+
+</html>
