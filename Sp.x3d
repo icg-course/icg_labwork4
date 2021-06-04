@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta name="filename" content="Sp.x3d" />
+	</head>
+	<Scene>
+		<Transform Translation="-3 7 -5" rotation="0 0 1 1.7">
+          <shape>
+            <appearance>
+              <ImageTexture url="sptn.jpg"></ImageTexture>
+              <material Diffusecolor="0 0 0"></material>
+            </appearance>
+            <cone></cone>
+          </shape>
+        </Transform>
+
+        <!-- Часть спутника 1 -->
+        <Transform Translation="-1 6.25 -5" rotation="0 0 1 1.5">
+          <shape>
+            <appearance>
+              <ImageTexture url="sptnpt.jpg"></ImageTexture>
+              <material Diffusecolor="0 0 0"></material>
+            </appearance>
+            <cylinder radius="0.1" height="2.1"></cylinder>
+          </shape>
+        </Transform>
+
+        <!-- Часть спутника 2 -->
+        <Transform Translation="-5 8.25 -5" rotation="0 0 1 1.9">
+          <shape>
+            <appearance>
+              <ImageTexture url="sptnpt.jpg"></ImageTexture>
+              <material Diffusecolor="0 0 0"></material>
+            </appearance>
+            <cylinder radius="0.1" height="2.1"></cylinder>
+          </shape>
+        </Transform>
+	</Scene>
+</X3D>
