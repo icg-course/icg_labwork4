@@ -1,13 +1,180 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+﻿<html>
+<head>
+    <title>Lab4</title>
+    <script src="https://x3dom.org/download/dev/x3dom-full.js"></script>
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+</head>
+<body>
+    <h1>R.S.Khalikov 4843</h1>
+    <x3d width='90em' height='40em'>
+        <Scene>
+            <!--Collision-->
+            <Collision DEF="Main_collision" enabled="true"></Collision>
+                <!--Background-->
+                <background skyangle='0.8,1.3,2' skycolor='0.156 0.196 0.862,0.156 0.196 0.862,0.156 0.196 0.862' groundAngle='0.4,.4,.8' groundcolor='0 0.128 0,0 0.128 0,0 0.128 0,0 0.128 0'></background>
+                <!--Fog-->
+                <Fog fogType="LINEAR" color="#0000FF" visibilityRange='50'></Fog>
+                <!--NavigationInfo-->
+                <NavigationInfo avatarSize="0.4 1 0.4" type="FLY" speed="3">
+                </NavigationInfo>
+                <!--Viewpoint1-->
+                <Viewpoint description="Вид" position="0 2 7" orientation="1 0 0 -0.2"></Viewpoint>
+                <!--Viewpoint2-->
+                <transform DEF='cam1'>
+                    <Viewpoint rotation="1 0 0 0.5" description="Начальный вид" position="8 2 0" orientation="0 1 0 1.57"></Viewpoint>
+                </transform>
+                <!--Directionallight-->
+                <DirectionalLight direction='0 -1 0' on="TRUE" intensity='0' shadowIntensity='0.4'></DirectionalLight>
+                <!--Plane-->
+                <Transform DEF="plane" translation="0 -1 0" rotation="1 0 0 -1.5708">
+                    <shape>
+                        <appearance>
+                            <material diffuseColor='0.5 0.5 0.5'></material>
+                        </appearance>
+                        <plane size='5 5'></plane>
+                    </shape>
+                </Transform>
+                <transform id=all1>
+                    <!--Spotlight-->
+                    <transform rotation="0 0 1 1.4">
+                        <spotlight location="0 4 0" direction="0 -1 0" radius="4.5" intensity="2" beamwidth=".3" cutoffAngle="0.2">
+                        </spotlight>
+                    </transform>
+                    <!--Pointlight-->
+                    <pointlight location="0.5 0.1 0" radius="0.5" ambientIntensity="3" color='yellow'></pointlight>
+                    <!--Stol-->
+                    <Transform DEF="stol" translation="0 0 0">
+                        <shape>
+                            <appearance>
+                                <material diffuseColor='1 0.6 0.2'></material>
+                                <Imagetexture url='stol.png'></Imagetexture>
+                            </appearance>
+                            <box size="2 0.1 2"></box>
+                        </shape>
+                    </Transform>
+                        <!--Group nojki-->
+                        <group DEF="opora">
+                            <transform translation="0.6 -0.5 0.5">
+                                <shape DEF="opora">
+                                    <appearance>
+                                        <material diffuseColor='0.5 0.2 0.1'></material>
+                                    </appearance>
+                                    <Cylinder radius="0.1" height="1"></Cylinder>
+                                </shape>
+                            </transform>
+                            <transform translation="0.6 -0.5 -0.5">
+                                <shape USE="opora"></shape>
+                            </transform>
+                            <transform translation="-0.6 -0.5 0.5">
+                                <shape USE="opora"></shape>
+                            </transform>
+                            <transform translation="-0.6 -0.5 -0.5">
+                                <shape USE="opora"></shape>
+                            </transform>
+                        </group>
+                        <!--Lampa-->
+                        <!--Inline-->
+                        <transform translation="0.5 0.2 0">
+                            <Inline url="lamp.x3d"></Inline>
+                        </transform>
+
+                        <Transform DEF="sphere2" translation="0.5 0.4 0" scale="1.6 2 1.6">
+                            <shape>
+                                <appearance>
+                                    <material DEF='lampMat1'></material>
+                                </appearance>
+                                <sphere radius="0.1"></sphere>
+                            </shape>
+                        </Transform>
+                        <Transform DEF="lampa" translation="0.5 1 0">
+                            <shape>
+                                <appearance>
+                                    <material DEF='lampMat4'></material>
+                                </appearance>
+                                <cone bottomRadius="0.4" height="0.35"></cone>
+                            </shape>
+                        </Transform>
+                        <transform translation="0.5 0.8 0">
+                            <shape>
+                                <appearance>
+                                    <material DEF='lampMat2'></material>
+                                </appearance>
+                                <cone bottomRadius="0.1" height="0.5"></cone>
+                            </shape>
+                        </transform>
+                        <!--Chashka-->
+                        <transform DEF="cup" translation="-0.7 0.4 0.35">
+                            <shape>
+                                <appearance>
+                                    <material diffuseColor='0.5 0.3 0.3'></material>
+                                </appearance>
+                                <Cylinder radius="0.15" height="0.4"></Cylinder>
+                            </shape>
+                        </transform>
+                        <transform DEF="ruchka" translation="-0.5 0.4 0.3" rotation="0 0 1 1.57">
+                            <shape>
+                                <appearance>
+                                    <material diffuseColor='0.5 0.3 0.3'></material>
+                                </appearance>
+                                <Torus innerradius="0.01" outerradius="0.09"></Torus>
+                            </shape>
+                        </transform>
+                    </Transform>
+                    <!--TimeSensor-->
+                    <TimeSensor DEF="Time" cycleInterval="5" loop="true"></TimeSensor>
+                    <!--AnimateCup-->
+                    <OrientationInterpolator DEF='cup1' key='0 0.5 1' keyValue='1 0 0 0 1 0 0 -3.14 1 0 0 -6.28'></OrientationInterpolator>
+                    <ROUTE fromNode="Time" fromField="fraction_changed"
+                           toNode="cup1" toField="set_fraction">
+                    </ROUTE>
+                    <ROUTE fromNode="cup1" fromField="value_changed"
+                           toNode="cup" toField="set_rotation">
+                    </ROUTE>
+                    <OrientationInterpolator DEF='ruchka1' key='0 0.5 1' keyValue='1 0 0 0 1 0 0 -3.14 1 0 0 -6.28'></OrientationInterpolator>
+                    <ROUTE fromNode="Time" fromField="fraction_changed"
+                           toNode="ruchka1" toField="set_fraction">
+                    </ROUTE>
+                    <ROUTE fromNode="ruchka1" fromField="value_changed"
+                           toNode="ruchka" toField="set_rotation">
+                    </ROUTE>
+                    <!--AnimateLamp-->
+                    <ColorInterpolator DEF='lamp1' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+                    <ROUTE fromNode='Time' fromField='fraction_changed'
+                           toNode='lamp1' toField='set_fraction'>
+                    </ROUTE>
+                    <ROUTE fromNode='lamp1' fromField='value_changed'
+                           toNode='lampMat4' toField='set_diffuseColor'>
+                    </ROUTE>
+                    <ColorInterpolator DEF='lamp2' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+                    <ROUTE fromNode='Time' fromField='fraction_changed'
+                           toNode='lamp2' toField='set_fraction'>
+                    </ROUTE>
+                    <ROUTE fromNode='lamp2' fromField='value_changed'
+                           toNode='lampMat1' toField='set_diffuseColor'>
+                    </ROUTE>
+                    <ColorInterpolator DEF='lamp3' key='0 0.33 0.66 1' keyValue='1 0 0, 0 1 0, 0 0 1, 1 0 0'></ColorInterpolator>
+                    <ROUTE fromNode='Time' fromField='fraction_changed'
+                           toNode='lamp3' toField='set_fraction'>
+                    </ROUTE>
+                    <ROUTE fromNode='lamp3' fromField='value_changed'
+                           toNode='lampMat2' toField='set_diffuseColor'>
+                    </ROUTE>
+                    <ColorInterpolator DEF='lamp4' key='0 0.33 0.66 1' keyValue='1 1 0, 0 1 1, 1 0 1, 1 0 1'></ColorInterpolator>
+                    <ROUTE fromNode='Time' fromField='fraction_changed'
+                           toNode='lamp4' toField='set_fraction'>
+                    </ROUTE>
+                    <ROUTE fromNode='lamp4' fromField='value_changed'
+                           toNode='lampMat3' toField='set_diffuseColor'>
+                    </ROUTE>
+                    <!--AnimateTable-->
+                    <PositionInterpolator DEF="move" key="0 0.5 1" keyValue="0 0 1   1 0 0   0 0 1"></PositionInterpolator>
+                    <Route fromNode="Time" fromField="fraction_changed"
+                           toNode="move" toField="set_fraction">
+                    </Route>
+                    <Route fromNode="move" fromField="value_changed"
+                           toNode="all1" toField="translation">
+                    </Route>
+                </Scene>
+               </x3d>
+</body>
 </html>
