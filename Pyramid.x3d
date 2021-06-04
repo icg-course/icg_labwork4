@@ -1,0 +1,11 @@
+<Scene>
+    <Transform DEF="Pyramid">
+      <Shape>
+        
+        <Appearance>
+          <Material diffuseColor='0.8 0.8 0.2' specularColor='0 0 0.5'/>
+        </Appearance>
+        <Box size = "5 5 5"></box>
+      </Shape>
+    </Transform>
+</Scene>

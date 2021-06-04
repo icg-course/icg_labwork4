@@ -3,11 +3,428 @@
   <head>  
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
+    <title>Лабораторная работа 5</title>
     <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <script src="https://x3dom.org/download/dev/x3dom-full.debug.js"></script>
   </head>
+  
   <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
+    <h1>Parshin N.V. 4843</h1>
+    <x3d style="width:85%; height:85%; border:none;">
+    <scene>
+      <!--Корпус-->
+        <transform rotation="1 0 0 -1.57">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='.2 .2 .2'></Material>
+              </Appearance>
+              <Box size="6 6 0.7"></Box>
+            </Shape>
+        </transform>
+        <transform rotation="1 0 0 -1.57" translation="0 0.7 0">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='.2 .2 .2'></Material>
+              </Appearance>
+              <Box size="5.4 5.4 0.7"></Box>
+            </Shape>
+        </transform>
+        <transform rotation="1 0 0 -1.57" translation="0 1.4 0">
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='.2 .2 .2'></Material>
+              </Appearance>
+              <Box size="4.8 4.8 0.7"></Box>
+            </Shape>
+        </transform>
+    <transform rotation="1 0 0 -1.57" translation="0 2.1 0">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='.2 .2 .2'></Material>
+          </Appearance>
+          <Box size="4.2 4.2 0.7"></Box>
+        </Shape>
+    </transform>
+    <transform rotation="1 0 0 -1.57" translation="0 -0.7 0">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='.2 .2 .2'></Material>
+          </Appearance>
+          <Box size="6.6 6.6 0.7"></Box>
+        </Shape>
+    </transform>
+    <transform rotation="1 0 0 -1.57" translation="0 -1.4 0">
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='.2 .2 .2'></Material>
+          </Appearance>
+          <Box size="7.2 7.2 0.7"></Box>
+        </Shape>
+    </transform>
+<transform rotation="1 0 0 -1.57" translation="0 -2.1 0">
+    <Shape>
+      <Appearance>
+        <Material diffuseColor='.2 .2 .2'></Material>
+      </Appearance>
+      <Box size="7.8 7.8 0.7"></Box>
+    </Shape>
+</transform>
+<!--Лестница-->
+<transform rotation="1 0 0 -0.6" translation="0 -0.4 3.2">
+  <Shape DEF="Ladder">
+    <Appearance>
+      <Material diffuseColor='.1 .1 .1'></Material>
+    </Appearance>
+    <Box size="1.8 6 1.4"></Box>
+  </Shape>
+</transform>
+<transform rotation="1 0 0 0.6" translation="0 -0.4 -3.2">
+  <Shape USE="Ladder">
+  </Shape>
+</transform>
+<transform rotation="0 0 1 -0.6" translation="-3.2 -0.4 0">
+  <Shape DEF="Ladder2">
+      <Appearance>
+          <Material diffuseColor='.1 .1 .1'></Material>
+      </Appearance>
+        <Box size="1.4 6 1.8"></Box>
+  </Shape>
+</transform>
+<transform rotation="0 0 1 0.6" translation="3.2 -0.4 0">
+  <Shape USE="Ladder2">
+  </Shape>
+</transform>
+
+<!--Алтарь-->
+<transform translation="1.2 2.8 1.2">
+  <Shape DEF="Pillar">
+    <Appearance>
+      <Material diffuseColor='.1 .1 .1'></Material>
+    </Appearance>
+    <Box size="0.8 1 0.8"></Box>
+  </Shape>
+</transform>
+<transform translation="-1.2 2.8 1.2">
+  <Shape USE="Pillar">
+  </Shape>
+</transform>
+<transform translation="1.2 2.8 -1.2">
+    <Shape USE="Pillar">
+    </Shape>
+</transform>
+<transform translation="-1.2 2.8 -1.2">
+    <Shape USE="Pillar">
+    </Shape>
+</transform>
+<transform rotation="1 0 0 -1.57" translation="0 3.6 0">
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='.1 .1 .1'></Material>
+    </Appearance>
+    <Box size="3.2 3.2 0.7"></Box>
+  </Shape>
+</transform>
+<!--Ствол деревва-->
+<transform translation="1.5 -2 6">
+  <Shape DEF="Stem">
+    <Appearance>
+      <Material diffuseColor='1 .4 .1'></Material>
+    </Appearance>
+    <Cylinder radius="0.1" height="1"></Cylinder>
+  </Shape>
+</transform>
+<transform translation="-1.5 -2 6">
+  <Shape USE="Stem">
+  </Shape>
+</transform>
+<transform translation="1.5 -2 -6">
+    <Shape USE="Stem">
+    </Shape>
+</transform>
+<transform translation="-1.5 -2 -6">
+    <Shape USE="Stem">
+    </Shape>
+</transform>
+<transform translation="6 -2 1.5">
+    <Shape USE="Stem">
+    </Shape>
+</transform>
+<transform translation="6 -2 -1.5">
+    <Shape USE="Stem">
+    </Shape>
+</transform>
+<transform translation="-6 -2 1.5">
+    <Shape USE="Stem">
+    </Shape>
+</transform>
+<transform translation="-6 -2 -1.5">
+    <Shape USE="Stem">
+    </Shape>
+</transform>
+<!--Крона дерева-->
+<transform translation="0 1 0">
+  <Shape DEF="Crown">
+    <Appearance>
+      <Material diffuseColor='0 .2 0'></Material>
+    </Appearance>
+    <Cone bottomRadius="0.5" height="1"></Cone>
+  </Shape>
+</transform>
+<transform translation="0 1 3">
+  <Shape USE="Crown">
+  </Shape>
+</transform>
+<transform translation="12 1 0">
+    <Shape USE="Crown">
+    </Shape>
+</transform>
+<transform translation="12 1 3">
+    <Shape USE="Crown">
+    </Shape>
+</transform>
+<transform translation="4.5 1 7.5">
+    <Shape USE="Crown">
+    </Shape>
+</transform>
+<transform translation="7.5 1 7.5">
+    <Shape USE="Crown">
+    </Shape>
+</transform>
+<transform translation="4.5 1 -4.5">
+    <Shape USE="Crown">
+    </Shape>
+</transform>
+<transform translation="7.5 1 -4.5">
+    <Shape USE="Crown">
+    </Shape>
+</transform>
+<!--Тор-->
+<transform translation="6 10 1.5">
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='1 1 0' transparency= '.2'></Material>
+    </Appearance>
+    <Torus innerRadius = "0.5" outerRadius = "2"></Torus>
+  </Shape>
+</transform>
+<!--Текст-->
+<Anchor url="https://ru.wikipedia.org/wiki/%D0%90%D1%86%D1%82%D0%B5%D0%BA%D0%B8" parameter="target='_self'">
+  <Transform translation="4.4 9.6 1.5">
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='0.3 0.3 0.3'></Material>
+    </Appearance>
+   <Text string="AZTEC" solid = "false"></Text>
+  </Shape>
+  </Transform>
+</Anchor>
+ <!--Земля-->
+ <transform translation="-14 -2.4 -14">
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='green'></Material>
+      <ImageTexture
+      url =' "http://st.depositphotos.com/1782880/1328/i/450/depositphotos_13289313-Grass-Texture.jpg"'/>
+    </Appearance>
+    <ElevationGrid xDimension="15" zDimension="15"
+    height=
+    "0 .2 0 0 0 0 0 0 0 0 0 0 0 0 .2
+    0 0 .4 0 0 0 0 0 0 0 0 0 .6 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 .3 0
+    0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+    .3 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 .3 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 .4 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0
+    .4 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+    xSpacing="2" zSpacing="2" solid="false">
+  </ElevationGrid>
+  </Shape>
+ </transform>
+  <!--Основание-->
+  <Transform translation="5 0 5">
+    <Shape>
+     <Appearance>
+      <Material diffuseColor='.2 .2 .2'> </Material>
+     </Appearance>
+     <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" solid="false"
+      coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 0 1 2 3 -1 6 7 3 2 -1 5 4 0 1 -1 " >
+      <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, -1.5 2 1.5, 1.5 2 1.5, 1.5 2 -1.5, -1.5 2 -1.5"></Coordinate>
+     </IndexedFaceSet>
+    </Shape>
+  </Transform>
+    <!--2й ярус-->
+    <Transform translation="5 2 5">
+      <Shape>
+       <Appearance>
+        <Material DiffuseColor='.3 .3 .3'> </Material>
+       </Appearance>
+       <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" solid="false"
+        coordIndex="0 4 7 3 -1 5 6 2 1 -1 4 5 6 7 -1 0 1 2 3 -1 6 7 3 2 -1 5 4 0 1 -1 " >
+        <Coordinate point="-1 0 1, 1 0 1, 1 0 -1, -1 0 -1, -1 2 1, 1 2 1, 1 2 -1, -1 2 -1"></Coordinate>
+       </IndexedFaceSet>
+      </Shape>
+    </Transform>
+    <!--Линия-->
+      <Transform translation="5 2 6">
+        <Shape>
+        <IndexedLineSet coordIndex="0 1 3 2 0 –1"
+        colorIndex="0 1 2 3 4 -1"
+        colorPerVertex="true">
+        <Coordinate point="0 0 0, 1 1 0, -1 1 0, 0 2 0"></Coordinate>
+        <Color color="1 .1 0, 1 .2 0, 1 0 0, 1 .3 0, 1 0 0"></Color>
+        </IndexedLineSet>
+        </Shape>
+      </Transform>   
+    <!--Скат-->
+    <Transform translation="5 0 6">
+      <Shape>
+      <IndexedTriangleSet index="0 1 4 1 2 4 0 3 4 2 3 4" solid="false">
+      <Coordinate point="-2 0 2, 2 0 2, 2 0 -2, -2 0 -2, 0 2 0"> 
+      </Coordinate>
+      <Color color=".1 .1 .1, .3 .2 .3, .2 .1 .3, .1 .1 .1, 0 0 0"></Color> 
+      </IndexedTriangleSet>
+      </Shape>
+    </Transform>
+    <!--Узор-->
+    <Transform translation=
+      "5 2 6">
+      <Shape>
+        <Appearance>
+          <Material emissiveColor='1 0 0'> </Material>
+        </Appearance> 
+        <PointSet>
+         <Coordinate point=
+         "0 .8 0, 
+         .1 .9 0, 0 .9 0, -.1 .9 0, 
+         .2 1 0, .1 1 0, 0 1 0, -.1 1 0, -.2 1 0
+         .1 1.1 0, 0 1.1 0, -.1 1.1 0,
+         0 1.2 0, ">
+         </Coordinate>  
+        </PointSet>
+      </Shape>
+    </Transform>
+      <!--Гора-->
+      <Transform translation="0 0 0">
+        <Shape>
+        <IndexedTriangleStripSet index='0 1 2 3 4 5 -1 3 6 5 7 -1 1 0 2 8 -1 5 7 9 10 11 -1' solid='false'> 
+        <Coordinate point='-3 -5 3, 6 -5 -8, -3 10 -6, 7 -5 -9, 5 3 -15, 10 1 -15, 11 -5 -10, 13 -5 -12,
+         -8 -5 -6, 18 1 -17, 18 -5 -10, 20 -5 -17'></Coordinate>       
+        <Color color=".1 .1 .2, .2 .2 .3, .7 .7 .8, .1 .1 .1, 1 1 1, .6 .6 .7, .2 .2 .3, 0 0 .1, .2 .2 .3,
+         .4 .4 .5, .2 .2 .3, .1 .1 .2"></Color>
+        </IndexedTriangleStripSet>
+        </Shape>
+      </Transform>
+
+<!--Встраиваемый объект-->
+    <Transform DEF="Pyramid" translation="0 0 0">
+      <Inline url="Pyramid.x3d"/>
+    </Transform>
+
+<!--Фон-->
+  <Background DEF='Fall'
+    skyAngle='0.8,1.3,1.5708'
+    skyColor='0.5 0.2 0, 0.1 0.1 0.1, 0.7 0.5 0.2'
+    groundAngle='0.4, 1.2, 1.5708'
+    groundColor='0.1 0.1 0.1, 0.1 0.15 0.15, 0.15 0.2 0.2, 0.2 0.25 0.25'>
+  </Background>
+
+<!--Освещение и туман-->
+<Group DEF="Lights">
+<DirectionalLight color='1,0.8,0.5' direction='0, 0, 0'
+  intensity='100' shadowFilterSize='2'
+  shadowIntensity='0' >
+</DirectionalLight>
+
+<PointLight color='1,1,0.6'
+      intensity='.7' location='14, 10, 14'
+      radius='2' shadowFilterSize='2'
+      ambientIntensity='.5'>
+</PointLight>
+<PointLight color='1,1,0.6'
+      intensity='.7' location='4.5, 12, -10.5'
+      radius='2' shadowFilterSize='2'
+      ambientIntensity='.5'>
+</PointLight>
+
+<SpotLight beamWidth='1.5' color='1, 0.3, 0.2' cutOffAngle='2'
+      direction='0.5, 0, 0.5' intensity='10'
+      location='-10, 8, -10' radius='60'
+      shadowFilterSize='2' >
+</SpotLight>
+
+<Fog color='(1,1,1)'
+  fogType='EXPONENTIAL'
+  visibilityRange='60' > 
+</Fog>
+</Group>
+<!--Навигация-->
+<NavigationInfo avatarSize= '[ 3, 5, 2 ]' explorationMode='all'
+  speed='5.0' transitionTime='1.0' transitionType='["LINEAR"]'
+  headlight='false' type="FLY" >
+</NavigationInfo>
+
+<!--Камера1-->
+<Viewpoint position="0 5 20"
+  orientation="1 0 0 6"
+  fieldOfView="0.9">
+</Viewpoint>
+<!--Камера2-->
+<Viewpoint position="-15 10 4"
+  orientation="-0.5 -0.5 -0.2 1.3"
+  fieldOfView="0.9">
+</Viewpoint>
+
+<!-- TimeSensor -->
+<TimeSensor DEF='Time' cycleInterval='6' loop='true' enabled='true'> 
+</TimeSensor>
+
+<!--Интерполятор ориентации для Тора-->
+<OrientationInterpolator DEF="OrientInt1" key='0 0.5 1' 
+keyValue="0 1 0 0, 0 1 0 2.09, 0 1 0 4.19">
+</OrientationInterpolator>
+
+
+<!--ROUTE ориентации для Тора-->
+<ROUTE fromNode='Time' fromField='fraction_changed'
+toNode='OrientInt1' toField='set_fraction'>
+</ROUTE>
+<ROUTE fromNode='OrientInt1' fromField='value_changed'
+toNode='Torus' toField='set_rotation'>
+</ROUTE>
+
+<!--Интерполятор цвета для Crown-->
+<ColorInterpolator DEF="ColInt1" key='0 0.25 0.5 0.75 1' 
+keyValue="0 1 0, 1 0 0, 0 0 1, 1 1 0, 1 1 1">
+</ColorInterpolator>
+
+<!--ROUTE цвета для Crown-->
+<ROUTE fromNode='Time' fromField='fraction_changed'
+toNode='ColInt1' toField='set_fraction'>
+</ROUTE>
+<ROUTE fromNode='ColInt1' fromField='value_changed'
+toNode='Mat' toField='set_diffuseColor'>
+</ROUTE>
+
+<!-- Интерполятор позиции для Горы -->
+<PositionInterpolator DEF='PosInt1' key='0 0.25 0.5 0.75 1'
+keyValue='0 0 0, 0 1 0, 0 2 0, 0 3 0, 0 0 0'>
+</PositionInterpolator>
+
+<!-- ROUTE позиции для Горы -->
+<ROUTE fromNode='Time' fromField='fraction_changed'
+toNode='PosInt1' toField='set_fraction'>
+</ROUTE>
+<ROUTE fromNode='PosInt1' fromField='value_changed'
+toNode='Mtn' toField='set_translation'>
+</ROUTE>
+    </scene>
+    </x3d>
   </body> 
 </html>
