@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta name="filename" content="inline.x3d" />
+		<meta name="generator" content="Blender 2.70 (sub 0)" />
+	</head>
+	<Scene>
+		<group>
+                    
+                        <transform translation='2 0 -3'>
+                            <shape DEF='paper'>
+                                <IndexedTriangleStripSet index='0 1 2 3 4 -1' solid='false'>
+                                    <Coordinate point='0 0 5, 2 2 5, 4 0 5, 6 2 5, 8 0 5'></Coordinate>
+                                    <ColorRGBA
+                                        color='0.5 0.5 0.5 1, 0.5 0.5 0.5 1, 0.5 0.5 0.5 1, 0.5 0.5 0.5 1 , 0.5 0.5 0.5 1'>
+                                    </ColorRGBA>
+                                </IndexedTriangleStripSet>
+                            </shape>
+
+                        </transform>
+                        <transform translation='2 0 -2'>
+                            <shape USE='paper'>
+                            </shape>
+                        </transform>
+
+
+                        <transform translation='2 0.1 -2'>
+                            <shape>
+                                <appearance>
+
+                                </appearance>
+                                <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0"
+                                    solid="false" coordIndex="0 1 4 5 -1 1 2 3 4 -1 5 6 7 0 -1"
+                                    colorIndex="0 1 2 0 -1 1 2 1 2 -1 1 2 0 1 -1">
+                                    <Coordinate point="0 0 5, 0 0 4, 2 1.5 2, 6 1.5 2, 8 0 4, 8 0 5, 6 1.5 7, 2 1.5 7 ">
+                                    </Coordinate>
+                                    <Color color="0.5 0.5 0.5, 0 0 0, 0.25 0.25 0.25"></Color>
+                                </IndexedFaceSet>
+                            </shape>
+                        </transform>
+
+                
+
+                </group>
+		
+		
+	</Scene>
+</X3D>
