@@ -4,10 +4,358 @@
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
+    <script src='https://www.x3dom.org/download/dev/x3dom-full.js'> </script>
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
   </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+
+<!-- Box, Sphere, Cylinder, Cone, Torus, Text, Transform,
+Material, ImageTexture, TextureTransform. -->
+
+<body>
+    <x3d width="100vw" height="100vh">
+        <scene>
+    <Collision DEF="AllObj">
+            <transform translation="-1 0 -9"  scale="20 20 20" rotation="0 0 1 -1.57">
+                <Transform rotation="1 0 0 1.57" >
+                    <inline url="hand.x3d"></inline>
+                </Transform>
+            </transform>
+            <Group DEF="Mic anim">
+                <Transform DEF="Mic">
+                <!-- Сетка микрофона -->
+			<transform translation="0 0 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BLackmicnet.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<cylinder radius="1" height ="2.8"></cylinder>
+				</shape>
+            </transform>
+
+                <!-- Корпус микрофона-->
+			<transform translation="0 -2.5 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BlackMetalTexture.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<cylinder radius="1" height ="2.5"></cylinder>
+
+				</shape>
+            </transform>
+
+                 <!-- Кольцо микрофона 1-->
+			<transform translation="0 1.56 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BlackMetalTexture.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<cylinder radius="1.07" height ="0.3"></cylinder>
+				</shape>
+            </transform>
+
+                 <!-- Кольцо микрофона 2-->
+			<transform translation="0 -1.25 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BlackMetalTexture.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<cylinder radius="1.07" height ="0.3"></cylinder>
+				</shape>
+            </transform>
+
+                <!-- Кольцо микрофона 3-->
+			<transform translation="0 -1.6 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BlackMetalTexture.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<cylinder radius="1.07" height ="0.15"></cylinder>
+				</shape>
+            </transform>
+
+                 <!-- Крышка микрофона-->
+			<transform translation="0 0.92 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BlackMetalTexture.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<sphere radius="0.99"></sphere>
+				</shape>
+            </transform>
+            
+                <!-- Держатель микрофона-->
+			<transform translation="0 -3.6 0" rotation ="1 0 0 1.5708">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BlackMetalTexture.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<torus innerradius="0.15" outerradius="1"></torus>
+				</shape>
+            </transform>
+
+                <!-- Держатель микрофона 2-->
+			<transform translation="0 -3.2 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BlackMetalTexture.jpg"></imagetexture>
+                        <texturetransform scale="1 1"></texturetransform>
+						<material diffuseColor="#140c03"></material>
+					</appearance>
+					<cone bottomRadius='0.6'></cone>
+				</shape>
+            </transform>
+        </Transform>
+
+            <TimeSensor DEF="Time" cycleInterval="0.9" 
+                loop="true" enabled="true">
+            </TimeSensor>
+
+            <PositionInterpolator DEF="PosInt" key="0 0.42 0.69 1"
+                keyValue="0 1 0, 0 0.5 0, 0 0.6 0, 0 1 0">
+            </PositionInterpolator>
+
+            <OrientationInterpolator DEF="OrientInt" key="0 0.4 1"
+                keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+            </OrientationInterpolator>
+
+            <ROUTE fromNode="Time" fromField="fraction_changed"
+            toNode="PosInt" toField="set_fraction"></ROUTE>
+
+            <ROUTE fromNode="PosInt" fromField="value_changed"
+            toNode="Mic" toField="set_translation"></ROUTE>
+
+            <ROUTE fromNode="Time" fromField="fraction_changed"
+            toNode="OrientInt" toField="set_fraction"></ROUTE>
+            
+            <ROUTE fromNode="OrientInt" fromField="value_changed"
+            toNode="Mic" toField="set_rotation"></ROUTE>
+            
+        </Group>
+        
+				<!-- Подставка-->
+            <transform translation="0 -4.25 0">
+				<shape>
+					<appearance>
+                        <imagetexture url="./BalsaWood.jpg"></imagetexture>
+                        <texturetransform scale="0.5 0.5"></texturetransform>
+						<material diffuseColor="#E7E5E2"></material>
+					</appearance>
+                    <box size="27 0.5 20"></box>
+				</shape>
+            </transform>
+
+        <Group DEF="TextAnim">
+				<!-- Текст -->
+            <transform translation="-2.3 4 0">
+				<shape>
+                    <appearance>
+                        <material DEF="CLR" diffuseColor="#ff0000"></material>
+                        </appearance>
+                        <text string="Динамик">
+                        <fontstyle family="Helvetica sansserif"></fontstyle>
+                        </text>
+                </shape>
+            </transform>
+
+            <TimeSensor DEF="Time" cycleInterval="1" loop="true"> </TimeSensor>
+            <ColorInterpolator DEF="ColInt" key="0 0.5 1"
+            keyValue="0 1 0, 0 0.5 0, 0 0.9 0">
+            </ColorInterpolator>
+
+            <ROUTE fromNode="Time" fromField="fraction_changed"
+            toNode="ColInt" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="ColInt" fromField="value_changed"
+            toNode="CLR" toField="set_diffuseColor"></ROUTE>
+
+        </Group>
+<!-- pointSet IndexedFaceSet IndexedLineSet 
+    TriangleSet TriangleSetStrip ElevationGrid -->
+    
+    <!-- Не динамик -->
+    <Transform translation="-8 -4 -2 ">
+        <Shape>
+                <IndexedLineSet coordIndex="0 1 2 3 0 –1 0 4 5 6 7 4 -1 7 3 -1 6 2 -
+                1 5 1 -1"
+                colorPerVertex='true'>
+                <Coordinate point="0 0 0, 0 0 3, 3 0 3, 3 0 0,
+                0 5 0, 0 5 3, 3 5 3, 3 5 0,
+                3 5 0, 3 0 0,
+                3 5 3, 3 0 3,
+                0 5 3, 0 0 3"></Coordinate>
+                <Color color="1 1 1, 1 1 1, 1 1 1, 1 1 1, 1 1 1, 1 1 1, 1 1 1, 1 1 1"></Color>
+                </IndexedLineSet>
+        </Shape>        
+    </Transform>
+    
+    <!-- Динамик-лицевая стороная -->
+    <anchor DEF="MicroDinamicus" url="https://psycho-mir.ru/">
+        <transform translation="5 -4 1.007">
+                <Shape>
+                <appearance>
+                    <material diffuseColor ="ff0000"></material>
+                    <imagetexture url="din.jpg"></imagetexture>
+                    <texturetransform scale="1 1.7" rotation = '3.14'>
+                    </texturetransform>
+                </appearance>
+                    <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true"
+                    creaseAngle="0" solid="false"
+                    coordIndex="0 1 2 3 0 -1 "
+                    colorIndex="0 1 2 3 0 -1">
+                    <Coordinate point="0 0 0, 3 0 0, 3 5 0, 0 5 0"></Coordinate>
+                    </IndexedFaceSet>
+                </Shape>
+        </transform>
+    
+    <!-- Динамик -->
+        <transform translation="6.5 -1.5 -0.5">
+            <Shape>
+            <appearance>
+                <material diffuseColor ="ff0000"></material>
+                <imagetexture url="pls.jpg"></imagetexture>
+                <texturetransform scale="1 1" rotation = '3.14'>
+                </texturetransform>
+            </appearance>
+                <box size="3 5 3"></box>
+            </Shape>
+        </transform>
+    </anchor>
+
+    <!-- <Group DEF="TempText"> -->
+
+    <!-- Флаг -->
+    <Transform DEF="Flag" Translation="0 -3 0" scale ="4 4 4">
+        <transform translation = "3 4 -4" rotation="1 0 0 -1.57">
+            <Transform  rotation = "0 1 0 -1.5708">
+                <Shape>
+                    <appearance>
+                        <material diffusecolor="ff0000"></material>
+                        <imagetexture url="Ukr.jpg"></imagetexture>
+                        <texturetransform scale="1 1" rotation = '1.57' translation='0,-1'>
+                        </texturetransform>
+                    </appearance>
+                    <ElevationGrid xDimension="5" zDimension="5"
+                    height="-0.5, 0.2, 0.4, -0.2, 0.2,
+                            0.3, 0, 0, 0, 0.1,
+                            0.1, -0.2, 0, 0, 0.4,
+                            0.2, 0.1, -0.3, -0.2, 0.2,
+                            0, 0, 0, 0, 0"
+                    xSpacing="1.25" zSpacing="1.75" solid="false">
+                    </ElevationGrid>
+                </Shape>
+            </Transform>
+        </transform>
+        
+        <!-- Флагшток -->
+        <Transform  translation = "-4 3 -4">
+            <Shape>
+                <appearance>
+                    <imagetexture url="met.jpg"></imagetexture>
+                    <texturetransform scale="1 1" rotation = '1.57' translation='0,-1'>
+                    </texturetransform>
+                </appearance>
+                <cylinder height="14" radius="0.2"></cylinder>
+            </Shape>
+        </Transform>
+    </Transform>
+    
+
+    <!-- Саунд -->
+    <transform translation="0 -2 0">
+        <Shape>
+            <PointSet>
+            <Color color=" 1 0 0, 0 1 0, 0 0 1,
+            0.8 0.8 0.8, 0.4, 0.4 1,
+            0.1 0.4 1, 1 1 0, 0 1 1"></Color>
+            <Coordinate point="6 2.1 4, 6.5 1 3, 6.25 1.2 6,
+            6.5 1.5 4, 6.2 1 3, 6.3 1 5.5,
+            4 5 3, 4.5 2 3, 5 2 3"></Coordinate>
+            </PointSet>
+        </Shape>
+    </transform>
+
+    <!-- Group, Transform, Material,ImageTexture, Anchor, 
+        Inline, PointLight, DirectionalLight, SpotLight, Fog,
+        NavigationInfo, Collision, Viewpoint -->
+
+    <!-- Ножки стола -->
+    <Group DEF="Lg_Table">
+        <Group DEF ="Pare 1">
+            <Transform DEF="LEG" translation="-12 -12 -6">
+                <shape>
+                    <appearance>
+                        <imagetexture url="LgMet.jpg"></imagetexture>
+                    </appearance>
+                    <cylinder height="15" radius="0.5"></cylinder>
+                </shape>
+            </Transform>
+            <transform Translation="0 0 12">
+                <Shape USE="LEG"></Shape>
+            </transform>
+        </Group>
+        <Transform Translation="24 0 0">
+            <Shape USE="Pare 1"></Shape>
+        </Transform>
+    </Group>
+
+    </Collision>
+    <!--Light and fog-->
+ <Group DEF="Light">
+    <PointLight         ambientIntensity='0' attenuation='1,0.1,0' color='0.5,0.1,0.1'
+                        global='false' intensity='1' location='-4,3,7'
+                        on='true' radius='25' shadowFilterSize='0'
+                        shadowIntensity='1' shadowMapSize='1024'
+                        shadowOffset='0' zFar='-1' zNear='-1'>
+    </PointLight>
+
+    <DirectionalLight   ambientIntensity='0' color='1,0.1,0.1' direction='0,-0.1,-2'
+                        global='false' intensity='0.7' on='true' shadowCascades='10' shadowFilterSize='1'
+                        shadowIntensity='0.7' shadowMapSize='2024'
+                        shadowOffset='0.7' shadowSplitFactor='1'
+                        shadowSplitOffset='0.7'>
+    </DirectionalLight>
+
+    <SpotLight          ambientIntensity='0' attenuation='1,0,0'
+                        beamWidth='1.5' color='0.5,0.1,0.1' cutOffAngle='1'
+                        direction='0,-2,0' global='false' intensity='1'
+                        location='0,7,0' radius='20' shadowCascades='1'
+                        shadowFilterSize='2' shadowIntensity='1'
+                        shadowMapSize='1024'>
+    </SpotLight> 
+
+    <transform>
+    <Fog                bind='true' color='(1,0,1)' fogType='EXPONENTIAL' 
+                        isActive='true' visibilityRange='145'></Fog>
+    </transform>
+    </Group>
+   
+    <!--Light________________________________________________________________-->
+    <!-- Navigation Info -->
+    <NavigationInfo avatarSize= '[ 3, 5, 2 ]' explorationMode='all'
+                    speed='5.0' transitionTime='1.0' transitionType='["LINEAR"]' headlight='false'
+                    type="Fly"></NavigationInfo>
+    <Background backUrl='HL.jpg' ></Background>
+
+    <!-- расположение камеры -->
+			<Viewpoint position="0 3 20" orientation="0 0 0 0" 
+            zNear="0" zFar="150" centerOfRotation="0 0 0" fieldOfView="0.9" 
+            description="defaultX3DViewpointNode"></Viewpoint>
+    
+    <AudioClip url="Ukrop.mp3"  loop='true' enabled='true' />
+        </scene>
+    </x3d>
+</body>
 </html>
