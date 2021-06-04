@@ -1,13 +1,236 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+    <head>
+        <meta charset="utf-8" />
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+        <title>Лабораторная работа 4</title>
+        <script type='text/javascript' src='https://www.x3dom.org/download/dev/x3dom-full.js'> </script>
+        <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
+
+
+    </head>
+    <body>
+      <x3d width='1280px' height='620px'>
+        <scene>
+<!-- \\\\\\\\\\ПАРАМЕТРЫ СЦЕНЫ\\\\\\\\\\ -->
+            <Viewpoint position="-8.45566 3.87829 14.36259" 
+                    orientation="-0.38979 -0.91774 -0.07630 0.67556" 
+	                zNear="0" zFar="150.00000" 
+                    centerOfRotation="0.00000 0.00000 0.00000" 
+                    fieldOfView="0.78540" 
+                    description="defaultX3DViewpointNode"></Viewpoint>
+            
+    <NavigationInfo avatarSize='[ 0.25, 1.6, 0.75 ]' 
+                    bind='false'  explorationMode='all' headlight='false' 
+                    isActive='false' metadata='X3DMetadataObject' reverseScroll='false' 
+                    speed='1.0' transitionTime='1.0' transitionType='["LINEAR"]' 
+                    type='[ANY]' typeParams='[-0.4,60,0.05,2.8]' visibilityLimit='0.0'></NavigationInfo>
+
+<!-- \\\\\\\\\\АНИМАЦИЯ\\\\\\\\\\ -->
+
+
+                   
+
+
+
+
+<!-- \\\\\\\\\\ОБЪЕКТЫ СЦЕНЫ\\\\\\\\\\ -->
+<collision>
+    <group DEF='camera'>
+        <!-- СЦЕНА\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+        <transform translation="-1.7 0 .2">
+            <shape>
+                <appearance>
+                    <material diffuseColor="1 1 1"></material>
+                    <imagetexture url="leather.jpg"></imagetexture>
+                    <texturetransform scale=".6 .6"></texturetransform>
+                </appearance>
+                <cylinder radius=".7"></cylinder>
+            </shape>
+        </transform>
+
+        
+        <transform translation="0 0 0" scale="1.8 1 .5">
+            <shape>
+                <appearance>
+                    <material diffuseColor="#1d3557"></material>
+                    <imagetexture url="leather.jpg"></imagetexture>
+                    <texturetransform scale=".6 .6"></texturetransform>
+                </appearance>
+                <box></box>
+            </shape>
+        </transform>
+        
+        <!-- ВСПЫШКА\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+        <transform translation=".4 1.15 0" scale=".5 .2 .2">
+            <shape>
+                <appearance>
+                    <material emissiveColor="gold"></material>
+                </appearance>
+                <box></box>
+            </shape>
+        </transform>
+
+        <!-- КНОПКА\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+        <anchor url="https://dnr.maryland.gov/wildlife/Pages/plants_wildlife/Deer_Fawn_FAQ.aspx" 
+                parameter="target='_self'">
+            <transform translation="-.7 1 0" scale="1 .15 1">
+                <shape DEF = 'button'>
+                    <appearance>
+                        <material diffuseColor="red"></material>
+                    </appearance>
+                    <cylinder radius=".3"></cylinder>
+                </shape>
+            </transform>
+        </anchor>
+            
+
+        <!-- ОБЪЕКТИВ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+        <transform translation=".4 0 .51" scale="1 1 1" rotation="1 0 0 1.5708">
+            <shape>
+                <appearance>
+                    <material diffuseColor="green"></material>
+                    <imagetexture url="ob.jpg"></imagetexture>
+                </appearance>
+                <cylinder radius=".7"></cylinder>
+            </shape>
+        </transform>
+
+        <transform translation=".4 0 .49" scale="1 1 1" rotation="1 0 0 1.5708">
+            <shape>
+                <appearance>
+                    <material diffuseColor="0 0 0"></material>
+                </appearance>
+                <cylinder radius=".72"></cylinder>
+            </shape>
+        </transform>
+    </group>
+
+    <!-- ВСТРАИВАНИЕ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <transform DEF='Trans' translation = '0.5 -0.8 7' rotation='0 1 0 0.78'>
+        <inline url='Deer.x3d'></inline>
+    </transform>
+
+        <TimeSensor DEF='Time' 
+                cycleInterval='2'
+                loop='true'
+                enabled="true"></TimeSensor>
+
+                <!-- \\\\\\\\ПРЫЖОК\\\\\\ -->
+
+        <PositionInterpolator DEF="PosInt" 
+                    key="0 0.23 0.5 0.75 1"
+                    keyValue="0.5 -0.8 7, 0.5 -0.3 7, 0.5 0 7, 0.5 -0.3 7, 0.5 -0.8 7">
+                </PositionInterpolator>
+
+        <ROUTE fromNode="Time" fromField="fraction_changed"
+        toNode="PosInt" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="PosInt" fromField="value_changed"
+        toNode="Trans" toField="set_translation"></ROUTE>
+
+        <!-- \\\\\\\\ВРАЩЕНИЕ\\\\\\ -->
+
+        <OrientationInterpolator DEF="OrientInt" key="0 0.13 0.26 0.39 0.52 0.65 0.78 0.91 1"
+        keyValue="0 1 0 0, 0 1 0 -0.13, 0 1 0 -0.26, 0 1 0 -0.13, 
+                0 1 0 0, 0 1 0 0.13, 0 1 0 0.26, 0 1 0 0.13, 0 1 0 0">
+        </OrientationInterpolator>
+
+        <ROUTE fromNode="Time" fromField="fraction_changed"
+        toNode="OrientInt" toField="set_fraction"></ROUTE>
+        <ROUTE fromNode="OrientInt" fromField="value_changed"
+        toNode="Trans" toField="set_rotation"></ROUTE>
+
+    <!-- ЗЕМЛЯ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+    <transform translation ='0 -0.8 7' rotation ='1 0 0 1.5708'>
+        <shape>
+            <appearance>
+                <imagetexture url='gr.jpg'></imagetexture>
+                <material diffusecolor="0 0 0"></material>
+            </appearance>
+            <plane size='5, 5' solid = 'false'></plane>
+
+        </shape>
+    </transform>
+<!-- УКАЗАТЕЛЬ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+<group DEF='textpointer'>
+     <!-- указатель\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+     <Transform translation = "-1.75 4 0">
+        <Shape>
+            <appearance>
+            </appearance>
+        <IndexedTriangleSet index="0 1 2" solid="false">
+            <Coordinate point="0 0 0, 2 0 0, 1 -2 0"></Coordinate>
+                <Color color="0.5 1 0, 0.5 1 0, 1 0 0"></Color>
+        </IndexedTriangleSet>
+        </Shape>
+    </Transform>
+
+    <!-- ТЕКСТ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <transform translation="-3.2 4.3 0">
+        <shape>
+            <appearance>
+                <material DEF='text' diffuseColor="red"></material>
+            </appearance>
+            <text string="50К В СУМКЕ У ПАПЫ">
+                <fontstyle family="Helvetica sans-serif" style="bold"> </fontstyle> 
+            </text>
+        </shape>
+    </transform>
+
+    <ColorInterpolator DEF="ColInt" key="0 0.5 1"
+    keyValue="1 1 1, 0 0 0, 1 1 1">
+    </ColorInterpolator>
+
+    <TimeSensor DEF="Time2" cycleInterval="1" loop="true">
+    </TimeSensor>
+
+    <ROUTE fromNode="Time2" fromField="fraction_changed"
+    toNode="ColInt" toField="set_fraction"></ROUTE>
+    <ROUTE fromNode="ColInt" fromField="value_changed"
+    toNode="text" toField="set_diffuseColor"></ROUTE>
+
+</group>
+
+
+</collision>
+        <!-- СВЕТ\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+<Group DEF="Light">
+    <PointLight ambientIntensity='0' attenuation='1,0,0' color='1,1,1' 
+                global='true' intensity='1' location='0.4, 1.15, 0.5'
+                on='true' radius='3' shadowFilterSize='2' 
+                shadowIntensity='0.3' shadowMapSize='1024' 
+                shadowOffset='0' zFar='-1' zNear='-1' ></PointLight>
+
+    <DirectionalLight ambientIntensity='0' color='1, 1, 1' direction='0.3, -1, 0' 
+                      global='true' intensity='1'  on='true' shadowCascades='2' shadowFilterSize='2' 
+                      shadowIntensity='0.7' shadowMapSize='2024'
+                      shadowOffset='0' shadowSplitFactor='1' 
+                      shadowSplitOffset='1'></DirectionalLight>
+
+    <SpotLight ambientIntensity='0' attenuation='1,0,0' 
+                       beamWidth='1.5' color='1, 1, 1' cutOffAngle='2.78' 
+                       direction='0, -0.2, 1' global='true' intensity='1'
+                       location='0.4, 1.15, 0.5' radius='20' shadowCascades='1' 
+                       shadowFilterSize='2' shadowIntensity='1' 
+                       shadowMapSize='1024'></SpotLight>   
+    <transform>
+        <Fog bind='true' color='(1,1,1)'
+        fogType='EXPONENTIAL' isActive='true' visibilityRange='45' ></Fog>
+    </transform>                   
+ </Group>    
+            
+<!-- ФОН\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+            <Background DEF='Summer'
+            skyAngle='0.8,1.3,1.5708'
+            skyColor='0 0 0.1, 0 0 0.2, 0 0 0.4, 0 0 0.5'
+            groundAngle='0.4,1.2,1.5708'
+            groundColor='0 0 0.1,0 0 0.15,0 0 0.542,0 0 0.669'></Background>
+
+            <audioclip url='lilpee.mp3' enabled='true'></audioclip>
+
+        </scene>
+        </x3d>
+
+    </body>
 </html>
