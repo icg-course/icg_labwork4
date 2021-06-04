@@ -1,13 +1,490 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+
+<head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+
+
+    <script type='text/javascript' src='https://www.x3dom.org/download/dev/x3dom-full.js'> </script>
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css' />
+
+</head>
+
+<body
+    style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("africa1.jpg") no-repeat fixed;background-size: cover; background-position: center;'>
+    <X3D id="x3d" xmlns='https://www.x3dom.org/x3dom'>
+        <Scene>
+            <NavigationInfo avatarSize='[ 0.25, 1.6, 0.75 ]' bind='false'  explorationMode='all' headlight='false' 
+                isActive='false' metadata='X3DMetadataObject' reverseScroll='false' speed='5' transitionTime='1.0'
+                 transitionType='["LINEAR"]' type='[ANY]'
+                 typeParams='[-0.4,60,0.05,2.8]' visibilityLimit='0.0'></NavigationInfo>
+
+                 <Viewpoint position="-5.60722 5.44188 17.95686" orientation="-0.68783 -0.72406 -0.05129 0.41098" 
+	zNear="0.89466" zFar="44.99137" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+
+    <Viewpoint position="10.18063 4.91815 15.98969" orientation="-0.42799 0.90347 0.02398 0.61566" 
+	zNear="0.00436" zFar="43.60513" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+
+    <Viewpoint position="-0.40326 8.86706 17.45613" orientation="-0.99824 -0.03370 0.04878 0.47099" 
+	zNear="0.84708" zFar="44.92000" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540" description="defaultX3DViewpointNode"></Viewpoint>
+
+
+
+
+
+
+            <collision enabled='true'>
+                <!-- гроб -->
+                <anchor url='https://www.youtube.com/watch?v=j9V78UbdzWI'>
+                <transform DEF='grave'>
+                    <inline url='grave.x3d'></inline>
+                </transform>
+                </anchor>
+
+                <!-- Человек задний левый-->
+                <transform DEF='mananim1'>
+                <group DEF='man'>
+                    <Transform translation='-2.5 0.5 -2 '>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="black.jpg"></ImageTexture>
+                                <Material diffuseColor='black'> </Material>
+                            </Appearance>
+                            <Sphere radius="0.7 "></Sphere>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-2.5 -0.15 -2 '>
+                        <Shape>
+                            <Appearance>
+                                <Material diffuseColor='black'> </Material>
+                            </Appearance>
+                            <Cylinder radius="0.3" height='0.3'></Cylinder>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-2.5 -1.3 -2'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="kost3.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.9 2 0.7"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-2.5 1.2 -2 ' rotation='1 0 0  -1.58'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="prazd.png"></ImageTexture>
+                                <Material diffuseColor='red'> </Material>
+                            </Appearance>
+                            <Torus innerRadius="0.05" outerRadius='0.3'></Torus>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-2.5 1.6 -2 '>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="prazd.png"></ImageTexture>
+                                <Material diffuseColor='black'> </Material>
+                            </Appearance>
+                            <Cone bottomRadius="0.3" height='0.7'></Cone>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-2.7 -2.5 -2'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="kozha1.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 2 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-2.3 -2.5 -2'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="kozha1.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 2 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-1.7 -0.6 -2' rotation='0 0 1 -2'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="cat.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 0.8 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-1.2 -0.5 -2' rotation='0 0 1 -0.5'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="cat.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 0.8 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='-3.2 -0.9 -1.7' rotation='1 0 1 -0.9'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="cat.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 1.4 0.2"></Box>
+                        </Shape>
+                    </Transform>
+                </group>
+                </transform>
+
+
+
+                <!-- Человек 2 задний правый-->
+                <transform DEF='mananim2'>
+                <group DEF='manopp'>
+                    <Transform translation='2.5 0.5 -2 '>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="black.jpg"></ImageTexture>
+                                <Material diffuseColor='black'> </Material>
+                            </Appearance>
+                            <Sphere radius="0.7 "></Sphere>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='2.5 -0.15 -2 '>
+                        <Shape>
+                            <Appearance>
+                                <Material diffuseColor='black'> </Material>
+                            </Appearance>
+                            <Cylinder radius="0.3" height='0.3'></Cylinder>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='2.5 -1.3 -2'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="kost3.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.9 2 0.7"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='2.5 1.2 -2 ' rotation='1 0 0  -1.58'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="prazd.png"></ImageTexture>
+                                <Material diffuseColor='red'> </Material>
+                            </Appearance>
+                            <Torus innerRadius="0.05" outerRadius='0.3'></Torus>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='2.5 1.6 -2 '>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="prazd.png"></ImageTexture>
+                                <Material diffuseColor='black'> </Material>
+                            </Appearance>
+                            <Cone bottomRadius="0.3" height='0.7'></Cone>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='2.7 -2.5 -2'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="kozha1.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 2 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='2.3 -2.5 -2'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="kozha1.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 2 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='1.83 -0.7 -2' rotation='0 0 1 -0.9'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="cat.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 0.8 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='1.3 -0.5 -2' rotation='0 0 1 -2.5'>
+                        <Shape>
+                            <Appearance>
+                                <ImageTexture url="cat.jpg"></ImageTexture>
+                                <Material diffuseColor='green'> </Material>
+                            </Appearance>
+                            <Box size="0.2 0.8 0.2"></Box>
+                        </Shape>
+                    </Transform>
+
+                    <Transform translation='3.2 -0.9 -1.6' rotation='1 0 0 -1.1'>
+                        <Transform rotation='0 0 1 0.4'>
+                            <Shape>
+                                <Appearance>
+                                    <ImageTexture url="cat.jpg"></ImageTexture>
+                                    <Material diffuseColor='green'> </Material>
+                                </Appearance>
+                                <Box size="0.2 1.4 0.2"></Box>
+                            </Shape>
+                        </Transform>
+                    </Transform>
+                </group>
+                </transform>
+
+                <!--Человек 3-->
+                <transform DEF='mananim3'>
+                <transform translation='0 0 4'>
+                    <group USE='man'>
+                    </group>
+                </transform>
+                </transform>
+
+
+                <!--Человек 4-->
+                <transform DEF='mananim4'>
+                <transform translation='0 0 4'>
+                    <group USE='manopp'>
+                    </group>
+                </transform>
+                </transform>
+
+                <transform translation='7 0 0'>
+                    <group DEF='totem'>
+                        <!-- Основание-->
+                        <transform>
+                            <Shape>
+                                <IndexedFaceSet solid="false"
+                                    coordIndex="0 1 3 2 -1 0 2 5 4 -1 0 1 6 4 -1 1 3  7 6 -1 2 3 7 5 -1 4 5 9 8 -1 4 8 10 6 -1 6 7 11 10 -1 5 7 11 9 -1 8 9 12 13 -1 8 10 14 13 -1 10 14 15 11 -1 9 11 15 12">
+
+                                    <Coordinate
+                                        point="-0.85 -3.5 0.85, 0.85 -3.5 0.85, -0.85 -3.5 -0.85, 0.85 -3.5 -0.85, -0.5 -2 0.5, -0.5 -2 -0.5, 0.5 -2 0.5, 0.5 -2 -0.5, -1 -0.5 1, -1 -0.5 -1, 1 -0.5 1, 1 -0.5 -1, -0.4 1 -0.4, -0.4 1 0.4, 0.4 1 0.4, 0.4 1 -0.4">
+                                    </Coordinate>
+                                </IndexedFaceSet>
+
+                                <Appearance>
+                                    <ImageTexture url="smoke.jpg">
+                                    </ImageTexture>
+
+                                    <TextureTransform scale="3 3">
+                                    </TextureTransform>
+                                </Appearance>
+                            </Shape>
+                        </transform>
+                        <!-- Закрывашки-->
+                        <transform DEF='triangle'>
+                            <Shape>
+                                <IndexedTriangleStripSet index="0 1 3 2 4 -1 5 6 8 7 9 -1  " solid="false">
+
+                                    <Coordinate
+                                        point="-0.6 1 0.8, -1 1 0.5, -1 1 -0.5, -1.2 1.7 0, -0.6 1 -0.8, 0.6 1 0.8, 1 1 0.5, 1 1 -0.5, 1.2 1.7 0, 0.6 1 -0.8 , ">
+                                    </Coordinate>
+                                </IndexedTriangleStripSet>
+
+                                <Appearance>
+                                    <ImageTexture url='zoloto.jpg'>
+                                    </ImageTexture>
+
+                                    <TextureTransform scale="5 5">
+                                    </TextureTransform>
+                                </Appearance>
+                            </Shape>
+                        </transform>
+                        <!-- Призма-->
+                        <transform DEF='prisma'>
+                            <Shape>
+                                <IndexedTriangleSet index="0 1 4 0 3 4 1 2 4 2 3 4" solid="false">
+                                    <Coordinate point="-0.4 1 -0.4, -0.4 1 0.4, 0.4 1 0.4, 0.4 1 -0.4, 0 1.9 0">
+                                    </Coordinate>
+
+                                    <ColorRGBA color="0 0.4 2 1, 0 0.2 0.7 1, 0 0.3 0.94 1, 0 0.1 0.7 1,
+                      0 1.13 0.94 1, 0 0.75 1">
+                                    </ColorRGBA>
+                                </IndexedTriangleSet>
+                            </Shape>
+                        </transform>
+                        <!-- Кант-->
+                        <transform>
+                            <Shape>
+                                <IndexedLineSet
+                                    coordIndex="0 1 2 3 0 -1 4 5 6 7 4 -1 0 4 -1 1 5 -1 2 6 -1 3 7 -1 0 8 -1 1 9 -1 2 10 -1 3 11 -1 8 9 10 11 8 -1 8 12 -1 9 13 -1 10 14 -1 11 15 -1 12 13 14 15 12-1"
+                                    colorIndex="0 1 2 3 4 -1 4 5 6 7 4 -1 4 5" colorPerVertex="true">
+
+                                    <Coordinate
+                                        point="-0.6 -2 0.6, -0.6 -2 -0.6, 0.6 -2 -0.6 ,0.6 -2 0.6, -0.95 -3.5 0.95, -0.95 -3.5 -0.95, 0.95 -3.5 -0.95, 0.95 -3.5 0.95, -1.1 -0.5 1.1, -1.1 -0.5 -1.1, 1.1 -0.5 -1.1, 1.1 -0.5 1.1,  -0.5 1 0.5, -0.5 1 -0.5, 0.5 1 -0.5, 0.5 1 0.5">
+                                    </Coordinate>
+
+                                    <Color
+                                        color="1 1 0.5, 0 0.5 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1, 1 0 1, 0 1 0, 1 1 1, 1 0 1, 0 0 0.5, 1 0 0, 1 0 1, 1 1 0, 1 1 1, 1 0 1">
+                                    </Color>
+                                </IndexedLineSet>
+                            </Shape>
+                        </transform>
+                        <!-- Точки на призме-->
+                        <transform>
+                            <Shape>
+                                <PointSet>
+                                    <Coordinate
+                                        point="-0.45 1.1 0.45, -0.27 1.5 0.27, -0.45 1.1 -0.45, -0.27 1.5 -0.27, 0.45 1.1 -0.45, 0.27 1.5 -0.27, 0.45 1.1 0.45, 0.27 1.5 0.27, 0 2 0">
+                                    </Coordinate>
+                                    <Color
+                                        color="0 1 0.5, 0.45 0.6 0.9, 0.8 0.8 0.8, 1 0 0, 0.7   0.3 0.3, 0 1 0, 0 0.8 0.5, 0.75 0.6 0.9, 0.3 0.5 0.8">
+                                    </Color>
+                                </PointSet>
+                            </Shape>
+                        </transform>
+                        <!-- elevation grid  -->
+                        <Transform translation="-18 -3.5 -11">
+
+                            <Shape>
+
+                                <ElevationGrid xDimension="6" zDimension="6" height="3, 3, 2, 1, 2, 0,
+                  1, 0, 0, 0, 1.5, 1,
+                  1, 0, 0, 0, 1, -1,
+                 -0.8, 0, 0, -0.5, 2, -2,
+                 -1, -2.5, -2.5, -2, 2, 0,
+                 -1, -2.5, -2.5, -2, -1, 0" xSpacing="5.0" zSpacing="5.0" solid="false">
+                                </ElevationGrid>
+                                <Appearance>
+                                    <ImageTexture url='sand.jpg'>
+                                    </ImageTexture>
+                                    <TextureTransform scale="4, 4">
+                                    </TextureTransform>
+                                </Appearance>
+                            </Shape>
+                        </Transform>
+
+                    </group>
+                </transform>
+
+            </collision>
+
+             <group DEF="Light">
+                <pointLight ambientIntensity='0' attenuation='1,0,0' color='1 1 1' 
+                            global='true' intensity='1' location='0, 4, 7'
+                            on='true' radius='8' shadowFilterSize='2' 
+                            shadowIntensity='0.4' shadowMapSize='1024' 
+                            shadowOffset='0' zFar='-1' zNear='-1' ></pointLight>
+              
+                <directionalLight ambientIntensity='0' color='1, 1, 1' direction='1, -0.7, -0.5' 
+                                  global='true' intensity='0.8'  on='true' shadowCascades='1' shadowFilterSize='1' 
+                                  shadowIntensity='0.7' shadowMapSize='2024'
+                                  shadowOffset='0' shadowSplitFactor='1' 
+                                  shadowSplitOffset='1'></directionalLight>
+              
+                <spotLight ambientIntensity='0' attenuation='1,0,0' 
+                                   beamWidth='1.5' color='1, 1, 1' cutOffAngle='3.14' 
+                                   direction='-1, -1, -1' global='true' intensity='0.6'
+                                   location='3, 10, 5 ' radius='50' shadowCascades='1' 
+                                   shadowFilterSize='1' shadowIntensity='0.3' 
+                                   shadowMapSize='1024'></spotLight>  
+                                   <Fog bind='false' color='(1,1,1)' description='""' fogType='"LINEAR"' isActive='false' visibilityRange='0' ></Fog> 
+            </group> 
+
+            <TimeSensor DEF='Time1' cycleInterval='2' loop='true' enabled="true"></TimeSensor>
+
+            <TimeSensor DEF='Time3' cycleInterval='1.5' loop='true' enabled="true"></TimeSensor>
+
+            <TimeSensor DEF='Time2' cycleInterval='3' loop='true' enabled="true"></TimeSensor>
+
+
+
+            <PositionInterpolator DEF="PosInt1" key="0 0.05 0.23 0.5 0.75 1"
+                keyValue="0 0 0, 0 -0.3 0, 0 1 0, 0 1.5 0, 0 2 0, 0 0 0">
+            </PositionInterpolator>
+
+            <PositionInterpolator DEF="PosInt2" key="0 0.23 0.5 0.75 1"
+                keyValue="0 0 0, 0 1 0, 0 2 0, 0 1 0, 0 0 0">
+            </PositionInterpolator>
+
+            <PositionInterpolator DEF="PosInt3" key="0 0.23 0.5 0.75 1"
+                keyValue="0 0 0, 1 0 0, 2 0 0, 1 0 0, 0 0 0">
+            </PositionInterpolator>
+
+            <PositionInterpolator DEF="PosInt4" key="0 0.23 0.5 0.75 1"
+                keyValue="0 0 0, -1 0 0, -2 0 0, -1 0 0, 0 0 0">
+            </PositionInterpolator>
+
+
+            <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="PosInt1" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="PosInt2" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="PosInt1" fromField="value_changed" toNode="prisma" toField="set_translation"></ROUTE>
+            <ROUTE fromNode="PosInt2" fromField="value_changed" toNode="grave" toField="set_translation"></ROUTE>
+
+            <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="PosInt3" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="PosInt3" fromField="value_changed" toNode="mananim2" toField="set_translation"></ROUTE>
+
+            <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="PosInt4" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="PosInt4" fromField="value_changed" toNode="mananim1" toField="set_translation"></ROUTE>
+
+            <ROUTE fromNode="PosInt3" fromField="value_changed" toNode="mananim4" toField="set_translation"></ROUTE>
+
+            <ROUTE fromNode="PosInt4" fromField="value_changed" toNode="mananim3" toField="set_translation"></ROUTE>
+
+            <OrientationInterpolator DEF="OrientIntman" key="0 0.25 0.5 0.75 1" keyValue="0 1 0 0, 0 1 0 -0.25, 0 1 0 -0.5, 0 1 0 -0.25, 0 1 0 0">
+            </OrientationInterpolator>
+
+            <ROUTE fromNode="Time3" fromField="fraction_changed" toNode="OrientIntman" toField="set_fraction">
+            </ROUTE>
+            <ROUTE fromNode="OrientIntman" fromField="value_changed" toNode="mananim1" toField="set_rotation">
+            </ROUTE>
+            <ROUTE fromNode="OrientIntman" fromField="value_changed" toNode="mananim2" toField="set_rotation">
+            </ROUTE>
+            <ROUTE fromNode="OrientIntman" fromField="value_changed" toNode="mananim3" toField="set_rotation">
+            </ROUTE>
+            <ROUTE fromNode="OrientIntman" fromField="value_changed" toNode="mananim4" toField="set_rotation">
+            </ROUTE>
+
+
+
+
+
+            
+
+            <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28">
+            </OrientationInterpolator>
+
+            
+
+            <ROUTE fromNode="Time1" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+            </ROUTE>
+            <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="prisma" toField="set_rotation">
+            </ROUTE>
+
+            <ROUTE fromNode="Time1" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+            </ROUTE>
+            <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="triangle" toField="set_rotation">
+            </ROUTE>
+
+            <Sound>
+                <AudioClip loop='true' enabled="false" url="astronomia.mp3" />
+            </Sound>
+
+        </Scene>
+
+
+    </X3D>
+</body>
+
 </html>
