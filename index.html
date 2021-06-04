@@ -24,22 +24,22 @@
                 keyValue='0 1 0 -3.14 0 1 0 -3.14 0 1 0 1.57 0 1 0 1.57 0 1 0 -1.57 0 1 0 -1.57 0 0 1 0 -3.14 '>
             </OrientationInterpolator>
             <CoordinateInterpolator DEF='CoordInt' key='0 0.2 0.4 0.6 0.8 1'
-keyValue='0 3.65 -3,   0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 3,      1 4.35 -3,      1.5 3.75 -3,    1.5 4.45 -3,    2 4.1 -3,
+                keyValue='0 3.65 -3,   0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 3,      1 4.35 -3,      1.5 3.75 -3,    1.5 4.45 -3,    2 4.1 -3,
 0 3.65 -3,    0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 -3,      1 4.35 -3,      1.5 3.75 -3,    1.5 4.45 -3,    2 4.1 -3,
 0 3.65 -3,    0 4.35 -3,  .5 3.75 -2.05,  .5 4.45 -2.05,  1 3.65 -3,      1 4.35 -3,      1.5 3.75 -3,    1.5 4.45 -3,    2 4.1 -3,
 0 3.65 -3,    0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 -2.05,   1 4.35 -2.05,   1.5 3.75 -3,    1.5 4.45 -3,    2 4.1 -3,
 0 3.65 -3,    0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 -3,      1 4.35 -3,      1.5 3.75 -2.05, 1.5 4.45 -2.05, 2 4.1 -2.05,
 0 3.65 -3,    0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 -3,      1 4.35 -3,      1.5 3.75 -3,    1.5 4.45 -3,    2 4.1 -3'>
             </CoordinateInterpolator>
-<ScalarInterpolator DEF='ScInt' key='0 0.5 1' keyValue='.1 .9 .1'></ScalarInterpolator>
-<NavigationInfo speed="2.75" type="FLY" headlight="false"></NavigationInfo>
+            <ScalarInterpolator DEF='ScInt' key='0 0.5 1' keyValue='.1 .9 .1'></ScalarInterpolator>
+            <NavigationInfo speed="2.75" type="FLY" headlight="false"></NavigationInfo>
             <Background backUrl="oboi.jpg" bottomUrl="pol.jpg" frontUrl="oboi.jpg" leftUrl="oboi.jpg"
                 rightUrl="oboi.jpg" topUrl="potolok.jpg">
             </Background>
             <Viewpoint position='7 3 15'></Viewpoint>
             <Transform DEF="Sun_transform" translation="0.24 0.54 
 0.46" scale="11.6 11.6 11.6" rotation="0 0.7 0.7 3.14">
-            <DirectionalLight DEF="Sun" ambientIntensity="1.0000" color="1 1 1" intensity="0.57"
+                <DirectionalLight DEF="Sun" ambientIntensity="1.0000" color="1 1 1" intensity="0.57"
                     direction="0 -1 0" />
             </Transform>
             <Spotlight location="1.5 2 2.7" color="1 1 0" intensity="1" direction="4 3 4" cutOffAngle='.3'
@@ -230,7 +230,7 @@ keyValue='0 3.65 -3,   0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 3,    
                                 </IndexedLineSet>
                             </Shape>
                         </Transform>
-                    </Transform>
+                    </transform>
                     <Transform DEF="grid" translation="-1.5 0 -1.5" scale="1 1 1">
                         <Shape>
                             <ElevationGrid xDimension="6" zDimension="6" xSpacing="1.0" zSpacing="1.0" solid="false"
@@ -249,35 +249,25 @@ keyValue='0 3.65 -3,   0 4.35 -3,  .5 3.75 -3,     .5 4.45 -3,     1 3.65 3,    
                     </Transform>
                 </Group>
             </Collision>
-            <ROUTE fromNode='Time' fromField='fraction_changed' 
-toNode='ColInt' toField='set_fraction'>
+            <ROUTE fromNode='Time' fromField='fraction_changed' toNode='ColInt' toField='set_fraction'>
             </ROUTE>
-            <ROUTE fromNode='ColInt' fromField='value_changed' 
-toNode='Color' toField='set_diffuseColor'>
+            <ROUTE fromNode='ColInt' fromField='value_changed' toNode='Color' toField='set_diffuseColor'>
             </ROUTE>
-            <ROUTE fromNode='Time' fromField='fraction_changed' 
-toNode='PosInt' toField='set_fraction'>
+            <ROUTE fromNode='Time' fromField='fraction_changed' toNode='PosInt' toField='set_fraction'>
             </ROUTE>
-            <ROUTE fromNode='PosInt' fromField='value_changed' 
-toNode='Trans' toField='set_translation'>
+            <ROUTE fromNode='PosInt' fromField='value_changed' toNode='Trans' toField='set_translation'>
             </ROUTE>
-            <ROUTE fromNode='Time' fromField='fraction_changed' 
-toNode='OrientInt' toField='set_fraction'>
+            <ROUTE fromNode='Time' fromField='fraction_changed' toNode='OrientInt' toField='set_fraction'>
             </ROUTE>
-            <ROUTE fromNode='OrientInt' fromField='value_changed' 
-toNode='Trans' toField='set_rotation'>
+            <ROUTE fromNode='OrientInt' fromField='value_changed' toNode='Trans' toField='set_rotation'>
             </ROUTE>
-            <ROUTE fromNode='Time' fromField='fraction_changed' 
-toNode='CoordInt' toField='set_fraction'>
+            <ROUTE fromNode='Time' fromField='fraction_changed' toNode='CoordInt' toField='set_fraction'>
             </ROUTE>
-            <ROUTE fromNode='CoordInt' fromField='value_changed' 
-toNode='Coord' toField='set_point'>
+            <ROUTE fromNode='CoordInt' fromField='value_changed' toNode='Coord' toField='set_point'>
             </ROUTE>
-            <ROUTE fromNode='Time' fromField='fraction_changed' 
-toNode='ScInt' toField='set_fraction'>
+            <ROUTE fromNode='Time' fromField='fraction_changed' toNode='ScInt' toField='set_fraction'>
             </ROUTE>
-            <ROUTE fromNode='ScInt' fromField='value_changed' 
-toNode='Mat' toField='set_transparency'>
+            <ROUTE fromNode='ScInt' fromField='value_changed' toNode='Mat' toField='set_transparency'>
             </ROUTE>
         </scene>
     </x3d>
