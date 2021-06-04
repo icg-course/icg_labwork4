@@ -1,13 +1,303 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
-    <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+
+<head>
+  <meta charset="utf-8" />
+  <title>Lab 4</title>
+  <script type='text/javascript' src='https://www.x3dom.org/download/dev/x3dom-full.js'> </script>
+  <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'>
+  </link>
+
+
+</head>
+
+<body
+  style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("hood2.jpg") no-repeat fixed; background-size: cover; background-position: center;'>
+  <x3d width='100vw' height='100vh'>
+    <scene>
+
+      <Viewpoint position="25.33701 9.60937 24.38962" orientation="-0.11698 0.99313 -0.00191 0.69504" zNear="0"
+        zFar="150" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+        description="defaultX3DViewpointNode"></Viewpoint>
+
+        <NavigationInfo avatarSize='[ 0.25, 1.6, 0.75 ]' bind='false'  explorationMode='all' headlight='false' 
+                isActive='false' metadata='X3DMetadataObject' reverseScroll='false' speed='3' transitionTime='1.0'
+                 transitionType='["LINEAR"]' type='[ANY]'
+                 typeParams='[-0.4,60,0.05,2.8]' visibilityLimit='0.0'></NavigationInfo>
+
+      <collision enabled='true'>
+        <transform>
+          <shape>
+            <!-- POINTSET////////////////////////////////// -->
+            <pointset>
+              <coordinate point='0 0 0, 1 1 1'></coordinate>
+              <color color='1 0 1, 0 1 0'></color>
+            </pointset>
+          </shape>
+        </transform>
+
+        <!-- ПОДСТАВКА.................... -->
+        <transform>
+          <shape>
+            <!-- indexedlineset -->
+            <indexedlineset coordindex='0 1 2 3 0' colorindex='1 2 3 4' colorpervertex='true'>
+              <color color='0 0 1, 0 1 0, 0 1 1, 1 0 0, 1 0 1, 1 1 0, 1 1 1'></color>
+              <coordinate point='-1 -1 1, 13 -1 1, 13 -1 -9, -1 -1 -9 '></coordinate>
+            </indexedlineset>
+          </shape>
+        </transform>
+
+        <group DEF='head'>
+
+          <!-- RIGHT -->
+          <transform>
+            <shape>
+              <appearance>
+                <imagetexture url='dababyhead.jpg'></imagetexture>
+                <texturetransform translation='0.05 0' scale='0.9 1.4'></texturetransform>
+              </appearance>
+              <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                coordIndex="0 8 9 10 -1 0 1 4 5 7 8 -1 1 2 3 4 -1" colorIndex="1 1 0 0 -1 1 2 2 2 2 1 -1 2 0 0 2 -1">
+                <Coordinate point="0 2 0, 0 5 0, 2 7 -2, 7 7 -2, 9 5 0, 9 4 0, 11 4 -1, 10 3 0, 10 2 0, 8 0 -1, 2 0 -1">
+                </Coordinate>
+                <Color color="0.39 0.26 0.13, 0.59 0.29 0, 0.59 0.46 0.33"></Color>
+              </IndexedFaceSet>
+            </shape>
+          </transform>
+
+          <!-- left -->
+          <transform>
+            <shape>
+              <appearance>
+                <imagetexture url='dababyhead.jpg'></imagetexture>
+                <texturetransform translation='0.05 0' scale='0.9 1.4'></texturetransform>
+              </appearance>
+              <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                coordIndex="0 8 9 10 -1 0 1 4 5 7 8 -1 1 2 3 4 -1" colorIndex="1 1 0 0 -1 1 2 2 2 2 1 -1 2 0 0 2 -1">
+                <Coordinate
+                  point="0 2 -7, 0 5 -7, 2 7 -5, 7 7 -5, 9 5 -7, 9 4 -7, 11 4 -6, 10 3 -7, 10 2 -7, 8 0 -6, 2 0 -6">
+                </Coordinate>
+                <Color color="0.39 0.26 0.13, 0.59 0.29 0, 0.59 0.46 0.33"></Color>
+              </IndexedFaceSet>
+            </shape>
+          </transform>
+
+          <transform>
+            <shape>
+              <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                coordIndex="2 3 14 13 -1 1 2 13 12 -1 0 1 12 11 -1 0 11 21 10 -1"
+                colorIndex="3 3 3 3 -1 2 3 3 2 -1 1 0 0 1 -1 1 0 0 1 -1">
+                <Coordinate
+                  point="0 2 0, 0 5 0, 2 7 -2, 7 7 -2, 9 5 0, 9 4 0, 11 4 -1, 10 3 0, 10 2 0, 8 0 -1, 2 0 -1, 0 2 -7, 0 5 -7, 2 7 -5, 7 7 -5, 9 5 -7, 9 4 -7, 11 4 -6, 10 3 -7, 10 2 -7, 8 0 -6, 2 0 -6">
+                </Coordinate>
+                <Color color="0.39 0.26 0.13, 0.59 0.29 0, 0.59 0.46 0.33, 0.24 0.17 0.12"></Color>
+              </IndexedFaceSet>
+            </shape>
+          </transform>
+
+          <transform>
+            <shape>
+              <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                coordIndex="10 21 20 9 -1 9 8 19 20 -1 8 7 18 19 -1 5 4 15 16 -1 4 3 14 15 -1 5 16 18 7 -1 "
+                colorIndex="3 3 3 3 -1 0 1 1 0 -1 1 2 2 1 -1 2 2 2 2 -1 2 3 3 2 -1 2 2 2 2 -1 ">
+                <Coordinate
+                  point="0 2 0, 0 5 0, 2 7 -2, 7 7 -2, 9 5 0, 9 4 0, 11 4 -1, 10 3 0, 10 2 0, 8 0 -1, 2 0 -1, 0 2 -7, 0 5 -7, 2 7 -5, 7 7 -5, 9 5 -7, 9 4 -7, 11 4 -6, 10 3 -7, 10 2 -7, 8 0 -6, 2 0 -6">
+                </Coordinate>
+                <Color color="0.39 0.26 0.13, 0.59 0.29 0, 0.59 0.46 0.33, 0.24 0.17 0.12"></Color>
+              </IndexedFaceSet>
+            </shape>
+          </transform>
+
+          <!-- right back wheel -->
+          <transform translation='2 0 -0.3' rotation='1 0 0 -1.5708'>
+              <transform DEF='wheelie1'>
+          <transform >
+            <shape DEF='wheel'>
+              <appearance>
+                <ImageTexture url='carwheel.png'></ImageTexture>
+              </appearance>
+              <cylinder height='0.7' radius='1'></cylinder>
+            </shape>
+          </transform>
+          <!-- right back tire -->
+          <transform  translation='0 0.02 0'>
+            <shape DEF='tire'>
+              <appearance>
+                <material diffuseColor='f'></material>
+              </appearance>
+              <cylinder height='0.71' radius='1.02'></cylinder>
+            </shape>
+          </transform>
+        </transform>
+        </transform>
+
+        <transform translation='8 0 -0.3' rotation='1 0 0 -1.5708' >
+            <transform DEF='wheelie2'>
+          <!-- right back wheel -->
+          <transform>
+            <shape USE='wheel'>
+            </shape>
+          </transform>
+          <!-- right back tire -->
+          <transform translation='0 0.02 0'>
+            <shape USE='tire'>
+            </shape>
+          </transform>
+          </transform>
+          </transform>
+
+          <transform translation='8 0 -6.7' rotation='1 0 0 -1.5708'>
+              <transform DEF='wheelie3'>
+          <!-- right back wheel -->
+          <transform >
+            <shape USE='wheel'>
+            </shape>
+          </transform>
+
+          <!-- right back tire -->
+          <transform translation='0 -0.02 0'>
+            <shape USE='tire'>
+            </shape>
+          </transform>
+          </transform>
+          </transform>
+
+          <transform translation='2 0 -6.7' rotation='1 0 0 -1.5708'>
+              <transform DEF='wheelie4'>
+          <!-- right back wheel -->
+          <transform >
+            <shape USE='wheel'>
+            </shape>
+          </transform>
+          <!-- right back tire -->
+          <transform translation='0 -0.02 0'>
+            <shape USE='tire'>
+            </shape>
+          </transform>
+          </transform>
+          </transform>
+
+          <transform translation='3 7.02 -5'>
+            <shape>
+              <ElevationGrid xDimension="5" zDimension="5"
+                height="1.5, 0, 1.5, 0, 1.5, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 1.5, 0, 1.5, 0, 1.5"
+                xSpacing="0.75" zSpacing="0.75" solid="false">
+              </ElevationGrid>
+              <appearance>
+                <imagetexture url='gold.jpg'></imagetexture>
+              </appearance>
+            </shape>
+          </transform>
+
+          <!-- SPOILER/////////////////////////// -->
+
+          <transform rotation='0 1 0 1.5708 ' translation='0 7 0.5'>
+            <transform rotation='1 0 0 -1.5708'>
+              <shape DEF='spoilertop'>
+                <IndexedTriangleStripSet index='0 1 2 3 4 5 6 -1' solid='false'>
+                  <Coordinate point='1 1 2, 0 0 0, 2 2 0, 4 0 0, 6 2 0, 8 0 0, 7 1 2'></Coordinate>
+                  <ColorRGBA
+                    color='0.5 0.5 0.5 1, 1 0 0 1, 0.5 0.5 0.5 1, 1 0 0 1, 0.5 0.5 0.5 1, 1 0 0 1, 0.5 0.5 0.5 1'>
+                  </ColorRGBA>
+                </IndexedTriangleStripSet>
+                <appearance>
+                  <imagetexture url='fit.jpg'></imagetexture>
+                  <texturetransform scale='3 3'></texturetransform>
+                </appearance>
+              </shape>
+            </transform>
+          </transform>
+
+          <transform translation='-2 4 -2'>
+            <shape DEF='spoilerside'>
+              <IndexedTriangleStripSet index='0 1 2 3 -1' solid='false'>
+                <Coordinate point='0 3 0, 1 3 0, 3 0 0, 4 0 0'></Coordinate>
+                <ColorRGBA color='0.5 0.5 0.5 1, 1 0 0 1, 0.5 0.5 0.5 1, 1 0 0 1'>
+                </ColorRGBA>
+              </IndexedTriangleStripSet>
+              <appearance>
+                <imagetexture url='fit.jpg'></imagetexture>
+              </appearance>
+            </shape>
+          </transform>
+
+          <transform translation='-2 4 -5'>
+            <shape USE='spoilerside'>
+            </shape>
+          </transform>
+        </group>
+
+        <!-- TRIANGLE////////////////// -->
+        <anchor url='https://www.youtube.com/watch?v=DcRLTClL5YU'>
+            <transform translation='4.5 10 -3.5'>
+       <transform DEF='sims'>
+         <inline url='inline.x3d'></inline>
+       </transform>
+       </transform>
+        </anchor>
+
+      </collision>
+
+      <group DEF="Light">
+        <pointLight ambientIntensity='0' attenuation='1,0,0' color='0 0.66 0.42' 
+                    global='true' intensity='1' location='5.5, 11.5, -2.5'
+                    on='true' radius='5' shadowFilterSize='2' 
+                    shadowIntensity='0.4' shadowMapSize='1024' 
+                    shadowOffset='0' zFar='-1' zNear='-1' ></pointLight>
+      
+        <directionalLight ambientIntensity='0' color='1, 1, 1' direction='-1, -1, 0' 
+                          global='true' intensity='1'  on='true' shadowCascades='1' shadowFilterSize='1' 
+                          shadowIntensity='0.7' shadowMapSize='2024'
+                          shadowOffset='0' shadowSplitFactor='1' 
+                          shadowSplitOffset='1'></directionalLight>
+      
+        <spotLight ambientIntensity='0' attenuation='1,0,0' 
+                           beamWidth='1.5' color='1, 1, 1' cutOffAngle='3.14' 
+                           direction='-1, -1, -1' global='true' intensity='0.2'
+                           location='10, 10, 10 ' radius='50' shadowCascades='1' 
+                           shadowFilterSize='1' shadowIntensity='0.5' 
+                           shadowMapSize='1024'></spotLight>   
+    </group>
+
+    <TimeSensor DEF='Time' cycleInterval='0.8' loop='true' enabled="true"></TimeSensor>
+
+    <TimeSensor DEF='Time2' cycleInterval='2' loop='true' enabled="true"></TimeSensor>
+
+    <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+    </OrientationInterpolator>
+
+        <ROUTE fromNode="Time" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+        </ROUTE>
+        <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="wheelie1" toField="set_rotation">
+        </ROUTE>
+        <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="wheelie2" toField="set_rotation">
+        </ROUTE>
+        <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="wheelie3" toField="set_rotation">
+        </ROUTE>
+        <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="wheelie4" toField="set_rotation">
+        </ROUTE>
+
+        <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+        </ROUTE>
+        <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="sims" toField="set_rotation">
+        </ROUTE>
+
+        <PositionInterpolator DEF="PosInt" key="0 0.23 0.5 0.75 1"
+        keyValue="0 0 0, 0 0.5 0, 0 0 0, 0 -0.5 0, 0 0 0">
+    </PositionInterpolator>
+
+    <ROUTE fromNode="Time2" fromField="fraction_changed" toNode="PosInt" toField="set_fraction"></ROUTE>
+    <ROUTE fromNode="PosInt" fromField="value_changed" toNode="sims" toField="set_translation"></ROUTE>
+
+
+
+
+
+
+
+
+    </scene>
+  </x3d>
+
+</body>
 </html>

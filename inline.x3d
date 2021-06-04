@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta name="filename" content="inline.x3d" />
+		<meta name="generator" content="Blender 2.70 (sub 0)" />
+	</head>
+	<Scene>
+		<group>
+                    
+        <transform translation='-4.5 -10 3.5'>
+          <shape>
+            <IndexedTriangleSet index="0 1 4 0 3 4 1 2 4 2 3 4 0 1 5 0 3 5 1 2 5 2 3 5" solid="false">
+              <Coordinate point="4 10 -3, 4 10 -4, 5 10 -4, 5 10 -3, 4.5 11 -3.5, 4.5 9 -3.5">
+              </Coordinate>
+
+              <ColorRGBA
+                color=" 0 0.66 0.42 1, 0 0.66 0.42 1, 0 0.66 0.42 1, 0 0.66 0.42 1, 0.31 0.78 0.47 1, 0.31 0.78 0.47 1">
+              </ColorRGBA>
+            </IndexedTriangleSet>
+          </shape>
+        </transform>
+
+                
+
+        </group>
+		
+		
+	</Scene>
+</X3D>
