@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/icg-course/icg_labwork4.svg?branch=gh-pages)](https://travis-ci.com/icg-course/icg_labwork4)
-[![Labwork 4 check](https://github.com/icg-course/icg_labwork4/workflows/Labwork%204%20check/badge.svg)](https://github.com/icg-course/icg_labwork4/actions?query=workflow%3A%22Labwork+4+check%22)
-# Репозиторий лабораторной работы №4 (Линейная анимация)
+[![Build Status](https://travis-ci.com/icg-course/icg_labwork1.svg?branch=gh-pages)](https://travis-ci.com/icg-course/icg_labwork1)
+[![Labwork 1 check](https://github.com/icg-course/icg_labwork1/workflows/Labwork%201%20check/badge.svg)](https://github.com/icg-course/icg_labwork1/actions?query=workflow%3A%22Labwork+1+check%22)
+# Репозиторий лабораторной работы №1 (Геометрические примитивы, преобразования, материалы, текстурирование)
 
-Данный репозиторий предназначен для выполнения и сдачи лабораторной работы №4.
+Данный репозиторий предназначен для выполнения и сдачи лабораторной работы №1.
 
 Инструкции по порядку сдачи можно почитать [здесь](https://github.com/icg-course/syllabus/blob/master/git.md).
 
@@ -11,5 +11,5 @@
 1. Редактируйте файл index.html, сохраняя промежуточные результаты в локальный репозиторий. При необходимости добавляйте в репозиторий другие файлы (например, текстуры). Убедитесь, что работа происходит в ветке gh-pages.
 1. Когда работа будет готова, опубликуйте содержимое локального репозитория на GitHub.
 1. Оформите pull-request в данный репозиторий для сдачи лабораторной работы.
-1. В комментарии к pull-request укажите ссылку на свою работу вида "https://ваше_имя.github.io/icg_labwork4".
+1. В комментарии к pull-request укажите ссылку на свою работу вида "https://ваше_имя.github.io/icg_labwork1".
 1. Убедитесь, что работа проходит валидацию Travis CI. В противном случае, исправьте ошибки и опубликуйте исправленную версию.
