@@ -1,13 +1,417 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>  
+
+<head>
     <meta charset="utf-8" />
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Лабораторная работа 4</title>
-    <link rel="stylesheet" href="https://www.x3dom.org/download/x3dom.css" />
-    <script src="https://www.x3dom.org/download/x3dom.js"></script>
-  </head>
-  <body>
-    <h1>Здесь только я. А должна быть твоя лаба!</h1>
-  </body> 
+
+
+    <script type='text/javascript' src='https://www.x3dom.org/download/dev/x3dom-full.js'> </script>
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css' />
+
+</head>
+
+<body
+    style='width:100%; height:100%; border:0; margin:0; padding:0; background: url("1.jpg") no-repeat fixed; background-size: cover; background-position: center;'>
+
+
+
+    <X3D width="100vw" height="100vh">
+
+        <Scene>
+            <NavigationInfo avatarSize='[ 0.25, 1.6, 0.75 ]' bind='false'  explorationMode='all' headlight='true' 
+                isActive='false' metadata='X3DMetadataObject' reverseScroll='false' speed='5' transitionTime='1.0'
+                 transitionType='["LINEAR"]' type='[ANY]'
+                 typeParams='[-0.4,60,0.05,2.8]' visibilityLimit='0.0'></NavigationInfo>
+
+            <Viewpoint position="0.14445 4.05777 13.00574" orientation="-0.99821 0.02744 -0.05305 0.30304" zNear="0"
+                zFar="150" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <Viewpoint position="-2.71559 4.18282 16.45954" orientation="-0.83830 -0.54518 -0.00529 0.29420" zNear="0"
+                zFar="150" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <Viewpoint position="4.19806 5.03625 17.68000" orientation="-0.99821 0.02744 -0.05305 0.30304" zNear="0"
+                zFar="150.00000" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <Viewpoint position="-0.87970 1.26095 18.45400" orientation="-0.46042 -0.88767 -0.00825 0.29240" zNear="0"
+                zFar="150.00000" centerOfRotation="0.00000 0.00000 0.00000" fieldOfView="0.78540"
+                description="defaultX3DViewpointNode"></Viewpoint>
+
+            <collision enabled='true'>
+                <group DEF='Android'>
+                    <!-- тело -->
+                    <anchor url='https://www.android.com/intl/ru_ru/'>
+                        <transform DEF='body'>
+                        <transform scale='1 1 0.7'>
+                            <shape>
+                                <Cylinder height='3' radius='1.5' side='true'></Cylinder>
+                                <appearance>
+                                    <material diffusecolor='#a4c639'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+
+                        <transform scale='1 0.7 0.7' translation='0 1.6 0'>
+                            <shape>
+                                <sphere radius='1.5'></sphere>
+                                <appearance>
+                                    <material diffusecolor='#a4c639'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+
+                        <transform scale='1 0.1 0.7' translation='0 -1.5 0'>
+                            <shape>
+                                <sphere radius='1.5'></sphere>
+                                <appearance>
+                                    <material diffusecolor='#a4c639'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+
+                        <transform translation='0 1.5 0' rotation='1 0 0 1.5708' scale='1 0.7 0.7'>
+                            <shape>
+                                <torus innerradius='0.55' outterradius='1' solid='false'></torus>
+                                <appearance>
+                                    <material diffusecolor='1 1 1'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+
+                        <!-- глаза -->
+
+                        <transform translation='-0.52 2 0.68'>
+                            <shape DEF='eye'>
+                                <sphere radius='0.23'></sphere>
+                                <appearance>
+                                    <material diffusecolor='1 1 1'></material>
+                                </appearance>
+                            </shape>
+                        </transform>
+
+                        <transform translation='0.52 2 0.68'>
+                            <shape USE='eye'>
+                            </shape>
+                        </transform>
+
+
+                        <!-- конечности -->
+
+                        <group DEF='limb'>
+                            <transform translation='-2 0.5 0'>
+                                <shape>
+                                    <Cylinder height='1.5' radius='0.4' side='true'></Cylinder>
+                                    <appearance>
+                                        <material diffusecolor='#a4c639'></material>
+                                    </appearance>
+                                </shape>
+                            </transform>
+
+                            <transform translation='-2 1.25 0'>
+                                <shape>
+                                    <sphere radius='0.4'></sphere>
+                                    <appearance>
+                                        <material diffusecolor='#a4c639'></material>
+                                    </appearance>
+                                </shape>
+                            </transform>
+
+                            <transform translation='-2 -0.25 0'>
+                                <shape>
+                                    <sphere radius='0.4'></sphere>
+                                    <appearance>
+                                        <material diffusecolor='#a4c639'></material>
+                                    </appearance>
+                                </shape>
+                            </transform>
+
+                        </group>
+
+
+                        <transform translation='4 0 0'>
+                            <group USE='limb'>
+                            </group>
+                        </transform>
+
+                        <!-- уши -->
+
+                        <transform translation='-0.4 2.6 0' scale='0.1 0.4 0.1' rotation='0 0 1 0.6'>
+                            <group USE='limb'>
+                            </group>
+                        </transform>
+
+                        <transform translation='0.7 2.35 0' scale='0.1 0.4 0.1' rotation='0 0 1 -0.6'>
+                            <group USE='limb'>
+                            </group>
+                        </transform>
+
+                        <!-- кепка -->
+
+                    <transform translation='0 3 0'>
+                        <shape>
+                            <Cone height='1' bottomradius='0.4' side='true'></Cone>
+                            <appearance>
+                                <imagetexture url='bd.jpg'></imagetexture>
+                                <texturetransform scale='1 1.1'></texturetransform>
+                            </appearance>
+                        </shape>
+                    </transform>
+
+                    </transform>
+
+                        <!-- ноги -->
+
+                        <transform DEF='legs'>
+
+                        <transform translation='1.25 -2.5 0' scale='1 0.6 1'>
+                            <group USE='limb'>
+                            </group>
+                        </transform>
+
+                        <transform translation='2.75 -2.5 0' scale='1 0.6 1'>
+                            <group USE='limb'>
+                            </group>
+                        </transform>
+
+                        </transform>
+
+                        
+
+                        
+                    </anchor>
+
+                    <!-- подставка  -->
+                    <transform translation='0 -4 0'>
+                        <shape>
+                            <box size='6 2 4'>
+                            </box>
+                            <appearance>
+                                <imagetexture url='wp.jpg'></imagetexture>
+                            </appearance>
+                        </shape>
+                    </transform>
+
+                    <!-- Текст -->
+
+                    <transform translation='0 -4 2.2'>
+                        <shape>
+                            <appearance>
+                                <material diffusecolor='1 1 1'></material>
+                            </appearance>
+                            <Text string="Android" solid="false">
+                                <FontStyle size="1" style="BOLD" justify='MIDDLE' family='Calibri'> </FontStyle>
+                            </Text>
+                        </shape>
+                    </transform>
+
+                    
+
+                </group>
+
+                <group DEF='Apple'>
+                    <anchor url='https://www.apple.com/'>
+                        
+                            <transform >
+                                <transform translation='6 -2 0'>                                    
+                                <shape>
+                                    <IndexedFaceSet ccw="true" colorPerVertex="true" convex="true" creaseAngle="0" solid="false"
+                                        coordIndex="1 2 3 4 -1   1 4 5 13 -1   5 6 7 8 -1   13 5 9 -1   5 8 9 -1 13 9 10 -1 13 10 11 -1 13 11 12 -1"
+                                        colorIndex="0 1 2 3 -1 0 1 2 3 -1 0 1 2 3 -1 0 1 2 -1 0 1 2 -1 1 2 3 -1 1 2 3 -1 0 1 2 -1">
+                                        <Coordinate
+                                            point="5 5 5, 0 1 0, 0 3 0, 1 4 0, 1.5 4 0, 2 3.5 0, 2.5 4 0, 3 4 0, 4 3 0, 3 2.5 0, 3 1.5 0, 4 1 0, 3 0 0, 1 0 0">
+                                        </Coordinate>
+                                        <Color color="1 0 0, 1 1 0, 0 0 1, 0 1 0"></Color>
+                                    </IndexedFaceSet>
+                                </shape>
+                                </transform>
+                                
+                            </transform>
+                            <!-- листок -->
+                            <transform translation='7.8 2.5 0'>
+                                <transform DEF='leaf'>
+                                <shape>
+                                    <IndexedTriangleStripSet index='0 1 2 3 -1' solid='false'>
+                                        <Coordinate point='0 0 0, 0 0.5 0, 1 0.5 0, 1 1 0'>
+                                        </Coordinate>
+                                        <ColorRGBA color='1 1 0 1, 1 0 1 1, 0 0 1 1, 1 0 0 1'>
+                                        </ColorRGBA>
+                                    </IndexedTriangleStripSet>
+                                </shape>
+                                </transform>
+                            </transform>
+                    </anchor>
+
+                    <!-- треугольники за буквами -->
+                    <transform translation='4.5 -4 2'>
+                        <shape>
+                            <IndexedTriangleSet index="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14" solid="false">
+                                <Coordinate
+                                    point="0 0 0, 0.5 1 -0.6, 1 0 0, 1.5 0 0, 2 1 -0.6, 2.5 0 0, 3 0 0, 3.5 1 -0.6, 4 0 0, 4.5 0 0, 5 1 -0.6, 5.5 0 0, 6 0 0, 6.5 1 -0.6, 7 0 0">
+                                </Coordinate>
+
+                                <ColorRGBA
+                                    color=" 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1,
+                                               0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1,
+                                               0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1, 0.75 0.75 0.75 1">
+                                </ColorRGBA>
+                            </IndexedTriangleSet>
+                            <Appearance>
+
+                            </Appearance>
+                        </shape>
+                    </transform>
+
+                    <!-- надпись apple -->
+
+                    <transform translation='5 -3.75 2'>
+                        <shape>
+                            <appearance>
+                                <material diffusecolor='0 0 0'></material>
+                            </appearance>
+                            <Text string="A" solid="false">
+                                <FontStyle size="1" style="BOLD" justify='MIDDLE' family='Georgia'> </FontStyle>
+                            </Text>
+                        </shape>
+                    </transform>
+                    <transform translation='6.5 -3.75 2'>
+                        <shape>
+                            <appearance>
+                                <material diffusecolor='0 0 0'></material>
+                            </appearance>
+                            <Text string="P" solid="false">
+                                <FontStyle size="1" style="BOLD" justify='MIDDLE' family='Georgia'> </FontStyle>
+                            </Text>
+                        </shape>
+                    </transform>
+                    <transform translation='8 -3.75 2'>
+                        <shape>
+                            <appearance>
+                                <material diffusecolor='0 0 0'></material>
+                            </appearance>
+                            <Text string="P" solid="false">
+                                <FontStyle size="1" style="BOLD" justify='MIDDLE' family='Georgia'> </FontStyle>
+                            </Text>
+                        </shape>
+                    </transform>
+                    <transform translation='9.5 -3.75 2'>
+                        <shape>
+                            <appearance>
+                                <material diffusecolor='0 0 0'></material>
+                            </appearance>
+                            <Text string="L" solid="false">
+                                <FontStyle size="1" style="BOLD" justify='MIDDLE' family='Georgia'> </FontStyle>
+                            </Text>
+                        </shape>
+                    </transform>
+                    <transform translation='11 -3.75 2'>
+                        <shape>
+                            <appearance>
+                                <material diffusecolor='0 0 0'></material>
+                            </appearance>
+                            <Text string="E" solid="false">
+                                <FontStyle size="1" style="BOLD" justify='MIDDLE' family='Georgia'> </FontStyle>
+                            </Text>
+                        </shape>
+                    </transform>
+                    <!-- линии за буквами  -->
+                    <transform>
+                        <shape>
+                            <indexedlineset coordindex='0 1 -1 2 3 -1 0 2 -1 1 3 -1' colorindex=''
+                                colorpervertex='true'>
+                                <color color='0 0 , 1 0 0, 1 0 0, 0 0 1'></color>
+                                <coordinate point='4.5 -4 1.7, 11.5 -4 1.7, 5 -3 0.8, 11 -3 0.8'>
+                                </coordinate>
+                            </indexedlineset>
+                        </shape>
+                    </transform>
+
+
+
+
+                </group>
+            </collision>
+
+            <!-- точки -->
+            <transform>
+                <shape>
+                    <pointset>
+                        <color color='0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0'></color>
+                        <coordinate point='0 4 5, -5 4 1, -10 4 34, -2 4 17, 5 4 9, 13 4 -9'></coordinate>
+                    </pointset>
+                </shape>
+            </transform>
+            <!-- фон для света -->
+            <transform translation='-10 -5 -9'>
+                <shape>
+                    <ElevationGrid xDimension="2" zDimension="3" height="15 15 0.3 0.3 -2 -2" xSpacing="30" zSpacing="6"
+                        solid="false">
+                    </ElevationGrid>
+                    <appearance>
+                        <imagetexture url='wp2.png'></imagetexture>
+                        </imagetexture>
+                    </appearance>
+                </shape>
+            </transform>
+
+            <group DEF="Light">
+                <pointLight ambientIntensity='0' attenuation='1,0,0' color='1 1 1' 
+                            global='true' intensity='1' location='1, 4, 1'
+                            on='true' radius='2' shadowFilterSize='2' 
+                            shadowIntensity='0.4' shadowMapSize='1024' 
+                            shadowOffset='0' zFar='-1' zNear='-1' ></pointLight>
+              
+                <directionalLight ambientIntensity='0' color='1, 1, 1' direction='-1, -1, -0.3' 
+                                  global='true' intensity='0.8'  on='true' shadowCascades='1' shadowFilterSize='1' 
+                                  shadowIntensity='0.7' shadowMapSize='2024'
+                                  shadowOffset='0' shadowSplitFactor='1' 
+                                  shadowSplitOffset='1'></directionalLight>
+              
+                <spotLight ambientIntensity='0' attenuation='1,0,0' 
+                                   beamWidth='1.5' color='1, 1, 1' cutOffAngle='3.14' 
+                                   direction='0, -1, 0' global='true' intensity='0.6'
+                                   location='3, 10, 0 ' radius='50' shadowCascades='1' 
+                                   shadowFilterSize='1' shadowIntensity='0.7' 
+                                   shadowMapSize='1024'></spotLight>  
+                                   <Fog bind='false' color='(1,1,1)' description='""' fogType='"LINEAR"' isActive='false' visibilityRange='0' ></Fog> 
+            </group>
+
+            <TimeSensor DEF='Androidupdown' cycleInterval='2' loop='true' enabled="true"></TimeSensor>
+
+            <TimeSensor DEF='Applelogots' cycleInterval='3' loop='true' enabled="true"></TimeSensor>
+
+
+
+            <PositionInterpolator DEF="PosIntbody" key="0 0.05 0.23 0.5 0.75 0.95 1"
+                keyValue="0 0 0, 0 -0.3 0, 0 1 0, 0 1.5 0, 0 2 0, 0 -0.3 0, 0 0 0">
+            </PositionInterpolator>
+
+            <PositionInterpolator DEF="PosIntlegs" key="0 0.23 0.5 0.75 0.9 1"
+                keyValue="0 0 0, 0 0 0, 0 1 0, 0 2 0, 0 0.8 0, 0 0 0">
+            </PositionInterpolator>
+
+            <ROUTE fromNode="Androidupdown" fromField="fraction_changed" toNode="PosIntbody" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="Androidupdown" fromField="fraction_changed" toNode="PosIntlegs" toField="set_fraction"></ROUTE>
+            <ROUTE fromNode="PosIntbody" fromField="value_changed" toNode="body" toField="set_translation"></ROUTE>
+            <ROUTE fromNode="PosIntlegs" fromField="value_changed" toNode="legs" toField="set_translation"></ROUTE>
+
+
+
+
+            
+
+            <OrientationInterpolator DEF="OrientInt" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 -3.14, 0 1 0 -6.28">
+            </OrientationInterpolator>
+
+            <ROUTE fromNode="Applelogots" fromField="fraction_changed" toNode="OrientInt" toField="set_fraction">
+            </ROUTE>
+            <ROUTE fromNode="OrientInt" fromField="value_changed" toNode="leaf" toField="set_rotation">
+            </ROUTE>
+            
+        </Scene>
+    </X3D>
+
+</body>
+
 </html>
